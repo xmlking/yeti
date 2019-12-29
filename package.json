@@ -66,7 +66,7 @@
     "eva-icons": "^1.1.2",
     "ngx-auto-unsubscribe": "3.0.1",
     "reflect-metadata": "0.1.13",
-    "rxjs": "6.5.3",
+    "rxjs": "6.5.4",
     "zone.js": "0.10.2"
   },
   "devDependencies": {
