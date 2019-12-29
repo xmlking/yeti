@@ -96,7 +96,7 @@
     "eslint": "6.8.0",
     "husky": "3.1.0",
     "jest": "24.9.0",
-    "jest-preset-angular": "7.1.1",
+    "jest-preset-angular": "8.0.0",
     "lite-server": "^2.5.4",
     "ngx-semantic-version": "1.2.1",
     "prettier": "1.19.1",
