@@ -85,7 +85,7 @@
     "@schematics/angular": "9.0.0-rc.7",
     "@scullyio/init": "^0.0.9",
     "@scullyio/scully": "latest",
-    "@types/jest": "24.0.24",
+    "@types/jest": "24.0.25",
     "@types/node": "13.1.0",
     "angular-cli-ghpages": "^0.6.1",
     "codelyzer": "5.2.1",
