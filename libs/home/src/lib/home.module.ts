@@ -39,7 +39,10 @@ import { LandingComponent } from './containers/landing/landing.component';
           {
             path: 'blog',
             loadChildren: () =>
-              import('@yeti/blog').then(module => module.BlogModule)
+              // import('@yeti/blog').then(module => module.BlogModule)
+              import('../../../blog/src/lib/blog.module').then(
+                module => module.BlogModule
+              )
           }
         ]
       }
