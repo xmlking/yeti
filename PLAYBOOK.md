@@ -90,8 +90,6 @@ yarn global list
 yarn global upgrade-interactive
 # set scss as default css processor
 ng config -g defaults.styleExt=scss
-ng config -g schematics.@nrwl/angular:component.styleext scss
-ng config -g schematics.@schematics/angular:component.styleext scss
 ng config -g schematics.@schematics/angular:component.style scss
 ng config -g cli.packageManager yarn
 # set scss as default styleext for ngx-formly
@@ -134,9 +132,6 @@ ng config schematics.@schematics/angular:component.style scss
 ng config schematics.@schematics/angular:component.prefix yeti
 ng config schematics.@schematics/angular:component.changeDetection OnPush
 
-ng config schematics.@nrwl/angular:component.style scss
-ng config schematics.@nrwl/angular:component.prefix yeti
-
 # make sure we are up-to-date
 ng update --next
 
@@ -165,6 +160,23 @@ yarn add @webcomponents/custom-elements ?
 # generate api app with nestjs
 ng g @nrwl/nest:app api --frontendProject=webapp --tags=api-module
 ```
+
+#### Add nx plugins
+
+Below are some nx plugins which you can add to your workspace:
+
+- [Angular](https://angular.io)
+  - `ng add @nrwl/angular`
+- [React](https://reactjs.org)
+  - `ng add @nrwl/react`
+- Web (no framework frontends)
+  - `ng add @nrwl/web`
+- [Nest](https://nestjs.com)
+  - `ng add @nrwl/nest`
+- [Express](https://expressjs.com)
+  - `ng add @nrwl/express`
+- [Node](https://nodejs.org)
+  - `ng add @nrwl/node`
 
 #### Dependencies
 
@@ -208,6 +220,7 @@ yarn add angular-in-memory-web-api
 
 # Add scullyio for Content Management
 ng add @scullyio/init
+yarn add prismjs
 
 #---------------------------------
 # Add NGXS manually (prefered)
@@ -260,8 +273,9 @@ yarn add -O lint-staged
 # alternative builder for nestjs (optional)
 yarn add -D ts-node-builder
 
-yarn workspace @yeti/api add kubernetes-client @xmlking/jwks-rsa @nestjs/{terminus,cqrs}
+yarn workspace @yeti/api add  @xmlking/jwks-rsa @nestjsx/crud @nestjs/{terminus,cqrs,passport,swagger}
 yarn workspace @yeti/api add nodemon supertest  -O
+yarn workspace @yeti/api add @types/{helmet,passport,passport-jwt,supertest,nodemailer} -D
 
 yarn workspace @yeti/tools add cpx --dev
 ```
@@ -292,6 +306,7 @@ ng update @nrwl/nest --next
 > with angular schematics (a.k.a. @nrwl/angular which is default in `angular.json`)
 
 ```bash
+# ng g @nrwl/angular:lib ...
 ng g lib home           --routing --lazy --parent-module=apps/webapp/src/app/app.module.ts             --defaults --tags=layout,entry-module
 ng g lib dashboard      --routing --lazy  --parent-module=apps/webapp/src/app/app.module.ts             --defaults --tags=layout,entry-module
 ng g lib admin          --routing --lazy  --parent-module=apps/webapp/src/app/app.module.ts             --defaults --tags=layout,entry-module
@@ -750,13 +765,15 @@ ng deploy --base-href=/ngx-starter-kit/ --configuration=mock \
 
 ```bash
 npm whoami
-# To generate your changelog for your first release, simply do:
+# create the initial release and create the `CHANGELOG.md`
 npx release -- --first-release
 # This will tag a release without bumping the version in package.json (et al.).
 # Cut a Release
 npx release -- --dry-run
 npx release
-# Release as a pre-release
+# create a pre-release instead of a regular one
+npx release -- --prereleas
+# cut a new alpha release version
 npx release -- --prerelease alpha
 # fource a version
 npx release -- --release-as 1.1.0

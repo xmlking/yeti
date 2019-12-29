@@ -1,19 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Import Fonts */
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=Montserrat:800&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,700|Source+Sans+Pro:300,600,300italic,600italic');
 
-@import './styles/themes';
+/* style code with prismjs */
+@import '~prismjs/plugins/toolbar/prism-toolbar.css';
+@import '~prismjs/themes/prism-tomorrow';
 
+/* Import Nebular */
 @import '~@nebular/theme/styles/globals';
 @import '~@nebular/auth/styles/globals';
-// @import '~@nebular/auth/styles/all';
 
-// loading progress bar theme
+@import './styles/themes';
 @import './styles/pace.theme';
 
 @include nb-install() {
   @include nb-theme-global();
   @include nb-auth-global();
 
-  // loading progress bar
   @include ngx-pace-theme();
 }
