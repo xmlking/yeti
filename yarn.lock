@@ -125,7 +125,7 @@
     rxjs "6.4.0"
     source-map "0.7.3"
 
-"@angular-devkit/core@8.3.21", "@angular-devkit/core@^8.3.8", "@angular-devkit/core@^8.3.9":
+"@angular-devkit/core@8.3.21", "@angular-devkit/core@^8.3.8":
   version "8.3.21"
   resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-8.3.21.tgz#447022813e46333e930816c287722d06b9c4dd3a"
   integrity sha512-BYyVbrbys535FplX0+GVOlYBg/cyk1U5SRhSxRRFZYi9epVlEBBPk8/6wV4cQPGb6EwXkVj7YtPWXjXcGfzWmA==
@@ -166,7 +166,7 @@
     "@angular-devkit/core" "8.3.20"
     rxjs "6.4.0"
 
-"@angular-devkit/schematics@8.3.21", "@angular-devkit/schematics@^8.3.8", "@angular-devkit/schematics@^8.3.9":
+"@angular-devkit/schematics@8.3.21", "@angular-devkit/schematics@^8.3.8":
   version "8.3.21"
   resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-8.3.21.tgz#80d515f480180be18a4130ea691f90153bcab3ea"
   integrity sha512-+wH0362CRr/SijVX4w2baY2ANZ4scQ1k2xO8lT+NMeZQkw3IJQPOfwk1IaqiAs2xuBJZcSDH1Gn80+Jh4Dit7w==
@@ -2089,7 +2089,7 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-13.1.0.tgz#225cbaac5fdb2b9ac651b02c070d8aa3c37cc812"
   integrity sha512-zwrxviZS08kRX40nqBrmERElF2vpw4IUTd5khkhBTfFH8AOaeoLVx48EC4+ZzS2/Iga7NevncqnsUSYjM4OWYA==
 
-"@types/node@^10.1.0", "@types/node@^10.12.30":
+"@types/node@^10.1.0":
   version "10.17.13"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.17.13.tgz#ccebcdb990bd6139cd16e84c39dc2fb1023ca90c"
   integrity sha512-pMCcqU2zT4TjqYFrWtYHKal7Sl30Ims6ulZ4UFXxI4xbtQqK/qqKwkDoBFCfooRqqmRu9vY3xaJRwxSh673aYg==
@@ -9843,17 +9843,14 @@ ngx-auto-unsubscribe@3.0.1:
   resolved "https://registry.yarnpkg.com/ngx-auto-unsubscribe/-/ngx-auto-unsubscribe-3.0.1.tgz#b4970bb2c1289411a5e6a1e5ab175593cc9e76eb"
   integrity sha512-Yp3o2HxjGYNv2yZ0QwR5Wkh6Al3b07J3v7hhcdZhqm7DTJuXMmisaNi5zhnXq2+7rtCg0jaTBsA/SWhtS7zZbw==
 
-ngx-semantic-version@1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/ngx-semantic-version/-/ngx-semantic-version-1.2.1.tgz#4b4a4fb0a1339b6daa76a9968cbf864e3d3c9111"
-  integrity sha512-pne1d149mBughBC0yJ26mr0BqKuR4oOkwbsJfOIBAOY2lhpRF5T0kJCUSbf81iWEAFb6QQ9Hw42OVnCx6v2pog==
+ngx-semantic-version@2.0.0-beta.3:
+  version "2.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/ngx-semantic-version/-/ngx-semantic-version-2.0.0-beta.3.tgz#01d690524f46b5ae2c1e18113c36fc65657cec5f"
+  integrity sha512-eGjKIatlWq/KGiuHPu4guggugmuRAMvpsbxKkpVerHmkKlcXkv5T4xbYjxi7cCq1SBueY0n+4v05HrxqKhFV5A==
   dependencies:
-    "@angular-devkit/core" "^8.3.9"
-    "@angular-devkit/schematics" "^8.3.9"
-    "@types/jasmine" "^3.3.9"
-    "@types/node" "^10.12.30"
-    jasmine "^3.3.1"
-    typescript "~3.5.3"
+    "@angular-devkit/core" "^9.0.0-rc.5"
+    "@angular-devkit/schematics" "^9.0.0-rc.5"
+    typescript "~3.6.4"
 
 nice-try@^1.0.4:
   version "1.0.5"
@@ -13707,7 +13704,7 @@ typeorm@0.2.21:
     yargonaut "^1.1.2"
     yargs "^13.2.1"
 
-"typescript@3.0.1 - 3.6.4", typescript@3.6.4:
+"typescript@3.0.1 - 3.6.4", typescript@3.6.4, typescript@~3.6.4:
   version "3.6.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.6.4.tgz#b18752bb3792bc1a0281335f7f6ebf1bbfc5b91d"
   integrity sha512-unoCll1+l+YK4i4F8f22TaNVPRHcD9PA3yCuZ8g5e0qGqlVlJ/8FSateOLLSagn+Yg5+ZwuPkL8LFUc0Jcvksg==
