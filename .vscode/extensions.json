@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "johnpapa.angular-essentials",
+    "DavidAnson.vscode-markdownlint",
+    "nrwl.angular-console",
+    "angular.ng-template",
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    "esbenp.prettier-vscode",
+    "humao.rest-client"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "lerna": "3.18.4",
+  "npmClient": "yarn",
+  "version": "independent",
+  "packages": ["libs/*", "apps/*"],
+  "useWorkspaces": true,
+  "command": {
+    "exec": {
+      "scope": ["@yeti/*"]
+    },
+    "clean": {
+      "yes": true
+    }
+  },
+  "npmClientArgs": ["--no-package-lock"]
+}

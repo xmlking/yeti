@@ -1,0 +1,35 @@
+{
+  "name": "@yeti/api",
+  "version": "0.0.0",
+  "scripts": {
+    "typeorm": "ts-node -r tsconfig-paths/register --project apps/api/tsconfig.app.json node_modules/.bin/typeorm",
+    "typeorm:sync": "typeorm schema:sync",
+    "typeorm:seeds": "typeorm migration:run",
+    "typeorm:flush": "typeorm migration:revert",
+    "typeorm:create": "typeorm migration:create",
+    "typeorm:preserve": "yarn typeorm:sync -f=ormconfig && yarn typeorm:seeds -f=ormconfig",
+    "start": "ts-node -r tsconfig-paths/register --project apps/api/tsconfig.app.json src/main.ts",
+    "build": "ng build api",
+    "build:prod": "ng build api --prod"
+  },
+  "dependencies": {
+    "@godaddy/terminus": "4.3.1",
+    "@nestjs/common": "6.10.12",
+    "@nestjs/core": "6.10.12",
+    "@nestjs/platform-express": "6.10.12",
+    "@nestjs/swagger": "4.0.9",
+    "@nestjs/terminus": "6.5.5",
+    "helmet": "3.21.2",
+    "typescript": "3.7.3"
+  },
+  "devDependencies": {
+    "@types/helmet": "0.0.45",
+    "@types/supertest": "2.0.8"
+  },
+  "optionalDependencies": {
+    "@nestjs/schematics": "^6.7.6",
+    "@nestjs/testing": "^6.10.12",
+    "nodemon": "^2.0.2",
+    "supertest": "^4.0.2"
+  }
+}

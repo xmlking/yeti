@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2"
+  xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="introductionHeader" datatype="html">
+        <source>Localization Demo in Angular using i18n</source>
+        <target>Demostración de localización en angular usando i18n</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../../libs/home/src/lib/containers/landing/landing.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="myName" datatype="html">
+        <source>Hello, My name is Sumanth</source>
+        <target>Hola, mi nombre es Sumanth</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../../libs/home/src/lib/containers/landing/landing.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

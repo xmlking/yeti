@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
+
+@import './styles/themes';
+
+@import '~@nebular/theme/styles/globals';
+@import '~@nebular/auth/styles/globals';
+// @import '~@nebular/auth/styles/all';
+
+// loading progress bar theme
+@import './styles/pace.theme';
+
+@include nb-install() {
+  @include nb-theme-global();
+  @include nb-auth-global();
+
+  // loading progress bar
+  @include ngx-pace-theme();
+}

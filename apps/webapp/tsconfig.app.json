@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc/webapp",
+    "types": []
+  },
+  "files": ["src/main.ts", "src/polyfills.ts"],
+  "include": [
+    "src/**/*.d.ts",
+    "../../libs/home/src/index.ts",
+    "../../libs/not-found/src/index.ts",
+
+    "../../libs/dashboard/src/index.ts",
+
+    "../../libs/admin/src/index.ts"
+  ],
+  "exclude": ["src/test-setup.ts", "**/*.spec.ts"]
+}

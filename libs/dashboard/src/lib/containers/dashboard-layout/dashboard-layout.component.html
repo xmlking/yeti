@@ -1,0 +1,21 @@
+<nb-layout>
+  <nb-layout-header fixed>
+    <yeti-header></yeti-header>
+  </nb-layout-header>
+  <nb-layout-header subheader>
+    <nb-actions [size]="'medium'">
+      <nb-action icon="home-outline"></nb-action>
+      <nb-action icon="search-outline"></nb-action>
+      <nb-action icon="edit-outline"></nb-action>
+    </nb-actions>
+  </nb-layout-header>
+  <nb-sidebar class="menu-sidebar" tag="menu-sidebar" responsive>
+    <nb-menu [items]="menu"></nb-menu>
+  </nb-sidebar>
+  <nb-layout-column>
+    <router-outlet></router-outlet>
+  </nb-layout-column>
+  <nb-layout-footer fixed>
+    <yeti-footer></yeti-footer>
+  </nb-layout-footer>
+</nb-layout>

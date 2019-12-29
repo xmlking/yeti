@@ -1,0 +1,23 @@
+@import '~@nebular/theme/styles/global/breakpoints';
+@import 'themes';
+
+// FIXME: workaround https://github.com/akveo/nebular/issues/1911
+nb-menu {
+  margin: 0 calc(-1 * #{nb-theme(sidebar-padding)})
+    calc(-1 * #{nb-theme(sidebar-padding)});
+}
+
+::ng-deep router-outlet + * {
+  display: block;
+  animation: fade 1s;
+
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+}

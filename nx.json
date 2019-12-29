@@ -1,0 +1,45 @@
+{
+  "npmScope": "yeti",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "webapp": {
+      "tags": ["app-module"]
+    },
+    "api": {
+      "tags": ["api-module"]
+    },
+    "api-interfaces": {
+      "tags": ["shared-module"]
+    },
+    "home": {
+      "tags": ["layout", "entry-module"]
+    },
+    "not-found": {
+      "tags": ["entry-module"]
+    },
+    "proto": {
+      "tags": ["utils"]
+    },
+    "core": {
+      "tags": ["core-module"]
+    },
+    "dashboard": {
+      "tags": ["layout", "entry-module"]
+    },
+    "admin": {
+      "tags": ["layout", "entry-module"]
+    },
+    "shared": {
+      "tags": ["shared-module"]
+    },
+    "blog": {
+      "tags": ["private-module"]
+    }
+  }
+}

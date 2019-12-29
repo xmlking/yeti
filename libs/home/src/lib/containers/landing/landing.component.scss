@@ -1,0 +1,17 @@
+@import 'themes';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.icons-container {
+  width: 20%;
+  background: nb-theme(background-basic-color-2);
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 2rem;
+}

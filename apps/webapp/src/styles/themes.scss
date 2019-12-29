@@ -1,0 +1,50 @@
+// @nebular theming framework
+@import '~@nebular/theme/styles/theming';
+// @nebular out of the box themes
+@import '~@nebular/theme/styles/themes';
+
+$nb-enable-css-custom-properties: true; // <-- enable css custom properties
+
+$nb-themes: nb-register-theme(
+  (
+    // add your variables here like:
+      // color-primary-100: #f2f6ff,
+  ),
+  default,
+  default
+);
+
+$nb-themes: nb-register-theme(
+  (
+    // add your variables here like:
+      // color-primary-100: #f2f6ff,
+      // color-primary-200: #d9e4ff,
+      // color-primary-300: #a6c1ff,
+      // color-primary-400: #598bff,
+      // color-primary-500: #3366ff,
+      // color-primary-600: #274bdb,
+      // color-primary-700: #1a34b8,
+      // color-primary-800: #102694,
+      // color-primary-900: #091c7a,
+  ),
+  dark,
+  dark
+);
+
+$nb-themes: nb-register-theme(
+  (
+    // add your variables here like:
+      // color-primary-100: #f2f6ff,
+  ),
+  cosmic,
+  cosmic
+);
+
+$nb-themes: nb-register-theme(
+  (
+    // add your variables here like:
+      // color-primary-100: #f2f6ff,
+  ),
+  corporate,
+  corporate
+);
