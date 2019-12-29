@@ -36,7 +36,8 @@
     "help": "nx help",
     "release": "standard-version",
     "scully": "scully",
-    "scully:serve": "scully serve"
+    "scully:serve": "scully serve",
+    "scully:all": "rm -rf dist && yarn run build --prod && yarn run scully && yarn run scully serve"
   },
   "private": true,
   "dependencies": {
