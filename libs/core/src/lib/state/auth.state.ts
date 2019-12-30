@@ -1,3 +1,4 @@
+import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 
 export interface AuthStateModel {
@@ -22,6 +23,9 @@ export class Logout {
     token: null,
     username: null
   }
+})
+@Injectable({
+  providedIn: 'root'
 })
 export class AuthState {
   @Selector()

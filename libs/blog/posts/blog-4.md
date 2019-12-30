@@ -1,9 +1,17 @@
 ---
 title: blog 4
 description: This is the 4th demo blog in this sample.
-author: Sumanth 4
-publish_date: 2019-11-27
-publish: true
+thumbnail: assets/images/blog/sumo.jpeg
+keywords:
+  - PWA
+  - Progressive Web App
+  - Angular
+  - Caching
+  - Push Notification
+author: Sumo Demo
+mail: sumo@demo.com
+published: true
+publishedOn: 2019-07-24
 ---
 
 # blog 4

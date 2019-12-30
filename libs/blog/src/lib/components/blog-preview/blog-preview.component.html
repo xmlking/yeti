@@ -1,0 +1,21 @@
+<section class="features">
+  <article *ngFor="let post of blogPostData$ | async; let i = index">
+    <a [routerLink]="post.route" class="image">
+      <img [src]="post.thumbnail" alt="thumbnail" />
+    </a>
+    <h3 class="major">{{ post.title }}</h3>
+    <p>
+      {{ post.description }}
+    </p>
+    <a [routerLink]="post.route" class="special">Continue reading...</a>
+  </article>
+</section>
+
+
+<!-- <a *ngFor="let blog of blogs$ | async" [routerLink]="[blog.route]">
+  <article>
+    <h3>{{ blog.title || blog.route }}</h3>
+    <h4>{{ blog.publish_date | date: 'shortDate' }}</h4>
+    <p>{{ blog.description }}</p>
+  </article>
+</a> -->

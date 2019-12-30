@@ -19,6 +19,7 @@
     "target": "es2015",
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2019", "dom"],
+    "resolveJsonModule": true,
     "paths": {
       "@env-api/environment": ["apps/api/src/environments/environment.ts"],
       "@env/*": ["apps/webapp/src/environments/*"],

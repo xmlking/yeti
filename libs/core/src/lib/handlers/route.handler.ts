@@ -1,3 +1,4 @@
+import { ViewportScroller } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { RouterNavigation } from '@ngxs/router-plugin';
 import { Actions, ofActionSuccessful } from '@ngxs/store';
@@ -13,7 +14,8 @@ export class RouteHandler {
   constructor(
     private actions$: Actions,
     private analytics: AnalyticsService,
-    private pageTitle: PageTitleService
+    private pageTitle: PageTitleService,
+    private viewportScroller: ViewportScroller
   ) {
     this.actions$
       .pipe(
@@ -29,5 +31,14 @@ export class RouteHandler {
         this.pageTitle.setTitle(data.breadcrumbs);
         this.analytics.setPage(data.url);
       });
+
+    // scroll To Top
+    // this.actions$
+    //   .pipe(ofActionSuccessful(RouterNavigation))
+    //   .subscribe(event => {
+    //     if (!/\#.*/.test(event.url)) {
+    //       this.viewportScroller.scrollToPosition([0, 0]);
+    //     }
+    //   });
   }
 }

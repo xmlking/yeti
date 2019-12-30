@@ -1,16 +1,25 @@
 ---
 title: blog 1
 description: This is the first demo blog in this sample.
-author: Sumanth Chintha
-publish_date: 2019-11-27
-publish: false
+thumbnail: assets/images/blog/sumo.jpeg
+keywords:
+  - PWA
+  - Progressive Web App
+  - Angular
+  - Service Worker
+  - Caching
+  - Push Notification
+author: Sumo Demo
+mail: sumo@demo.com
+published: true
+publishedOn: 2019-07-24
 ---
 
 # blog 1
 
 ## its a wild world after all
 
-```javascript
+```typescript
 console.log('amazing');
 ```
 

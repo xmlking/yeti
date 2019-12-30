@@ -2,8 +2,10 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ComponentsModule } from '@scullyio/ng-lib';
-import { BlogListComponent } from './containers/blog-list/blog-list.component';
-import { BlogComponent } from './containers/blog/blog.component';
+import { BlogPreviewComponent } from './components/blog-preview/blog-preview.component';
+import { BlogOverviewComponent } from './containers/blog-overview/blog-overview.component';
+import { BlogPostComponent } from './containers/blog-post/blog-post.component';
+import { HighlightService } from './services/highlight.service';
 
 @NgModule({
   imports: [
@@ -12,13 +14,18 @@ import { BlogComponent } from './containers/blog/blog.component';
 
     RouterModule.forChild([
       /* {path: '', pathMatch: 'full', component: InsertYourComponentHere} */
-      { path: '', component: BlogListComponent },
+      { path: '', component: BlogOverviewComponent },
       {
         path: ':id',
-        component: BlogComponent
+        component: BlogPostComponent
       }
     ])
   ],
-  declarations: [BlogListComponent, BlogComponent]
+  declarations: [
+    BlogOverviewComponent,
+    BlogPostComponent,
+    BlogPreviewComponent
+  ],
+  providers: [HighlightService]
 })
 export class BlogModule {}
