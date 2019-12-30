@@ -1,4 +1,9 @@
 # Add files here to ignore them from prettier formatting
+*.js
+*.js.map
+*.d.ts
+*.md
+*.min.*
 
 /dist
 /coverage

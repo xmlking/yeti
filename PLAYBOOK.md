@@ -504,6 +504,7 @@ ng g directive directives/mask/mask  --selector=ngxMask --project=ngx-utils --mo
 ng g lib blog --routing --lazy --parent-module=libs/home/src/lib/home.module.ts --tags=private-module --defaults -d
 ng g component containers/blogList        --project=blog -d
 ng g component containers/blog            --project=blog -d
+ng g service services/highlight           --project=blog --skip-tests -d
 
 # generate components for `toolbar` Module
 ng g lib toolbar --tags=private-module --defaults -d

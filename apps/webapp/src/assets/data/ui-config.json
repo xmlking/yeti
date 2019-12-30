@@ -1,0 +1,8 @@
+{
+  "DOCS_BASE_URL": "http://sumo.com/docs",
+  "featureFlags": {
+    "feature-a": true,
+    "feature-b": false,
+    "feature-c": true
+  }
+}

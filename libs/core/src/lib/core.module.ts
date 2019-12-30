@@ -1,3 +1,4 @@
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule, Optional, SkipSelf } from '@angular/core';
 import { environment } from '@env/environment';
 import {
@@ -23,10 +24,20 @@ import {
 } from '@ngxs/router-plugin';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { NgxsModule } from '@ngxs/store';
-import { AuthHandler } from './handler/auth.handler';
-import { CustomRouterStateSerializer } from './handler/custom-router-state.serializer';
-import { RouteHandler } from './handler/route.handler';
+import { AuthHandler } from './handlers/auth.handler';
+import { CustomRouterStateSerializer } from './handlers/custom-router-state.serializer';
+import { RouteHandler } from './handlers/route.handler';
+import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { AppConfigService } from './services/app-config.service';
 import { AuthState } from './state/auth.state';
+
+// appConfig initializer factory function
+const appConfigInitializerFn = (appConfig: AppConfigService) => {
+  return () => {
+    return appConfig.load();
+  };
+};
+
 // Noop handler for factory function
 export function noop() {
   return () => {};
@@ -78,6 +89,17 @@ export function noop() {
     {
       provide: RouterStateSerializer,
       useClass: CustomRouterStateSerializer
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: appConfigInitializerFn,
+      deps: [AppConfigService],
+      multi: true
     },
     {
       provide: APP_INITIALIZER,
