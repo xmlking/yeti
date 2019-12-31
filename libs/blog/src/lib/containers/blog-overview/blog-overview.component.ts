@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'yeti-blog-overview',
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class BlogOverviewComponent implements OnInit {
   keyword: string;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.keyword = this.route.snapshot.queryParams.keyword;

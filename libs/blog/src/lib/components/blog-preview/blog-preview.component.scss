@@ -1,6 +1,10 @@
 @import '~@nebular/theme/styles/global/breakpoints';
 @import 'themes';
 
+:host ::ng-deep {
+  @import 'blog';
+}
+
 // :host {
 //   display: grid;
 //   grid-template-columns: repeat(3, 1fr);

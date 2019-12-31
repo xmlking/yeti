@@ -10,7 +10,7 @@
       <div class="actions">
         <span *ngFor="let keyword of post.keywords">
           <button
-            routerLink="/blog"
+            routerLink="/home/blog"
             [queryParams]="{ keyword: keyword }"
             class="button xs"
             [attr.aria-label]="'Filter for keyword: ' + keyword"
@@ -22,64 +22,6 @@
     </section>
     <section class="blog-content">
       <scully-content></scully-content>
-    </section>
-    <section class="blog-footer">
-      <h3>Share this page</h3>
-      <ul class="share-toolbar">
-        <li>
-          <a
-            [href]="'mailto:user@example.com?subject=' + shareTextContent()"
-            target="_blank"
-            alt="share this blog post via email"
-            id="shareEmail"
-            ><i class="fa fa-envelope" aria-label="email icon"></i
-          ></a>
-        </li>
-        <li>
-          <a
-            [href]="
-              'https://twitter.com/intent/tweet?text=' + shareTextContent()
-            "
-            target="_blank"
-            alt="share this blog post via twitter"
-            ><i class="fa fa-twitter" aria-label="twitter icon"></i
-          ></a>
-        </li>
-        <li>
-          <a
-            [href]="
-              'https://www.facebook.com/sharer/sharer.php?u=' +
-              shareTextContent()
-            "
-            target="_blank"
-            alt="share this blog post via facebook"
-            ><i class="fa fa-facebook" aria-label="facebook icon"></i
-          ></a>
-        </li>
-        <li>
-          <a
-            [href]="
-              'https://www.linkedin.com/shareArticle?mini=true&url=' +
-              shareTextContent()
-            "
-            target="_blank"
-            alt="share this blog post via linkedin"
-            ><i class="fa fa-linkedin" aria-label="linkedIn icon"></i
-          ></a>
-        </li>
-        <li>
-          <a
-            [href]="
-              'https://www.xing.com/app/user?op=share;url=' +
-              shareTextContent() +
-              '&quot'
-            "
-            target="_blank"
-            alt="share this blog post via xing"
-            ><i class="fa fa-xing" aria-label="xing icon"></i
-          ></a>
-        </li>
-      </ul>
     </section>
   </div>
 </div>

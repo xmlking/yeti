@@ -11,6 +11,7 @@ import { NbSecurityModule } from '@nebular/security';
 import {
   NbDatepickerModule,
   NbDialogModule,
+  NbIconLibraries,
   NbMenuModule,
   NbSidebarModule,
   NbThemeModule,
@@ -116,12 +117,22 @@ export class CoreModule {
   // HINT: RouteHandler is injected here to avoid cyclic dependency! issues with APP_INITIALIZER
   constructor(
     @Optional() @SkipSelf() parentModule: CoreModule,
-    routeHandler: RouteHandler
+    private routeHandler: RouteHandler,
+    private iconLibraries: NbIconLibraries
   ) {
     if (parentModule) {
       throw new Error(
         'CoreModule is already loaded. Import it in the AppModule only'
       );
     }
+    // register fortawesome
+    iconLibraries.registerFontPack('fas', {
+      packClass: 'fas',
+      iconClassPrefix: 'fa'
+    });
+    iconLibraries.registerFontPack('far', {
+      packClass: 'far',
+      iconClassPrefix: 'fa'
+    });
   }
 }

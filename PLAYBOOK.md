@@ -199,10 +199,14 @@ ng add ngx-deploy-npm
 # Add ngx-semantic-version (http://d-koppenhagen.de/blog/2019-11-ngx-semantic-version)
 ng add ngx-semantic-version
 
+#---------------------------
 # Add nebular
 ng add @nebular/theme@next
 yarn add @nebular/auth@next
 yarn add @nebular/security@next
+
+yarn add -D @fortawesome/fontawesome-free
+#---------------------------------
 
 # Use either above nebular or below Material
 #  Add Material

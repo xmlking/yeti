@@ -37,7 +37,8 @@
     "release": "standard-version",
     "scully": "scully",
     "scully:serve": "scully serve",
-    "scully:all": "rm -rf dist && yarn run build --prod && yarn run scully && yarn run scully serve"
+    "scully:all0": "rm -rf dist && yarn run build --prod && yarn run scully && yarn run scully serve",
+    "scully:all": "rm -rf dist && yarn run build --prod && yarn run scully && yarn run lite-server"
   },
   "private": true,
   "dependencies": {
@@ -78,6 +79,7 @@
     "@angular/language-service": "9.0.0-rc.7",
     "@commitlint/cli": "8.2.0",
     "@commitlint/config-conventional": "8.2.0",
+    "@fortawesome/fontawesome-free": "^5.12.0",
     "@nrwl/angular": "9.0.0-beta.3",
     "@nrwl/cypress": "9.0.0-beta.3",
     "@nrwl/jest": "9.0.0-beta.3",

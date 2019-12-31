@@ -1,6 +1,15 @@
-@import '~@nebular/theme/styles/global/breakpoints';
-@import 'themes';
+// @import '~@nebular/theme/styles/global/breakpoints';
+// @import 'themes';
 
-.wrapper {
-  margin-top: 0;
+:host ::ng-deep {
+  @import 'blog';
+
+  .wrapper {
+    margin-top: 0;
+
+    font-family: _font(family);
+    font-size: 16.5pt;
+    font-weight: _font(weight);
+    line-height: 1.65;
+  }
 }

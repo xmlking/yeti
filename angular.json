@@ -34,7 +34,10 @@
             "stylePreprocessorOptions": {
               "includePaths": ["apps/webapp/src/styles"]
             },
-            "styles": ["apps/webapp/src/styles.scss"],
+            "styles": [
+              "apps/webapp/src/styles.scss",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css"
+            ],
             "scripts": []
           },
           "i18nMissingTranslation": "error",
