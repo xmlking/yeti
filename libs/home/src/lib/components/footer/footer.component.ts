@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { AppConfigService } from '@yeti/core';
 
 @Component({
   selector: 'yeti-footer',
@@ -7,10 +8,14 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterComponent implements OnInit {
-
-  constructor() { }
+  constructor(private appConfig: AppConfigService) {}
+  envName: string;
+  version: string;
 
   ngOnInit() {
+    // this.envName = this.appConfig.config?.envName  ?? 'WHAT?';
+    // this.version = this.appConfig.config?.versions?.app ?? 'v0.0.0';
+    this.envName = this.appConfig.config.envName;
+    this.version = this.appConfig.config.versions.app;
   }
-
 }

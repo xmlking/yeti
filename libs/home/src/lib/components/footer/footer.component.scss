@@ -1,0 +1,48 @@
+@import 'themes';
+@import '~@nebular/theme/styles/global/breakpoints';
+
+:host {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  font-size: 12px;
+}
+
+.created-by {
+  display: inline-block;
+  line-height: 50px;
+  margin: 0 40px;
+  vertical-align: bottom;
+
+  a {
+    font-size: 16px;
+    padding: 0;
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.version {
+  flex: 1;
+  text-align: center;
+}
+
+.copyright {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  min-width: 225px;
+  text-align: center;
+}
+
+@include media-breakpoint-down(is) {
+  .default-footer-list {
+    flex-direction: column;
+  }
+}
