@@ -1,9 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import {
-  IdleMonitorService,
-  isScullyGenerated,
-  isScullyRunning
-} from '@scullyio/ng-lib';
+import { IdleMonitorService } from '@scullyio/ng-lib';
 
 @Component({
   selector: 'yeti-landing',
@@ -12,12 +8,11 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LandingComponent implements OnInit {
-  currentState = isScullyRunning()
-    ? 'rendering inside scully'
-    : isScullyGenerated()
-    ? 'Loaded from static HTML'
-    : 'SPA mode';
-  constructor(private idle: IdleMonitorService) {}
+  constructor(private idle: IdleMonitorService) {
+    // this.idle.idle$.subscribe(res => {
+    //   console.log(res);
+    // });
+  }
 
   ngOnInit() {}
 

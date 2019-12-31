@@ -2,8 +2,9 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule, Optional, SkipSelf } from '@angular/core';
 import { environment } from '@env/environment';
 import {
+  NbAuthJWTToken,
   NbAuthModule,
-  NbOAuth2AuthStrategy,
+  NbOAuth2GrantType,
   NbOAuth2ResponseType
 } from '@nebular/auth';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
@@ -30,6 +31,8 @@ import { CustomRouterStateSerializer } from './handlers/custom-router-state.seri
 import { RouteHandler } from './handlers/route.handler';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { AppConfigService } from './services/app-config.service';
+import { NbGithubOAuth2Strategy } from './services/github-auth.strategy';
+import { NbGoogleOAuth2Strategy } from './services/google-auth.strategy';
 import { AuthState } from './state/auth.state';
 
 // appConfig initializer factory function
@@ -56,7 +59,8 @@ export function noop() {
     NbToastrModule.forRoot(),
     NbAuthModule.forRoot({
       strategies: [
-        NbOAuth2AuthStrategy.setup({
+        NbGoogleOAuth2Strategy.setup({
+          // https://accounts.google.com/.well-known/openid-configuration
           name: 'google',
           clientId:
             '791772336084-vkt37abstm1du92ofdmhgi30vgd7t0oa.apps.googleusercontent.com',
@@ -70,7 +74,29 @@ export function noop() {
             redirectUri: 'http://localhost:4200/home/callback'
           },
           redirect: {
-            success: '/dashboard'
+            success: '/dashboard', // welcome page path
+            failure: undefined // stay on the same page
+          }
+        }),
+        NbGithubOAuth2Strategy.setup({
+          // https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/
+          name: 'github',
+          clientId: 'dec64dce6b14b090b3a6',
+          clientSecret: '7c25941d536ee87665d913c4cb43beaa8ba673e7',
+          authorize: {
+            endpoint: 'https://github.com/login/oauth/authorize',
+            responseType: NbOAuth2ResponseType.CODE,
+            redirectUri: 'http://localhost:4200/home/callback'
+          },
+          token: {
+            endpoint: 'https://github.com/login/oauth/access_token',
+            grantType: NbOAuth2GrantType.AUTHORIZATION_CODE,
+            class: NbAuthJWTToken,
+            redirectUri: 'http://localhost:4200/home/callback'
+          },
+          redirect: {
+            success: '/dashboard', // welcome page path
+            failure: undefined // stay on the same page
           }
         })
       ]
@@ -80,6 +106,7 @@ export function noop() {
       developmentMode: !environment.production
     }),
     NgxsStoragePluginModule.forRoot({
+      key: ['auth.provider']
       // key: ['preference', 'app.installed', 'auth.isLoggedIn']
     }),
     NgxsFormPluginModule.forRoot(),
@@ -87,10 +114,6 @@ export function noop() {
     environment.plugins
   ],
   providers: [
-    {
-      provide: RouterStateSerializer,
-      useClass: CustomRouterStateSerializer
-    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
@@ -110,6 +133,10 @@ export function noop() {
         AuthHandler
       ],
       multi: true
+    },
+    {
+      provide: RouterStateSerializer,
+      useClass: CustomRouterStateSerializer
     }
   ]
 })

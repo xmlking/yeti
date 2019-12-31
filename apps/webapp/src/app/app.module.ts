@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { CoreModule } from '@yeti/core';
+import { AuthGuard, CoreModule } from '@yeti/core';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 
@@ -28,6 +28,7 @@ import { AppComponent } from './app.component';
         },
         {
           path: 'dashboard',
+          canActivate: [AuthGuard],
           loadChildren: () =>
             // import('@yeti/dashboard').then(module => module.DashboardModule),
             import('../../../../libs/dashboard/src/lib/dashboard.module').then(
@@ -38,6 +39,7 @@ import { AppComponent } from './app.component';
 
         {
           path: 'admin',
+          canActivate: [AuthGuard],
           loadChildren: () =>
             // import('@yeti/admin').then(module => module.AdminModule),
             import('../../../../libs/admin/src/lib/admin.module').then(

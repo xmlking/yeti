@@ -372,9 +372,11 @@ ng g service services/InMemoryData    --project=core   --skip-tests -d
 ng g service services/Profile         --project=core   --skip-tests -d
 ng g service services/hammer          --project=core   --skip-tests --type=config -d
 ng g service services/AppConfig       --project=core   --skip-tests -d
+ng g @ngxs/schematics:state state/auth --spec=false --sourceRoot=libs/core/src/lib --project=core -d
 ng g @ngxs/schematics:state state/preference --spec=false --sourceRoot=libs/core/src/lib --project=core -d
 ng g @ngxs/schematics:state profile --path=state --spec=false --sourceRoot=libs/core/src/lib --project=core -d
-ng g guard admin --project=core --implements CanActivate -d
+ng g guard guard/auth --project=core --implements CanActivate -d
+ng g guard guard/admin --project=core --implements CanActivate -d
 ng g @ngxs/schematics:store --name=auth --spec --project=core --sourceRoot=libs/core/src/lib -d
 
 

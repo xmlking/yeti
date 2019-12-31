@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NbActionsModule, NbLayoutModule } from '@nebular/theme';
+import { AdminGuard } from '@yeti/core';
 import { SharedModule } from '@yeti/shared';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -19,7 +20,7 @@ import { OverviewComponent } from './containers/overview/overview.component';
       {
         path: '',
         component: AdminLayoutComponent,
-        // canActivate: [AdminGuard],
+        canActivate: [AdminGuard],
         data: { title: 'Admin', depth: 1, roles: ['ROLE_ADMIN'] },
         children: [
           {

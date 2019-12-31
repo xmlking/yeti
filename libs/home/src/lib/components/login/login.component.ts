@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -5,6 +6,8 @@ import {
   OnInit
 } from '@angular/core';
 import { NbAuthOAuth2Token, NbAuthResult, NbAuthService } from '@nebular/auth';
+import { Store } from '@ngxs/store';
+import { Login, Logout } from '@yeti/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -19,8 +22,13 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   private destroy$ = new Subject<void>();
 
-  constructor(private authService: NbAuthService) {}
+  constructor(
+    private authService: NbAuthService,
+    private location: Location,
+    private store: Store
+  ) {}
 
+  // https://github.com/Vallenstein/exchange_platform_frontend/blob/master/src/app/oauth/oauth2-login.component.ts
   ngOnInit() {
     this.authService
       .onTokenChange()
@@ -33,22 +41,25 @@ export class LoginComponent implements OnInit, OnDestroy {
       });
   }
 
-  login() {
-    this.authService
-      .authenticate('google')
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((authResult: NbAuthResult) => {});
+  login(provider: string) {
+    this.store.dispatch(new Login({ provider }));
   }
 
   logout() {
-    this.authService
-      .logout('google')
+    this.store
+      .dispatch(new Logout())
       .pipe(takeUntil(this.destroy$))
-      .subscribe((authResult: NbAuthResult) => {});
+      .subscribe((authResult: NbAuthResult) => {
+        console.log('authResult', authResult);
+      });
   }
 
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

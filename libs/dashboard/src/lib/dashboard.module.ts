@@ -30,7 +30,6 @@ import { OverviewComponent } from './containers/overview/overview.component';
       {
         path: '',
         component: DashboardLayoutComponent,
-        // canActivate: [AuthGuard],
         data: { title: 'Dashboard', depth: 1, roles: [] },
         children: [
           {

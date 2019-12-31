@@ -1,8 +1,11 @@
+import { NbAuthToken } from '@nebular/auth';
+
 //  Commands
 export class Login {
   static readonly type = '[Auth] Login';
-  constructor(public readonly payload?: { infoMsg?: string }) {}
+  constructor(public readonly payload?: { provider: string }) {}
 }
+
 export class Logout {
   static readonly type = '[Auth] Logout';
 }
@@ -17,7 +20,7 @@ export class LoadProfile {
 // Events
 export class LoginSuccess {
   static readonly type = '[Auth] Login Success';
-  constructor(public readonly payload: any) {}
+  constructor(public readonly payload: { token: NbAuthToken }) {}
 }
 export class LoginCanceled {
   static readonly type = '[Auth] Login Canceled';

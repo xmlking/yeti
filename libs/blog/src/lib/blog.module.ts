@@ -5,7 +5,6 @@ import { SharedModule } from '@yeti/shared';
 import { BlogPreviewComponent } from './components/blog-preview/blog-preview.component';
 import { BlogOverviewComponent } from './containers/blog-overview/blog-overview.component';
 import { BlogPostComponent } from './containers/blog-post/blog-post.component';
-import { HighlightService } from './services/highlight.service';
 
 @NgModule({
   imports: [
@@ -21,11 +20,6 @@ import { HighlightService } from './services/highlight.service';
       }
     ])
   ],
-  declarations: [
-    BlogOverviewComponent,
-    BlogPostComponent,
-    BlogPreviewComponent
-  ],
-  providers: [HighlightService]
+  declarations: [BlogOverviewComponent, BlogPostComponent, BlogPreviewComponent]
 })
 export class BlogModule {}

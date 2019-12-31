@@ -1,18 +1,13 @@
 import { Injectable } from '@angular/core';
+import { NbAuthResult, NbAuthService, NbAuthToken } from '@nebular/auth';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
+import { tap } from 'rxjs/operators';
+import { Login, LoginSuccess, Logout } from './auth.actions';
 
 export interface AuthStateModel {
-  token: string | null;
+  provider: string;
+  token: NbAuthToken | null;
   username: string | null;
-}
-
-export class Login {
-  static readonly type = '[Auth] Login';
-  constructor(public payload: { username: string; password: string }) {}
-}
-
-export class Logout {
-  static readonly type = '[Auth] Logout';
 }
 
 // https://www.ngxs.io/recipes/authentication
@@ -20,6 +15,7 @@ export class Logout {
 @State<AuthStateModel>({
   name: 'auth',
   defaults: {
+    provider: 'google',
     token: null,
     username: null
   }
@@ -29,8 +25,13 @@ export class Logout {
 })
 export class AuthState {
   @Selector()
-  static token(state: AuthStateModel): string | null {
+  static token(state: AuthStateModel): NbAuthToken | null {
     return state.token;
+  }
+
+  @Selector()
+  static provider(state: AuthStateModel): string {
+    return state.provider;
   }
 
   @Selector()
@@ -38,30 +39,45 @@ export class AuthState {
     return !!state.token;
   }
 
-  constructor(/*private authService: AuthService*/) {}
+  constructor(private authService: NbAuthService) {}
 
   @Action(Login)
-  login(ctx: StateContext<AuthStateModel>, action: Login) {
-    // return this.authService.login(action.payload).pipe(
-    //   tap((result: { token: string }) => {
-    //     ctx.patchState({
-    //       token: result.token,
-    //       username: action.payload.username
-    //     });
-    //   })
-    // );
+  login(
+    { getState, patchState }: StateContext<AuthStateModel>,
+    { payload }: Login
+  ) {
+    if (payload) {
+      patchState({
+        provider: payload.provider
+      });
+      this.authService.authenticate(payload.provider).subscribe();
+    } else {
+      this.authService.authenticate(getState().provider).subscribe();
+    }
+    // this.authService
+    //   .authenticate(payload?.provider || getState().provider)
+    //   .subscribe((authResult: NbAuthResult) => {});
   }
 
   @Action(Logout)
-  logout(ctx: StateContext<AuthStateModel>) {
-    const state = ctx.getState();
-    // return this.authService.logout(state.token).pipe(
-    //   tap(() => {
-    //     ctx.setState({
-    //       token: null,
-    //       username: null
-    //     });
-    //   })
-    // );
+  logout({ getState, patchState }: StateContext<AuthStateModel>) {
+    return this.authService.logout(getState().provider).pipe(
+      tap(() => {
+        patchState({
+          token: null,
+          username: null
+        });
+      })
+    );
+  }
+
+  @Action(LoginSuccess)
+  loginSuccess(
+    { getState, patchState }: StateContext<AuthStateModel>,
+    { payload }: LoginSuccess
+  ) {
+    patchState({
+      token: payload.token
+    });
   }
 }

@@ -8,7 +8,8 @@ import {
   NbDatepickerModule,
   NbIconModule,
   NbInputModule,
-  NbListModule
+  NbListModule,
+  NbUserModule
 } from '@nebular/theme';
 
 @NgModule({
@@ -21,7 +22,8 @@ import {
     NbListModule,
     NbButtonModule,
     NbInputModule,
-    NbDatepickerModule
+    NbDatepickerModule,
+    NbUserModule
   ]
 })
 export class SharedModule {}

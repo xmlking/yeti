@@ -8,6 +8,7 @@ import { IEnvironment } from '@env/ienvironment';
  *  this.isShowingFeatureA = appConfig.config.featureFlags[ 'feature-a' ];
  */
 @Injectable({
+  // providedIn: 'platform'
   providedIn: 'root'
 })
 export class AppConfigService {

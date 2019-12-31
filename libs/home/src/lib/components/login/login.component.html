@@ -1,15 +1,30 @@
-<nb-layout>
+<nb-layout center>
   <nb-layout-column>
     <nb-card>
       <nb-card-body>
-        <p>Current User Authenticated: {{ !!token }}</p>
-        <p>Current User Token: {{ token | json }}</p>
-        <button nbButton status="success" *ngIf="!token" (click)="login()">
+        <h5>Logged in? {{ !!token }}</h5>
+        <p *ngIf="token">Current User Token: {{ token | json }}</p>
+        <p *ngIf="!token">Please log in to see your User Token</p>
+        <button
+          nbButton
+          status="success"
+          *ngIf="!token"
+          (click)="login('google')"
+        >
           Sign In with Google
+        </button>
+        <button
+          nbButton
+          status="success"
+          *ngIf="!token"
+          (click)="login('github')"
+        >
+          Sign In with Github
         </button>
         <button nbButton status="warning" *ngIf="token" (click)="logout()">
           Sign Out
         </button>
+        <button nbButton (click)="goBack()">go back</button>
       </nb-card-body>
     </nb-card>
   </nb-layout-column>
