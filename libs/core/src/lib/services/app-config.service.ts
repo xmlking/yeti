@@ -12,7 +12,7 @@ import { IEnvironment } from '@env/ienvironment';
 })
 export class AppConfigService {
   private configUrl = environment.REMOTE_CONFIG_URL;
-  private configPrivate = environment;
+  private configPrivate: IEnvironment = environment;
 
   constructor(private http: HttpClient) {}
 

@@ -1,7 +1,7 @@
 ---
 title: blog 3
 description: This is the third demo blog in this sample.
-thumbnail: assets/images/blog/sumo.jpeg
+thumbnail: assets/images/blog/sumo-blog2.jpg
 keywords:
   - PWA
   - Progressive Web App
