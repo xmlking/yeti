@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { NbAuthResult, NbAuthService, NbAuthToken } from '@nebular/auth';
+import { NbAuthResult, NbAuthService } from '@nebular/auth';
+import { Navigate } from '@ngxs/router-plugin';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
-import { tap } from 'rxjs/operators';
-import { Login, LoginSuccess, Logout } from './auth.actions';
+import { Login, Logout } from './auth.actions';
 
 export interface AuthStateModel {
   provider: string;
-  token: NbAuthToken | null;
+  authenticated: boolean;
   username: string | null;
 }
 
@@ -16,7 +16,7 @@ export interface AuthStateModel {
   name: 'auth',
   defaults: {
     provider: 'google',
-    token: null,
+    authenticated: false,
     username: null
   }
 })
@@ -25,59 +25,59 @@ export interface AuthStateModel {
 })
 export class AuthState {
   @Selector()
-  static token(state: AuthStateModel): NbAuthToken | null {
-    return state.token;
-  }
-
-  @Selector()
   static provider(state: AuthStateModel): string {
     return state.provider;
   }
 
   @Selector()
   static isAuthenticated(state: AuthStateModel): boolean {
-    return !!state.token;
+    return state.authenticated;
   }
 
   constructor(private authService: NbAuthService) {}
 
+  // Login, Logout  are Fire and Forget actions
   @Action(Login)
   login(
-    { getState, patchState }: StateContext<AuthStateModel>,
+    { getState, patchState, dispatch }: StateContext<AuthStateModel>,
     { payload }: Login
   ) {
+    let provider: string;
     if (payload) {
       patchState({
         provider: payload.provider
       });
-      this.authService.authenticate(payload.provider).subscribe();
+      provider = payload.provider;
     } else {
-      this.authService.authenticate(getState().provider).subscribe();
+      provider = getState().provider;
     }
-    // this.authService
-    //   .authenticate(payload?.provider || getState().provider)
-    //   .subscribe((authResult: NbAuthResult) => {});
+
+    // this.authService.authenticate(payload?.provider || getState().provider)
+    this.authService
+      .authenticate(provider)
+      .subscribe((authResult: NbAuthResult) => {
+        if (authResult.isSuccess()) {
+          patchState({
+            authenticated: true
+            // token: authResult.getToken()
+          });
+          // dispatch(new LoadProfile());
+        }
+        if (authResult.getRedirect()) {
+          dispatch(new Navigate([authResult.getRedirect()]));
+        }
+      });
   }
 
   @Action(Logout)
   logout({ getState, patchState }: StateContext<AuthStateModel>) {
-    return this.authService.logout(getState().provider).pipe(
-      tap(() => {
+    this.authService
+      .logout(getState().provider)
+      .subscribe((authResult: NbAuthResult) => {
         patchState({
-          token: null,
+          authenticated: false,
           username: null
         });
-      })
-    );
-  }
-
-  @Action(LoginSuccess)
-  loginSuccess(
-    { getState, patchState }: StateContext<AuthStateModel>,
-    { payload }: LoginSuccess
-  ) {
-    patchState({
-      token: payload.token
-    });
+      });
   }
 }

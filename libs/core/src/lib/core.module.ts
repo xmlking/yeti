@@ -106,8 +106,8 @@ export function noop() {
       developmentMode: !environment.production
     }),
     NgxsStoragePluginModule.forRoot({
-      key: ['auth.provider']
-      // key: ['preference', 'app.installed', 'auth.isLoggedIn']
+      key: ['auth.provider', 'auth.authenticated']
+      // key: ['preference', 'app.installed', 'auth.authenticated']
     }),
     NgxsFormPluginModule.forRoot(),
     NgxsRouterPluginModule.forRoot(),

@@ -2,13 +2,13 @@
   <nb-layout-column>
     <nb-card>
       <nb-card-body>
-        <h5>Logged in? {{ !!token }}</h5>
-        <p *ngIf="token">Current User Token: {{ token | json }}</p>
-        <p *ngIf="!token">Please log in to see your User Token</p>
+        <h5>Logged in? {{ isAuthenticated }}</h5>
+
+        <p *ngIf="!isAuthenticated">Please log in to see your User Token</p>
         <button
           nbButton
           status="success"
-          *ngIf="!token"
+          *ngIf="!isAuthenticated"
           (click)="login('google')"
         >
           Sign In with Google
@@ -16,12 +16,17 @@
         <button
           nbButton
           status="success"
-          *ngIf="!token"
+          *ngIf="!isAuthenticated"
           (click)="login('github')"
         >
           Sign In with Github
         </button>
-        <button nbButton status="warning" *ngIf="token" (click)="logout()">
+        <button
+          nbButton
+          status="warning"
+          *ngIf="isAuthenticated"
+          (click)="logout()"
+        >
           Sign Out
         </button>
         <button nbButton (click)="goBack()">go back</button>

@@ -8,6 +8,8 @@ import { NbAuthJWTToken, NbAuthService } from '@nebular/auth';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent implements OnInit {
+  // @Select(AuthState.isAuthenticated)
+  // isLoggedIn$: Observable<boolean>;
   user: any = {};
 
   constructor(private authService: NbAuthService) {

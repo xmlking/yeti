@@ -1,15 +1,8 @@
 import { Location } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnDestroy,
-  OnInit
-} from '@angular/core';
-import { NbAuthOAuth2Token, NbAuthResult, NbAuthService } from '@nebular/auth';
-import { Store } from '@ngxs/store';
-import { Login, Logout } from '@yeti/core';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Select, Store } from '@ngxs/store';
+import { AuthState, Login, Logout } from '@yeti/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'yeti-login',
@@ -17,28 +10,14 @@ import { takeUntil } from 'rxjs/operators';
   styleUrls: ['./login.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LoginComponent implements OnInit, OnDestroy {
-  token: NbAuthOAuth2Token;
+export class LoginComponent implements OnInit {
+  @Select(AuthState.isAuthenticated) isLoggedIn$: Observable<boolean>;
+  isAuthenticated: boolean;
 
-  private destroy$ = new Subject<void>();
+  constructor(private location: Location, private store: Store) {}
 
-  constructor(
-    private authService: NbAuthService,
-    private location: Location,
-    private store: Store
-  ) {}
-
-  // https://github.com/Vallenstein/exchange_platform_frontend/blob/master/src/app/oauth/oauth2-login.component.ts
   ngOnInit() {
-    this.authService
-      .onTokenChange()
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((token: NbAuthOAuth2Token) => {
-        // this.token = null;
-        if (token && token.isValid()) {
-          this.token = token;
-        }
-      });
+    this.isAuthenticated = this.store.selectSnapshot(AuthState.isAuthenticated);
   }
 
   login(provider: string) {
@@ -46,17 +25,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   logout() {
-    this.store
-      .dispatch(new Logout())
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((authResult: NbAuthResult) => {
-        console.log('authResult', authResult);
-      });
-  }
-
-  ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
+    this.store.dispatch(new Logout());
   }
 
   goBack(): void {
