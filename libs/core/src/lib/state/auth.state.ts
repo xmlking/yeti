@@ -2,22 +2,24 @@ import { Injectable } from '@angular/core';
 import { NbAuthResult, NbAuthService } from '@nebular/auth';
 import { Navigate } from '@ngxs/router-plugin';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
-import { Login, Logout } from './auth.actions';
+import { UserInfo } from '../interfaces/user-info';
+import { AuthService } from '../services/auth.service';
+import { Login, LoginSuccess, Logout } from './auth.actions';
 
 export interface AuthStateModel {
   provider: string;
-  authenticated: boolean;
-  username: string | null;
+  isLoggedIn: boolean;
+  token: string | null;
+  userInfo: UserInfo | null;
 }
-
-// https://www.ngxs.io/recipes/authentication
 
 @State<AuthStateModel>({
   name: 'auth',
   defaults: {
     provider: 'google',
-    authenticated: false,
-    username: null
+    isLoggedIn: false,
+    token: null,
+    userInfo: null
   }
 })
 @Injectable({
@@ -30,19 +32,21 @@ export class AuthState {
   }
 
   @Selector()
-  static isAuthenticated(state: AuthStateModel): boolean {
-    return state.authenticated;
+  static isLoggedIn(state: AuthStateModel): boolean {
+    return state.isLoggedIn;
   }
 
-  constructor(private authService: NbAuthService) {}
+  @Selector()
+  static userInfo(state: AuthStateModel): UserInfo | null {
+    return state.userInfo;
+  }
+
+  constructor(private nbAuthService: NbAuthService, private authService: AuthService) {}
 
   // Login, Logout  are Fire and Forget actions
   @Action(Login)
-  login(
-    { getState, patchState, dispatch }: StateContext<AuthStateModel>,
-    { payload }: Login
-  ) {
-    let provider: string;
+  async login({ getState, patchState, dispatch }: StateContext<AuthStateModel>, { payload }: Login) {
+    let provider: string; // payload?.provider ?? getState().provider
     if (payload) {
       patchState({
         provider: payload.provider
@@ -52,32 +56,31 @@ export class AuthState {
       provider = getState().provider;
     }
 
-    // this.authService.authenticate(payload?.provider || getState().provider)
-    this.authService
-      .authenticate(provider)
-      .subscribe((authResult: NbAuthResult) => {
-        if (authResult.isSuccess()) {
-          patchState({
-            authenticated: true
-            // token: authResult.getToken()
-          });
-          // dispatch(new LoadProfile());
-        }
-        if (authResult.getRedirect()) {
-          dispatch(new Navigate([authResult.getRedirect()]));
-        }
+    const authResult = await this.nbAuthService.authenticate(provider).toPromise();
+    if (authResult.isSuccess()) {
+      const token = authResult.getToken().getPayload().access_token;
+      const userInfo = await this.authService.getUserInfo(provider, token).toPromise();
+      patchState({
+        isLoggedIn: true,
+        token,
+        userInfo
       });
+      dispatch(new LoginSuccess());
+      if (authResult.getRedirect()) {
+        dispatch(new Navigate([authResult.getRedirect()]));
+      }
+    }
   }
 
   @Action(Logout)
-  logout({ getState, patchState }: StateContext<AuthStateModel>) {
-    this.authService
-      .logout(getState().provider)
-      .subscribe((authResult: NbAuthResult) => {
-        patchState({
-          authenticated: false,
-          username: null
-        });
+  logout({ getState, patchState, dispatch }: StateContext<AuthStateModel>) {
+    this.nbAuthService.logout(getState().provider).subscribe((authResult: NbAuthResult) => {
+      patchState({
+        isLoggedIn: false,
+        token: null,
+        userInfo: null
       });
+      dispatch(new Navigate(['/home']));
+    });
   }
 }

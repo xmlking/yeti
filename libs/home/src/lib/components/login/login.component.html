@@ -1,36 +1,16 @@
-<nb-layout center>
-  <nb-layout-column>
-    <nb-card>
-      <nb-card-body>
-        <h5>Logged in? {{ isAuthenticated }}</h5>
-
-        <p *ngIf="!isAuthenticated">Please log in to see your User Token</p>
-        <button
-          nbButton
-          status="success"
-          *ngIf="!isAuthenticated"
-          (click)="login('google')"
-        >
-          Sign In with Google
-        </button>
-        <button
-          nbButton
-          status="success"
-          *ngIf="!isAuthenticated"
-          (click)="login('github')"
-        >
-          Sign In with Github
-        </button>
-        <button
-          nbButton
-          status="warning"
-          *ngIf="isAuthenticated"
-          (click)="logout()"
-        >
-          Sign Out
-        </button>
-        <button nbButton (click)="goBack()">go back</button>
-      </nb-card-body>
-    </nb-card>
-  </nb-layout-column>
-</nb-layout>
+<!-- <nb-layout center *ngIf="!isLoggedIn" >
+  <nb-layout-column> -->
+<h1>Login with</h1>
+<div class="icons-container">
+  <button nbButton outline status="primary" (click)="login('google')">
+    <nb-icon [icon]="'google'"></nb-icon>
+  </button>
+  <button nbButton outline status="primary" (click)="login('github')">
+    <nb-icon [icon]="'github'"></nb-icon>
+  </button>
+  <button nbButton outline status="primary" (click)="goBack()">
+    <nb-icon [icon]="'log-in-outline'"></nb-icon>
+  </button>
+</div>
+<!-- </nb-layout-column>
+</nb-layout> -->

@@ -1,12 +1,7 @@
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule, Optional, SkipSelf } from '@angular/core';
 import { environment } from '@env/environment';
-import {
-  NbAuthJWTToken,
-  NbAuthModule,
-  NbOAuth2GrantType,
-  NbOAuth2ResponseType
-} from '@nebular/auth';
+import { NbAuthJWTToken, NbAuthModule, NbOAuth2GrantType, NbOAuth2ResponseType } from '@nebular/auth';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbSecurityModule } from '@nebular/security';
 import {
@@ -20,17 +15,14 @@ import {
   NbWindowModule
 } from '@nebular/theme';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';
-import {
-  NgxsRouterPluginModule,
-  RouterStateSerializer
-} from '@ngxs/router-plugin';
+import { NgxsRouterPluginModule, RouterStateSerializer } from '@ngxs/router-plugin';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { NgxsModule } from '@ngxs/store';
-import { AuthHandler } from './handlers/auth.handler';
-import { CustomRouterStateSerializer } from './handlers/custom-router-state.serializer';
-import { RouteHandler } from './handlers/route.handler';
+import { AuthHandler } from './handler/auth.handler';
+import { RouteHandler } from './handler/route.handler';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { AppConfigService } from './services/app-config.service';
+import { CustomRouterStateSerializer } from './services/custom-router-state.serializer';
 import { NbGithubOAuth2Strategy } from './services/github-auth.strategy';
 import { NbGoogleOAuth2Strategy } from './services/google-auth.strategy';
 import { AuthState } from './state/auth.state';
@@ -62,14 +54,12 @@ export function noop() {
         NbGoogleOAuth2Strategy.setup({
           // https://accounts.google.com/.well-known/openid-configuration
           name: 'google',
-          clientId:
-            '791772336084-vkt37abstm1du92ofdmhgi30vgd7t0oa.apps.googleusercontent.com',
+          clientId: '791772336084-vkt37abstm1du92ofdmhgi30vgd7t0oa.apps.googleusercontent.com',
           clientSecret: '',
           authorize: {
             endpoint: 'https://accounts.google.com/o/oauth2/v2/auth',
             responseType: NbOAuth2ResponseType.TOKEN,
-            scope:
-              'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
+            scope: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
 
             redirectUri: 'http://localhost:4200/home/callback'
           },
@@ -106,7 +96,7 @@ export function noop() {
       developmentMode: !environment.production
     }),
     NgxsStoragePluginModule.forRoot({
-      key: ['auth.provider', 'auth.authenticated']
+      key: ['auth']
       // key: ['preference', 'app.installed', 'auth.authenticated']
     }),
     NgxsFormPluginModule.forRoot(),
@@ -148,9 +138,7 @@ export class CoreModule {
     private iconLibraries: NbIconLibraries
   ) {
     if (parentModule) {
-      throw new Error(
-        'CoreModule is already loaded. Import it in the AppModule only'
-      );
+      throw new Error('CoreModule is already loaded. Import it in the AppModule only');
     }
     // register fortawesome
     iconLibraries.registerFontPack('fas', {

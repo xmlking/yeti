@@ -1,6 +1,8 @@
 export * from './lib/core.module';
 export { AdminGuard } from './lib/guard/admin.guard';
 export { AuthGuard } from './lib/guard/auth.guard';
+export { RouterStateData } from './lib/interfaces/router-state-data';
+export { UserInfo } from './lib/interfaces/user-info';
 export { AnalyticsService } from './lib/services/analytics.service';
 export { AppConfigService } from './lib/services/app-config.service';
 export { LayoutService } from './lib/services/layout.service';

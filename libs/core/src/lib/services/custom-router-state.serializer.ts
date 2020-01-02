@@ -1,21 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Params, RouterStateSnapshot } from '@angular/router';
+import { RouterStateSnapshot } from '@angular/router';
 import { RouterStateSerializer } from '@ngxs/router-plugin';
-
-export interface RouterStateData {
-  url: string;
-  params: Params;
-  queryParams: Params;
-  breadcrumbs: Map<string, string>;
-  data: any;
-}
+import { RouterStateData } from '../interfaces/router-state-data';
 
 // Map the router snapshot to { url, params, queryParams, titleSet }
 @Injectable({
   providedIn: 'root'
 })
-export class CustomRouterStateSerializer
-  implements RouterStateSerializer<RouterStateData> {
+export class CustomRouterStateSerializer implements RouterStateSerializer<RouterStateData> {
   serialize(routerState: RouterStateSnapshot): RouterStateData {
     const {
       url,
@@ -27,10 +19,7 @@ export class CustomRouterStateSerializer
     while (route.firstChild) {
       route = route.firstChild;
       if (route.data.title) {
-        breadcrumbs.set(
-          route.data.title,
-          route.pathFromRoot.flatMap(segment => segment.url).join('/')
-        );
+        breadcrumbs.set(route.data.title, route.pathFromRoot.flatMap(segment => segment.url).join('/'));
       }
     }
     const { params } = route;

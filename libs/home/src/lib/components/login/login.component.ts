@@ -11,13 +11,13 @@ import { Observable } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent implements OnInit {
-  @Select(AuthState.isAuthenticated) isLoggedIn$: Observable<boolean>;
-  isAuthenticated: boolean;
+  @Select(AuthState.isLoggedIn) isLoggedIn$: Observable<boolean>;
+  isLoggedIn: boolean;
 
   constructor(private location: Location, private store: Store) {}
 
   ngOnInit() {
-    this.isAuthenticated = this.store.selectSnapshot(AuthState.isAuthenticated);
+    this.isLoggedIn = this.store.selectSnapshot(AuthState.isLoggedIn);
   }
 
   login(provider: string) {
