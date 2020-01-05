@@ -40,3 +40,9 @@ yarn run scully:all
 ### Deploy
 
 Run `ng deploy` to deploy demo app to firebase.
+
+Analyzing bundle size `yarn bundle-report`
+
+Analyzing and Visualizing the Dependency Graph (affected modules by uncommitted changes)
+
+`nx affected:dep-graph`

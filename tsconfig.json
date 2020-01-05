@@ -38,12 +38,5 @@
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
   },
-  "exclude": [
-    "coverage/**/*",
-    "dist/**/*",
-    "node_modules",
-    "tmp",
-    "todo/**/*",
-    "tools/**/_*files/**/*"
-  ]
+  "exclude": ["coverage/**/*", "dist/**/*", "node_modules", "tmp", "todo/**/*", "tools/**/_*files/**/*"]
 }

@@ -206,9 +206,15 @@ ng add ngx-semantic-version
 ng add @nebular/theme@next
 yarn add @nebular/auth@next
 yarn add @nebular/security@next
-
 yarn add -D @fortawesome/fontawesome-free
 #---------------------------------
+# Add SSR
+# Add scullyio for Content Management
+ng add @scullyio/init
+yarn add prismjs
+# Add universal for SSR
+ng add @nguniversal/express-engine@next
+#---------------------------
 
 # Use either above nebular or below Material
 #  Add Material
@@ -217,17 +223,10 @@ yarn add -D @fortawesome/fontawesome-free
 #---------------------------------
 ng add @angular/material
 yarn add date-fns
-yarn add -D codecov
 # Add Flex-Layout
 yarn add @angular/flex-layout
 # Add in-memory-web-api
 yarn add angular-in-memory-web-api
-#---------------------------------
-
-# Add scullyio for Content Management
-ng add @scullyio/init
-yarn add prismjs
-
 #---------------------------------
 # Add NGXS manually (prefered)
 yarn add @ngxs/devtools-plugin @ngxs/{store,router-plugin,form-plugin,storage-plugin,devtools-plugin}
@@ -265,15 +264,18 @@ yarn add -D lite-server
 yarn add ngx-perfect-scrollbar smooth-scrollbar ngx-page-scroll screenfull
 
 # Add Dev Tools
-
+# tools you needed in CI/CD inv
 yarn add -D loaders.css
 yarn add -D api-ai-javascript
+yarn add -D @compodoc/compodoc
+yarn add -D codecov
+yarn add -D rimraf
 
 # install without saving
 yarn add trianglify --no-save --no-lock
 
 # Add Optional Tools
-yarn add -O @compodoc/compodoc
+# tools you only needed on Dev laptop
 yarn add -O lint-staged
 yarn add -O webpack-bundle-analyzer
 
@@ -302,6 +304,8 @@ ng update @ngx-formly/schematics --ui-theme=material
 ng update @nrwl/workspace --next --force
 ng update @nrwl/angular --allow-dirty
 ng update @nrwl/nest --next
+ng update @scullyio/init --next
+ng update @nguniversal/express-engine —-next
 ```
 
 #### Generate Artifacts
