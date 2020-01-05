@@ -14,16 +14,7 @@ export const environment: IEnvironment = {
   REMOTE_CONFIG_URL: '/assets/data/ui-config.json',
   API_BASE_URL: 'http://localhost:3000/api',
 
-  plugins: [
-    NgxsReduxDevtoolsPluginModule.forRoot({ maxAge: 10 }),
-    NgxsLoggerPluginModule.forRoot()
-  ],
-
-  auth: {
-    clientId:
-      '791772336084-vkt37abstm1du92ofdmhgi30vgd7t0oa.apps.googleusercontent.com',
-    issuer: 'https://accounts.google.com'
-  }
+  plugins: [NgxsReduxDevtoolsPluginModule.forRoot({ maxAge: 10 }), NgxsLoggerPluginModule.forRoot()]
 };
 
 /*

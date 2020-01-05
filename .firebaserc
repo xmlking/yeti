@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ngx-starter-kit": {
+      "hosting": {
+        "webapp": [
+          "ngx-starter-kit"
+        ]
+      }
+    }
+  }
+}

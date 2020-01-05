@@ -189,16 +189,18 @@ cd ngx-starter-kit
 ng add @angular/localize
 # Add PWA
 ng add @angular/pwa@next --project webapp
-# Add architect for gh-pages deployment
+
+# `ng deploy`
+# Add architect for deploying webapp
 # ng add [provider] [angular-cli-ghpages, @angular/fire, @zeit/ng-deploy, @azure/ng-deploy, @netlify-builder/deploy]
-ng add angular-cli-ghpages
+# gh-pages deployment
+# ng add angular-cli-ghpages
 # firebase deploy
 ng add @angular/fire
 # Add architect for npm release
 ng add ngx-deploy-npm
 # Add ngx-semantic-version (http://d-koppenhagen.de/blog/2019-11-ngx-semantic-version)
 ng add ngx-semantic-version
-
 #---------------------------
 # Add nebular
 ng add @nebular/theme@next
@@ -273,6 +275,7 @@ yarn add trianglify --no-save --no-lock
 # Add Optional Tools
 yarn add -O @compodoc/compodoc
 yarn add -O lint-staged
+yarn add -O webpack-bundle-analyzer
 
 # alternative builder for nestjs (optional)
 yarn add -D ts-node-builder
@@ -752,12 +755,12 @@ npx compodoc -s -d docs
 
 ```bash
 # ng deploy --dry-run
-ng deploy --base-href=/ngx-starter-kit/ --configuration=mock
-# deploy only `webapp` app
-# ng run webapp:deploy
-ng run webapp:deploy --base-href=/ngx-starter-kit/ --configuration=mock
+ng deploy --base-href=/ngx-starter-kit/ --configuration=mock # for gh-pages
+ng deploy # for firebase
 # deploy all affected apps
 nx affected --target deploy
+# deploy `dist/apps/webapp` manually to firebase
+firebase deploy
 ```
 
 #### Continuous Delivery

@@ -53,5 +53,8 @@ Thumbs.db
 # Scully
 scully-routes.json
 
+# Firebase
+.firebase
+
 # Local
 todo

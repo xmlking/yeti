@@ -54,14 +54,13 @@ export function noop() {
         NbGoogleOAuth2Strategy.setup({
           // https://accounts.google.com/.well-known/openid-configuration
           name: 'google',
-          clientId: '791772336084-vkt37abstm1du92ofdmhgi30vgd7t0oa.apps.googleusercontent.com',
-          clientSecret: '',
+          clientId: environment.auth.google.clientId,
+          clientSecret: environment.auth.google.clientSecret,
           authorize: {
-            endpoint: 'https://accounts.google.com/o/oauth2/v2/auth',
+            endpoint: `${environment.auth.google.issuer}/o/oauth2/v2/auth`,
             responseType: NbOAuth2ResponseType.TOKEN,
             scope: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
-
-            redirectUri: 'http://localhost:4200/home/callback'
+            redirectUri: environment.baseUrl + 'home/callback'
           },
           redirect: {
             success: '/dashboard', // welcome page path
@@ -71,18 +70,18 @@ export function noop() {
         NbGithubOAuth2Strategy.setup({
           // https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/
           name: 'github',
-          clientId: 'dec64dce6b14b090b3a6',
-          clientSecret: '7c25941d536ee87665d913c4cb43beaa8ba673e7',
+          clientId: environment.auth.github.clientId,
+          clientSecret: environment.auth.github.clientSecret,
           authorize: {
-            endpoint: 'https://github.com/login/oauth/authorize',
+            endpoint: `${environment.auth.github.issuer}/oauth/authorize`,
             responseType: NbOAuth2ResponseType.CODE,
-            redirectUri: 'http://localhost:4200/home/callback'
+            redirectUri: environment.baseUrl + 'home/callback'
           },
           token: {
-            endpoint: 'https://github.com/login/oauth/access_token',
+            endpoint: `${environment.auth.github.issuer}/oauth/access_token`,
             grantType: NbOAuth2GrantType.AUTHORIZATION_CODE,
             class: NbAuthJWTToken,
-            redirectUri: 'http://localhost:4200/home/callback'
+            redirectUri: environment.baseUrl + 'home/callback'
           },
           redirect: {
             success: '/dashboard', // welcome page path

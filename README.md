@@ -36,3 +36,7 @@ yarn run lite-server
 # Or do all with:
 yarn run scully:all
 ```
+
+### Deploy
+
+Run `ng deploy` to deploy demo app to firebase.

@@ -26,18 +26,11 @@
             "polyfills": "apps/webapp/src/polyfills.ts",
             "tsConfig": "apps/webapp/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "apps/webapp/src/favicon.ico",
-              "apps/webapp/src/assets",
-              "apps/webapp/src/manifest.webmanifest"
-            ],
+            "assets": ["apps/webapp/src/favicon.ico", "apps/webapp/src/assets", "apps/webapp/src/manifest.webmanifest"],
             "stylePreprocessorOptions": {
               "includePaths": ["apps/webapp/src/styles"]
             },
-            "styles": [
-              "apps/webapp/src/styles.scss",
-              "node_modules/@fortawesome/fontawesome-free/css/all.css"
-            ],
+            "styles": ["apps/webapp/src/styles.scss", "node_modules/@fortawesome/fontawesome-free/css/all.css"],
             "scripts": []
           },
           "i18nMissingTranslation": "error",
@@ -114,10 +107,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/webapp/tsconfig.app.json",
-              "apps/webapp/tsconfig.spec.json"
-            ],
+            "tsConfig": ["apps/webapp/tsconfig.app.json", "apps/webapp/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!apps/webapp/**"]
           }
         },
@@ -143,9 +133,9 @@
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy",
+          "builder": "@angular/fire:deploy",
           "options": {
-            "access": "public"
+            "configuration": "mock"
           }
         }
       }
@@ -188,10 +178,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/api/tsconfig.app.json",
-              "apps/api/tsconfig.spec.json"
-            ],
+            "tsConfig": ["apps/api/tsconfig.app.json", "apps/api/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!apps/api/**"]
           }
         },
@@ -220,10 +207,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "libs/api-interfaces/tsconfig.lib.json",
-              "libs/api-interfaces/tsconfig.spec.json"
-            ],
+            "tsConfig": ["libs/api-interfaces/tsconfig.lib.json", "libs/api-interfaces/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!libs/api-interfaces/**"]
           }
         },
@@ -245,10 +229,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "libs/home/tsconfig.lib.json",
-              "libs/home/tsconfig.spec.json"
-            ],
+            "tsConfig": ["libs/home/tsconfig.lib.json", "libs/home/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!libs/home/**"]
           }
         },
@@ -272,10 +253,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "libs/not-found/tsconfig.lib.json",
-              "libs/not-found/tsconfig.spec.json"
-            ],
+            "tsConfig": ["libs/not-found/tsconfig.lib.json", "libs/not-found/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!libs/not-found/**"]
           }
         },
@@ -299,10 +277,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "libs/proto/tsconfig.lib.json",
-              "libs/proto/tsconfig.spec.json"
-            ],
+            "tsConfig": ["libs/proto/tsconfig.lib.json", "libs/proto/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!libs/proto/**"]
           }
         },
@@ -324,10 +299,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "libs/core/tsconfig.lib.json",
-              "libs/core/tsconfig.spec.json"
-            ],
+            "tsConfig": ["libs/core/tsconfig.lib.json", "libs/core/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!libs/core/**"]
           }
         },
@@ -351,10 +323,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "libs/dashboard/tsconfig.lib.json",
-              "libs/dashboard/tsconfig.spec.json"
-            ],
+            "tsConfig": ["libs/dashboard/tsconfig.lib.json", "libs/dashboard/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!libs/dashboard/**"]
           }
         },
@@ -378,10 +347,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "libs/admin/tsconfig.lib.json",
-              "libs/admin/tsconfig.spec.json"
-            ],
+            "tsConfig": ["libs/admin/tsconfig.lib.json", "libs/admin/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!libs/admin/**"]
           }
         },
@@ -405,10 +371,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "libs/shared/tsconfig.lib.json",
-              "libs/shared/tsconfig.spec.json"
-            ],
+            "tsConfig": ["libs/shared/tsconfig.lib.json", "libs/shared/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!libs/shared/**"]
           }
         },
@@ -432,10 +395,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "libs/blog/tsconfig.lib.json",
-              "libs/blog/tsconfig.spec.json"
-            ],
+            "tsConfig": ["libs/blog/tsconfig.lib.json", "libs/blog/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!libs/blog/**"]
           }
         },
