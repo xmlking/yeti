@@ -208,8 +208,7 @@ yarn add @nebular/auth@next
 yarn add @nebular/security@next
 yarn add -D @fortawesome/fontawesome-free
 #---------------------------------
-# Add SSR
-# Add scullyio for Content Management
+# Add scullyio for SSG(Static Site Generator) and Content Management
 ng add @scullyio/init
 yarn add prismjs
 # Add universal for SSR

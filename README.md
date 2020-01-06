@@ -1,8 +1,15 @@
 # Yeti
 
-This project was generated using [Nx](https://nx.dev).
+This project was generated using [Nx](https://nx.dev). This project was built using [nebular](https://akveo.github.io/nebular/).
 
-This project was built using [nebular](https://akveo.github.io/nebular/).
+## TODO
+
+- [x] i18n, Multi-Lingual Support
+- [x] SSG, Static Site Generator
+- [ ] SSR, Server-Side Rendering
+- [ ] Routing animations for nested routes and Blog posts
+- [ ] [Storybooks](https://storybook.js.org/)
+
 
 ```bash
 ## gen i18n
