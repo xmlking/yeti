@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 import { IEnvironment } from '@env/ienvironment';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
-import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+// import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import sharedEnvironment from './base';
 
 export const environment: IEnvironment = {
@@ -13,8 +13,11 @@ export const environment: IEnvironment = {
 
   REMOTE_CONFIG_URL: '/assets/data/ui-config.json',
   API_BASE_URL: 'http://localhost:3000/api',
-
-  plugins: [NgxsReduxDevtoolsPluginModule.forRoot({ maxAge: 10 }), NgxsLoggerPluginModule.forRoot()]
+  // prettier-ignore
+  plugins: [
+    NgxsReduxDevtoolsPluginModule.forRoot({ maxAge: 10 }),
+    // NgxsLoggerPluginModule.forRoot()
+  ]
 };
 
 /*

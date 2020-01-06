@@ -1,7 +1,7 @@
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule, Optional, SkipSelf } from '@angular/core';
 import { environment } from '@env/environment';
-import { NbAuthJWTToken, NbAuthModule, NbOAuth2GrantType, NbOAuth2ResponseType } from '@nebular/auth';
+import { NbAuthJWTToken, NbAuthModule, NbOAuth2ClientAuthMethod, NbOAuth2GrantType, NbOAuth2ResponseType } from '@nebular/auth';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbSecurityModule } from '@nebular/security';
 import {
@@ -23,7 +23,7 @@ import { RouteHandler } from './handler/route.handler';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { AppConfigService } from './services/app-config.service';
 import { CustomRouterStateSerializer } from './services/custom-router-state.serializer';
-import { NbGithubOAuth2Strategy } from './services/github-auth.strategy';
+import { NbGenericOAuth2Strategy } from './services/generic-auth.strategy';
 import { NbGoogleOAuth2Strategy } from './services/google-auth.strategy';
 import { AuthState } from './state/auth.state';
 
@@ -67,18 +67,20 @@ export function noop() {
             failure: undefined // stay on the same page
           }
         }),
-        NbGithubOAuth2Strategy.setup({
+        NbGenericOAuth2Strategy.setup({
+          // Firebase https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration
           // https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/
           name: 'github',
-          clientId: environment.auth.github.clientId,
-          clientSecret: environment.auth.github.clientSecret,
+          clientId: environment.auth.generic.clientId,
+          clientSecret: environment.auth.generic.clientSecret,
+          clientAuthMethod: NbOAuth2ClientAuthMethod.NONE,
           authorize: {
-            endpoint: `${environment.auth.github.issuer}/oauth/authorize`,
+            endpoint: `${environment.auth.generic.issuer}`,
             responseType: NbOAuth2ResponseType.CODE,
             redirectUri: environment.baseUrl + 'home/callback'
           },
           token: {
-            endpoint: `${environment.auth.github.issuer}/oauth/access_token`,
+            endpoint: `${environment.auth.generic.issuer}/oauth/access_token`,
             grantType: NbOAuth2GrantType.AUTHORIZATION_CODE,
             class: NbAuthJWTToken,
             redirectUri: environment.baseUrl + 'home/callback'

@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { NbAuthService } from '@nebular/auth';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { NbMenuService } from '@nebular/theme';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { Select, Store } from '@ngxs/store';
@@ -18,17 +17,22 @@ export class HeaderComponent implements OnInit {
   @Select(AuthState.isLoggedIn) isLoggedIn$: Observable<boolean>;
   @Select(AuthState.userInfo) userInfo$: Observable<UserInfo>;
 
-  userMenu = [
-    { title: 'Login', icon: 'log-in-outline', link: '/home/login' },
-    { title: 'Logout', icon: 'log-out-outline' }
-  ];
+  userMenu = [{ title: 'Login', icon: 'log-in-outline', link: '/home/login' }, { title: 'Logout', icon: 'log-out-outline' }];
   user: any;
 
-  constructor(private authService: NbAuthService, private store: Store, private nbMenuService: NbMenuService) {}
+  constructor(private store: Store, private cdr: ChangeDetectorRef, private nbMenuService: NbMenuService) {}
 
   ngOnInit() {
     this.userMenuContextListener();
     this.userInfo$.pipe(untilDestroyed(this)).subscribe(user => (this.user = user));
+    this.isLoggedIn$.pipe(untilDestroyed(this)).subscribe(authenticated => {
+      if (authenticated) {
+        this.userMenu = [{ title: 'Logout', icon: 'log-out-outline' }];
+      } else {
+        this.userMenu = [{ title: 'Login', icon: 'log-in-outline', link: '/home/login' }];
+      }
+      this.cdr.markForCheck();
+    });
   }
 
   userMenuContextListener() {

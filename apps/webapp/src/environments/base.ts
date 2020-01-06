@@ -24,10 +24,10 @@ export default {
       clientSecret: '',
       issuer: 'https://accounts.google.com'
     },
-    github: {
-      clientId: 'dec64dce6b14b090b3a6',
-      clientSecret: '7c25941d536ee87665d913c4cb43beaa8ba673e7',
-      issuer: 'https://github.com/login'
+    generic: {
+      clientId: '399994557022-f5p50d6oc04g49rjhu4r0o20ljujlt0f.apps.googleusercontent.com',
+      clientSecret: '',
+      issuer: 'https://securetoken.google.com/ngx-starter-kit'
     }
   }
 };
