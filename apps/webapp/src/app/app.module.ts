@@ -35,7 +35,9 @@ import { AppComponent } from './app.component';
         {
           path: 'admin',
           canActivate: [AuthGuard],
-          loadChildren: () => import('@yeti/admin').then(module => module.AdminModule),
+          loadChildren: () =>
+            // import('@yeti/admin').then(module => module.AdminModule),
+            import('../../../../libs/admin/src/lib/admin.module').then(module => module.AdminModule),
           data: { preload: false }
         },
         {
