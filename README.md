@@ -7,6 +7,9 @@ This project was generated using [Nx](https://nx.dev). This project was built us
 - [x] i18n, Multi-Lingual Support
 - [x] SSG, Static Site Generator
 - [ ] SSR, Server-Side Rendering
+- [x] Federated SSO, Multiple OpenID Connect(OIDC) providers.
+- [ ] Google Analytics
+- [x] `ng deploy` with Firebase Hosting
 - [ ] Routing animations for nested routes and Blog posts
 - [ ] [Storybooks](https://storybook.js.org/)
 
