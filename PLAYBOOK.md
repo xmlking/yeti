@@ -333,8 +333,8 @@ ng g lib grid           --routing --lazy  --parent-module=libs/dashboard/src/lib
 > with no-framework (a.k.a. @nrwl/workspace schematics)
 
 ```bash
-ng g @nrwl/workspace:lib Proto      --tags=utils --defaults -d
-ng g @nrwl/workspace:lib Tree       --tags=utils --defaults -d
+ng g @nrwl/workspace:lib gen        --tags=utils --defaults -d
+ng g @nrwl/workspace:lib tree       --tags=utils --defaults -d
 ng g @nrwl/workspace:lib utils      --tags=utils --defaults -d
 ng g @nrwl/workspace:lib animations --tags=utils --defaults -d
 

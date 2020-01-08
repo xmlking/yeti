@@ -50,6 +50,7 @@ import { AppComponent } from './app.component';
         // 404 should be last
         { path: '**', redirectTo: '404', pathMatch: 'full' }
       ],
+      // To avoid flickering
       { initialNavigation: 'enabled' }
     ),
     ServiceWorkerModule.register('ngsw-worker.js', {

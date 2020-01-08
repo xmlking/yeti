@@ -14,7 +14,7 @@
     "api": {
       "tags": ["api-module"]
     },
-    "api-interfaces": {
+    "gen": {
       "tags": ["shared-module"]
     },
     "home": {

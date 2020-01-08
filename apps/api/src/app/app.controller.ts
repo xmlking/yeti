@@ -1,7 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-
-import { Message } from '@yeti/api-interfaces';
-
+import { Message } from '@yeti/gen';
 import { AppService } from './app.service';
 
 @Controller()

@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Message } from '@yeti/api-interfaces';
+import { Message } from '@yeti/gen';
 
 @Injectable()
 export class AppService {
