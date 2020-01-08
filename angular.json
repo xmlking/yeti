@@ -268,28 +268,6 @@
       },
       "schematics": {}
     },
-    "proto": {
-      "root": "libs/proto",
-      "sourceRoot": "libs/proto/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": ["libs/proto/tsconfig.lib.json", "libs/proto/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/proto/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/proto/jest.config.js",
-            "tsConfig": "libs/proto/tsconfig.spec.json"
-          }
-        }
-      }
-    },
     "core": {
       "projectType": "library",
       "root": "libs/core",

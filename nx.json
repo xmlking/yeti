@@ -23,9 +23,6 @@
     "not-found": {
       "tags": ["entry-module"]
     },
-    "proto": {
-      "tags": ["utils"]
-    },
     "core": {
       "tags": ["core-module"]
     },

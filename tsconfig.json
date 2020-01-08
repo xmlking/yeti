@@ -26,7 +26,6 @@
       "@yeti/gen": ["libs/gen/src/index.ts"],
       "@yeti/home": ["libs/home/src/index.ts"],
       "@yeti/not-found": ["libs/not-found/src/index.ts"],
-      "@yeti/proto": ["libs/proto/src/index.ts"],
       "@yeti/core": ["libs/core/src/index.ts"],
       "@yeti/dashboard": ["libs/dashboard/src/index.ts"],
       "@yeti/admin": ["libs/admin/src/index.ts"],
