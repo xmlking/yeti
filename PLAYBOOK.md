@@ -10,12 +10,12 @@ Do-it-yourself step-by-step instructions to create this project structure from s
 
 | Software        | Version | Optional |
 | --------------- | ------- | -------- |
-| Node            | v13.2.0 |          |
-| Yarn            | v1.19.2 |          |
-| Lerna           | v3.18.4 |          |
+| Node            | v13.5.0 |          |
+| Yarn            | v1.21.1 |          |
+| Lerna           | v3.20.2 |          |
 | Angular CLI     | v9.0.0  |          |
 | @nrwl/workspace | v9.0.0  |          |
-| @nestjs/cli     | v6.12.2 |          |
+| @nestjs/cli     | v6.13.2 |          |
 | commitizen      | v4.0.3  |          |
 
 ### Install Prerequisites

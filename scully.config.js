@@ -7,11 +7,15 @@ exports.config = {
   /** projectRoot is mandatory! */
   projectRoot: './apps/webapp/src/app',
   /** outFolder is where the static distribution files end up */
-  outFolder: './dist/scully/apps/webapp',
+  outFolder: './dist/static/apps/webapp',
   routes: {
     '/home/blog/:id': {
       type: 'contentFolder',
+      postRenderers: ['toc'],
       id: { folder: './libs/blog/posts' }
-    }
+    },
+    '/**': {
+      type: 'void',
+    },
   }
 };
