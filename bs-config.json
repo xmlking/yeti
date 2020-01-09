@@ -1,5 +1,5 @@
 {
   "port": 4200,
-  "files": ["dist/scully/apps/webapp/*.{html,htm,css,js,json,png}"],
-  "server": { "baseDir": "dist/scully/apps/webapp" }
+  "files": ["dist/static/apps/webapp/*.{html,htm,css,js,json,png}"],
+  "server": { "baseDir": "dist/static/apps/webapp" }
 }

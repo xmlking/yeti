@@ -47,6 +47,13 @@ yarn run lite-server
 yarn run scully:all
 ```
 
+```bash
+# setup blog
+ng g @scullyio/init:markdown --name="blog"  --source-dir="libs/blog/posts" --route="home/blog"
+# create blog post from template
+ng g @scullyio/init:post --name="This is my post" --target=libs/blog/posts --meta-data-file="libs/blog/blog-post-template.yaml"
+```
+
 ### Deploy
 
 Run `ng deploy` to deploy demo app to firebase.
