@@ -107,7 +107,7 @@
     "@scullyio/init": "^0.0.9",
     "@scullyio/scully": "latest",
     "@types/jest": "24.0.25",
-    "@types/node": "13.1.4",
+    "@types/node": "13.1.6",
     "codecov": "^3.6.1",
     "codelyzer": "5.2.1",
     "commitizen": "4.0.3",
