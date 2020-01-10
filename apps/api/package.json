@@ -18,17 +18,17 @@
     "@nestjs/common": "6.10.14",
     "@nestjs/core": "6.10.14",
     "@nestjs/platform-express": "6.10.14",
-    "@nestjs/swagger": "4.1.2",
+    "@nestjs/swagger": "4.1.7",
     "@nestjs/terminus": "6.5.5",
     "helmet": "3.21.2",
     "typescript": "3.7.4"
   },
   "devDependencies": {
-    "@types/helmet": "^0.0.45",
-    "@types/nodemailer": "^6.4.0",
-    "@types/passport": "^1.0.2",
-    "@types/passport-jwt": "^3.0.3",
-    "@types/supertest": "^2.0.8"
+    "@types/helmet": "0.0.45",
+    "@types/nodemailer": "6.4.0",
+    "@types/passport": "1.0.2",
+    "@types/passport-jwt": "3.0.3",
+    "@types/supertest": "2.0.8"
   },
   "optionalDependencies": {
     "@nestjs/schematics": "^6.7.6",
