@@ -1485,7 +1485,7 @@
   dependencies:
     semver "^6.2.0"
 
-"@grpc/proto-loader@0.5.3", "@grpc/proto-loader@^0.5.0", "@grpc/proto-loader@^0.5.1", "@grpc/proto-loader@^0.5.3":
+"@grpc/proto-loader@0.5.3", "@grpc/proto-loader@^0.5.0", "@grpc/proto-loader@^0.5.1":
   version "0.5.3"
   resolved "https://registry.yarnpkg.com/@grpc/proto-loader/-/proto-loader-0.5.3.tgz#a233070720bf7560c4d70e29e7950c72549a132c"
   integrity sha512-8qvUtGg77G2ZT2HqdqYoM/OY97gQd/0crSG34xNmZ4ZOsv3aQT/FQV9QfZPazTGna6MIoyUd+u6AxsoZjJ/VMQ==
@@ -2279,7 +2279,7 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
-"@types/google-protobuf@^3.7.2":
+"@types/google-protobuf@3.7.2":
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/@types/google-protobuf/-/google-protobuf-3.7.2.tgz#cd8a360c193ce4d672575a20a79f49ba036d38d2"
   integrity sha512-ifFemzjNchFBCtHS6bZNhSZCBu7tbtOe0e8qY0z2J4HtFXmPJjm6fXSaQsTG7yhShBEZtt2oP/bkwu5k+emlkQ==
@@ -8207,7 +8207,7 @@ google-p12-pem@^2.0.0:
   dependencies:
     node-forge "^0.9.0"
 
-google-protobuf@^3.11.2:
+google-protobuf@3.11.2:
   version "3.11.2"
   resolved "https://registry.yarnpkg.com/google-protobuf/-/google-protobuf-3.11.2.tgz#43272974521a5cec35a21f62730cf517a5a8e38c"
   integrity sha512-T4fin7lcYLUPj2ChUZ4DvfuuHtg3xi1621qeRZt2J7SvOQusOzq+sDT4vbotWTCjUXJoR36CA016LlhtPy80uQ==
@@ -8239,7 +8239,7 @@ growly@^1.3.0:
   resolved "https://registry.yarnpkg.com/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
   integrity sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=
 
-grpc-web@^1.0.7:
+grpc-web@1.0.7:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/grpc-web/-/grpc-web-1.0.7.tgz#9e4fbcf63d3734515332ab59e42baa7d0d290015"
   integrity sha512-Fkbz1nyvvt6GC6ODcxh9Fen6LLB3OTCgGHzHwM2Eni44SUhzqPz1UQgFp9sfBEfInOhx3yBdwo9ZLjZAmJ+TtA==
