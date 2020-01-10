@@ -82,7 +82,7 @@
     "@ngxs/store": "3.6.0",
     "@scullyio/ng-lib": "0.0.8",
     "eva-icons": "1.1.2",
-    "firebase": "7.6.1",
+    "firebase": "7.6.2",
     "ngx-auto-unsubscribe": "3.0.1",
     "prismjs": "1.18.0",
     "reflect-metadata": "0.1.13",
