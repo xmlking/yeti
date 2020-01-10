@@ -13,7 +13,7 @@
     "build:prod": "ng build api --prod"
   },
   "dependencies": {
-    "@grpc/proto-loader": "^0.5.3",
+    "@grpc/proto-loader": "0.5.3",
     "@godaddy/terminus": "4.3.1",
     "@nestjs/common": "6.10.14",
     "@nestjs/core": "6.10.14",
