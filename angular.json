@@ -153,7 +153,7 @@
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
+            "assets": ["apps/api/src/assets", { "glob": "**/*", "input": "protos", "output": "protos" }]
           },
           "configurations": {
             "production": {
@@ -179,7 +179,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": ["apps/api/tsconfig.app.json", "apps/api/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!apps/api/**"]
+            "exclude": ["**/node_modules/**", "!apps/api/**", "apps/api/src/app/echo/interfaces/echo.ts"]
           }
         },
         "test": {

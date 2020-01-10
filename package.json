@@ -83,6 +83,8 @@
     "@scullyio/ng-lib": "0.0.8",
     "eva-icons": "^1.1.2",
     "firebase": ">= 5.5.7 <8",
+    "google-protobuf": "^3.11.2",
+    "grpc-web": "^1.0.7",
     "ngx-auto-unsubscribe": "3.0.1",
     "prismjs": "^1.17.1",
     "reflect-metadata": "0.1.13",
@@ -106,6 +108,7 @@
     "@schematics/angular": "9.0.0-rc.7",
     "@scullyio/init": "^0.0.11",
     "@scullyio/scully": "0.0.53",
+    "@types/google-protobuf": "^3.7.2",
     "@types/jest": "24.0.25",
     "@types/node": "13.1.6",
     "codecov": "^3.6.1",
@@ -154,6 +157,7 @@
     "lint-staged": "^9.5.0",
     "lite-server": "^2.5.4",
     "ngx-semantic-version": "2.0.0-beta.3",
+    "ts-proto": "^1.5.0",
     "webpack-bundle-analyzer": "^3.6.0"
   }
 }
