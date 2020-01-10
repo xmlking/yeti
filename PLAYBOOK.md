@@ -252,6 +252,16 @@ filepond-plugin-image-preview
 # Add @UntilDestroy() to auto unsubscribe rxjs
 yarn add @ngneat/until-destroy
 
+#---------------------------------
+# Add gRPC
+yarn add google-protobuf
+yarn add -D @types/google-protobuf
+yarn add grpc-web
+
+# to generate TS interfaces from proto
+yarn add -O ts-proto
+#---------------------------------
+
 # Add Socket.io
 yarn add socket.io-client
 yarn add -D @types/socket.io-client
@@ -284,6 +294,8 @@ yarn add -D ts-node-builder
 yarn workspace @yeti/api add  @xmlking/jwks-rsa @nestjsx/crud @nestjs/{terminus,cqrs,passport,swagger}
 yarn workspace @yeti/api add nodemon supertest  -O
 yarn workspace @yeti/api add @types/{helmet,passport,passport-jwt,supertest,nodemailer} -D
+
+yarn workspace @yeti/api add @grpc/proto-loader
 
 yarn workspace @yeti/tools add cpx --dev
 ```

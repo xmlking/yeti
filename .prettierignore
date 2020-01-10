@@ -9,3 +9,4 @@
 /coverage
 
 /libs/gen
+apps/api/src/app/echo/interfaces/echo.ts
