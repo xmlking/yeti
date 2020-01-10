@@ -158,7 +158,7 @@
     rxjs "6.5.3"
     source-map "0.7.3"
 
-"@angular-devkit/core@9.0.0-rc.8":
+"@angular-devkit/core@9.0.0-rc.8", "@angular-devkit/core@^9.0.0-rc.7":
   version "9.0.0-rc.8"
   resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-9.0.0-rc.8.tgz#e667940cddcf51673032174f52ea2991f05d31b9"
   integrity sha512-VxqlKeNh0dgCYdy2mn+yw3wymQCMKrWbaMqDxdlrA1jQ7fFq9bHATVTOc67iqZhigPpOI1tPO3GSQ27MmwAbXw==
@@ -203,7 +203,7 @@
     ora "4.0.2"
     rxjs "6.5.3"
 
-"@angular-devkit/schematics@9.0.0-rc.8":
+"@angular-devkit/schematics@9.0.0-rc.8", "@angular-devkit/schematics@^9.0.0-rc.7":
   version "9.0.0-rc.8"
   resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-9.0.0-rc.8.tgz#546568a6186499045289e134d329b2867a0353ff"
   integrity sha512-YvFqpdluy9nNsKfcTG1x1W2AXV6m+CkavVSws4KJx1hRua+n9vO3jRYGKep4+GwpUg36oQTMXyW37XufUuGGyQ==
@@ -11911,13 +11911,13 @@ ngx-auto-unsubscribe@3.0.1:
   resolved "https://registry.yarnpkg.com/ngx-auto-unsubscribe/-/ngx-auto-unsubscribe-3.0.1.tgz#b4970bb2c1289411a5e6a1e5ab175593cc9e76eb"
   integrity sha512-Yp3o2HxjGYNv2yZ0QwR5Wkh6Al3b07J3v7hhcdZhqm7DTJuXMmisaNi5zhnXq2+7rtCg0jaTBsA/SWhtS7zZbw==
 
-ngx-semantic-version@2.0.0-beta.3:
-  version "2.0.0-beta.3"
-  resolved "https://registry.yarnpkg.com/ngx-semantic-version/-/ngx-semantic-version-2.0.0-beta.3.tgz#01d690524f46b5ae2c1e18113c36fc65657cec5f"
-  integrity sha512-eGjKIatlWq/KGiuHPu4guggugmuRAMvpsbxKkpVerHmkKlcXkv5T4xbYjxi7cCq1SBueY0n+4v05HrxqKhFV5A==
+ngx-semantic-version@2.0.0-beta.4:
+  version "2.0.0-beta.4"
+  resolved "https://registry.yarnpkg.com/ngx-semantic-version/-/ngx-semantic-version-2.0.0-beta.4.tgz#616ab6c4ba5962df3f178377fa0a7830c5af92a7"
+  integrity sha512-jOaUP+iy8qSxSqiR/qeNWIHjLGvi95uA8fezRZl3v7ybn/Wy4hgtfbwxEZXw7r/Tzu6Soa/4LUFc2iE1y2JuDQ==
   dependencies:
-    "@angular-devkit/core" "^9.0.0-rc.5"
-    "@angular-devkit/schematics" "^9.0.0-rc.5"
+    "@angular-devkit/core" "^9.0.0-rc.7"
+    "@angular-devkit/schematics" "^9.0.0-rc.7"
     typescript "~3.6.4"
 
 nice-try@^1.0.4:
