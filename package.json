@@ -80,7 +80,7 @@
     "@ngxs/router-plugin": "3.6.0",
     "@ngxs/storage-plugin": "3.6.0",
     "@ngxs/store": "3.6.0",
-    "@scullyio/ng-lib": "0.0.8",
+    "@scullyio/ng-lib": "0.0.9",
     "eva-icons": "1.1.2",
     "firebase": "7.6.2",
     "google-protobuf": "3.11.2",
