@@ -71,7 +71,7 @@
     "@angular/service-worker": "9.0.0-rc.8",
     "@nebular/auth": "5.0.0-beta.1",
     "@nebular/eva-icons": "5.0.0-beta.1",
-    "@nebular/security": "5.0.0-beta.1",
+    "@nebular/security": "5.0.0-beta.2",
     "@nebular/theme": "5.0.0-beta.1",
     "@ngneat/until-destroy": "7.1.0",
     "@ngxs/devtools-plugin": "3.6.0",
