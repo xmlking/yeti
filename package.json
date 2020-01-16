@@ -82,7 +82,7 @@
     "@ngxs/store": "3.6.1",
     "@scullyio/ng-lib": "0.0.9",
     "eva-icons": "1.1.2",
-    "firebase": "7.6.2",
+    "firebase": "7.7.0",
     "google-protobuf": "3.11.2",
     "grpc-web": "1.0.7",
     "ngx-auto-unsubscribe": "3.0.1",
