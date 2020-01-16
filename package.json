@@ -72,7 +72,7 @@
     "@nebular/auth": "5.0.0-beta.1",
     "@nebular/eva-icons": "5.0.0-beta.1",
     "@nebular/security": "5.0.0-beta.1",
-    "@nebular/theme": "5.0.0-beta.1",
+    "@nebular/theme": "5.0.0-beta.2",
     "@ngneat/until-destroy": "7.1.0",
     "@ngxs/devtools-plugin": "3.6.0",
     "@ngxs/form-plugin": "3.6.0",
