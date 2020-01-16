@@ -18,10 +18,10 @@
     "@nestjs/common": "6.10.14",
     "@nestjs/core": "6.10.14",
     "@nestjs/platform-express": "6.10.14",
-    "@nestjs/swagger": "4.1.10",
+    "@nestjs/swagger": "4.1.12",
     "@nestjs/terminus": "6.5.5",
     "helmet": "3.21.2",
-    "typescript": "3.7.4"
+    "typescript": "3.7.5"
   },
   "devDependencies": {
     "@types/helmet": "0.0.45",
