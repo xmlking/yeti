@@ -13,9 +13,7 @@ export class FooterComponent implements OnInit {
   version: string;
 
   ngOnInit() {
-    // this.envName = this.appConfig.config?.envName  ?? 'WHAT?';
-    // this.version = this.appConfig.config?.versions?.app ?? 'v0.0.0';
-    this.envName = this.appConfig.config.envName;
-    this.version = this.appConfig.config.versions.app;
+    this.envName = this.appConfig.config?.envName ?? 'WHAT?';
+    this.version = this.appConfig.config?.versions?.app ?? 'v0.0.0';
   }
 }

@@ -233,6 +233,7 @@ yarn add @ngxs/devtools-plugin @ngxs/{store,router-plugin,form-plugin,storage-pl
 ng add @ngxs/schematics # makesure "defaultCollection" is set back to "@nrwl/schematics" in angular.json
 
 yarn add @ngxs-labs/immer-adapter
+yarn add @ngxs-labs/select-snapshot
 yarn add immer
 #---------------------------------
 

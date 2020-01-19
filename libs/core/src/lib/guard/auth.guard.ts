@@ -27,7 +27,11 @@ export class AuthGuard implements CanActivate {
         if (!authenticated) {
           // this.store.dispatch(new Login());
           // return router.parseUrl('/notauthorized');
-          this.store.dispatch(new Navigate(['/home/login']));
+          this.store.dispatch(
+            // note: the second queryParams returns the current URL that we can have in 'return' parameter,
+            // so when the '/home/login' page opens, this param tell us from where it comes
+            new Navigate(['/home/login'], { return: state.url })
+          );
         }
       })
     );

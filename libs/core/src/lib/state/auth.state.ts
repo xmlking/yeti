@@ -46,15 +46,10 @@ export class AuthState {
   // Login, Logout  are Fire and Forget actions
   @Action(Login)
   async login({ getState, patchState, dispatch }: StateContext<AuthStateModel>, { payload }: Login) {
-    let provider: string; // payload?.provider ?? getState().provider
-    if (payload) {
-      patchState({
-        provider: payload.provider
-      });
-      provider = payload.provider;
-    } else {
-      provider = getState().provider;
-    }
+    const provider = payload?.provider ?? getState().provider;
+    patchState({
+      provider
+    });
 
     const authResult = await this.nbAuthService.authenticate(provider).toPromise();
     if (authResult.isSuccess()) {

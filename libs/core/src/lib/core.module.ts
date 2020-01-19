@@ -14,6 +14,7 @@ import {
   NbToastrModule,
   NbWindowModule
 } from '@nebular/theme';
+import { NgxsSelectSnapshotModule } from '@ngxs-labs/select-snapshot';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';
 import { NgxsRouterPluginModule, RouterStateSerializer } from '@ngxs/router-plugin';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
@@ -97,6 +98,7 @@ export function noop() {
     NgxsModule.forRoot([AuthState], {
       developmentMode: !environment.production
     }),
+    NgxsSelectSnapshotModule.forRoot(),
     NgxsStoragePluginModule.forRoot({
       key: ['auth']
       // key: ['preference', 'app.installed', 'auth.authenticated']

@@ -12,7 +12,7 @@ This project was generated using [Nx](https://nx.dev). This project was built us
 - [x] `ng deploy` with Firebase Hosting
 - [ ] Routing animations for nested routes and Blog posts
 - [ ] [Storybooks](https://storybook.js.org/)
-
+- [x] 🚫💩 — Run linters on git staged files
 
 ```bash
 ## gen i18n

@@ -34,6 +34,8 @@
     }
   },
   "angularCompilerOptions": {
+    // FIXME: remove me https://github.com/angular/angular-cli/issues/16071
+    "disableTypeScriptVersionCheck": true,
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
   },
