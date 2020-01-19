@@ -19,10 +19,7 @@ ul.pagination {
     > .page {
       @include vendor(
         'transition',
-        (
-          'background-color #{_duration(transition)} ease-in-out',
-          'color #{_duration(transition)} ease-in-out'
-        )
+        ('background-color #{_duration(transition)} ease-in-out', 'color #{_duration(transition)} ease-in-out')
       );
       border-bottom: 0;
       border-radius: _size(border-radius);

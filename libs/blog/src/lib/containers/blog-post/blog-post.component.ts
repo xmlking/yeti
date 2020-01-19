@@ -18,7 +18,11 @@ export class BlogPostComponent implements OnInit, AfterViewChecked {
   location: null;
   showComments: boolean;
 
-  constructor(private route: ActivatedRoute, private srs: ScullyRoutesService, private highlightService: HighlightService) {
+  constructor(
+    private route: ActivatedRoute,
+    private srs: ScullyRoutesService,
+    private highlightService: HighlightService
+  ) {
     this.showComments = isScullyGenerated();
   }
 

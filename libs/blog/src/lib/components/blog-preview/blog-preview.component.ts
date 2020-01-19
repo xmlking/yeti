@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { ScullyRoute, ScullyRoutesService } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -24,6 +19,7 @@ export class BlogPreviewComponent implements OnInit {
   ngOnInit() {
     this.blogPostData$ = this.srs.available$.pipe(
       map(routeList => {
+        // prettier-ignore
         return routeList.filter((route: ScullyRoute) =>
           route.route.startsWith(`/home/blog/`)
         );
@@ -32,6 +28,7 @@ export class BlogPreviewComponent implements OnInit {
         if (!this.keyword) {
           return routeList;
         }
+        // prettier-ignore
         return routeList.filter((route: ScullyRoute) =>
           route.keywords.includes(this.keyword)
         );

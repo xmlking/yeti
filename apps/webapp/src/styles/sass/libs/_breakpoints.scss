@@ -166,20 +166,12 @@ $breakpoints: ();
 
         // Not (< x and > y)
         @else if ($op == 'not') {
-          $media: 'screen and (max-width: ' +
-            ($x - 1) +
-            '), screen and (min-width: ' +
-            ($y + 1) +
-            ')';
+          $media: 'screen and (max-width: ' + ($x - 1) + '), screen and (min-width: ' + ($y + 1) + ')';
         }
 
         // Equal (>= x and <= y)
         @else {
-          $media: 'screen and (min-width: ' +
-            $x +
-            ') and (max-width: ' +
-            $y +
-            ')';
+          $media: 'screen and (min-width: ' + $x + ') and (max-width: ' + $y + ')';
         }
       }
     }

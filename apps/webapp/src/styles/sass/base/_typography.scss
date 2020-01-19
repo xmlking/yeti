@@ -38,6 +38,7 @@ textarea {
 }
 
 a {
+  // prettier-ignore
   @include vendor(
     'transition',
     'color #{_duration(transition)} ease-in-out, border-bottom-color #{_duration(transition)} ease-in-out'
@@ -63,10 +64,7 @@ a {
     text-transform: uppercase;
 
     &:before {
-      @include vendor(
-        'transition',
-        'background-color #{_duration(transition)} ease-in-out'
-      );
+      @include vendor('transition', 'background-color #{_duration(transition)} ease-in-out');
       border-radius: 100%;
       border: solid 2px _palette(border);
       content: '\f105';
@@ -185,8 +183,7 @@ blockquote {
   border-left: solid 4px _palette(border);
   font-style: italic;
   margin: 0 0 _size(element-margin) 0;
-  padding: (_size(element-margin) / 4) 0 (_size(element-margin) / 4)
-    _size(element-margin);
+  padding: (_size(element-margin) / 4) 0 (_size(element-margin) / 4) _size(element-margin);
 }
 
 code {

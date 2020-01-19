@@ -34,10 +34,7 @@
   }
 
   h2 {
-    @include vendor(
-      'transition',
-      ('opacity 0.5s ease', 'transform 0.5s ease', 'filter 0.25s ease')
-    );
+    @include vendor('transition', ('opacity 0.5s ease', 'transform 0.5s ease', 'filter 0.25s ease'));
     @include vendor('transform', 'translateX(0)');
     @include vendor('transition-delay', '0.65s');
     @include vendor('filter', 'blur(0)');
@@ -49,10 +46,7 @@
   }
 
   p {
-    @include vendor(
-      'transition',
-      ('opacity 0.5s ease', 'transform 0.5s ease', 'filter 0.25s ease')
-    );
+    @include vendor('transition', ('opacity 0.5s ease', 'transform 0.5s ease', 'filter 0.25s ease'));
     @include vendor('transform', 'translateX(0)');
     @include vendor('transition-delay', '0.8s');
     @include vendor('filter', 'blur(0)');
@@ -70,11 +64,7 @@
 
     background-color: _palette(bg);
 
-    background-image: linear-gradient(
-        to top,
-        transparentize(_palette(bg), 0.2),
-        transparentize(_palette(bg), 0.2)
-      ),
+    background-image: linear-gradient(to top, transparentize(_palette(bg), 0.2), transparentize(_palette(bg), 0.2)),
       url('/assets/images/bg.jpg');
 
     background-size: auto, cover;

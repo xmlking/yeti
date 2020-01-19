@@ -32,11 +32,6 @@ import { OverviewComponent } from './containers/overview/overview.component';
       }
     ])
   ],
-  declarations: [
-    AdminLayoutComponent,
-    OverviewComponent,
-    HeaderComponent,
-    FooterComponent
-  ]
+  declarations: [AdminLayoutComponent, OverviewComponent, HeaderComponent, FooterComponent]
 })
 export class AdminModule {}

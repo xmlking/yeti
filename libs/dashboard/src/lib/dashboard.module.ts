@@ -41,6 +41,7 @@ import { OverviewComponent } from './containers/overview/overview.component';
       }
     ])
   ],
+  // prettier-ignore
   declarations: [
     DashboardLayoutComponent,
     OverviewComponent,
