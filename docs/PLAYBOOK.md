@@ -77,12 +77,14 @@ yarn global remove @angular/cli
 yarn global remove @nrwl/cli
 yarn global remove @nestjs/cli
 yarn global remove bloomrpc-mock
+yarn global remove gitbook-cli
 
 yarn global add lerna
 yarn global add @angular/cli@next
 yarn global add @nrwl/cli@next
 yarn global add @nestjs/cli
 yarn global add bloomrpc-mock
+yarn global add gitbook-cli
 
 # verify globally installed packages
 yarn global list
