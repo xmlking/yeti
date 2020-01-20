@@ -2273,10 +2273,10 @@
     js-yaml "^3.13.1"
     schematics-utilities "^2.0.0"
 
-"@scullyio/ng-lib@0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@scullyio/ng-lib/-/ng-lib-0.0.9.tgz#8a08557506f336ff58a79d723a117cb96c895eac"
-  integrity sha512-eGnAbKlTHggjX1cmfgR552MgluCKdd1Zm5reKHc0xka7rnZmrhW0o9LRHCfyloLrttLm10mqSOBu9PkpjYZ+Og==
+"@scullyio/ng-lib@0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@scullyio/ng-lib/-/ng-lib-0.0.11.tgz#81eba74b7bc3a5e4e53182923005f0247cce3cac"
+  integrity sha512-s/QKHygGwUdZvETM4BStDLGbQ4VtBuyKh25OGUBt8WubJrRBpLDAKDYR1+pSqbPbAE4yVORhSkfNIPmGtAuTzg==
 
 "@scullyio/scully@0.0.55":
   version "0.0.55"
@@ -12107,7 +12107,7 @@ node-notifier@^5.4.2:
     shellwords "^0.1.1"
     which "^1.3.0"
 
-node-pre-gyp@*, node-pre-gyp@^0.14.0:
+node-pre-gyp@^0.14.0:
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.14.0.tgz#9a0596533b877289bcad4e143982ca3d904ddc83"
   integrity sha512-+CvDC7ZttU/sSt9rFjix/P05iS43qHCOOGzcr3Ry99bXG7VX953+vFyEuph/tfqoYu8dttBkE86JSKBO2OzcxA==
