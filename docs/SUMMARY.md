@@ -1,9 +1,11 @@
 # Table of Contents
 
-- [Read Me](../README.md)
+- [YETI](../README.md)
 - Getting Started
   - [Why](introduction/why.md)
   - [Installation](introduction/installation.md)
+  - [Playbook](introduction/playbook.md)
+  - [NestJs Playbook](introduction/nest-playbook.md)
 - Concepts
   - [Introduction](concepts/intro.md)
   - [Store](concepts/store.md)
@@ -13,6 +15,7 @@
 - Advanced
   - [Action Handlers](advanced/action-handlers.md)
   - [Actions Life Cycle](advanced/actions-life-cycle.md)
+  - [Envoy Proxy](advanced/envoy.md)
   - [Cancellation](advanced/cancellation.md)
   - [Composition](advanced/composition.md)
   - [Error Handling](advanced/errors.md)
@@ -25,7 +28,7 @@
   - [Shared State](advanced/shared-state.md)
   - [State Token](advanced/token.md)
   - [State Operators](advanced/operators.md)
-  - [Sub States](advanced/sub-states.md)
+  - [Style Guide](advanced/style-guide.md)
   - [Troubleshooting](advanced/troubleshooting.md)
 - Modules
   - Apps
@@ -55,3 +58,4 @@
   - [Contributing](community/contributing.md)
 - [Change Log](https://github.com/xmlking/yeti/blob/master/CHANGELOG.md)
 - [FAQ](faq/faq.md)
+- [TODO](todo.md)
