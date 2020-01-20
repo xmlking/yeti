@@ -19,32 +19,36 @@ import { AppComponent } from './app.component';
         { path: '', redirectTo: 'home', pathMatch: 'full' },
         {
           path: 'home',
+          // prettier-ignore
           loadChildren: () =>
-            // import('@yeti/home').then(module => module.HomeModule),
-            import('../../../../libs/home/src/lib/home.module').then(module => module.HomeModule),
+          import('@yeti/home').then(module => module.HomeModule),
+          // import('../../../../libs/home/src/lib/home.module').then(module => module.HomeModule),
           data: { preload: true }
         },
         {
           path: 'dashboard',
           canActivate: [AuthGuard],
+          // prettier-ignore
           loadChildren: () =>
-            // import('@yeti/dashboard').then(module => module.DashboardModule),
-            import('../../../../libs/dashboard/src/lib/dashboard.module').then(module => module.DashboardModule),
+          import('@yeti/dashboard').then(module => module.DashboardModule),
+          // import('../../../../libs/dashboard/src/lib/dashboard.module').then(module => module.DashboardModule),
           data: { preload: false }
         },
         {
           path: 'admin',
           canActivate: [AuthGuard],
+          // prettier-ignore
           loadChildren: () =>
-            // import('@yeti/admin').then(module => module.AdminModule),
-            import('../../../../libs/admin/src/lib/admin.module').then(module => module.AdminModule),
+          import('@yeti/admin').then(module => module.AdminModule),
+          // import('../../../../libs/admin/src/lib/admin.module').then(module => module.AdminModule),
           data: { preload: false }
         },
         {
           path: '404',
+          // prettier-ignore
           loadChildren: () =>
-            // import('@yeti/not-found').then(module => module.NotFoundModule),
-            import('../../../../libs/not-found/src/lib/not-found.module').then(module => module.NotFoundModule),
+          import('@yeti/not-found').then(module => module.NotFoundModule),
+          // import('../../../../libs/not-found/src/lib/not-found.module').then(module => module.NotFoundModule),
           data: { title: '404', preload: false }
         },
         // 404 should be last
