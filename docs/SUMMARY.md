@@ -27,6 +27,19 @@
   - [State Operators](advanced/operators.md)
   - [Sub States](advanced/sub-states.md)
   - [Troubleshooting](advanced/troubleshooting.md)
+- Modules
+  - Apps
+    - [WebApp](../apps/webapp/README.md)
+    - [Api](../apps/api/README.md)
+  - Libs
+    - [Admin](../libs/admin/README.md)
+    - [Blog](../libs/blog/README.md)
+    - [Core](../libs/core/README.md)
+    - [Dashboard](../libs/dashboard/README.md)
+    - [Gen](../libs/gen/README.md)
+    - [Home](../libs/home/README.md)
+    - [Not Found](../libs/not-found/README.md)
+    - [Shared](../libs/shared/README.md)
 - Recipes
   - [Authentication](recipes/authentication.md)
   - [Caching](recipes/cache.md)
