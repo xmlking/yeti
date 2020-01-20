@@ -124,7 +124,7 @@
     "@nrwl/workspace": "8.11.2",
     "@schematics/angular": "9.0.0-rc.9",
     "@scullyio/init": "0.0.14",
-    "@scullyio/scully": "0.0.55",
+    "@scullyio/scully": "0.0.56",
     "@types/google-protobuf": "3.7.2",
     "@types/jest": "24.9.0",
     "@types/node": "13.1.8",
