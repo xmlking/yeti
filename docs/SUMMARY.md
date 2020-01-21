@@ -56,6 +56,6 @@
   - [Resources](community/projects.md)
   - [Contributors](community/contributors.md)
   - [Contributing](community/contributing.md)
-- [Change Log](https://github.com/xmlking/yeti/blob/master/CHANGELOG.md)
+- [Change Log](../CHANGELOG.md)
 - [FAQ](faq/faq.md)
 - [TODO](todo.md)

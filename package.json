@@ -66,6 +66,11 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
   "lint-staged": {
     "{apps,libs}/**/*.{ts,json,md,scss,html}": [
       "yarn affected:lint --uncommitted --parallel --fix=true",
