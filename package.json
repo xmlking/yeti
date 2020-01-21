@@ -143,7 +143,7 @@
     "jest-preset-angular": "7.1.1",
     "prettier": "1.19.1",
     "rimraf": "3.0.0",
-    "standard-version": "7.0.1",
+    "standard-version": "7.1.0",
     "ts-jest": "24.3.0",
     "ts-node": "8.6.2",
     "tslint": "5.20.1",
