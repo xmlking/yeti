@@ -6,7 +6,7 @@ Live [Demo](https://ngx-starter-kit.firebaseapp.com/)
 
 Docs on [GitBook](https://xmlking.gitbook.io/yeti/v/develop/)
 
-API Docs [GitBook](https://xmlking.github.io/yeti/)
+API Docs [CompoDoc](https://xmlking.github.io/yeti/)
 
 ## TODO
 
