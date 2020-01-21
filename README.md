@@ -2,6 +2,12 @@
 
 This project was generated using [Nx](https://nx.dev). This project was built using [nebular](https://akveo.github.io/nebular/).
 
+Live [Demo](https://ngx-starter-kit.firebaseapp.com/)
+
+Docs on [GitBook](https://xmlking.gitbook.io/yeti/v/develop/)
+
+API Docs [GitBook](https://xmlking.github.io/yeti/)
+
 ## TODO
 
 - [x] i18n, Multi-Lingual Support
