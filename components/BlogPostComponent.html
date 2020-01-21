@@ -1,0 +1,749 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>yeti documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">yeti documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>BlogPostComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>libs/blog/src/lib/containers/blog-post/blog-post.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/AfterViewChecked" target="_blank" >AfterViewChecked</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">encapsulation</td>
+                <td class="col-md-9"><code>ViewEncapsulation.Emulated</code></td>
+            </tr>
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">preserveWhitespaces</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>yeti-blog-post</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./blog-post.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./blog-post.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#location">location</a>
+                            </li>
+                            <li>
+                                <a href="#post$">post$</a>
+                            </li>
+                            <li>
+                                <a href="#showComments">showComments</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngAfterViewChecked">ngAfterViewChecked</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#shareTextContent">shareTextContent</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, srs: ScullyRoutesService, highlightService: <a href="../injectables/HighlightService.html">HighlightService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">libs/blog/src/lib/containers/blog-post/blog-post.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>srs</td>
+                                                  
+                                                        <td>
+                                                                    <code>ScullyRoutesService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>highlightService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/HighlightService.html" target="_self" >HighlightService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewChecked"></a>
+                    <span class="name">
+                        <b>
+                            ngAfterViewChecked
+                        </b>
+                        <a href="#ngAfterViewChecked"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewChecked()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">libs/blog/src/lib/containers/blog-post/blog-post.component.ts:32</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Highlight blog post when it&#39;s ready</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">libs/blog/src/lib/containers/blog-post/blog-post.component.ts:36</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="shareTextContent"></a>
+                    <span class="name">
+                        <b>
+                            shareTextContent
+                        </b>
+                        <a href="#shareTextContent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>shareTextContent()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">libs/blog/src/lib/containers/blog-post/blog-post.component.ts:52</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="location"></a>
+                        <span class="name">
+                            <b>
+                            location</b>
+                            <a href="#location"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>null</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">libs/blog/src/lib/containers/blog-post/blog-post.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="post$"></a>
+                        <span class="name">
+                            <b>
+                            post$</b>
+                            <a href="#post$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Observable&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">libs/blog/src/lib/containers/blog-post/blog-post.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showComments"></a>
+                        <span class="name">
+                            <b>
+                            showComments</b>
+                            <a href="#showComments"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">libs/blog/src/lib/containers/blog-post/blog-post.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AfterViewChecked, ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { isScullyGenerated, ScullyRoute, ScullyRoutesService } from &#x27;@scullyio/ng-lib&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+import { map } from &#x27;rxjs/operators&#x27;;
+import { HighlightService } from &#x27;../../services/highlight.service&#x27;;
+
+@Component({
+  selector: &#x27;yeti-blog-post&#x27;,
+  templateUrl: &#x27;./blog-post.component.html&#x27;,
+  styleUrls: [&#x27;./blog-post.component.scss&#x27;],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  preserveWhitespaces: true,
+  encapsulation: ViewEncapsulation.Emulated
+})
+export class BlogPostComponent implements OnInit, AfterViewChecked {
+  post$: Observable&lt;any&gt;;
+  location: null;
+  showComments: boolean;
+
+  constructor(
+    private route: ActivatedRoute,
+    private srs: ScullyRoutesService,
+    private highlightService: HighlightService
+  ) {
+    this.showComments &#x3D; isScullyGenerated();
+  }
+
+  /**
+   * Highlight blog post when it&#x27;s ready
+   */
+  ngAfterViewChecked() {
+    this.highlightService.highlightAll();
+  }
+
+  ngOnInit() {
+    this.post$ &#x3D; this.srs.available$.pipe(
+      map(routeList &#x3D;&gt; {
+        return routeList.filter(
+          // prettier-ignore
+          (route: ScullyRoute) &#x3D;&gt;
+          route.route.startsWith(&#x60;/home/blog/&#x60;) &amp;&amp;
+          route.route.includes(this.route.snapshot.params.id)
+        );
+      }),
+      map(currentPostData &#x3D;&gt; {
+        return currentPostData[0];
+      })
+    );
+  }
+
+  shareTextContent() {
+    return encodeURI(location.href);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;wrapper alt&quot;&gt;
+  &lt;div class&#x3D;&quot;inner&quot; *ngIf&#x3D;&quot;post$ | async as post&quot;&gt;
+    &lt;section class&#x3D;&quot;blog-header&quot;&gt;
+      &lt;span *ngIf&#x3D;&quot;post.thumbnail&quot; class&#x3D;&quot;image fit&quot;&gt;
+        &lt;img [src]&#x3D;&quot;post.thumbnail&quot; alt&#x3D;&quot;header image&quot; /&gt;
+      &lt;/span&gt;
+    &lt;/section&gt;
+    &lt;section class&#x3D;&quot;blog-tags&quot; *ngIf&#x3D;&quot;post.keywords&quot;&gt;
+      &lt;h2 class&#x3D;&quot;keywords-heading&quot;&gt;Keywords&lt;/h2&gt;
+      &lt;div class&#x3D;&quot;actions&quot;&gt;
+        &lt;span *ngFor&#x3D;&quot;let keyword of post.keywords&quot;&gt;
+          &lt;button
+            routerLink&#x3D;&quot;/home/blog&quot;
+            [queryParams]&#x3D;&quot;{ keyword: keyword }&quot;
+            class&#x3D;&quot;button xs&quot;
+            [attr.aria-label]&#x3D;&quot;&#x27;Filter for keyword: &#x27; + keyword&quot;
+          &gt;
+            {{ keyword }}
+          &lt;/button&gt;
+        &lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section class&#x3D;&quot;blog-content&quot;&gt;
+      &lt;scully-content&gt;&lt;/scully-content&gt;
+    &lt;/section&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./blog-post.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">// @import &#x27;~@nebular/theme/styles/global/breakpoints&#x27;;
+// @import &#x27;themes&#x27;;
+
+:host ::ng-deep {
+  @import &#x27;blog&#x27;;
+
+  .wrapper {
+    margin-top: 0;
+
+    font-family: _font(family);
+    font-size: 16.5pt;
+    font-weight: _font(weight);
+    line-height: 1.65;
+  }
+
+  h1 {
+    font-size: 1.4em;
+  }
+
+  h2.keywords-heading {
+    font-size: 0.9em;
+  }
+
+  .published-at {
+    margin-bottom: 30px;
+  }
+  a.published-at-link {
+    text-decoration: none;
+    border: none;
+  }
+
+  .published-at-logo {
+    padding-right: 20px;
+  }
+
+  .share-toolbar {
+    list-style: none;
+    height: 40px;
+    padding: 0px;
+
+    &gt; li {
+      float: left;
+
+      &gt; a {
+        display: block;
+        cursor: pointer;
+        border-bottom: 0px;
+
+        &gt; i {
+          border: 1px solid $c06;
+          padding: 10px;
+          border-radius: 40px;
+          color: $c06;
+          min-width: 38px;
+        }
+
+        &amp;:hover &gt; i {
+          border: 1px solid $c02;
+          color: $c06;
+        }
+      }
+    }
+  }
+
+  .blog-tags {
+    padding-bottom: 2em;
+  }
+}
+
+::slotted(h1) {
+  color: rgb(51, 6, 37);
+  background-color: rgb(248, 211, 236);
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 1.4em;
+  width: fit-content;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="wrapper alt">  <div class="inner" *ngIf="post$ | async as post">    <section class="blog-header">      <span *ngIf="post.thumbnail" class="image fit">        <img [src]="post.thumbnail" alt="header image" />      </span>    </section>    <section class="blog-tags" *ngIf="post.keywords">      <h2 class="keywords-heading">Keywords</h2>      <div class="actions">        <span *ngFor="let keyword of post.keywords">          <button            routerLink="/home/blog"            [queryParams]="{ keyword: keyword }"            class="button xs"            [attr.aria-label]="\'Filter for keyword: \' + keyword"          >            {{ keyword }}          </button>        </span>      </div>    </section>    <section class="blog-content">      <scully-content></scully-content>    </section>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AdminLayoutComponent', 'selector': 'yeti-admin-layout'},{'name': 'AppComponent', 'selector': 'yeti-root'},{'name': 'BlogOverviewComponent', 'selector': 'yeti-blog-overview'},{'name': 'BlogPostComponent', 'selector': 'yeti-blog-post'},{'name': 'BlogPreviewComponent', 'selector': 'yeti-blog-preview'},{'name': 'CallbackComponent', 'selector': 'yeti-callback'},{'name': 'DashboardLayoutComponent', 'selector': 'yeti-dashboard-layout'},{'name': 'FooterComponent', 'selector': 'yeti-footer'},{'name': 'FooterComponent', 'selector': 'yeti-footer'},{'name': 'FooterComponent', 'selector': 'yeti-footer'},{'name': 'HeaderComponent', 'selector': 'yeti-header'},{'name': 'HeaderComponent', 'selector': 'yeti-header'},{'name': 'HeaderComponent', 'selector': 'yeti-header'},{'name': 'HomeLayoutComponent', 'selector': 'yeti-home-layout'},{'name': 'LandingComponent', 'selector': 'yeti-landing'},{'name': 'LoginComponent', 'selector': 'yeti-login'},{'name': 'NotFoundComponent', 'selector': 'yeti-not-found'},{'name': 'OverviewComponent', 'selector': 'yeti-overview'},{'name': 'OverviewComponent', 'selector': 'yeti-overview'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'BlogPostComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'BlogPostComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,382 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>yeti documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">yeti documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Interfaces</li>
+  <li>EchoService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>apps/api/src/app/echo/interfaces/echo.ts</code>
+        </p>
+
+
+
+        <section>
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Methods</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#Echo">Echo</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Echo"></a>
+                    <span class="name">
+                        <b>
+                            Echo
+                        </b>
+                        <a href="#Echo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>Echo(request: <a href="../objects/EchoRequest.html">EchoRequest</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">apps/api/src/app/echo/interfaces/echo.ts:23</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>request</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/variables.html#EchoRequest" target="_self" >EchoRequest</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/variables.html#EchoResponse" target="_self" >Promise&lt;EchoResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Reader, Writer } from &#x27;protobufjs/minimal&#x27;;
+import * as Long from &#x27;long&#x27;;
+
+
+export interface EchoRequest {
+  message: string;
+}
+
+export interface EchoResponse {
+  message: string;
+}
+
+const baseEchoRequest: object &#x3D; {
+  message: &quot;&quot;,
+};
+
+const baseEchoResponse: object &#x3D; {
+  message: &quot;&quot;,
+};
+
+export interface EchoService {
+
+  Echo(request: EchoRequest): Promise&lt;EchoResponse&gt;;
+
+}
+
+export class EchoServiceClientImpl implements EchoService {
+
+  private readonly rpc: Rpc;
+
+  constructor(rpc: Rpc) {
+    this.rpc &#x3D; rpc;
+  }
+
+  Echo(request: EchoRequest): Promise&lt;EchoResponse&gt; {
+    const data &#x3D; EchoRequest.encode(request).finish();
+    const promise &#x3D; this.rpc.request(&quot;yeti.EchoService&quot;, &quot;Echo&quot;, data);
+    return promise.then(data &#x3D;&gt; EchoResponse.decode(new Reader(data)));
+  }
+
+}
+
+interface Rpc {
+
+  request(service: string, method: string, data: Uint8Array): Promise&lt;Uint8Array&gt;;
+
+}
+
+function longToNumber(long: Long) {
+  if (long.gt(Number.MAX_SAFE_INTEGER)) {
+    throw new global.Error(&quot;Value is larger than Number.MAX_SAFE_INTEGER&quot;);
+  }
+  return long.toNumber();
+}
+
+export const EchoRequest &#x3D; {
+  encode(message: EchoRequest, writer: Writer &#x3D; Writer.create()): Writer {
+    writer.uint32(10).string(message.message);
+    return writer;
+  },
+  decode(reader: Reader, length?: number): EchoRequest {
+    let end &#x3D; length &#x3D;&#x3D;&#x3D; undefined ? reader.len : reader.pos + length;
+    const message &#x3D; Object.create(baseEchoRequest) as EchoRequest;
+    while (reader.pos &lt; end) {
+      const tag &#x3D; reader.uint32();
+      switch (tag &gt;&gt;&gt; 3) {
+        case 1:
+          message.message &#x3D; reader.string();
+          break;
+        default:
+          reader.skipType(tag &amp; 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromJSON(object: any): EchoRequest {
+    const message &#x3D; Object.create(baseEchoRequest) as EchoRequest;
+    if (object.message) {
+      message.message &#x3D; String(object.message);
+    }
+    return message;
+  },
+  fromPartial(object: DeepPartial&lt;EchoRequest&gt;): EchoRequest {
+    const message &#x3D; Object.create(baseEchoRequest) as EchoRequest;
+    if (object.message) {
+      message.message &#x3D; object.message;
+    }
+    return message;
+  },
+  toJSON(message: EchoRequest): unknown {
+    const obj: any &#x3D; {};
+    obj.message &#x3D; message.message || &quot;&quot;;
+    return obj;
+  },
+};
+
+export const EchoResponse &#x3D; {
+  encode(message: EchoResponse, writer: Writer &#x3D; Writer.create()): Writer {
+    writer.uint32(10).string(message.message);
+    return writer;
+  },
+  decode(reader: Reader, length?: number): EchoResponse {
+    let end &#x3D; length &#x3D;&#x3D;&#x3D; undefined ? reader.len : reader.pos + length;
+    const message &#x3D; Object.create(baseEchoResponse) as EchoResponse;
+    while (reader.pos &lt; end) {
+      const tag &#x3D; reader.uint32();
+      switch (tag &gt;&gt;&gt; 3) {
+        case 1:
+          message.message &#x3D; reader.string();
+          break;
+        default:
+          reader.skipType(tag &amp; 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromJSON(object: any): EchoResponse {
+    const message &#x3D; Object.create(baseEchoResponse) as EchoResponse;
+    if (object.message) {
+      message.message &#x3D; String(object.message);
+    }
+    return message;
+  },
+  fromPartial(object: DeepPartial&lt;EchoResponse&gt;): EchoResponse {
+    const message &#x3D; Object.create(baseEchoResponse) as EchoResponse;
+    if (object.message) {
+      message.message &#x3D; object.message;
+    }
+    return message;
+  },
+  toJSON(message: EchoResponse): unknown {
+    const obj: any &#x3D; {};
+    obj.message &#x3D; message.message || &quot;&quot;;
+    return obj;
+  },
+};
+
+type DeepPartial&lt;T&gt; &#x3D; {
+  [P in keyof T]?: T[P] extends Array&lt;infer U&gt;
+  ? Array&lt;DeepPartial&lt;U&gt;&gt;
+  : T[P] extends ReadonlyArray&lt;infer U&gt;
+  ? ReadonlyArray&lt;DeepPartial&lt;U&gt;&gt;
+  : T[P] extends Date | Function | Uint8Array | undefined
+  ? T[P]
+  : T[P] extends infer U | undefined
+  ? DeepPartial&lt;U&gt;
+  : T[P] extends object
+  ? DeepPartial&lt;T[P]&gt;
+  : T[P]
+};</code></pre>
+    </div>
+</div>
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'EchoService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
