@@ -756,17 +756,6 @@ yarn run lite-server
 yarn run scully serve
 ```
 
-### Docs
-
-> generate docs
-
-```bash
-# generate docs
-npx compodoc -p tsconfig.json -d docs
-# serve docs
-npx compodoc -s -d docs
-```
-
 ### Deploy
 
 #### deploy this app with mock config to gh-pages
