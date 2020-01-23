@@ -133,7 +133,7 @@
     "@types/google-protobuf": "3.7.2",
     "@types/jest": "24.9.0",
     "@types/node": "13.1.8",
-    "codecov": "3.6.1",
+    "codecov": "3.6.2",
     "codelyzer": "5.2.1",
     "commitizen": "4.0.3",
     "cypress": "3.8.2",
