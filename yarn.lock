@@ -1933,25 +1933,28 @@
   dependencies:
     intersection-observer "0.7.0"
 
-"@nestjs/common@6.10.14":
-  version "6.10.14"
-  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-6.10.14.tgz#559d513a7ad1765f8516abac9754af80674cfefc"
-  integrity sha512-3msjd03BAIVV0hIrAUrB1KZFHBXLQFEg1i7mAdFbXzMQDoKzI8s0gRvFwlHnEAcMLvk3fKdYenrVkYJKC2dMBg==
+"@nestjs/common@6.11.1":
+  version "6.11.1"
+  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-6.11.1.tgz#8bce7d5849dc42b74196685ef09020312f1aca5e"
+  integrity sha512-ozraRypa0uA0I15lFkCuEC4BaJmruGetDW2VXuJ0hifSl98sHoj+XeZmW5QfNTl8ouPEJ46jc+HtBtyZ1IeR+A==
   dependencies:
-    axios "0.19.0"
+    axios "0.19.2"
     cli-color "2.0.0"
-    uuid "3.3.3"
+    tslib "1.10.0"
+    uuid "3.4.0"
 
-"@nestjs/core@6.10.14":
-  version "6.10.14"
-  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-6.10.14.tgz#0e8ec47c3077f0fa7ed4df181a9e455fdd51972d"
-  integrity sha512-zjL7o9xuYXCCgkelt2xlCUGkd3XGlYFgj8D64owKMk2Rbj5kYUazdmf5DphZrn5N4qTgNh8UHAalNhdGX6mEqg==
+"@nestjs/core@6.11.1":
+  version "6.11.1"
+  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-6.11.1.tgz#566baf0c846497dffbc6af9c3a8a48750e79cbdb"
+  integrity sha512-pznpX6CzMkMeIilVDntEqmOJLwRA+GACBwD3GW1AJVaIe3xx2QlsClByiGz04vxKADUJvSC+EqJpUbx7ROTAHg==
   dependencies:
     "@nuxtjs/opencollective" "0.2.2"
     fast-safe-stringify "2.0.7"
     iterare "1.2.0"
     object-hash "2.0.1"
-    uuid "3.3.3"
+    path-to-regexp "3.2.0"
+    tslib "1.10.0"
+    uuid "3.4.0"
 
 "@nestjs/microservices@6.10.11":
   version "6.10.11"
@@ -1976,15 +1979,16 @@
     express "4.17.1"
     multer "1.4.2"
 
-"@nestjs/platform-express@6.10.14":
-  version "6.10.14"
-  resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-6.10.14.tgz#1ae544c8668545c2707c094d2de7c4ca98c2ea48"
-  integrity sha512-0E31f9FeKhcbhNZaUh4IrkJt06uGR3PnWVBya8yewlsWBtpXORVOE5yJZnw5Q5QZhdUcN79gZeVZn2WOoViE3Q==
+"@nestjs/platform-express@6.11.1":
+  version "6.11.1"
+  resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-6.11.1.tgz#4b263c6a1e9e1319eccaedd060e060eb65f0e3cb"
+  integrity sha512-drU+T4uHpyysIBlDSu3qrgRCCRq/h0VYYM0wvJll2Ki++b7xcIoasZSU+cYKurdXRi7x6NNdFHbo8nozXoi7iQ==
   dependencies:
     body-parser "1.19.0"
     cors "2.8.5"
     express "4.17.1"
     multer "1.4.2"
+    tslib "1.10.0"
 
 "@nestjs/platform-fastify@6.10.11":
   version "6.10.11"
@@ -3617,6 +3621,13 @@ axios@0.19.0:
   dependencies:
     follow-redirects "1.5.10"
     is-buffer "^2.0.2"
+
+axios@0.19.2:
+  version "0.19.2"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.2.tgz#3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27"
+  integrity sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==
+  dependencies:
+    follow-redirects "1.5.10"
 
 axobject-query@2.0.2:
   version "2.0.2"
@@ -12258,7 +12269,7 @@ node-notifier@^6.0.0:
     shellwords "^0.1.1"
     which "^1.3.1"
 
-node-pre-gyp@*, node-pre-gyp@^0.14.0:
+node-pre-gyp@^0.14.0:
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.14.0.tgz#9a0596533b877289bcad4e143982ca3d904ddc83"
   integrity sha512-+CvDC7ZttU/sSt9rFjix/P05iS43qHCOOGzcr3Ry99bXG7VX953+vFyEuph/tfqoYu8dttBkE86JSKBO2OzcxA==
@@ -17183,15 +17194,15 @@ uuid@3.3.3:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.3.tgz#4568f0216e78760ee1dbf3a4d2cf53e224112866"
   integrity sha512-pW0No1RGHgzlpHJO1nsVrHKpOEIxkGg1xB+v0ZmdNH5OAeAwzAVrCnI2/6Mtx+Uys6iaylxa+D3g4j63IKKjSQ==
 
+uuid@3.4.0, uuid@^3.0.0, uuid@^3.0.1, uuid@^3.3.2, uuid@^3.3.3:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
+  integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
+
 uuid@^2.0.1:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-2.0.3.tgz#67e2e863797215530dff318e5bf9dcebfd47b21a"
   integrity sha1-Z+LoY3lyFVMN/zGOW/nc6/1Hsho=
-
-uuid@^3.0.0, uuid@^3.0.1, uuid@^3.3.2, uuid@^3.3.3:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
-  integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
 
 v8-compile-cache@^2.0.3:
   version "2.1.0"
