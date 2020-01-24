@@ -2384,10 +2384,10 @@
   resolved "https://registry.yarnpkg.com/@scullyio/ng-lib/-/ng-lib-0.0.13.tgz#bc6ab2c32c08cbf994829f4252d715362435559b"
   integrity sha512-NgumC539xJyVUb6+MIWjDbGAk3+XjQSI+XA6EOt36rIZ0edZ+chaMePPDvAxQAf4DGRErsVKqEdnnYKtmkJHyg==
 
-"@scullyio/scully@0.0.61":
-  version "0.0.61"
-  resolved "https://registry.yarnpkg.com/@scullyio/scully/-/scully-0.0.61.tgz#4084be944eb3a9b8af630cbfe650bd9f1ddfa263"
-  integrity sha512-o5FWLlPBbpYph1cCSt97E/cuAWB8+3Wd7wpJi+c4+LcSNCoXrpADw6eiZBPGYgcQeoZ/7VrIkX7WL1QOtBs9ug==
+"@scullyio/scully@0.0.62":
+  version "0.0.62"
+  resolved "https://registry.yarnpkg.com/@scullyio/scully/-/scully-0.0.62.tgz#ef089fd83db9e13472a5080034fffd2eef3d8a82"
+  integrity sha512-pW+DYdecK2MHcc6d5QrFuwTUqGkJgt1SymDOXunS1k8ApOsH4nuSw49qiCLkoBFYqXQv8l/tr0PvO0nkkr8yAw==
   dependencies:
     asciidoctor.js "^1.5.9"
     chalk "2.4.2"
@@ -12258,7 +12258,7 @@ node-notifier@^6.0.0:
     shellwords "^0.1.1"
     which "^1.3.1"
 
-node-pre-gyp@*, node-pre-gyp@^0.14.0:
+node-pre-gyp@^0.14.0:
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.14.0.tgz#9a0596533b877289bcad4e143982ca3d904ddc83"
   integrity sha512-+CvDC7ZttU/sSt9rFjix/P05iS43qHCOOGzcr3Ry99bXG7VX953+vFyEuph/tfqoYu8dttBkE86JSKBO2OzcxA==
