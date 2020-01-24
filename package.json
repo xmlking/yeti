@@ -162,8 +162,5 @@
     "lite-server": "2.5.4",
     "ngx-semantic-version": "2.0.0-beta.4",
     "webpack-bundle-analyzer": "3.6.0"
-  },
-  "resolutions": {
-    "guess-parser": "^0.4.13"
   }
 }
