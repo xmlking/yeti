@@ -61,7 +61,8 @@
   "files.trimTrailingWhitespace": true,
   "files.associations": {
     "renovate.json5": "jsonc",
-    "tslint.json": "jsonc"
+    "tslint.json": "jsonc",
+    "nx.json": "jsonc"
   },
   // Peacock Settings
   "peacock.color": "#f9e64f",

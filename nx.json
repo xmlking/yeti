@@ -1,5 +1,14 @@
 {
   "npmScope": "yeti",
+  // FIXME: Till Nx 10
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/src/tasks-runner/tasks-runner-v2",
+      "options": {
+        "cacheableOperations": ["build", "test", "lint"]
+      }
+    }
+  },
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": "*",
