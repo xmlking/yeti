@@ -111,6 +111,10 @@ A curated list of awesome Angular resources
   > Read [The ultimate guide to proper use of animation in UX](https://uxdesign.cc/the-ultimate-guide-to-proper-use-of-animation-in-ux-10bd98614fa9)
   > Read [Microinteractions: small details matter](https://uxdesign.cc/microinteractions-detailed-design-9113c88946d0)
 
+- Microfrontends
+
+> [Microfrontends and Monorepos](https://blog.nrwl.io/monorepos-and-react-microfrontends-a-perfect-match-d49dca64489a)
+
 - UI Kits
 
   1. [Material](https://material.angular.io/)
