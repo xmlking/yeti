@@ -8,7 +8,8 @@
     "tools"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "ng": "ng",
@@ -121,12 +122,12 @@
     "@angular/language-service": "9.0.0-rc.11",
     "@compodoc/compodoc": "1.1.11",
     "@fortawesome/fontawesome-free": "5.12.0",
-    "@nrwl/angular": "8.12.0-beta.4",
-    "@nrwl/cypress": "8.12.0-beta.4",
-    "@nrwl/jest": "8.12.0-beta.4",
-    "@nrwl/nest": "8.12.0-beta.4",
-    "@nrwl/node": "8.12.0-beta.4",
-    "@nrwl/workspace": "8.12.0-beta.4",
+    "@nrwl/angular": "8.12.0-beta.6",
+    "@nrwl/cypress": "8.12.0-beta.6",
+    "@nrwl/jest": "8.12.0-beta.6",
+    "@nrwl/nest": "8.12.0-beta.6",
+    "@nrwl/node": "8.12.0-beta.6",
+    "@nrwl/workspace": "8.12.0-beta.6",
     "@schematics/angular": "9.0.0-rc.10",
     "@scullyio/init": "0.0.18",
     "@scullyio/scully": "0.0.62",
