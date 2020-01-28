@@ -41,7 +41,6 @@ import { LandingComponent } from './containers/landing/landing.component';
             // prettier-ignore
             loadChildren: () =>
             import('@yeti/blog').then(module => module.BlogModule)
-            // import('../../../blog/src/lib/blog.module').then(module => module.BlogModule)
           }
         ]
       }
