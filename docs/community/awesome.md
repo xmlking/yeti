@@ -71,6 +71,7 @@ A curated list of awesome Angular resources
 
   - [Angular Enterprise Monorepo Patterns](https://go.nrwl.io/angular-enterprise-monorepo-patterns-new-book)
   - [Advantages of monorepos](https://danluu.com/monorepo/)
+  - [Blazing Fast Distributed CI with Nx Workspaces](https://github.com/nrwl/nx-jenkins-build)
   - [Getting Started with Nx: The Nrwl Extensions for Angular](http://blog.ng-book.com/getting-started-with-nx-the-nrwl-extensions-for-angular/)
   - [From Zero to However Far We Can Get With Nx](https://www.youtube.com/watch?v=0N589xX2ZQw)
   - [nx-examples](https://github.com/nrwl/nx-examples)
