@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ComponentsModule } from '@scullyio/ng-lib';
+import { ScullyLibModule } from '@scullyio/ng-lib';
 import { SharedModule } from '@yeti/shared';
 import { BlogPreviewComponent } from './components/blog-preview/blog-preview.component';
 import { BlogOverviewComponent } from './containers/blog-overview/blog-overview.component';
@@ -9,7 +9,7 @@ import { BlogPostComponent } from './containers/blog-post/blog-post.component';
 @NgModule({
   imports: [
     SharedModule,
-    ComponentsModule,
+    ScullyLibModule,
 
     RouterModule.forChild([
       /* {path: '', pathMatch: 'full', component: InsertYourComponentHere} */

@@ -8,11 +8,8 @@ import { IdleMonitorService } from '@scullyio/ng-lib';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LandingComponent implements OnInit {
-  constructor(private idle: IdleMonitorService) {
-    // this.idle.idle$.subscribe(res => {
-    //   console.log(res);
-    // });
-  }
+  // TODO remove IdleMonitorService
+  constructor(private idle: IdleMonitorService) {}
 
   ngOnInit() {}
 

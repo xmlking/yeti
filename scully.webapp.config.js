@@ -1,8 +1,8 @@
-const {voidPlugin} = require('./tools/scully-plugins/void-plugin.js');
+require("@scullyio/scully/routerPlugins/ignoredRoutePlugin")
 
 exports.config = {
-  /** projectRoot is mandatory! */
-  projectRoot: './apps/webapp/src/app',
+  // TODO: Remove projectRoot
+  projectRoot: './apps/webapp/tsconfig.app.json',
   outDir: './dist/static/apps/webapp',
   routes: {
     '/home/blog/:id': {
@@ -10,7 +10,7 @@ exports.config = {
       id: { folder: './libs/blog/posts' }
     },
     '/home/callback': {
-      type: 'void',
+      type: 'ignored',
     }
   }
 };

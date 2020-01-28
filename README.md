@@ -46,8 +46,7 @@ ng build --prod --localize
 ng build
 # build scully blog
 # options  --showBrowser, --project
-yarn run scully
-yarn run scully --project webapp # alternative
+yarn run scully --project webapp
 # serve static content
 yarn run lite-server
 
