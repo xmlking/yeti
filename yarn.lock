@@ -1864,10 +1864,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@nebular/auth@5.0.0-beta.2":
-  version "5.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@nebular/auth/-/auth-5.0.0-beta.2.tgz#1eb77ad54758cb7a5b1409e510faaee57b9b8f9e"
-  integrity sha512-xZCRoYcpm1eZ4fNtzXC3Ug8PbamY5Lcc7hI97MmBHkud/2xuq4RYO/5bLRJRHsdmY5SeVgNN61GCI0whf7N/cg==
+"@nebular/auth@5.0.0-beta.4":
+  version "5.0.0-beta.4"
+  resolved "https://registry.yarnpkg.com/@nebular/auth/-/auth-5.0.0-beta.4.tgz#eec2736595a0f164f1dbc357357d53210ee53c4f"
+  integrity sha512-YmRSpz63yfCURt1s6SLFVMGzhs2zypG32tw2rigkNzl1nyU1H3Ncc1J0MIDKvAwKVGPO2QIo0PEekdUF1bHTwQ==
 
 "@nebular/eva-icons@5.0.0-beta.2":
   version "5.0.0-beta.2"
