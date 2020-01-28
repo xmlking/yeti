@@ -94,7 +94,7 @@
     "@angular/service-worker": "9.0.0-rc.11",
     "@nebular/auth": "5.0.0-beta.2",
     "@nebular/eva-icons": "5.0.0-beta.2",
-    "@nebular/security": "5.0.0-beta.2",
+    "@nebular/security": "5.0.0-beta.4",
     "@nebular/theme": "5.0.0-beta.2",
     "@ngneat/until-destroy": "7.1.0",
     "@ngxs-labs/select-snapshot": "1.1.0",
