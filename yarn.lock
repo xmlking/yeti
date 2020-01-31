@@ -2327,10 +2327,10 @@
   resolved "https://registry.yarnpkg.com/@scullyio/ng-lib/-/ng-lib-0.0.15.tgz#e4f2e71201e5edbcac52b7a642fa446df666ba1a"
   integrity sha512-BvvrCXOqAkry90yzOJlMqRZlnIgWFa7Kg9wQ1D0isewNm7kpHFr9N8vp5WG2egk0W6PVNUikkuZSgXs4j8q0Kg==
 
-"@scullyio/scully@0.0.62":
-  version "0.0.62"
-  resolved "https://registry.yarnpkg.com/@scullyio/scully/-/scully-0.0.62.tgz#ef089fd83db9e13472a5080034fffd2eef3d8a82"
-  integrity sha512-pW+DYdecK2MHcc6d5QrFuwTUqGkJgt1SymDOXunS1k8ApOsH4nuSw49qiCLkoBFYqXQv8l/tr0PvO0nkkr8yAw==
+"@scullyio/scully@0.0.63":
+  version "0.0.63"
+  resolved "https://registry.yarnpkg.com/@scullyio/scully/-/scully-0.0.63.tgz#e356d7785733bcf381004a154f67538f33920385"
+  integrity sha512-zQ/pOt2H1hVb2dHaBC9eLsUUSjBv747s5+/c9Jcq7BLdxUtb2G4iJRAH1MBSHWxC73kVcv44qolPno6dMRPxwg==
   dependencies:
     asciidoctor.js "^1.5.9"
     chalk "2.4.2"
@@ -2338,7 +2338,7 @@
     express "^4.17.1"
     front-matter "^3.0.2"
     fs-extra "^8.1.0"
-    guess-parser "^0.4.13"
+    guess-parser "^0.4.15"
     jsonc "2.0.0"
     marked "^0.7.0"
     puppeteer "^2.0.0"
@@ -8550,10 +8550,10 @@ gtoken@^4.1.0:
     jws "^4.0.0"
     mime "^2.2.0"
 
-guess-parser@^0.4.13:
-  version "0.4.14"
-  resolved "https://registry.yarnpkg.com/guess-parser/-/guess-parser-0.4.14.tgz#b791e8bf37e614c238f17dae7597995ad3c5d261"
-  integrity sha512-v2gtJxUbX2F4LhS0XX0eeneM92y6G7suqNJ+zAEosY7UB1EIgNIlRfYapwCjVhI13k99+Yh/RlNcS7e4kfrung==
+guess-parser@^0.4.15:
+  version "0.4.15"
+  resolved "https://registry.yarnpkg.com/guess-parser/-/guess-parser-0.4.15.tgz#bc51fa11740f08cb6fa9dee1010378095f20e43d"
+  integrity sha512-jP6YFgadcvUt9Nlzf1Rd60tfMDe04V2xJgaZnpn99d6HI+IG702Jv9afJrvR1RsxT9IAkMwYmuyH2iKzC+Bedw==
   dependencies:
     "@wessberg/ts-evaluator" "0.0.24"
 
