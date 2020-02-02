@@ -252,6 +252,7 @@ A curated list of awesome Angular resources
 
 semantic-release is a fully automated library/system for versioning, changelog generation, git tagging, and publishing to the npm registry.
 
+> [add ngx-semantic-version](http://d-koppenhagen.de/blog/2019-11-ngx-semantic-version)
 > [refer](https://blog.greenkeeper.io/introduction-to-semantic-release-33f73b117c8)
 > Refer [Angular DevOps](https://blog.angularindepth.com/the-angular-devops-series-semantically-release-your-angular-library-7d78afb4c845)
 > Watch Automating Releases with [semantic-release](https://egghead.io/lessons/javascript-automating-releases-with-semantic-release)
