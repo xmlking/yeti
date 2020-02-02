@@ -147,17 +147,6 @@
     rxjs "6.4.0"
     source-map "0.7.3"
 
-"@angular-devkit/core@9.0.0-rc.10":
-  version "9.0.0-rc.10"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-9.0.0-rc.10.tgz#e751cedf6483026bbb3f9a5a6ab9c6e9833e1c3a"
-  integrity sha512-aEdHb9M1rwAsyJSkmQ8J4BRiRLK4zWQL/CXxK15c056H04ncwU8OntBChpnSIf5iGsBM9UQRtiFbRubLfrpxgQ==
-  dependencies:
-    ajv "6.10.2"
-    fast-json-stable-stringify "2.0.0"
-    magic-string "0.25.4"
-    rxjs "6.5.3"
-    source-map "0.7.3"
-
 "@angular-devkit/core@9.0.0-rc.12", "@angular-devkit/core@^9.0.0-rc.5", "@angular-devkit/core@^9.0.0-rc.7":
   version "9.0.0-rc.12"
   resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-9.0.0-rc.12.tgz#044917d6e3bc51546810db41526a9b564f0e1e21"
@@ -192,15 +181,6 @@
   dependencies:
     "@angular-devkit/core" "8.3.24"
     rxjs "6.4.0"
-
-"@angular-devkit/schematics@9.0.0-rc.10":
-  version "9.0.0-rc.10"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-9.0.0-rc.10.tgz#65d5e3fbf6a0c7c0689f3ac27cc1b629ca6c8570"
-  integrity sha512-cuy+gDOhzf04vhJHsR21HnkEcOZqyfFabNs90Q5H77iGWl7GUO/RhwV7tXADdKZ4ee14rfFQi3TA0SrcOMXQlA==
-  dependencies:
-    "@angular-devkit/core" "9.0.0-rc.10"
-    ora "4.0.2"
-    rxjs "6.5.3"
 
 "@angular-devkit/schematics@9.0.0-rc.12", "@angular-devkit/schematics@^9.0.0-rc.5", "@angular-devkit/schematics@^9.0.0-rc.7":
   version "9.0.0-rc.12"
@@ -2339,14 +2319,6 @@
   dependencies:
     "@angular-devkit/core" "8.3.23"
     "@angular-devkit/schematics" "8.3.23"
-
-"@schematics/angular@9.0.0-rc.10":
-  version "9.0.0-rc.10"
-  resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-9.0.0-rc.10.tgz#816b1dbbc353f4d4cc3688e82787a650d8ae1bdd"
-  integrity sha512-dr8smXOgQY4xx8c29I3bKPdlH1YhTy3DgmRmO40HQBLBZZlHK0uKQ2XzV5EF+BjbJ+sJoB/sLSMgggJ6Mnv2hQ==
-  dependencies:
-    "@angular-devkit/core" "9.0.0-rc.10"
-    "@angular-devkit/schematics" "9.0.0-rc.10"
 
 "@schematics/angular@9.0.0-rc.12", "@schematics/angular@^9.0.0-rc.5":
   version "9.0.0-rc.12"
