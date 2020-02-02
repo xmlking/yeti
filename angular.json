@@ -65,6 +65,22 @@
               "serviceWorker": true,
               "ngswConfigPath": "apps/webapp/ngsw-config.json"
             },
+            "staging": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/webapp/src/environments/environment.ts",
+                  "with": "apps/webapp/src/environments/environment.stage.ts"
+                }
+              ]
+            },
+            "mock": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/webapp/src/environments/environment.ts",
+                  "with": "apps/webapp/src/environments/environment.mock.ts"
+                }
+              ]
+            },
             "es": {
               "localize": ["es"]
             },
@@ -85,6 +101,12 @@
           "configurations": {
             "production": {
               "browserTarget": "webapp:build:production"
+            },
+            "staging": {
+              "browserTarget": "webapp:build:staging"
+            },
+            "mock": {
+              "browserTarget": "webapp:build:mock"
             },
             "es": {
               "browserTarget": "webapp:build:es"
@@ -135,7 +157,7 @@
         "deploy": {
           "builder": "@angular/fire:deploy",
           "options": {
-            "configuration": "mock"
+            "buildTarget": "webapp:browser:staging"
           }
         }
       }

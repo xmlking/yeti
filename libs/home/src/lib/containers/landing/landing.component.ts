@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { IdleMonitorService } from '@scullyio/ng-lib';
 
 @Component({
   selector: 'yeti-landing',
@@ -8,8 +7,7 @@ import { IdleMonitorService } from '@scullyio/ng-lib';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LandingComponent implements OnInit {
-  // TODO remove IdleMonitorService
-  constructor(private idle: IdleMonitorService) {}
+  constructor() {}
 
   ngOnInit() {}
 

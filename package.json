@@ -85,7 +85,7 @@
     "@angular/common": "9.0.0-rc.13",
     "@angular/compiler": "9.0.0-rc.13",
     "@angular/core": "9.0.0-rc.13",
-    "@angular/fire": "5.3.0",
+    "@angular/fire": "5.4.0",
     "@angular/flex-layout": "9.0.0-beta.28",
     "@angular/forms": "9.0.0-rc.13",
     "@angular/localize": "9.0.0-rc.13",
@@ -123,12 +123,12 @@
     "@angular/language-service": "9.0.0-rc.13",
     "@compodoc/compodoc": "1.1.11",
     "@fortawesome/fontawesome-free": "5.12.0",
-    "@nrwl/angular": "8.12.1-beta.1",
-    "@nrwl/cypress": "8.12.1-beta.1",
-    "@nrwl/jest": "8.12.1-beta.1",
-    "@nrwl/nest": "8.12.1-beta.1",
-    "@nrwl/node": "8.12.1-beta.1",
-    "@nrwl/workspace": "8.12.0",
+    "@nrwl/angular": "8.12.1",
+    "@nrwl/cypress": "8.12.1",
+    "@nrwl/jest": "8.12.1",
+    "@nrwl/nest": "8.12.1",
+    "@nrwl/node": "8.12.1",
+    "@nrwl/workspace": "8.12.1",
     "@schematics/angular": "9.0.0-rc.12",
     "@scullyio/init": "0.0.21",
     "@scullyio/scully": "0.0.63",
@@ -164,5 +164,8 @@
     "lite-server": "2.5.4",
     "ngx-semantic-version": "2.0.0-beta.4",
     "webpack-bundle-analyzer": "3.6.0"
+  },
+  "resolutions": {
+    "guess-parser": "0.4.14"
   }
 }

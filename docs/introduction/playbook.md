@@ -703,7 +703,7 @@ ng serve -c=mock --proxy-config proxy.conf.js
 # to bind to host IP, to demo from laptop
 ng s --host
 # ES2015 support: Set tsconfig.json target value as "es2015" and  use --aot
-ng serve -c=mock --aot -o
+ng serve -c=mock
 # run prod mode
 ng serve -c=prod
 
@@ -763,8 +763,8 @@ yarn run scully serve
 
 ```bash
 # ng deploy --dry-run
-ng deploy --base-href=/ngx-starter-kit/ --configuration=mock # for gh-pages
-ng deploy # for firebase
+ng deploy --base-href=/ngx-starter-kit/ --configuration=mock # to gh-pages
+ng deploy --buildTarget=project:browser:staging # to firebase
 # deploy all affected apps
 nx affected --target deploy
 # deploy `dist/apps/webapp` manually to firebase
