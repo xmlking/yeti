@@ -147,17 +147,6 @@
     rxjs "6.4.0"
     source-map "0.7.3"
 
-"@angular-devkit/core@9.0.0-rc.10":
-  version "9.0.0-rc.10"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-9.0.0-rc.10.tgz#e751cedf6483026bbb3f9a5a6ab9c6e9833e1c3a"
-  integrity sha512-aEdHb9M1rwAsyJSkmQ8J4BRiRLK4zWQL/CXxK15c056H04ncwU8OntBChpnSIf5iGsBM9UQRtiFbRubLfrpxgQ==
-  dependencies:
-    ajv "6.10.2"
-    fast-json-stable-stringify "2.0.0"
-    magic-string "0.25.4"
-    rxjs "6.5.3"
-    source-map "0.7.3"
-
 "@angular-devkit/core@9.0.0-rc.12", "@angular-devkit/core@^9.0.0-rc.5", "@angular-devkit/core@^9.0.0-rc.7":
   version "9.0.0-rc.12"
   resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-9.0.0-rc.12.tgz#044917d6e3bc51546810db41526a9b564f0e1e21"
@@ -192,15 +181,6 @@
   dependencies:
     "@angular-devkit/core" "8.3.24"
     rxjs "6.4.0"
-
-"@angular-devkit/schematics@9.0.0-rc.10":
-  version "9.0.0-rc.10"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-9.0.0-rc.10.tgz#65d5e3fbf6a0c7c0689f3ac27cc1b629ca6c8570"
-  integrity sha512-cuy+gDOhzf04vhJHsR21HnkEcOZqyfFabNs90Q5H77iGWl7GUO/RhwV7tXADdKZ4ee14rfFQi3TA0SrcOMXQlA==
-  dependencies:
-    "@angular-devkit/core" "9.0.0-rc.10"
-    ora "4.0.2"
-    rxjs "6.5.3"
 
 "@angular-devkit/schematics@9.0.0-rc.12", "@angular-devkit/schematics@^9.0.0-rc.5", "@angular-devkit/schematics@^9.0.0-rc.7":
   version "9.0.0-rc.12"
@@ -1952,20 +1932,20 @@
   dependencies:
     intersection-observer "0.7.0"
 
-"@nestjs/common@6.11.4":
-  version "6.11.4"
-  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-6.11.4.tgz#feae83b3fe0a2f9d77ceefe59341e79854995fc4"
-  integrity sha512-NOtDTUcCSoJAYN+4gvROkMkcDTdRQ+z39ngQQKYNMeXx2SOmTKXG6TaRVbiNN8Q1drri3ooqwG70PWiz/EQbPQ==
+"@nestjs/common@6.11.5":
+  version "6.11.5"
+  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-6.11.5.tgz#02d8b85e1c494ec866fc8cec78a9f7b2d950767e"
+  integrity sha512-pCM3aK876ubnJS9g/ni44BpzNU3sja+dTw61H3VkYJTq1tBWjhn50fAe5ezTXEZPND4pG8HAO3gjdHFanEXH2g==
   dependencies:
     axios "0.19.2"
     cli-color "2.0.0"
     tslib "1.10.0"
     uuid "3.4.0"
 
-"@nestjs/core@6.11.4":
-  version "6.11.4"
-  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-6.11.4.tgz#91620b19f22f2cec32efc77861bab11efa3422c3"
-  integrity sha512-l/2dlVLV9MTjtcza7Lk6iqfp5MR+BGt0yGc1wLWKbjibEckgtngQmbGSSbtXMjK/3lTvIX3VYle2k/2DV1vkfg==
+"@nestjs/core@6.11.5":
+  version "6.11.5"
+  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-6.11.5.tgz#13747f512175cc6253b774e7471019506b67dc0a"
+  integrity sha512-UFtMZBFXeNdSH3wdv9czCSZMO47nPcsauANf8xrzYP9m3amEOhhEMR+FIjwuFXZ5RralsLuz+U2LcaChWZjSHg==
   dependencies:
     "@nuxtjs/opencollective" "0.2.2"
     fast-safe-stringify "2.0.7"
@@ -1998,10 +1978,10 @@
     express "4.17.1"
     multer "1.4.2"
 
-"@nestjs/platform-express@6.11.4":
-  version "6.11.4"
-  resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-6.11.4.tgz#4887af6ef0f2391a001ba57e1737537e6dd93fee"
-  integrity sha512-kDCd4U3J2hxzhPr7L4SSjf+pTYt/Pu+CHm+lHCBcRAUuxChPvFgdZkzPBqJtfe5cUPZz+LdWqB1Q8ck8+qy3Ig==
+"@nestjs/platform-express@6.11.5":
+  version "6.11.5"
+  resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-6.11.5.tgz#c8c863ae1aacdc3e77dcd5155d7147a2134ab096"
+  integrity sha512-kPbUzlo7eN68LesTQ3Y1siJ1BJZo2DUINqdrv92hPv834nTX9P36+Ee4LNGHmO8I4vCdRweudrurxAYntuN+gw==
   dependencies:
     body-parser "1.19.0"
     cors "2.8.5"
@@ -2339,14 +2319,6 @@
   dependencies:
     "@angular-devkit/core" "8.3.23"
     "@angular-devkit/schematics" "8.3.23"
-
-"@schematics/angular@9.0.0-rc.10":
-  version "9.0.0-rc.10"
-  resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-9.0.0-rc.10.tgz#816b1dbbc353f4d4cc3688e82787a650d8ae1bdd"
-  integrity sha512-dr8smXOgQY4xx8c29I3bKPdlH1YhTy3DgmRmO40HQBLBZZlHK0uKQ2XzV5EF+BjbJ+sJoB/sLSMgggJ6Mnv2hQ==
-  dependencies:
-    "@angular-devkit/core" "9.0.0-rc.10"
-    "@angular-devkit/schematics" "9.0.0-rc.10"
 
 "@schematics/angular@9.0.0-rc.12", "@schematics/angular@^9.0.0-rc.5":
   version "9.0.0-rc.12"
