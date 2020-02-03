@@ -339,7 +339,7 @@ ng g lib admin          --routing --lazy  --parent-module=apps/webapp/src/app/ap
 ng g lib NotFound       --routing --lazy  --parent-module=apps/webapp/src/app/app.module.ts             --defaults --tags=entry-module
 ng g lib experiments    --routing --lazy  --parent-module=libs/dashboard/src/lib/dashboard.module.ts    --defaults --tags=child-module
 ng g lib widgets        --routing --lazy  --parent-module=libs/dashboard/src/lib/dashboard.module.ts    --defaults --tags=child-module
-ng g lib grid           --routing --lazy  --parent-module=libs/dashboard/src/lib/dashboard.module.ts    --defaults --tags=child-module
+ng g lib accounts       --routing --lazy  --parent-module=libs/dashboard/src/lib/dashboard.module.ts    --defaults --tags=child-module
 
 # ng g worker app --project=webapp -d # TODO
 ```
@@ -602,13 +602,14 @@ ng g component containers/settings        --project=dashboard
 # generate containers, components for `widgets` Module
 ng g component containers/wizdash --project=widgets -d
 
-# generate containers, components for `grid` Module
-ng g component  containers/AccountsTable    --project=grid -d
-ng g component  components/AccountDetail    --project=grid  -d
-ng g component  components/AccountEdit      --project=grid  -d
-ng g class      models/account              --project=grid --type=model -d
-ng g service    services/account            --project=grid  -d
-ng g component  containers/AccountsGridList --project=grid  -d
+# generate containers, components for `accounts` Module
+ng g component  containers/AccountsGrid     --project=accounts -d
+ng g component  containers/AccountsTable    --project=accounts -d
+ng g component  components/AccountDetail    --project=accounts  -d
+ng g component  components/AccountEdit      --project=accounts  -d
+ng g class      models/account              --project=accounts --type=model -d
+ng g service    services/account            --project=accounts  -d
+
 
 # generate containers, components for `experiments` Module
 ng g component containers/animations            --project=experiments -d
@@ -656,7 +657,7 @@ ng g service   services/subscription          --project=admin  -d
 ng g workspace-schematic store
 # run workspace-schematic `store`
 # *** always delete ./dist folder when you change schematic implementation ***
-yarn workspace-schematic store models/sumoDemo -- --project=grid  -d
+yarn workspace-schematic store models/sumoDemo -- --project=accounts  -d
 # build workspace tools
 yarn workspace @ngx-starter-kit/tools build
 ```

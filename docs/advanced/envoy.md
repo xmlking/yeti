@@ -19,7 +19,8 @@ protoc -I="./protos" ./protos/echo.proto \
 ### Reference
 
 ```bash
-minikube mount /Users/schintha/Developer/Work:/Work
+# minikube mount /Users/schintha/Developer/Work:/Work
+# mount '/Work/SPA/yeti/envoy.yaml:/etc/envoy/envoy.yaml'
 docker-compose up envoy
 
 
@@ -47,6 +48,22 @@ docker exec -it envoy /bin/bash
  -d '{
     "name": "sumo"
    }'
+
+
+ curl 'http://localhost:9090/echo/yeti.EchoService/Echo' \
+ -H 'Content-Type: application/grpc-web+proto' \
+ -H 'X-Grpc-Web: 1' \
+ -H 'custom-header-1: value1' \
+ -H 'Accept: */*' \
+ -H 'Connection: keep-alive' \
+ --data-binary $'\x00\x00\x00\x00\x05\n\x03abc' --compressed
+
+ curl 'http://localhost:9090/echo/yeti.EchoService/Echo' \
+ -H 'Content-Type: application/json' \
+ -d '{
+    "message": "sumo"
+   }'
+
 
 
 ```
