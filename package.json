@@ -108,7 +108,7 @@
     "@scullyio/ng-lib": "0.0.16",
     "eva-icons": "1.1.2",
     "firebase": "7.8.0",
-    "google-protobuf": "3.11.2",
+    "google-protobuf": "3.11.3",
     "grpc-web": "1.0.7",
     "ngx-auto-unsubscribe": "3.0.1",
     "prismjs": "1.19.0",
