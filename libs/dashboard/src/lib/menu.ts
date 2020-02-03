@@ -18,6 +18,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/admin'
   },
   {
+    title: 'Accounts',
+    icon: 'shopping-cart-outline',
+    link: '/dashboard/accounts'
+  },
+
+  {
     title: 'FEATURES',
     group: true
   },

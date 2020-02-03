@@ -46,6 +46,9 @@
     },
     "blog": {
       "tags": ["private-module"]
+    },
+    "accounts": {
+      "tags": ["child-module"]
     }
   }
 }

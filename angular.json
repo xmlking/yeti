@@ -416,6 +416,34 @@
         }
       },
       "schematics": {}
+    },
+    "accounts": {
+      "projectType": "library",
+      "root": "libs/accounts",
+      "sourceRoot": "libs/accounts/src",
+      "prefix": "yeti",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["libs/accounts/tsconfig.lib.json", "libs/accounts/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!libs/accounts/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/accounts/jest.config.js",
+            "tsConfig": "libs/accounts/tsconfig.spec.json",
+            "setupFile": "libs/accounts/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {
