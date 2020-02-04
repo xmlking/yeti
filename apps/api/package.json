@@ -18,7 +18,7 @@
     "@nestjs/common": "6.11.5",
     "@nestjs/core": "6.11.5",
     "@nestjs/platform-express": "6.11.5",
-    "@nestjs/swagger": "4.2.3",
+    "@nestjs/swagger": "4.2.4",
     "@nestjs/terminus": "6.5.5",
     "helmet": "3.21.2"
   },
@@ -30,7 +30,7 @@
     "@types/supertest": "2.0.8"
   },
   "optionalDependencies": {
-    "@nestjs/schematics": "^6.9.1",
+    "@nestjs/schematics": "^6.9.3",
     "@nestjs/testing": "^6.11.4",
     "nodemon": "^2.0.2",
     "supertest": "^4.0.2"
