@@ -1910,15 +1910,15 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@nebular/auth@5.0.0-beta.4":
-  version "5.0.0-beta.4"
-  resolved "https://registry.yarnpkg.com/@nebular/auth/-/auth-5.0.0-beta.4.tgz#eec2736595a0f164f1dbc357357d53210ee53c4f"
-  integrity sha512-YmRSpz63yfCURt1s6SLFVMGzhs2zypG32tw2rigkNzl1nyU1H3Ncc1J0MIDKvAwKVGPO2QIo0PEekdUF1bHTwQ==
+"@nebular/auth@5.0.0-beta.5":
+  version "5.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@nebular/auth/-/auth-5.0.0-beta.5.tgz#169008158e27f2be6d4caebae66d21aff112886e"
+  integrity sha512-M8FzXATYNHssMuNFVUWsbIddTz47/rrfY/Iv3juWR51i3T7t34hb1Lvu6bilLU7zeNZGojWfWp6UAt+R+THR7A==
 
-"@nebular/eva-icons@5.0.0-beta.4":
-  version "5.0.0-beta.4"
-  resolved "https://registry.yarnpkg.com/@nebular/eva-icons/-/eva-icons-5.0.0-beta.4.tgz#5f4090c7058c4c6abc748f933d59e890d51b51d1"
-  integrity sha512-VEPyW9W/byqHu9T9t8CpR2lGWX8Srl+VLTpGNNpQQhP9KLq3EkSRZ4XqwumpkirSvYn28JYWm6JB4sqatjISQg==
+"@nebular/eva-icons@5.0.0-beta.5":
+  version "5.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@nebular/eva-icons/-/eva-icons-5.0.0-beta.5.tgz#2f901128841173c8b8d29a04e982f5684d3f02dc"
+  integrity sha512-JYbC/WgyEEb48iJfTgVOlXcIiVkk16EjUruEs+Gu5d+W+rT+3n2y5rbvGZptHFA90/BmqpuMkG5Bis3AeUeH9Q==
 
 "@nebular/security@5.0.0-beta.5":
   version "5.0.0-beta.5"
