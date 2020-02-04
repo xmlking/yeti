@@ -222,9 +222,9 @@ A curated list of awesome Angular resources
 > https://ngadd.com/
 
 - Angular Performance
-
-> Refer [here](https://blog.ninja-squad.com/)
-> Refer [angular performance checklist](https://github.com/mgechev/angular-performance-checklist)
+  1. [make Angular app faster](https://timdeschryver.dev/blog/help-angular-to-make-your-application-faster)
+  1. Refer [here](https://blog.ninja-squad.com/)
+  1. Refer [angular performance checklist](https://github.com/mgechev/angular-performance-checklist)
 
 > Refer [Curated list of common mistakes made when developing Angular applications](https://angular-checklist.io/projects)
 

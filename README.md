@@ -50,6 +50,9 @@ yarn run scully --project webapp
 # serve static content
 yarn run lite-server
 
+# kill if 'zombie' server
+yarn scully killServer
+
 # Or do all with:
 yarn run scully:all
 ```
