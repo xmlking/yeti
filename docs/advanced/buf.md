@@ -1,8 +1,22 @@
 # Buf
 
-[Buf](https://buf.build/) is quality check tool for __Protobuf__ files
+[Buf](https://buf.build/) is a tool for __Protobuf__ files:
 
-## Workflow
+- [Linter](https://buf.build/docs/lint-usage) that enforces good API design choices and structure.
+- [Breaking change detector](https://buf.build/docs/breaking-usage) that enforces compatibility at the source code or wire level
+- Configurable file [builder](https://buf.build/docs/build-overview) that produces [Images](https://buf.build/docs/build-images) our extension of [FileDescriptorSets](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/descriptor.proto)
+
+## Prerequisites
+
+```bash
+# buf: proto tool https://buf.build/docs/tour-1
+brew tap bufbuild/buf
+brew install buf
+# or use `go get` to install Buf
+GO111MODULE=on go get github.com/bufbuild/buf/cmd/buf
+```
+
+## Developer Workflow
 
 ### Info
 

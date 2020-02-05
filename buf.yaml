@@ -1,7 +1,7 @@
 build:
   roots:
     - proto
-    - vendor/github.com/envoyproxy/protoc-gen-validate
+    - third_party/proto
 
 lint:
   use:
@@ -10,6 +10,7 @@ lint:
   except:
     # - PACKAGE_AFFINITY
   ignore:
+    - protoc-gen-gorm
     - validate
   ignore_only:
     RPC_RESPONSE_STANDARD_NAME:
