@@ -286,10 +286,10 @@
   resolved "https://registry.yarnpkg.com/@angular/core/-/core-9.0.0-rc.14.tgz#36efd9cae711512c52cf0805b70b9132d7b5c829"
   integrity sha512-WK2Uf7Z4w8GGT0KzctshPF8U7FXNIqx6oBmZV48yaupD4/FymcA7lnT8zPSZMEE121pYmbaW588BRscoBFr65A==
 
-"@angular/fire@5.4.0":
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/@angular/fire/-/fire-5.4.0.tgz#68983d0d6bd6c804ea48a913b67547f7227debfd"
-  integrity sha512-067oatMtDbNKEWNdZoMWqKOzPpp0r8XZvpL1bcH6PO+q62ceJ2ig46ne1UqJP2nHRyXNAtIyJp7VhVoG4gRPiA==
+"@angular/fire@5.4.1":
+  version "5.4.1"
+  resolved "https://registry.yarnpkg.com/@angular/fire/-/fire-5.4.1.tgz#a7233b056814bb10f622bb1e06b999304684a4ff"
+  integrity sha512-pUkaJEoIyHY+oh61rIZkAdd0QMYZ+WG1DGDjExmv5MDFzhnnbn6mvCoQP1le6v49+jAJUmwQJFhe9lfYavsmBg==
 
 "@angular/flex-layout@9.0.0-beta.28":
   version "9.0.0-beta.28"
@@ -16788,7 +16788,7 @@ ts-poet@^1.0.1:
     lodash "^4.17.15"
     ts-imm "0.4.0"
 
-ts-proto@^1.10.0:
+ts-proto@1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/ts-proto/-/ts-proto-1.10.0.tgz#1a785cc17a38783f54054c722b0cf189644a5d07"
   integrity sha512-bd6mBpuvWX0nRsu7sjU/FIxbNaVN51NSaPTBfFgJdmBFrh5grigc/OiCtUn3Hqne5NJ0luiC8aoVoH2nlKySbw==
