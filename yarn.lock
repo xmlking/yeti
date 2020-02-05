@@ -2037,10 +2037,10 @@
     "@angular-devkit/schematics" "7.3.8"
     fs-extra "8.1.0"
 
-"@nestjs/swagger@4.2.4":
-  version "4.2.4"
-  resolved "https://registry.yarnpkg.com/@nestjs/swagger/-/swagger-4.2.4.tgz#2a414151bf4cd356e0fdba7f6353432e4d9c6a6f"
-  integrity sha512-KFm4UyDgwMVl0Nn192AhLKf2HVhAORDN37AAPS8QbfFBOo42hP89Xuy2Q+iTIORZiHmVX2uD7UZvfR/YSdlpYQ==
+"@nestjs/swagger@4.2.6":
+  version "4.2.6"
+  resolved "https://registry.yarnpkg.com/@nestjs/swagger/-/swagger-4.2.6.tgz#a358ac5609f79c88fe165da2958d18c6460b43cc"
+  integrity sha512-bhFLXrDo8O0OU0GQ/uX0eOOFgKCwe2bPAHh7BI+zEF12r/VoA4IFWG8DywqYp7KnaLJN6oHtaOaVlYWPhPvoZQ==
   dependencies:
     lodash "4.17.15"
     path-to-regexp "3.2.0"
@@ -16788,7 +16788,7 @@ ts-poet@^1.0.1:
     lodash "^4.17.15"
     ts-imm "0.4.0"
 
-ts-proto@^1.10.0:
+ts-proto@1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/ts-proto/-/ts-proto-1.10.0.tgz#1a785cc17a38783f54054c722b0cf189644a5d07"
   integrity sha512-bd6mBpuvWX0nRsu7sjU/FIxbNaVN51NSaPTBfFgJdmBFrh5grigc/OiCtUn3Hqne5NJ0luiC8aoVoH2nlKySbw==
