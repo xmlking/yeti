@@ -20,6 +20,17 @@ API Docs [CompoDoc](https://xmlking.github.io/yeti/)
 - [ ] [Storybooks](https://storybook.js.org/)
 - [x] 🚫💩 — Run linters on git staged files
 
+### API
+
+```bash
+# Start API
+ng serve api
+# Start Envoy proxy
+docker-compose up envoy
+```
+
+### WebApp
+
 ```bash
 ## gen i18n
 ng xi18n webapp
@@ -33,35 +44,6 @@ ng build webapp --configuration=production,es
 # build all
 ng build --localize
 ng build --prod --localize
-```
-
-## Blog
-
-> Blog module based [d-koppenhagen's](https://github.com/d-koppenhagen/d-koppenhagen.de) Repo.
-
-> I am using it here for testing with nx monorepo and reporting issues.
-
-```bash
-# build angular
-ng build
-# build scully blog
-# options  --showBrowser, --project
-yarn run scully --project webapp
-# serve static content
-yarn run lite-server
-
-# kill if 'zombie' server
-yarn scully killServer
-
-# Or do all with:
-yarn run scully:all
-```
-
-```bash
-# setup blog
-ng g @scullyio/init:markdown --name="blog"  --source-dir="libs/blog/posts" --route="home/blog"
-# create blog post from template
-ng g @scullyio/init:post --name="This is my post" --target=libs/blog/posts --meta-data-file="libs/blog/blog-post-template.yaml"
 ```
 
 ### Deploy
