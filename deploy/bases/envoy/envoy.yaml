@@ -20,11 +20,11 @@ static_resources:
                     - name: local_service
                       domains: ['*']
                       routes:
-                        - match: { prefix: '/yeti.AccountService' }
+                        - match: { prefix: '/yeti.account.v1.AccountService' }
                           route:
                             cluster: account_service
                             max_grpc_timeout: 0s
-                        - match: { prefix: '/yeti.EchoService' }
+                        - match: { prefix: '/yeti.echo.v1.EchoService' }
                           route:
                             cluster: echo_service
                             max_grpc_timeout: 0s

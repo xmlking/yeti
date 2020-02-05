@@ -1,5 +1,5 @@
 /**
- * @fileoverview gRPC-Web generated client stub for yeti
+ * @fileoverview gRPC-Web generated client stub for yeti.echo.v1
  * @enhanceable
  * @public
  */
@@ -47,7 +47,7 @@ export class EchoServiceClient {
                response: EchoResponse) => void) {
     return this.client_.rpcCall(
       this.hostname_ +
-        '/yeti.EchoService/Echo',
+        '/yeti.echo.v1.EchoService/Echo',
       request,
       metadata || {},
       this.methodInfoEcho,

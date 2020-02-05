@@ -1,7 +1,6 @@
 import { Reader, Writer } from 'protobufjs/minimal';
 import * as Long from 'long';
 
-
 export interface EchoRequest {
   message: string;
 }
@@ -11,21 +10,18 @@ export interface EchoResponse {
 }
 
 const baseEchoRequest: object = {
-  message: "",
+  message: ''
 };
 
 const baseEchoResponse: object = {
-  message: "",
+  message: ''
 };
 
 export interface EchoService {
-
   Echo(request: EchoRequest): Promise<EchoResponse>;
-
 }
 
 export class EchoServiceClientImpl implements EchoService {
-
   private readonly rpc: Rpc;
 
   constructor(rpc: Rpc) {
@@ -34,21 +30,18 @@ export class EchoServiceClientImpl implements EchoService {
 
   Echo(request: EchoRequest): Promise<EchoResponse> {
     const data = EchoRequest.encode(request).finish();
-    const promise = this.rpc.request("yeti.EchoService", "Echo", data);
+    const promise = this.rpc.request('yeti.echo.v1.EchoService', 'Echo', data);
     return promise.then(data => EchoResponse.decode(new Reader(data)));
   }
-
 }
 
 interface Rpc {
-
   request(service: string, method: string, data: Uint8Array): Promise<Uint8Array>;
-
 }
 
 function longToNumber(long: Long) {
   if (long.gt(Number.MAX_SAFE_INTEGER)) {
-    throw new global.Error("Value is larger than Number.MAX_SAFE_INTEGER");
+    throw new global.Error('Value is larger than Number.MAX_SAFE_INTEGER');
   }
   return long.toNumber();
 }
@@ -76,23 +69,27 @@ export const EchoRequest = {
   },
   fromJSON(object: any): EchoRequest {
     const message = Object.create(baseEchoRequest) as EchoRequest;
-    if (object.message) {
+    if (object.message !== undefined && object.message !== null) {
       message.message = String(object.message);
+    } else {
+      message.message = '';
     }
     return message;
   },
   fromPartial(object: DeepPartial<EchoRequest>): EchoRequest {
     const message = Object.create(baseEchoRequest) as EchoRequest;
-    if (object.message) {
+    if (object.message !== undefined && object.message !== null) {
       message.message = object.message;
+    } else {
+      message.message = '';
     }
     return message;
   },
   toJSON(message: EchoRequest): unknown {
     const obj: any = {};
-    obj.message = message.message || "";
+    obj.message = message.message || '';
     return obj;
-  },
+  }
 };
 
 export const EchoResponse = {
@@ -118,35 +115,39 @@ export const EchoResponse = {
   },
   fromJSON(object: any): EchoResponse {
     const message = Object.create(baseEchoResponse) as EchoResponse;
-    if (object.message) {
+    if (object.message !== undefined && object.message !== null) {
       message.message = String(object.message);
+    } else {
+      message.message = '';
     }
     return message;
   },
   fromPartial(object: DeepPartial<EchoResponse>): EchoResponse {
     const message = Object.create(baseEchoResponse) as EchoResponse;
-    if (object.message) {
+    if (object.message !== undefined && object.message !== null) {
       message.message = object.message;
+    } else {
+      message.message = '';
     }
     return message;
   },
   toJSON(message: EchoResponse): unknown {
     const obj: any = {};
-    obj.message = message.message || "";
+    obj.message = message.message || '';
     return obj;
-  },
+  }
 };
 
 type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T[P] extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T[P] extends Date | Function | Uint8Array | undefined
-  ? T[P]
-  : T[P] extends infer U | undefined
-  ? DeepPartial<U>
-  : T[P] extends object
-  ? DeepPartial<T[P]>
-  : T[P]
+    ? Array<DeepPartial<U>>
+    : T[P] extends ReadonlyArray<infer U>
+    ? ReadonlyArray<DeepPartial<U>>
+    : T[P] extends Date | Function | Uint8Array | undefined
+    ? T[P]
+    : T[P] extends infer U | undefined
+    ? DeepPartial<U>
+    : T[P] extends object
+    ? DeepPartial<T[P]>
+    : T[P];
 };

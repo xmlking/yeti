@@ -179,8 +179,8 @@
               "apps/api/src/assets",
               {
                 "glob": "**/*",
-                "input": "protos",
-                "output": "protos"
+                "input": "proto",
+                "output": "proto"
               }
             ]
           },
@@ -208,7 +208,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": ["apps/api/tsconfig.app.json", "apps/api/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!apps/api/**", "apps/api/src/app/echo/interfaces/echo.ts"]
+            "exclude": ["**/node_modules/**", "!apps/api/**", "apps/api/src/app/echo/interfaces/yeti/echo/v1/echo.ts"]
           }
         },
         "test": {

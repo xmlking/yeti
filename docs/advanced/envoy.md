@@ -11,9 +11,17 @@ yarn global add grpc-tools
 ```
 
 ```bash
-protoc -I="./protos" ./protos/echo.proto \
+protoc -I="./proto" ./proto/yeti/echo/v1/echo.proto \
 --js_out=import_style=commonjs:./libs/gen/src/lib \
 --grpc-web_out=import_style=typescript,mode=grpcwebtext:./libs/gen/src/lib
+```
+
+```bash
+protoc --plugin=./node_modules/ts-proto/protoc-gen-ts_proto \
+-I./proto  --ts_proto_out=apps/api/src/app/echo/interfaces  ./proto/yeti/echo/v1/echo.proto
+
+protoc --plugin=./node_modules/ts-proto/protoc-gen-ts_proto \
+-I./proto  --ts_proto_out=apps/api/src/app/account/interfaces  ./proto/yeti/account/v1/account.proto
 ```
 
 ### Reference

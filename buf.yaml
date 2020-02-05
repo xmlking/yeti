@@ -1,0 +1,20 @@
+build:
+  roots:
+    - proto
+    - vendor/github.com/envoyproxy/protoc-gen-validate
+
+lint:
+  use:
+    - DEFAULT
+    - FILE_LOWER_SNAKE_CASE
+  except:
+    # - PACKAGE_AFFINITY
+  ignore:
+    - validate
+  ignore_only:
+    RPC_RESPONSE_STANDARD_NAME:
+      - yeti/account/v1/account.proto
+
+breaking:
+  use:
+    - WIRE_JSON

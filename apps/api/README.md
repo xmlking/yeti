@@ -9,7 +9,7 @@ Backend API build with [Nest](https://github.com/nestjs/nest) Framework.
 > Generate Interfaces from proto
 
 ```bash
-protoc --plugin=./node_modules/ts-proto/protoc-gen-ts_proto -I./protos  --ts_proto_out=apps/api/src/app/echo/interfaces  ./protos/echo.proto
+protoc --plugin=./node_modules/ts-proto/protoc-gen-ts_proto -I./proto  --ts_proto_out=apps/api/src/app/echo/interfaces  ./proto/echo.proto
 ```
 
 ### Run

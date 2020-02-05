@@ -13,8 +13,8 @@ creating NestJS project and generate nest artifacts with-in monorepo.
 #### Install Global Packages
 
 ```bash
-npm remove -g @nestjs/cli
-npm install -g @nestjs/cli
+npm global remove @nestjs/cli
+yarn global add @nestjs/cli
 ```
 
 ### Scaffold Project
@@ -25,13 +25,13 @@ npm install -g @nestjs/cli
 ng g node-app api --framework=nestjs --unit-test-runner=jest --tags=api-module -d
 
 # Add nestjs
-npm i  @nestjs/{common,core,microservices,swagger,websockets,typeorm,passport,elasticsearch}
+yarn workspace @yeti/api add @nestjs/{common,core,microservices,swagger,websockets,typeorm,passport,elasticsearch}
 
 # fastify-* are optional. use only if you want to replace express with fastify
-npm i fastify fastify-formbody fastify-swagger
+yarn workspace @yeti/api add fastify fastify-formbody fastify-swagger
 
-npm i -D @nestjs/testing
-npm i -D @nestjs/schematics
+yarn workspace @yeti/api add -D @nestjs/testing
+yarn workspace @yeti/api add -D @nestjs/schematics
 ```
 
 > check versions
@@ -47,23 +47,23 @@ nest info
 > adding 3rd party modules/libs
 
 ```bash
-npm i pg
-npm i dotenv
-npm i helmet
-npm i web-push
-npm i nest-router
-npm i nodemailer pug
-npm i class-validator
-npm i class-transformer
-npm i passport passport-jwt @xmlking/jwks-rsa
+yarn add pg
+yarn add dotenv
+yarn add helmet
+yarn add web-push
+yarn add nest-router
+yarn add nodemailer pug
+yarn add class-validator
+yarn add class-transformer
+yarn add passport passport-jwt @xmlking/jwks-rsa
 
-npm i -D rimraf nodemon tsconfig-paths ts-loader
-npm i -D jest ts-jest @types/jest supertest @types/supertest
-npm i -D @types/nodemailer
-npm i -D @types/socket.io
-npm i -D @types/passport@0.4.2 @types/passport-jwt
-npm i -D @types/web-push
-npm i -D @types/helmet
+yarn add -D rimraf nodemon tsconfig-paths ts-loader
+yarn add -D jest ts-jest @types/jest supertest @types/supertest
+yarn add -D @types/nodemailer
+yarn add -D @types/socket.io
+yarn add -D @types/passport@0.4.2 @types/passport-jwt
+yarn add -D @types/web-push
+yarn add -D @types/helmet
 ```
 
 #### Generate Artifacts
@@ -131,7 +131,7 @@ nest g controller subscription app/notifications  -d
 nest g service subscription app/notifications -d
 nest g class subscription/subscription.entity app/notifications --no-spec -d
 
-You could also use `ng g` if you `npm i -D @nestjs/schematics`
+You could also use `ng g` if you `yarn add -D @nestjs/schematics`
 ng g @nestjs/schematics:module game --path app --source-root apps/api/src -d
 ng g @nestjs/schematics:controller match --path app/game  --source-root apps/api/src -d
 ng g @nestjs/schematics:service match --path app/game --source-root apps/api/src -d
