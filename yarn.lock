@@ -127,10 +127,10 @@
   resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-9.0.0-rc.14.tgz#61e6057c2ec1482d0dd5b80db5503ba243f70c3f"
   integrity sha512-7a5kFxqwWXJDh4dWvmA58TErovEPNsh1Oq+/k9HLqYLVT07QFo3zPm1Tu8v2yfzste1Mjzff0+TNbVR1QaCOBQ==
 
-"@angular/cdk@9.0.0-rc.9":
-  version "9.0.0-rc.9"
-  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-9.0.0-rc.9.tgz#73392d3b6748aa03a89fe937e67adf15b3eeb88f"
-  integrity sha512-Ly1pZLjtOtDKW3pyiVHjRqzK5pzhyrCTb11Po1FTHWJ8usDRA7XuLYZZ9D/VVOxmiWoExkFJfnJbIEXqVgqSAA==
+"@angular/cdk@9.0.0-rc.10":
+  version "9.0.0-rc.10"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-9.0.0-rc.10.tgz#4ead5c1cf8b4c201771dbbf36cfa116e2ff155d8"
+  integrity sha512-ZRS39Ht2xsgimLzXw0stzrqgUi15MA8khnIw7Dda9GRQqcBEBXlGP72JRbN9AB5kvG+jaFoSffFS5QTWLmOhZQ==
   optionalDependencies:
     parse5 "^5.0.0"
 
@@ -12225,7 +12225,7 @@ node-notifier@^6.0.0:
     shellwords "^0.1.1"
     which "^1.3.1"
 
-node-pre-gyp@*, node-pre-gyp@^0.14.0:
+node-pre-gyp@^0.14.0:
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.14.0.tgz#9a0596533b877289bcad4e143982ca3d904ddc83"
   integrity sha512-+CvDC7ZttU/sSt9rFjix/P05iS43qHCOOGzcr3Ry99bXG7VX953+vFyEuph/tfqoYu8dttBkE86JSKBO2OzcxA==
