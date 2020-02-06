@@ -1,6 +1,6 @@
-# TODO
+# Features
 
-## Capabilities
+## Features/Backlog
 
 - [x] i18n, Multi-Lingual Support
 - [x] SSG, Static Site Generator

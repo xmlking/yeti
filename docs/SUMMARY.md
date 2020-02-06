@@ -1,7 +1,7 @@
 # Table of Contents
 
 - [YETI](../README.md)
-- [TODO](todo.md)
+- [Features](features.md)
 - Getting Started
   - [Why](introduction/why.md)
   - [Installation](introduction/installation.md)

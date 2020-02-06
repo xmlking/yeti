@@ -18,37 +18,37 @@
   },
   "projects": {
     "webapp": {
-      "tags": ["module:app1"]
+      "tags": ["module:app1", "scope:private"]
     },
     "api": {
-      "tags": ["module:api1"]
+      "tags": ["module:api1", "scope:private"]
     },
     "shared": {
-      "tags": ["module:shared"]
+      "tags": ["module:shared", "scope:public"]
     },
     "gen": {
-      "tags": ["module:shared"]
+      "tags": ["module:shared", "scope:public"]
     },
     "core": {
-      "tags": ["module:shared", "module:core"]
+      "tags": ["module:shared", "module:core", "scope:private"]
     },
     "not-found": {
-      "tags": ["scope:app1", "module:entry"]
+      "tags": ["module:app1", "module:entry", "scope:private"]
     },
     "home": {
-      "tags": ["scope:app1", "module:layout", "module:entry"]
+      "tags": ["module:app1", "module:layout", "module:entry", "scope:private"]
     },
     "dashboard": {
-      "tags": ["scope:app1", "module:layout", "module:entry"]
+      "tags": ["module:app1", "module:layout", "module:entry", "scope:private"]
     },
     "admin": {
-      "tags": ["scope:app1", "module:layout", "module:entry"]
+      "tags": ["module:app1", "module:layout", "module:entry", "scope:private"]
     },
     "blog": {
-      "tags": ["scope:app1", "module:child"]
+      "tags": ["module:app1", "module:child", "scope:private"]
     },
     "accounts": {
-      "tags": ["module:child"]
+      "tags": ["module:child", "scope:private"]
     }
   }
 }
