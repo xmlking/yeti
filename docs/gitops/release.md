@@ -1,6 +1,6 @@
 # Release
 
-Using [GitFlow](https://xmlking.gitbook.io/gitops/v/develop/getting-started/gitflow) branching model and [tools](https://xmlking.gitbook.io/gitops/v/develop/getting-started/gitflow-usage) for __Versioning__, __Semantic Release__
+Using [GitFlow](https://xmlking.gitbook.io/gitops/v/develop/getting-started/gitflow) branching model and [tools](https://xmlking.gitbook.io/gitops/v/develop/getting-started/gitflow-usage) for _Versioning_, _Semantic Release_
 
 ## standard-version
 

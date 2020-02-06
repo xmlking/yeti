@@ -17,7 +17,6 @@
 - Advanced
   - [Content Management](advanced/blog.md)
   - [Protobuf Tools](advanced/buf.md)
-  - [API Docs](advanced/compodoc.md)
   - [Envoy](advanced/envoy.md)
   - [Style Guild](advanced/style-guide.md)
 - Modules
@@ -36,8 +35,9 @@
 - GitOps
   - [Build](gitops/build.md)
   - [Code Quality](gitops/code-quality.md)
+  - [API Docs](gitops/compodoc.md)
   - [Release](gitops/release.md)
-  - [CI-CD](gitops/cicd.md)
+  - [CICD](gitops/cicd.md)
 - DevOps
   - [Database](devops/database.md)
   - [Kubernetes](devops/kubernetes.md)
