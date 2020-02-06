@@ -1,6 +1,6 @@
-# Yeti
+# What is YETI
 
-This project was generated using [Nx](https://nx.dev). This project was built using [nebular](https://akveo.github.io/nebular/).
+## Getting Super Powers
 
 Live [Demo](https://ngx-starter-kit.firebaseapp.com/)
 
@@ -52,6 +52,4 @@ Run `ng deploy` to deploy demo app to firebase.
 
 Analyzing bundle size `yarn bundle-report`
 
-Analyzing and Visualizing the Dependency Graph (affected modules by uncommitted changes)
 
-`nx affected:dep-graph`
