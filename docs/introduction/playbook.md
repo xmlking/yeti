@@ -784,29 +784,28 @@ ng deploy --base-href=/ngx-starter-kit/ --configuration=mock \
 ### Release
 
 `"release": "standard-version && git push — follow-tags origin master && yarn publish"`
-
-```bash
-npm whoami
-# create the initial release and create the `CHANGELOG.md`
-npx release -- --first-release
-# This will tag a release without bumping the version in package.json (et al.).
-# Cut a Release
-npx release -- --dry-run
-npx release
-# create a pre-release instead of a regular one
-npx release -- --prereleas
-# cut a new alpha release version
-npx release -- --prerelease alpha
-# fource a version
-npx release -- --release-as 1.1.0
-```
-
 standard-version will now do the following:
 
 1. "Bump" the version in package.json
 2. Update the CHANGELOG.md file
 3. Commit the package.json and CHANGELOG.md files
 4. Tag a new release in the git history
+
+```bash
+npm whoami
+# create the initial release and create the `CHANGELOG.md`
+yarn run release --first-release --dry-run
+# This will tag a release without bumping the version in package.json (et al.).
+# Cut a Release
+yarn run release --dry-run
+# create a pre-release instead of a regular one
+yarn run release --prereleas --dry-run
+# cut a new alpha release version
+yarn run release --prerelease alpha --dry-run
+# fource a version
+yarn run release --release-as 1.1.0 --dry-run
+```
+
 
 #### Build Library
 

@@ -1,6 +1,6 @@
 {
   "name": "yeti",
-  "version": "0.0.0",
+  "version": "0.1.1",
   "license": "MIT",
   "workspaces": [
     "libs/*",
@@ -71,6 +71,11 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
+  },
+  "standard-version": {
+    "skip": {
+      "tag": true
+    }
   },
   "lint-staged": {
     "{apps,libs}/**/*.{ts,json,md,scss,html}": [
