@@ -378,7 +378,7 @@ ng g interface Cluster  --project=models --type=model -d
 
 ```bash
 # add `core` angular module which will be only inported into root/app module.
-ng g lib core --tags=core-module --defaults -d
+ng g lib core --tags=scope:core --defaults -d
 # add  global services for `core` Module
 
 
@@ -405,7 +405,7 @@ ng g i interfaces/RouterStateData --project=core -d
 ng g i interfaces/UserInfo --project=core -d
 
 # add `shared` module which will encapsulate angular and 3rd party modules, needed for all `Lazy-loaded Feature Modules`
-ng g lib shared  --tags=shared-module --defaults -d
+ng g lib shared  --tags=scope:shared --defaults -d
 # generate containers, components for `shared` Module
 ng g service containers/entity/entity --project=shared
 ng g component components/entityTable --project=shared  --export=true
@@ -419,61 +419,61 @@ ng g component containers/NotFound --project=not-found -d
 ### generate `Reusable lib Modules`
 
 # generate components for `AppConfirm` Module
-ng g lib AppConfirm --tags=public-module --publishable=true --defaults -d
+ng g lib AppConfirm --tags=scope:shared --publishable=true --defaults -d
 ng g component AppConfirm --project=app-confirm  --flat  -d
 ng g service AppConfirm --project=app-confirm --skip-tests -d
 
 # generate components for `Draggable` Module
-ng g lib Draggable --tags=public-module --publishable=true --defaults -d
+ng g lib Draggable --tags=scope:shared --publishable=true --defaults -d
 ng g directive directives/Draggable --project=draggable --export=true -d
 
 # generate components for `Breadcrumbs` Module
-ng g lib Breadcrumbs --tags=public-module --publishable=true --defaults -d
+ng g lib Breadcrumbs --tags=scope:shared --publishable=true --defaults -d
 ng g component breadcrumbs --project=breadcrumbs --flat -d
 ng g service  breadcrumbs --project=breadcrumbs -d
 
 # generate components for `ScrollToTop` Module
-ng g lib ScrollToTop --tags=public-module --publishable=true --defaults -d
+ng g lib ScrollToTop --tags=scope:shared --publishable=true --defaults -d
 ng g component ScrollToTop --project=scroll-to-top --flat -d
 
-ng g lib scrollbar --tags=public-module --publishable=true --defaults -d
+ng g lib scrollbar --tags=scope:shared --publishable=true --defaults -d
 
 # generate components for `ContextMenu` Module
-ng g lib ContextMenu --tags=public-module --publishable=true --defaults -d
+ng g lib ContextMenu --tags=scope:shared --publishable=true --defaults -d
 ng g component ContextMenu --project=context-menu --flat -d
 ng g directive ContextMenuTrigger --project=context-menu --flat -d
 
 # generate components, services for `ThemePicker` Module
-ng g lib ThemePicker --tags=public-module --publishable=true --defaults -d
+ng g lib ThemePicker --tags=scope:shared --publishable=true --defaults -d
 ng g component ThemePicker --project=theme-picker --flat -d
 ng g service  ThemeStorage --project=theme-picker -d
 ng g service  StyleManager --project=theme-picker -d
 ng g module ThemePickerService --project=theme-picker --flat -d
 
 # generate components for `Notifications` Module
-ng g lib Notifications --tags=public-module --publishable=true --defaults -d
+ng g lib Notifications --tags=scope:shared --publishable=true --defaults -d
 ng g component notifications --project=notifications --flat -d
 ng g class    notification --type=model --project=notifications --defaults -d
 ng g service  notifications --project=notifications -d
 
 # generate components for `Quickpanel` Module
-ng g lib Quickpanel  --tags=private-module --defaults -d
+ng g lib Quickpanel  --tags=scope:app1 --defaults -d
 ng g component Quickpanel --project=quickpanel --flat -d
 
 # generate components for `LoadingOverlay` Module
-ng g lib LoadingOverlay --tags=public-module --publishable=true --defaults -d
+ng g lib LoadingOverlay --tags=scope:shared --publishable=true --defaults -d
 ng g component LoadingOverlay --project=loading-overlay --flat -d
 
 # generate components for `svgViewer` Module
-ng g lib svgViewer --tags=public-module --publishable=true --defaults -d
+ng g lib svgViewer --tags=scope:shared --publishable=true --defaults -d
 ng g component svgViewer --project=svg-viewer --flat -d
 
 # generate components for `led` Module
-ng g lib led --tags=public-module --publishable=true --defaults -d
+ng g lib led --tags=scope:shared --publishable=true --defaults -d
 ng g component led --project=led --flat -d
 
 # generate components for `chatBox` Module
-ng g lib chatBox --tags=public-module --publishable=true --defaults -d
+ng g lib chatBox --tags=scope:shared --publishable=true --defaults -d
 ng g component chatBox --project=chat-box --flat -d
 ng g component components/typingIndicator --project=chat-box -d
 ng g component components/chatCard --project=chat-box -d
@@ -484,28 +484,28 @@ ng g service services/TextToSpeech --project=chat-box -d
 ng g service services/chat --project=chat-box -d
 
 # generate components for `socketioPlugin` Module
-ng g lib socketioPlugin --tags=public-module --publishable=true --spec=false --defaults -d
+ng g lib socketioPlugin --tags=scope:shared --publishable=true --spec=false --defaults -d
 ng g service socketioSubject --project=socketio-plugin -d
 
 # generate components for `openTracing` Module
-ng g lib openTracing --tags=public-module  --publishable=true --spec=false --defaults -d
+ng g lib openTracing --tags=scope:shared  --publishable=true --spec=false --defaults -d
 ng g service services/ZipkinTracing --project=open-tracing -d
 ng g interceptor interceptors/tracing  --project=open-tracing -d
 
 # generate components for `jsonDiff` Module
-ng g lib jsonDiff --tags=public-module --publishable=true --defaults -d
+ng g lib jsonDiff --tags=scope:shared --publishable=true --defaults -d
 ng g component jsonDiff --project=json-diff --flat -d
 ng g component jsonDiffTree --project=json-diff --flat -d
 
 # generate components for `clap` Module
-ng g lib clap --tags=public-module --skip-tests --publishable=true --defaults -d
+ng g lib clap --tags=scope:shared --skip-tests --publishable=true --defaults -d
 ng g component clap --project=clap  -s  -t --skip-tests --export --flat -d
 ng g component components/counterBubble --project=clap  -s  -t --skip-tests --flat  -d
 ng g component components/totalCounter --project=clap  -s  -t --skip-tests --flat  -d
 ng g component components/fab --project=clap  -s  -t --skip-tests --flat  -d
 
 # generate components for `ngx-utils` Module
-ng g lib ngxUtils --tags=public-module,utils --framework=none --publishable=true --defaults -d
+ng g lib ngxUtils --tags=scope:shared,utils --framework=none --publishable=true --defaults -d
 ng g module pipes/truncate --project=ngx-utils --skip-tests -d
 ng g pipe pipes/truncate/Characters --project=ngx-utils --module=truncate --export -d
 ng g pipe pipes/truncate/Words --project=ngx-utils --module=truncate --export -d
@@ -531,14 +531,14 @@ ng g module directives/mask --project=ngx-utils --skip-tests -d
 ng g directive directives/mask/mask  --selector=ngxMask --project=ngx-utils --module=mask --export -d
 
 # generate components for `blog` Module
-ng g lib blog --routing --lazy --parent-module=libs/home/src/lib/home.module.ts --tags=private-module --defaults -d
+ng g lib blog --routing --lazy --parent-module=libs/home/src/lib/home.module.ts --tags=scope:app1 --defaults -d
 ng g component containers/BlogOverview    --project=blog -d
 ng g component components/BlogPreview     --project=blog -d
 ng g component containers/BlogPost        --project=blog -d
 ng g service services/highlight           --project=blog --skip-tests -d
 
 # generate components for `toolbar` Module
-ng g lib toolbar --tags=private-module --defaults -d
+ng g lib toolbar --tags=scope:app1 --defaults -d
 ng g component toolbar                        --project=toolbar --flat -d
 ng g component components/search              --project=toolbar -d
 ng g component components/searchBar           --project=toolbar -d
@@ -548,19 +548,19 @@ ng g component components/SidenavMobileToggle --project=toolbar -d
 ng g component components/QuickpanelToggle    --project=toolbar -d
 
 # generate components for `sidenav` Module
-ng g lib sidenav --tags=private-module --defaults -d
+ng g lib sidenav --tags=scope:app1 --defaults -d
 ng g component sidenav                --project=sidenav --flat -d
 ng g component components/sidenavItem --project=sidenav -d
 ng g directive  IconSidenav           --project=sidenav -d
 
 # generate components for `auth` Module
-ng g lib auth --tags=private-module,core-module  --defaults -d
+ng g lib auth --tags=scope:app1,scope:core  --defaults -d
 ng g component components/login --project=auth -d
 ng g guard admin --project=auth --implements CanActivate -d
 ng g @ngxs/schematics:store --name=auth --spec --project=auth --sourceRoot=libs/auth/src/lib -d
 
 # generate components for `oidc` Module
-ng g lib oidc --tags=public-module  --spec=false --publishable=true --defaults -d
+ng g lib oidc --tags=scope:app1  --spec=false --publishable=true --defaults -d
 ng g service services/Auth  --project=oidc -d
 ng g service services/Keycloak  --project=oidc -d
 ng g service services/Generic  --project=oidc -d
@@ -574,7 +574,7 @@ ng g i interfaces/OidcInit config --project=oidc -d
 ng g i interfaces/OidcResourceInterceptor config --project=oidc -d
 
 # generate components for `navigator` Module
-ng g lib navigator  --tags=private-module,core-module --defaults -d
+ng g lib navigator  --tags=scope:app1,scope:core --defaults -d
 ng g service services/menu  --project=navigator -d
 ng g class models/menuItem  --project=navigator --type=model  -d
 ng g class state/menu       --project=navigator --type=state  -d
@@ -629,7 +629,7 @@ ng g component components/card                  --project=experiments -d
 ng g component containers/viewport              --project=experiments --skip-tests -d
 
 # generate components for `ImageComparison` Module
-ng g lib ImageComparison --tags=public-module --spec=false --publishable=true --defaults -d
+ng g lib ImageComparison --tags=scope:shared --spec=false --publishable=true --defaults -d
 ng g component ImageComparison --project=image-comparison --export --flat -d
 
 
