@@ -2343,10 +2343,10 @@
     js-yaml "^3.13.1"
     schematics-utilities "^2.0.0"
 
-"@scullyio/ng-lib@0.0.17":
-  version "0.0.17"
-  resolved "https://registry.yarnpkg.com/@scullyio/ng-lib/-/ng-lib-0.0.17.tgz#85bfbc57446be55d6318d55897a1138704ebcdd4"
-  integrity sha512-NMgEBU/poPRp15RuBfIFSqougywQdZSkfgPjwAsSxNU1DrbKQKsnrdQ522AdQACBpoxW7SSoM+swySEsjL5vBw==
+"@scullyio/ng-lib@0.0.18":
+  version "0.0.18"
+  resolved "https://registry.yarnpkg.com/@scullyio/ng-lib/-/ng-lib-0.0.18.tgz#b4c8e229a416533bc64fd063b9e578e42e2d52a1"
+  integrity sha512-07pj+yIhJqxsz2of+Yf2+8CFgF1S+c0rD8D+isKYbyV1QE3JjjKZO2uc2E4C+N2YUh54CR8wprXPHSvQdp5Y+Q==
 
 "@scullyio/scully@0.0.64":
   version "0.0.64"
