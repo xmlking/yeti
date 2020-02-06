@@ -19,6 +19,7 @@ export class AppConfigService {
 
   async load(configUrl = this.configUrl) {
     try {
+      // prettier-ignore
       const remoteConfig = await this.http
         .get<IEnvironment>(configUrl)
         .toPromise();

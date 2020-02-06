@@ -61,13 +61,23 @@
   "files.trimTrailingWhitespace": true,
   "files.associations": {
     "renovate.json5": "jsonc",
-    "tslint.json": "jsonc"
+    "tslint.json": "jsonc",
+    "nx.json": "jsonc"
   },
   // Peacock Settings
   "peacock.color": "#f9e64f",
   // Prettier settings
   "prettier.singleQuote": true,
   "prettier.printWidth": 100,
+  // Proto
+  "clang-format.style": "google",
+  "protoc": {
+    "options": [
+      "--proto_path=${workspaceRoot}/proto",
+      "--proto_path=${workspaceRoot}/third_party/proto",
+      "--proto_path=${env.GOPATH}/src"
+    ]
+  },
   // REST client
   "rest-client.environmentVariables": {
     "$shared": {

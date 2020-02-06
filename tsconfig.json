@@ -30,10 +30,13 @@
       "@yeti/dashboard": ["libs/dashboard/src/index.ts"],
       "@yeti/admin": ["libs/admin/src/index.ts"],
       "@yeti/shared": ["libs/shared/src/index.ts"],
-      "@yeti/blog": ["libs/blog/src/index.ts"]
+      "@yeti/blog": ["libs/blog/src/index.ts"],
+      "@yeti/accounts": ["libs/accounts/src/index.ts"]
     }
   },
   "angularCompilerOptions": {
+    // FIXME: remove me https://github.com/angular/angular-cli/issues/16071
+    "disableTypeScriptVersionCheck": true,
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
   },

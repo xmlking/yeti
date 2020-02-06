@@ -2,24 +2,54 @@
 
 ## Getting Super Powers
 
-Becoming a super hero is a fairly straight forward process:
+Live [Demo](https://ngx-starter-kit.firebaseapp.com/)
 
-```
-$ give me super-powers
-```
+Docs on [GitBook](https://xmlking.gitbook.io/yeti/v/develop/)
 
-{% hint style="info" %}
- Super-powers are granted randomly so please submit an issue if you're not happy with yours.
-{% endhint %}
+API Docs [CompoDoc](https://xmlking.github.io/yeti/)
 
-Once you're strong enough, save the world:
+## TODO
 
-{% code title="hello.sh" %}
+- [x] i18n, Multi-Lingual Support
+- [x] SSG, Static Site Generator
+- [ ] SSR, Server-Side Rendering
+- [x] Federated SSO, Multiple OpenID Connect(OIDC) providers.
+- [ ] Google Analytics
+- [x] `ng deploy` with Firebase Hosting
+- [ ] Routing animations for nested routes and Blog posts
+- [ ] [Storybooks](https://storybook.js.org/)
+- [x] 🚫💩 — Run linters on git staged files
+
+### API
+
 ```bash
-# Ain't no code for that yet, sorry
-echo 'You got to trust me on this, I saved the world'
+# Start API
+ng serve api
+# Start Envoy proxy
+docker-compose up envoy
 ```
-{% endcode %}
 
+### WebApp
+
+```bash
+## gen i18n
+ng xi18n webapp
+## serve
+ng serve webapp --configuration=es
+ng serve webapp --configuration=hi
+## build
+ng build webapp --configuration=hi
+# You can also build the app with a specific locale:
+ng build webapp --configuration=production,es
+# build all
+ng build --localize
+ng build --prod --localize
+```
+
+### Deploy
+
+Run `ng deploy` to deploy demo app to firebase.
+
+Analyzing bundle size `yarn bundle-report`
 
 

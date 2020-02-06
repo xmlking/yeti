@@ -15,10 +15,7 @@
   @include vendor('display', 'flex');
   @include vendor('justify-content', 'center');
   @include vendor('pointer-events', 'none');
-  @include vendor(
-    'transition',
-    ('opacity #{_duration(menu)} ease', 'visibility #{_duration(menu)}')
-  );
+  @include vendor('transition', ('opacity #{_duration(menu)} ease', 'visibility #{_duration(menu)}'));
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -38,10 +35,7 @@
   .inner {
     @include padding(2.5em, 1.5em);
     @include vendor('transform', 'translateY(0.5em)');
-    @include vendor(
-      'transition',
-      ('opacity #{_duration(menu)} ease', 'transform #{_duration(menu)} ease')
-    );
+    @include vendor('transition', ('opacity #{_duration(menu)} ease', 'transform #{_duration(menu)} ease'));
     -webkit-overflow-scrolling: touch;
     background: _palette(accent);
     border-radius: _size(border-radius);

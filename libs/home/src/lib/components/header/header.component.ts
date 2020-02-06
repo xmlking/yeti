@@ -17,7 +17,10 @@ export class HeaderComponent implements OnInit {
   @Select(AuthState.isLoggedIn) isLoggedIn$: Observable<boolean>;
   @Select(AuthState.userInfo) userInfo$: Observable<UserInfo>;
 
-  userMenu = [{ title: 'Login', icon: 'log-in-outline', link: '/home/login' }, { title: 'Logout', icon: 'log-out-outline' }];
+  userMenu = [
+    { title: 'Login', icon: 'log-in-outline', link: '/home/login' },
+    { title: 'Logout', icon: 'log-out-outline' }
+  ];
   user: any;
 
   constructor(private store: Store, private cdr: ChangeDetectorRef, private nbMenuService: NbMenuService) {}

@@ -3,6 +3,7 @@
 
 // FIXME: workaround https://github.com/akveo/nebular/issues/1911
 nb-menu {
+  // prettier-ignore
   margin: 0 calc(-1 * #{nb-theme(sidebar-padding)})
     calc(-1 * #{nb-theme(sidebar-padding)});
 }

@@ -63,12 +63,7 @@ export class AnalyticsService {
    * @param eventLabel : 'Fall Campaign'
    * @param eventValue : 42
    */
-  public emitEvent(
-    eventCategory: EventCategory,
-    eventAction: string,
-    eventLabel?: string,
-    eventValue?: number
-  ) {
+  public emitEvent(eventCategory: EventCategory, eventAction: string, eventLabel?: string, eventValue?: number) {
     if (typeof ga === 'function') {
       ga('send', 'event', {
         eventCategory,
@@ -84,11 +79,7 @@ export class AnalyticsService {
    * @param socialAction : 'like'
    * @param socialTarget : 'http://foo.com'
    */
-  public emitSocial(
-    socialNetwork: string,
-    socialAction: string,
-    socialTarget: string
-  ) {
+  public emitSocial(socialNetwork: string, socialAction: string, socialTarget: string) {
     if (typeof ga === 'function') {
       ga('send', 'social', {
         socialNetwork,
@@ -105,12 +96,7 @@ export class AnalyticsService {
    * @param timingLabel : 'Google CDN'
    */
 
-  public emitTiming(
-    timingCategory: string,
-    timingVar: string,
-    timingValue: number,
-    timingLabel?: string
-  ) {
+  public emitTiming(timingCategory: string, timingVar: string, timingValue: number, timingLabel?: string) {
     if (typeof ga === 'function') {
       ga('send', 'timing', {
         timingCategory,

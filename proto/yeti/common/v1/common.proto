@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package yeti.common.v1;
+
+import "google/protobuf/wrappers.proto";
+import "validate/validate.proto";
+
+option go_package = "github.com/xmlking/yeti/common/v1;entity";
+option java_multiple_files = true;
+option java_package = "yeti.entity.v1";
+
+enum Currency {
+  CURRENCY_USD_UNSPECIFIED = 0;
+  CURRENCY_INR = 1;
+}
+
+message Account {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+}
+
+message Product {
+  string id = 1;
+  string slug = 2;
+  string name = 3;
+  string description = 4;
+  Currency currency = 5;
+  int32 price = 6;
+}
+
+message Order {
+  string id = 1;
+  string subject = 2;
+  string body = 3;
+  int32 total_price = 4;
+  Currency currency = 5;
+  string channel = 6;
+}

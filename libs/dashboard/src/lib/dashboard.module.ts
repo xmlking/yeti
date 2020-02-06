@@ -36,11 +36,17 @@ import { OverviewComponent } from './containers/overview/overview.component';
             path: '',
             component: OverviewComponent,
             data: { title: 'Overview' }
+          },
+          {
+            path: 'accounts',
+            loadChildren: () => import('@yeti/accounts').then(module => module.AccountsModule),
+            data: { title: 'Grid', depth: 2, preload: false }
           }
         ]
       }
     ])
   ],
+  // prettier-ignore
   declarations: [
     DashboardLayoutComponent,
     OverviewComponent,

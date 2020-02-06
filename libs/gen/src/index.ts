@@ -1,3 +1,3 @@
-export * from './lib/api-interfaces';
-export * from './lib/EchoServiceClientPb';
-export * from './lib/echo_pb';
+export * from './lib/yeti/echo/v1/EchoServiceClientPb';
+export * from './lib/yeti/echo/v1/echo_pb';
+

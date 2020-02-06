@@ -238,11 +238,7 @@ $vendor-values: (
 
   @if $index {
     @return str-slice($string, 1, $index - 1) + $replace +
-      str-replace(
-        str-slice($string, $index + str-length($search)),
-        $search,
-        $replace
-      );
+      str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
   }
 
   @return $string;
@@ -255,11 +251,7 @@ $vendor-values: (
 /// @return {list} Updated list of strings.
 @function str-replace-all($strings, $search, $replace: '') {
   @each $string in $strings {
-    $strings: set-nth(
-      $strings,
-      index($strings, $string),
-      str-replace($string, $search, $replace)
-    );
+    $strings: set-nth($strings, index($strings, $string), str-replace($string, $search, $replace));
   }
 
   @return $strings;

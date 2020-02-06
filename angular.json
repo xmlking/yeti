@@ -65,6 +65,22 @@
               "serviceWorker": true,
               "ngswConfigPath": "apps/webapp/ngsw-config.json"
             },
+            "staging": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/webapp/src/environments/environment.ts",
+                  "with": "apps/webapp/src/environments/environment.stage.ts"
+                }
+              ]
+            },
+            "mock": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/webapp/src/environments/environment.ts",
+                  "with": "apps/webapp/src/environments/environment.mock.ts"
+                }
+              ]
+            },
             "es": {
               "localize": ["es"]
             },
@@ -85,6 +101,12 @@
           "configurations": {
             "production": {
               "browserTarget": "webapp:build:production"
+            },
+            "staging": {
+              "browserTarget": "webapp:build:staging"
+            },
+            "mock": {
+              "browserTarget": "webapp:build:mock"
             },
             "es": {
               "browserTarget": "webapp:build:es"
@@ -135,7 +157,7 @@
         "deploy": {
           "builder": "@angular/fire:deploy",
           "options": {
-            "configuration": "mock"
+            "buildTarget": "webapp:browser:staging"
           }
         }
       }
@@ -153,7 +175,14 @@
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets", { "glob": "**/*", "input": "protos", "output": "protos" }]
+            "assets": [
+              "apps/api/src/assets",
+              {
+                "glob": "**/*",
+                "input": "proto",
+                "output": "proto"
+              }
+            ]
           },
           "configurations": {
             "production": {
@@ -179,7 +208,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": ["apps/api/tsconfig.app.json", "apps/api/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!apps/api/**", "apps/api/src/app/echo/interfaces/echo.ts"]
+            "exclude": ["**/node_modules/**", "!apps/api/**", "apps/api/src/app/echo/interfaces/yeti/echo/v1/echo.ts"]
           }
         },
         "test": {
@@ -387,6 +416,34 @@
         }
       },
       "schematics": {}
+    },
+    "accounts": {
+      "projectType": "library",
+      "root": "libs/accounts",
+      "sourceRoot": "libs/accounts/src",
+      "prefix": "yeti",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["libs/accounts/tsconfig.lib.json", "libs/accounts/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!libs/accounts/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/accounts/jest.config.js",
+            "tsConfig": "libs/accounts/tsconfig.spec.json",
+            "setupFile": "libs/accounts/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

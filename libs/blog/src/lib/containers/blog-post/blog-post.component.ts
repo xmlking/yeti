@@ -1,12 +1,6 @@
-import {
-  AfterViewChecked,
-  ChangeDetectionStrategy,
-  Component,
-  OnInit,
-  ViewEncapsulation
-} from '@angular/core';
+import { AfterViewChecked, ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ScullyRoute, ScullyRoutesService } from '@scullyio/ng-lib';
+import { isScullyGenerated, ScullyRoute, ScullyRoutesService } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HighlightService } from '../../services/highlight.service';
@@ -22,12 +16,15 @@ import { HighlightService } from '../../services/highlight.service';
 export class BlogPostComponent implements OnInit, AfterViewChecked {
   post$: Observable<any>;
   location: null;
+  showComments: boolean;
 
   constructor(
     private route: ActivatedRoute,
     private srs: ScullyRoutesService,
     private highlightService: HighlightService
-  ) {}
+  ) {
+    this.showComments = isScullyGenerated();
+  }
 
   /**
    * Highlight blog post when it's ready
@@ -40,9 +37,10 @@ export class BlogPostComponent implements OnInit, AfterViewChecked {
     this.post$ = this.srs.available$.pipe(
       map(routeList => {
         return routeList.filter(
+          // prettier-ignore
           (route: ScullyRoute) =>
-            route.route.startsWith(`/home/blog/`) &&
-            route.route.includes(this.route.snapshot.params.id)
+          route.route.startsWith(`/home/blog/`) &&
+          route.route.includes(this.route.snapshot.params.id)
         );
       }),
       map(currentPostData => {

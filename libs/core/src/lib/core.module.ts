@@ -1,7 +1,13 @@
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule, Optional, SkipSelf } from '@angular/core';
 import { environment } from '@env/environment';
-import { NbAuthJWTToken, NbAuthModule, NbOAuth2ClientAuthMethod, NbOAuth2GrantType, NbOAuth2ResponseType } from '@nebular/auth';
+import {
+  NbAuthJWTToken,
+  NbAuthModule,
+  NbOAuth2ClientAuthMethod,
+  NbOAuth2GrantType,
+  NbOAuth2ResponseType
+} from '@nebular/auth';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbSecurityModule } from '@nebular/security';
 import {
@@ -14,6 +20,7 @@ import {
   NbToastrModule,
   NbWindowModule
 } from '@nebular/theme';
+import { NgxsSelectSnapshotModule } from '@ngxs-labs/select-snapshot';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';
 import { NgxsRouterPluginModule, RouterStateSerializer } from '@ngxs/router-plugin';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
@@ -97,6 +104,7 @@ export function noop() {
     NgxsModule.forRoot([AuthState], {
       developmentMode: !environment.production
     }),
+    NgxsSelectSnapshotModule.forRoot(),
     NgxsStoragePluginModule.forRoot({
       key: ['auth']
       // key: ['preference', 'app.installed', 'auth.authenticated']

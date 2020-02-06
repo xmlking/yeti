@@ -1,10 +1,4 @@
-import {
-  HttpErrorResponse,
-  HttpEvent,
-  HttpHandler,
-  HttpInterceptor,
-  HttpRequest
-} from '@angular/common/http';
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -15,13 +9,9 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ErrorInterceptor implements HttpInterceptor {
-
   constructor(/*private snackBar: MatSnackBar, private store : Store*/) {}
 
-  intercept(
-    req: HttpRequest<any>,
-    next: HttpHandler
-  ): Observable<HttpEvent<any>> {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(catchError(this.handleError));
   }
 
@@ -36,9 +26,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     //   '',
     //   ErrorInterceptor.snackBarConfig
     // );
-    console.error(
-      `Backend Error ! status: ${status}, error: ${error}, message: ${message}`
-    );
+    console.error(`Backend Error ! status: ${status}, error: ${error}, message: ${message}`);
 
     return throwError(errorRes);
   };

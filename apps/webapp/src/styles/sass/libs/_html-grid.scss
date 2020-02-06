@@ -118,10 +118,7 @@
         margin-left: ($guttersCols * $multiplier * -1);
 
         > * {
-          padding: ($guttersRows * $multiplier)
-            0
-            0
-            ($guttersCols * $multiplier);
+          padding: ($guttersRows * $multiplier) 0 0 ($guttersCols * $multiplier);
         }
 
         // Uniform.

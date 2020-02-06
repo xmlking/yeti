@@ -47,8 +47,8 @@
     $x: 0.1rem;
   }
 
-  padding: ($tb + nth($pad, 1)) ($lr + nth($pad, 2))
-    max($x, $tb - _size(element-margin) + nth($pad, 3)) ($lr + nth($pad, 4)) #{$important};
+  padding: ($tb + nth($pad, 1)) ($lr + nth($pad, 2)) max($x, $tb - _size(element-margin) + nth($pad, 3))
+    ($lr + nth($pad, 4)) #{$important};
 }
 
 /// Encodes a SVG data URL so IE doesn't choke (via codepen.io/jakob-e/pen/YXXBrp).

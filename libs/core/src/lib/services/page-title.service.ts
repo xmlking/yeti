@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +7,7 @@ import { Title } from '@angular/platform-browser';
 export class PageTitleService {
   private readonly defaultTitle: string;
 
-  constructor(private bodyTitle: Title) {
+  constructor(private bodyTitle: Title, private meta: Meta) {
     this.defaultTitle = bodyTitle.getTitle() || 'WebApp';
   }
 
@@ -17,5 +17,9 @@ export class PageTitleService {
         .reverse()
         .join(' | ')} | ${this.defaultTitle}`
     );
+  }
+
+  public setMeta(meta: Map<string, string>) {
+    // this.meta.updateTag({ name: 'description', content: 'Hello World description!' });
   }
 }

@@ -15,12 +15,7 @@
     "member-ordering": [
       true,
       {
-        "order": [
-          "static-field",
-          "instance-field",
-          "static-method",
-          "instance-method"
-        ]
+        "order": ["static-field", "instance-field", "static-method", "instance-method"]
       }
     ],
     "no-consecutive-blank-lines": false,
@@ -64,19 +59,30 @@
     "nx-enforce-module-boundaries": [
       true,
       {
-        "allow": [],
+        "allow": ["@yeti/core"],
         "depConstraints": [
           {
-            "sourceTag": "child-module",
-            "onlyDependOnLibsWithTags": [
-              "utils",
-              "public-module",
-              "private-module",
-              "shared-module"
-            ]
+            "sourceTag": "scope:shared",
+            "onlyDependOnLibsWithTags": ["scope:shared"]
           },
-          { "sourceTag": "*", "onlyDependOnLibsWithTags": ["*"] }
-        ]
+          {
+            "sourceTag": "module:child",
+            "onlyDependOnLibsWithTags": ["utils", "scope:shared"]
+          },
+          {
+            "sourceTag": "scope:admin",
+            "onlyDependOnLibsWithTags": ["scope:shared", "scope:core", "scope:admin"]
+          },
+          {
+            "sourceTag": "module:entry",
+            "onlyDependOnLibsWithTags": ["utils", "scope:shared", "scope:core"]
+          },
+          {
+            "sourceTag": "*",
+            "onlyDependOnLibsWithTags": ["*"]
+          }
+        ],
+        "enforceBuildableLibDependency": true
       }
     ]
   }
