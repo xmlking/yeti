@@ -91,7 +91,7 @@
     "@angular/compiler": "9.0.0",
     "@angular/core": "9.0.0",
     "@angular/fire": "5.4.2",
-    "@angular/flex-layout": "9.0.0-beta.28",
+    "@angular/flex-layout": "9.0.0-beta.29",
     "@angular/forms": "9.0.0",
     "@angular/localize": "9.0.0",
     "@angular/platform-browser": "9.0.0",
@@ -112,7 +112,7 @@
     "@ngxs/store": "3.6.1",
     "@scullyio/ng-lib": "0.0.18",
     "eva-icons": "1.1.2",
-    "firebase": "7.8.0",
+    "firebase": "7.8.1",
     "google-protobuf": "3.11.3",
     "grpc-web": "1.0.7",
     "ngx-auto-unsubscribe": "3.0.1",
@@ -122,18 +122,19 @@
     "zone.js": "0.10.2"
   },
   "devDependencies": {
-    "@angular/cli": "9.0.0",
+    "@angular-devkit/build-angular": "0.900.1",
+    "@angular/cli": "9.0.1",
     "@angular/compiler-cli": "9.0.0",
     "@angular/language-service": "9.0.0",
     "@compodoc/compodoc": "1.1.11",
     "@fortawesome/fontawesome-free": "5.12.1",
-    "@nrwl/angular": "9.0.0-beta.5",
-    "@nrwl/cypress": "9.0.0-beta.5",
-    "@nrwl/jest": "9.0.0-beta.5",
-    "@nrwl/nest": "9.0.0-beta.5",
-    "@nrwl/node": "9.0.0-beta.5",
-    "@nrwl/workspace": "9.0.0-beta.5",
-    "@schematics/angular": "9.0.0",
+    "@nrwl/angular": "9.0.0-rc.1",
+    "@nrwl/cypress": "9.0.0-rc.1",
+    "@nrwl/jest": "9.0.0-rc.1",
+    "@nrwl/nest": "9.0.0-rc.1",
+    "@nrwl/node": "9.0.0-rc.1",
+    "@nrwl/workspace": "9.0.0-rc.1",
+    "@schematics/angular": "9.0.1",
     "@scullyio/init": "0.0.21",
     "@scullyio/scully": "0.0.65",
     "@types/google-protobuf": "3.7.2",
@@ -142,7 +143,7 @@
     "codecov": "3.6.4",
     "codelyzer": "5.2.1",
     "commitizen": "4.0.3",
-    "cypress": "3.8.3",
+    "cypress": "4.0.0",
     "dotenv": "8.2.0",
     "eslint": "6.8.0",
     "jest": "25.1.0",
@@ -171,11 +172,6 @@
     "webpack-bundle-analyzer": "3.6.0"
   },
   "resolutions": {
-    "guess-parser": "0.4.14",
-    "@angular-devkit/core": "9.0.0",
-    "@angular-devkit/build-angular": "0.900.0",
-    "@angular-devkit/architect": "0.900.0",
-    "@angular-devkit/schematics": "9.0.0",
-    "@angular-devkit/build-webpack": "0.900.0"
+    "guess-parser": "0.4.14"
   }
 }
