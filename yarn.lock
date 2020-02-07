@@ -2423,10 +2423,10 @@
   resolved "https://registry.yarnpkg.com/@scullyio/ng-lib/-/ng-lib-0.0.18.tgz#b4c8e229a416533bc64fd063b9e578e42e2d52a1"
   integrity sha512-07pj+yIhJqxsz2of+Yf2+8CFgF1S+c0rD8D+isKYbyV1QE3JjjKZO2uc2E4C+N2YUh54CR8wprXPHSvQdp5Y+Q==
 
-"@scullyio/scully@0.0.65":
-  version "0.0.65"
-  resolved "https://registry.yarnpkg.com/@scullyio/scully/-/scully-0.0.65.tgz#2bd77bd2f436264ce267545344d4256e20dcf110"
-  integrity sha512-VHfHWWM34cIsVMj427HzmnXwsP78mqC2bNfJ1wzRkk2bKk4D3vL6n+QI0sm8Wj4gYtJJY/twi83b9zfeVIHtgw==
+"@scullyio/scully@0.0.67":
+  version "0.0.67"
+  resolved "https://registry.yarnpkg.com/@scullyio/scully/-/scully-0.0.67.tgz#d598dff6f92abf418adb7e56907bdc523f9590da"
+  integrity sha512-mE3Q0d9nzfvudMOvy7auFr/s2SPXdfK/KROnioabO2FEQhTJgI7pQw8hQ8Dd+qS/htVu50pyZm4f5BHznpBTfw==
   dependencies:
     asciidoctor.js "^1.5.9"
     chalk "2.4.2"
@@ -4926,17 +4926,16 @@ code-point-at@^1.0.0:
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
 
-codecov@3.6.4:
-  version "3.6.4"
-  resolved "https://registry.yarnpkg.com/codecov/-/codecov-3.6.4.tgz#c993a58704ad5f15dcdd6aa3c3af22070c69eb18"
-  integrity sha512-R9zEcTR5/IDLepdGUHAkRMZOIKhBE1NRGS1N2H96zhBOskhdW9Q22GtYYyecbZL1aheU00D2F21nNBGRISui0A==
+codecov@3.6.5:
+  version "3.6.5"
+  resolved "https://registry.yarnpkg.com/codecov/-/codecov-3.6.5.tgz#d73ce62e8a021f5249f54b073e6f2d6a513f172a"
+  integrity sha512-v48WuDMUug6JXwmmfsMzhCHRnhUf8O3duqXvltaYJKrO1OekZWpB/eH6iIoaxMl8Qli0+u3OxptdsBOYiD7VAQ==
   dependencies:
     argv "0.0.2"
     ignore-walk "3.0.3"
     js-yaml "3.13.1"
     teeny-request "6.0.1"
     urlgrey "0.4.4"
-    validator "12.2.0"
 
 codelyzer@5.2.1:
   version "5.2.1"
@@ -17282,11 +17281,6 @@ validate-npm-package-name@^3.0.0:
   integrity sha1-X6kS2B630MdK/BQN5zF/DKffQ34=
   dependencies:
     builtins "^1.0.3"
-
-validator@12.2.0:
-  version "12.2.0"
-  resolved "https://registry.yarnpkg.com/validator/-/validator-12.2.0.tgz#660d47e96267033fd070096c3b1a6f2db4380a0a"
-  integrity sha512-jJfE/DW6tIK1Ek8nCfNFqt8Wb3nzMoAbocBF6/Icgg1ZFSBpObdnwVY2jQj6qUqzhx5jc71fpvBWyLGO7Xl+nQ==
 
 vary@^1, vary@^1.1.2, vary@~1.1.2:
   version "1.1.2"

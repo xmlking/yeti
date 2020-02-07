@@ -91,3 +91,17 @@ ssh: $(BUF)
 clean:
 	git clean -xdf
 	rm -rf $(CACHE_BASE)
+
+
+proto:
+	# @protoc proto/**/*.proto
+	@protoc $(shell find ./proto -type f -name '*.proto' ! -path './third_party*') \
+	--proto_path=.:${GOPATH}/src \
+	--go_out=paths=source_relative:. \
+	--micro_out=paths=source_relative:. \
+	--gorm_out=paths=source_relative:. \
+	--validate_out=lang=go:paths=source_relative:. ;
+	@echo "✓ Generated"
+
+proto_format:
+	@clang-format -i $(shell find ./proto -type f -name '*.proto')

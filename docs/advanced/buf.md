@@ -50,6 +50,18 @@ export HTTPS_GIT=https://github.com/xmlking/yeti.git
 buf check breaking --against-input "$(HTTPS_GIT)#branch=master"
 ```
 
+### Format
+
+```bash
+make proto_format
+```
+
+### Generate
+
+```bash
+make proto
+```
+
 ## Tools
 
 ### grpcurl
