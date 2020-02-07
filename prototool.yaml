@@ -1,0 +1,95 @@
+# keep this file at proto/prototool.yaml
+protoc:
+  version: 3.11.2
+  includes:
+    # TODO: https://github.com/uber/prototool/pull/529
+    #   - ../..
+    # - $GOPATH/src
+
+# LINT
+
+excludes:
+  - e2e
+
+lint:
+  group: uber2
+  rules:
+    add:
+      - RPCS_HAVE_COMMENTS
+    remove:
+      - FILE_OPTIONS_EQUAL_JAVA_PACKAGE_PREFIX
+      - FILE_OPTIONS_REQUIRE_JAVA_OUTER_CLASSNAME
+      - FILE_OPTIONS_REQUIRE_CSHARP_NAMESPACE
+      - FILE_OPTIONS_REQUIRE_GO_PACKAGE
+      - FILE_OPTIONS_REQUIRE_OBJC_CLASS_PREFIX
+      - FILE_OPTIONS_REQUIRE_PHP_NAMESPACE
+      - PACKAGE_MAJOR_BETA_VERSIONED
+      - SERVICE_NAMES_API_SUFFIX
+      - REQUEST_RESPONSE_TYPES_ONLY_IN_FILE
+      - REQUEST_RESPONSE_NAMES_MATCH_RPC
+      - REQUEST_RESPONSE_TYPES_UNIQUE
+      - SERVICE_NAMES_MATCH_FILE_NAME
+  ignores:
+    - id: SYNTAX_PROTO3
+      files:
+        - e2e
+
+# CREATE PROTO
+
+create:
+  packages:
+    # This means that a file created "foo.proto" in the `proto` directory will have package "yeti".
+    # See: https://github.com/uber/prototool/blob/dev/docs/create.md
+    - directory: .
+      name: yeti
+
+# GENERATE CODE
+
+generate:
+  go_options:
+    import_path: 'https://github.com/xmlking/yeti/gen/go'
+    extra_modifiers:
+      google/api/annotations.proto: google.golang.org/genproto/googleapis/api/annotations
+      google/api/http.proto: google.golang.org/genproto/googleapis/api/annotations
+
+  plugins:
+    - name: descriptor_set
+      file_suffix: bin
+      include_imports: true
+      include_source_info: true
+      output: ../gen/descriptor
+
+    - name: go
+      flags: plugins=grpc
+      output: ../gen/go
+      type: go
+    - name: micro
+      output: ../gen/go
+      flags: plugins=grpc
+      type: go
+    - name: validate
+      flags: lang=go
+      output: ../gen/go
+      type: go
+    - name: grpc-gateway
+      output: ../gen/go
+      type: go
+
+    - name: swagger
+      output: ../gen/swagger
+      type: go
+
+    - name: js
+      flags: binary,import_style=commonjs
+      output: ../gen/js
+    - name: ts
+      flags: service=grpc-web
+      output: ../gen/js
+
+    - name: java
+      output: ../gen/java/src/main/java
+    - name: grpc-java
+      output: ../gen/java/src/main/java
+    - name: validate
+      flags: lang=java
+      output: ../gen/java/src/main/java
