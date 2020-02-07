@@ -7,10 +7,10 @@ import "google/protobuf/wrappers.proto";
 import "validate/validate.proto";
 import "yeti/common/v1/common.proto";
 
-option go_package = "github.com/xmlking/yeti/account/v1;account";
+option go_package = "github.com/xmlking/yeti/gen/go/account/v1;account";
 option java_multiple_files = true;
 option java_outer_classname = "AccountServiceProto";
-option java_package = "yeti.account.v1";
+option java_package  = "yeti.account.v1";
 
 service AccountService {
   rpc Get(GetRequest) returns (GetResponse);
@@ -19,13 +19,9 @@ service AccountService {
 
 message GetRequest {
   google.protobuf.StringValue key = 1
-      [(validate.rules).string = { min_len: 0 }];
+      [ (validate.rules).string = {min_len : 0} ];
 }
 
-message GetResponse {
-  yeti.common.v1.Account account = 1;
-}
+message GetResponse { yeti.common.v1.Account account = 1; }
 
-message WriteRequest {
-  yeti.common.v1.Account account = 1;
-}
+message WriteRequest { yeti.common.v1.Account account = 1; }
