@@ -1,53 +1,27 @@
 # keep this file at proto/prototool.yaml
-protoc:
-  version: 3.11.2
-  includes:
-    # TODO: https://github.com/uber/prototool/pull/529
-    #   - ../..
-    # - $GOPATH/src
 
-# LINT
-
+# Paths to exclude when searching for Protobuf files.
 excludes:
-  - e2e
+  - dist
+  - node_modules
 
-lint:
-  group: uber2
-  rules:
-    add:
-      - RPCS_HAVE_COMMENTS
-    remove:
-      - FILE_OPTIONS_EQUAL_JAVA_PACKAGE_PREFIX
-      - FILE_OPTIONS_REQUIRE_JAVA_OUTER_CLASSNAME
-      - FILE_OPTIONS_REQUIRE_CSHARP_NAMESPACE
-      - FILE_OPTIONS_REQUIRE_GO_PACKAGE
-      - FILE_OPTIONS_REQUIRE_OBJC_CLASS_PREFIX
-      - FILE_OPTIONS_REQUIRE_PHP_NAMESPACE
-      - PACKAGE_MAJOR_BETA_VERSIONED
-      - SERVICE_NAMES_API_SUFFIX
-      - REQUEST_RESPONSE_TYPES_ONLY_IN_FILE
-      - REQUEST_RESPONSE_NAMES_MATCH_RPC
-      - REQUEST_RESPONSE_TYPES_UNIQUE
-      - SERVICE_NAMES_MATCH_FILE_NAME
-  ignores:
-    - id: SYNTAX_PROTO3
-      files:
-        - e2e
+# Protoc directives.
+protoc:
+  version: 3.11.3
+  includes:
+    - ../third_party/proto
 
-# CREATE PROTO
-
+# Create directives.
 create:
   packages:
-    # This means that a file created "foo.proto" in the `proto` directory will have package "yeti".
-    # See: https://github.com/uber/prototool/blob/dev/docs/create.md
-    - directory: .
+    # This means that a file created "sumo.proto" in the `proto/yeti/sumo/v1` directory will have package "yeti.sumo.v1".
+    - directory: proto/yeti
       name: yeti
 
-# GENERATE CODE
-
+# Code generation directives.
 generate:
   go_options:
-    import_path: 'https://github.com/xmlking/yeti/gen/go'
+    import_path: github.com/xmlking/yeti/proto
     extra_modifiers:
       google/api/annotations.proto: google.golang.org/genproto/googleapis/api/annotations
       google/api/http.proto: google.golang.org/genproto/googleapis/api/annotations

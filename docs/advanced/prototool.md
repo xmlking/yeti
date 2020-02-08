@@ -52,7 +52,7 @@ make build
 > Install **protoc-gen-grpc-java**
 
 ```bash
-PROTOC_JAVA_GRPC_VERSION=1.26.0
+PROTOC_JAVA_GRPC_VERSION=1.27.0
 OS=osx
 PROTOC_PATH=/usr/local/bin
 # ORIGIN=http://central.maven.org/maven2/io/grpc/protoc-gen-grpc-java
@@ -75,7 +75,7 @@ If above step fail due to proxy, pre-compiled binaries for common platforms are 
 > Create new `proto` file from template
 
 ```bash
- prototool create proto/sumo.proto
+prototool create proto/yeti/sumo/v1/sumo.proto
 ```
 
 ### Generate
@@ -83,7 +83,7 @@ If above step fail due to proxy, pre-compiled binaries for common platforms are 
 > Generating _Go/Java/JS_ from _protobuf_ definitions
 
 ```bash
-prototool generate --dry-run
-prototool generate
-prototool generate --debug
+prototool generate proto --dry-run
+prototool generate proto
+prototool generate proto --debug
 ```
