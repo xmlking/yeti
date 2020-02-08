@@ -92,16 +92,17 @@ clean:
 	git clean -xdf
 	rm -rf $(CACHE_BASE)
 
+# generate Go/Java/JS
 
+.PHONY: proto
 proto:
-	# @protoc proto/**/*.proto
-	@protoc $(shell find ./proto -type f -name '*.proto' ! -path './third_party*') \
-	--proto_path=.:${GOPATH}/src \
-	--go_out=paths=source_relative:. \
-	--micro_out=paths=source_relative:. \
-	--gorm_out=paths=source_relative:. \
-	--validate_out=lang=go:paths=source_relative:. ;
+	@prototool generate proto
 	@echo "✓ Generated"
 
+# format proto files
+
+.PHONY: proto_format
 proto_format:
-	@clang-format -i $(shell find ./proto -type f -name '*.proto')
+	@clang-format -i $(find ./proto -type f -name '*.proto')
+	@echo "✓ Formated"
+
