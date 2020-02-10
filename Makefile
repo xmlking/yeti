@@ -91,3 +91,18 @@ ssh: $(BUF)
 clean:
 	git clean -xdf
 	rm -rf $(CACHE_BASE)
+
+# generate Go/Java/JS
+
+.PHONY: proto
+proto:
+	@prototool generate proto
+	@echo "✓ Proto: Go/Java/JS Generated"
+
+# format proto files
+
+.PHONY: proto_format
+proto_format:
+	@prototool format -w proto;
+	@echo "✓ Proto: Formated"
+

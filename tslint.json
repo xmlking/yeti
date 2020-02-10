@@ -62,20 +62,28 @@
         "allow": ["@yeti/core"],
         "depConstraints": [
           {
-            "sourceTag": "scope:shared",
-            "onlyDependOnLibsWithTags": ["scope:shared"]
+            "sourceTag": "scope:public",
+            "onlyDependOnLibsWithTags": ["scope:public"]
+          },
+          {
+            "sourceTag": "module:core",
+            "onlyDependOnLibsWithTags": ["module:utils"]
+          },
+          {
+            "sourceTag": "module:shared",
+            "onlyDependOnLibsWithTags": ["module:shared"]
           },
           {
             "sourceTag": "module:child",
-            "onlyDependOnLibsWithTags": ["utils", "scope:shared"]
+            "onlyDependOnLibsWithTags": ["module:shared"]
           },
           {
-            "sourceTag": "scope:admin",
-            "onlyDependOnLibsWithTags": ["scope:shared", "scope:core", "scope:admin"]
+            "sourceTag": "module:admin",
+            "onlyDependOnLibsWithTags": ["module:shared", "module:core", "module:admin"]
           },
           {
             "sourceTag": "module:entry",
-            "onlyDependOnLibsWithTags": ["utils", "scope:shared", "scope:core"]
+            "onlyDependOnLibsWithTags": ["module:shared", "module:core"]
           },
           {
             "sourceTag": "*",

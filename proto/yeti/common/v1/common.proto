@@ -2,12 +2,12 @@ syntax = "proto3";
 
 package yeti.common.v1;
 
-import "google/protobuf/wrappers.proto";
-import "validate/validate.proto";
-
-option go_package = "github.com/xmlking/yeti/common/v1;entity";
+// option go_package = "github.com/xmlking/yeti/gen/go/common/v1;entity";
 option java_multiple_files = true;
 option java_package = "yeti.entity.v1";
+
+import "google/protobuf/wrappers.proto";
+import "validate/validate.proto";
 
 enum Currency {
   CURRENCY_USD_UNSPECIFIED = 0;
@@ -31,7 +31,11 @@ message Product {
 
 message Order {
   string id = 1;
-  string subject = 2;
+  google.protobuf.StringValue subject = 2 [
+    (validate.rules).string = {
+      min_len: 5
+    }
+  ];
   string body = 3;
   int32 total_price = 4;
   Currency currency = 5;

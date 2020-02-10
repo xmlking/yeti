@@ -1,5 +1,8 @@
-name: CI
-on: push
+name: Proto
+on:
+  push:
+    paths:
+      - 'proto/**'
 jobs:
   build:
     runs-on: ubuntu-latest

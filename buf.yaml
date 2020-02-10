@@ -15,7 +15,11 @@ lint:
   ignore_only:
     RPC_RESPONSE_STANDARD_NAME:
       - yeti/account/v1/account.proto
+  rpc_allow_google_protobuf_empty_responses: true
 
 breaking:
   use:
     - WIRE_JSON
+  ignore:
+    - protoc-gen-gorm
+    - validate

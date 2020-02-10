@@ -1,11 +1,13 @@
 # Table of Contents
 
 - [YETI](../README.md)
+- [Features](features.md)
 - Getting Started
   - [Why](introduction/why.md)
   - [Installation](introduction/installation.md)
   - [Playbook](introduction/playbook.md)
   - [NestJs Playbook](introduction/nest-playbook.md)
+  - [Scaffolding](introduction/scaffolding.md)
 - Concepts
   - [Introduction](concepts/intro.md)
   - [Store](concepts/store.md)
@@ -13,23 +15,10 @@
   - [State](concepts/state.md)
   - [Select](concepts/select.md)
 - Advanced
-  - [Action Handlers](advanced/action-handlers.md)
-  - [Actions Life Cycle](advanced/actions-life-cycle.md)
-  - [Envoy Proxy](advanced/envoy.md)
-  - [Cancellation](advanced/cancellation.md)
-  - [Composition](advanced/composition.md)
-  - [Error Handling](advanced/errors.md)
-  - [Ivy Migration Guide](advanced/ivy-migration-guide.md)
-  - [Lazy Loading](advanced/lazy.md)
-  - [Life-cycle](advanced/life-cycle.md)
-  - [Mapped Sub States](advanced/mapped-sub-states.md)
-  - [Meta Reducers](advanced/meta-reducer.md)
-  - [Options](advanced/options.md)
-  - [Shared State](advanced/shared-state.md)
-  - [State Token](advanced/token.md)
-  - [State Operators](advanced/operators.md)
-  - [Style Guide](advanced/style-guide.md)
-  - [Troubleshooting](advanced/troubleshooting.md)
+  - [Content Management](advanced/blog.md)
+  - [Protobuf Tools](advanced/buf.md)
+  - [Envoy](advanced/envoy.md)
+  - [Style Guild](advanced/style-guide.md)
 - Modules
   - Apps
     - [WebApp](../apps/webapp/README.md)
@@ -43,6 +32,16 @@
     - [Home](../libs/home/README.md)
     - [Not Found](../libs/not-found/README.md)
     - [Shared](../libs/shared/README.md)
+- GitOps
+  - [Build](gitops/build.md)
+  - [Code Quality](gitops/code-quality.md)
+  - [API Docs](gitops/compodoc.md)
+  - [Release](gitops/release.md)
+  - [CICD](gitops/cicd.md)
+- DevOps
+  - [Database](devops/database.md)
+  - [Kubernetes](devops/kubernetes.md)
+  - [Deploy](devops/deploy.md)
 - Recipes
   - [Authentication](recipes/authentication.md)
   - [Caching](recipes/cache.md)
@@ -58,4 +57,4 @@
   - [Contributing](community/contributing.md)
 - [Change Log](../CHANGELOG.md)
 - [FAQ](faq/faq.md)
-- [TODO](todo.md)
+

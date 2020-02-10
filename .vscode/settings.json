@@ -27,6 +27,8 @@
   "terminal.integrated.fontFamily": "MesloLGS NF, 'SourceCodePro+Powerline+Awesome Regular', Source Code Pro for Powerline, monospace, Meslo LG M for Powerline",
   // "terminal.integrated.fontSize": 16,
   // Workbench
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.value": 8,
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.colorCustomizations": {
     "activityBar.background": "#fbed80",

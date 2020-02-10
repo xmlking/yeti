@@ -1,6 +1,8 @@
-# API Docs
+# Compodoc
 
-> Generating API docs
+[compodoc](https://compodoc.app/) used to generate API docs
+
+## Generate
 
 ```bash
 # generate docs

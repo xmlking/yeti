@@ -45,9 +45,24 @@ buf check lint
 # We can also output errors in a format you can then copy into your buf.yaml file
 buf check lint --error-format=config-ignore-yaml
 # Run breaking change detection
+# for dev local
 buf check breaking --against-input image.bin
+buf check breaking --against-input '.git#branch=master'
+# for CI
 export HTTPS_GIT=https://github.com/xmlking/yeti.git
 buf check breaking --against-input "$(HTTPS_GIT)#branch=master"
+```
+
+### Format
+
+```bash
+make proto_format
+```
+
+### Generate
+
+```bash
+make proto
 ```
 
 ## Tools

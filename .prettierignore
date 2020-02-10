@@ -7,6 +7,19 @@
 
 /dist
 /coverage
+**/.idea
+**/.ng_pkg_build
+**/.vscode
+node_modules
 
 /libs/gen
 apps/api/src/app/echo/interfaces/echo.ts
+
+# package.json
+# angular.json
+# angular.json
+# nx.json
+# tsconfig*
+# tslint*
+# jest.config.js
+

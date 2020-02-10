@@ -1,6 +1,6 @@
-# TODO
+# Features
 
-## Capabilities
+## Features/Backlog
 
 - [x] i18n, Multi-Lingual Support
 - [x] SSG, Static Site Generator
@@ -11,3 +11,4 @@
 - [ ] Routing animations for nested routes and Blog posts
 - [ ] [Storybooks](https://storybook.js.org/)
 - [x] 🚫💩 — Run linters on git staged files
+- [ ] [MikroORM](https://mikro-orm.io/)
