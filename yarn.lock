@@ -2361,10 +2361,10 @@
   resolved "https://registry.yarnpkg.com/@scullyio/ng-lib/-/ng-lib-0.0.18.tgz#b4c8e229a416533bc64fd063b9e578e42e2d52a1"
   integrity sha512-07pj+yIhJqxsz2of+Yf2+8CFgF1S+c0rD8D+isKYbyV1QE3JjjKZO2uc2E4C+N2YUh54CR8wprXPHSvQdp5Y+Q==
 
-"@scullyio/scully@0.0.67":
-  version "0.0.67"
-  resolved "https://registry.yarnpkg.com/@scullyio/scully/-/scully-0.0.67.tgz#d598dff6f92abf418adb7e56907bdc523f9590da"
-  integrity sha512-mE3Q0d9nzfvudMOvy7auFr/s2SPXdfK/KROnioabO2FEQhTJgI7pQw8hQ8Dd+qS/htVu50pyZm4f5BHznpBTfw==
+"@scullyio/scully@0.0.68":
+  version "0.0.68"
+  resolved "https://registry.yarnpkg.com/@scullyio/scully/-/scully-0.0.68.tgz#a1bbbc89b988ff4617cb95734ac6c167b371c395"
+  integrity sha512-3EXOCP48PFjDucUrSRgztT8CqB0k/UJ+ZSllbkBKMx3ZTHr4qDtfMRg+lhLrl/iWu2MbTeJO/d+A5050cXDlKQ==
   dependencies:
     asciidoctor.js "^1.5.9"
     chalk "2.4.2"
