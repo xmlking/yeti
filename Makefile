@@ -97,12 +97,12 @@ clean:
 .PHONY: proto
 proto:
 	@prototool generate proto
-	@echo "✓ Generated"
+	@echo "✓ Proto: Go/Java/JS Generated"
 
 # format proto files
 
 .PHONY: proto_format
 proto_format:
-	@clang-format -i $(find ./proto -type f -name '*.proto')
-	@echo "✓ Formated"
+	@prototool format -w proto;
+	@echo "✓ Proto: Formated"
 
