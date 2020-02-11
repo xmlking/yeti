@@ -1996,10 +1996,10 @@
     "@angular-devkit/schematics" "7.3.8"
     fs-extra "8.1.0"
 
-"@nestjs/swagger@4.2.6":
-  version "4.2.6"
-  resolved "https://registry.yarnpkg.com/@nestjs/swagger/-/swagger-4.2.6.tgz#a358ac5609f79c88fe165da2958d18c6460b43cc"
-  integrity sha512-bhFLXrDo8O0OU0GQ/uX0eOOFgKCwe2bPAHh7BI+zEF12r/VoA4IFWG8DywqYp7KnaLJN6oHtaOaVlYWPhPvoZQ==
+"@nestjs/swagger@4.2.7":
+  version "4.2.7"
+  resolved "https://registry.yarnpkg.com/@nestjs/swagger/-/swagger-4.2.7.tgz#6e1ecbe3b62b7f6c4014aaedcdb57f358401c378"
+  integrity sha512-VgFjNclajZHDAsvL3+XCaJE0wgPkzsasQ8eTTRakIdAfWcK6QX4dF0Nb5z+i2Zqvw0ZPwc7oWNRbhGACbVglsw==
   dependencies:
     lodash "4.17.15"
     path-to-regexp "3.2.0"
@@ -2345,10 +2345,10 @@
     semver "6.3.0"
     semver-intersect "1.4.0"
 
-"@scullyio/init@0.0.21":
-  version "0.0.21"
-  resolved "https://registry.yarnpkg.com/@scullyio/init/-/init-0.0.21.tgz#fe00906c066d8914f92cd02510e53d7b3635d864"
-  integrity sha512-0b9yvYOM5POjd6ByvM0qwtnGQWtCM83+X9dtQNt9fmdgndgzBLI4A/BAa2XrEXQAVJfg+xzcBYVN2jYSFIiGAw==
+"@scullyio/init@0.0.22":
+  version "0.0.22"
+  resolved "https://registry.yarnpkg.com/@scullyio/init/-/init-0.0.22.tgz#ee26126f6bc7d5026bf9d67b993b8d61947f3d9e"
+  integrity sha512-ntibs6OWudTdi8TNbr9l5NO+tdomWrO6U1ejUoSa9ba/u5jPsGvWtMuuar4AuBMPRiYYXnpQL5+wMiqR0o7Z0g==
   dependencies:
     "@angular-devkit/core" "^9.0.0-rc.5"
     "@angular-devkit/schematics" "^9.0.0-rc.5"
@@ -2361,10 +2361,10 @@
   resolved "https://registry.yarnpkg.com/@scullyio/ng-lib/-/ng-lib-0.0.18.tgz#b4c8e229a416533bc64fd063b9e578e42e2d52a1"
   integrity sha512-07pj+yIhJqxsz2of+Yf2+8CFgF1S+c0rD8D+isKYbyV1QE3JjjKZO2uc2E4C+N2YUh54CR8wprXPHSvQdp5Y+Q==
 
-"@scullyio/scully@0.0.67":
-  version "0.0.67"
-  resolved "https://registry.yarnpkg.com/@scullyio/scully/-/scully-0.0.67.tgz#d598dff6f92abf418adb7e56907bdc523f9590da"
-  integrity sha512-mE3Q0d9nzfvudMOvy7auFr/s2SPXdfK/KROnioabO2FEQhTJgI7pQw8hQ8Dd+qS/htVu50pyZm4f5BHznpBTfw==
+"@scullyio/scully@0.0.68":
+  version "0.0.68"
+  resolved "https://registry.yarnpkg.com/@scullyio/scully/-/scully-0.0.68.tgz#a1bbbc89b988ff4617cb95734ac6c167b371c395"
+  integrity sha512-3EXOCP48PFjDucUrSRgztT8CqB0k/UJ+ZSllbkBKMx3ZTHr4qDtfMRg+lhLrl/iWu2MbTeJO/d+A5050cXDlKQ==
   dependencies:
     asciidoctor.js "^1.5.9"
     chalk "2.4.2"
