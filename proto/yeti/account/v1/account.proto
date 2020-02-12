@@ -12,17 +12,15 @@ import "google/protobuf/wrappers.proto";
 import "validate/validate.proto";
 import "yeti/common/v1/common.proto";
 
+// Account Service
 service AccountService {
   rpc Get(GetRequest) returns (GetResponse);
   rpc Write(WriteRequest) returns (google.protobuf.Empty);
 }
 
 message GetRequest {
-  google.protobuf.StringValue key = 1 [
-    (validate.rules).string = {
-      min_len: 0
-    }
-  ];
+  google.protobuf.StringValue key = 1
+      [(validate.rules).string = { min_len: 0 }];
 }
 
 message GetResponse {
