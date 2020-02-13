@@ -10,12 +10,12 @@ Do-it-yourself step-by-step instructions to create this project structure from s
 
 | Software        | Version | Optional |
 | --------------- | ------- | -------- |
-| Node            | v13.5.0 |          |
-| Yarn            | v1.21.1 |          |
+| Node            | v13.8.0 |          |
+| Yarn            | v1.22.0 |          |
 | Lerna           | v3.20.2 |          |
-| Angular CLI     | v9.0.0  |          |
+| Angular CLI     | v9.0.2  |          |
 | @nrwl/workspace | v9.0.0  |          |
-| @nestjs/cli     | v6.13.2 |          |
+| @nestjs/cli     | v6.14.2 |          |
 | commitizen      | v4.0.3  |          |
 
 ### Install Prerequisites
@@ -78,24 +78,29 @@ yarn global remove @nrwl/cli
 yarn global remove @nestjs/cli
 yarn global remove bloomrpc-mock
 yarn global remove gitbook-cli
+yarn global remove ts-protoc-gen
+yarn global remove grpc-tools
 
 yarn global add lerna
-yarn global add @angular/cli@next
-yarn global add @nrwl/cli@next
+yarn global add @angular/cli
+yarn global add @nrwl/cli
 yarn global add @nestjs/cli
 yarn global add bloomrpc-mock
 yarn global add gitbook-cli
+yarn global add ts-protoc-gen
+yarn global add grpc-tools
+
 
 # verify globally installed packages
 yarn global list
 # find out which packages need to be updated. Options: `--latest`
 yarn global upgrade-interactive
 # set scss as default css processor
-ng config -g defaults.styleExt=scss
+ng config -g defaults.style=scss
 ng config -g schematics.@schematics/angular:component.style scss
 ng config -g cli.packageManager yarn
-# set scss as default styleext for ngx-formly
-ng config -g schematics@ngx-formly/schematics:component.styleext scss
+# set scss as default style for ngx-formly
+ng config -g schematics@ngx-formly/schematics:component.style scss
 # check your global defaults
 ng config -g
 # find reverse dependencies for a package
