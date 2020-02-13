@@ -17,7 +17,7 @@
 - Advanced
   - [Content Management](advanced/blog.md)
   - [Protobuf Tools](advanced/buf.md)
-  - [Prototool](docs/advanced/prototool.md)
+  - [Prototool](advanced/prototool.md)
   - [Envoy](advanced/envoy.md)
   - [Style Guild](advanced/style-guide.md)
 - Modules
