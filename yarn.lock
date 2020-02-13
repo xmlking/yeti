@@ -2003,10 +2003,10 @@
   dependencies:
     uuid "3.3.3"
 
-"@ngneat/until-destroy@7.1.0":
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/@ngneat/until-destroy/-/until-destroy-7.1.0.tgz#b11479e30e4d97d7c635e58b71581f119d14c11b"
-  integrity sha512-QAlLQhsK8Fs0jrIoyAxyLbOPSSydjVZAemHy/dCvI1wKMUcxYPlyxvgcYQ/QJB9h6rsqPbO1OCaBDqPUyc6gbQ==
+"@ngneat/until-destroy@7.1.1":
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/@ngneat/until-destroy/-/until-destroy-7.1.1.tgz#4177498711ad1217017b7f722d976aa5afceda3c"
+  integrity sha512-p2RtDxERlRiRkQIFl2OERucC7Dcbogob2en5q/RMXp6mZXV/MwTv+7obv0SqR+8gL++ABhLRA+cXSXleJfiEXg==
 
 "@ngtools/webpack@9.0.2":
   version "9.0.2"
@@ -12137,7 +12137,7 @@ node-notifier@^6.0.0:
     shellwords "^0.1.1"
     which "^1.3.1"
 
-node-pre-gyp@*, node-pre-gyp@^0.14.0:
+node-pre-gyp@^0.14.0:
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.14.0.tgz#9a0596533b877289bcad4e143982ca3d904ddc83"
   integrity sha512-+CvDC7ZttU/sSt9rFjix/P05iS43qHCOOGzcr3Ry99bXG7VX953+vFyEuph/tfqoYu8dttBkE86JSKBO2OzcxA==
