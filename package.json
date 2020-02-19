@@ -122,8 +122,8 @@
     "zone.js": "0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "0.900.2",
-    "@angular/cli": "9.0.2",
+    "@angular-devkit/build-angular": "0.900.3",
+    "@angular/cli": "9.0.3",
     "@angular/compiler-cli": "9.0.1",
     "@angular/language-service": "9.0.1",
     "@compodoc/compodoc": "1.1.11",
@@ -134,7 +134,7 @@
     "@nrwl/nest": "9.0.1",
     "@nrwl/node": "9.0.1",
     "@nrwl/workspace": "9.0.1",
-    "@schematics/angular": "9.0.2",
+    "@schematics/angular": "9.0.3",
     "@scullyio/init": "0.0.23",
     "@scullyio/scully": "0.0.72",
     "@types/google-protobuf": "3.7.2",
