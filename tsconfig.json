@@ -36,7 +36,8 @@
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
+    "strictInjectionParameters": true,
+    "disableTypeScriptVersionCheck": true
   },
   "exclude": ["coverage/**/*", "dist/**/*", "node_modules", "tmp", "todo/**/*", "tools/**/_*files/**/*"]
 }

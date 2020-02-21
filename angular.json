@@ -17,6 +17,27 @@
         }
       },
       "architect": {
+        "scully": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "parallel": false,
+            "commands": [
+              {
+                "command": "yarn run scully --project webapp"
+              }
+            ]
+          }
+        },
+        "doc": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "yarn run compodoc -p tsconfig.json -d dist/docs"
+              }
+            ]
+          }
+        },
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
