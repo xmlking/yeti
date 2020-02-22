@@ -139,6 +139,7 @@ ng add @angular/pwa@next --project webapp
 # gh-pages deployment
 # ng add angular-cli-ghpages
 # firebase deploy
+# https://github.com/angular/angularfire/blob/master/docs/install-and-setup.md
 ng add @angular/fire
 # Add architect for npm release
 ng add ngx-deploy-npm

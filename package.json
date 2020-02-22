@@ -90,7 +90,7 @@
     "@angular/common": "9.0.2",
     "@angular/compiler": "9.0.2",
     "@angular/core": "9.0.2",
-    "@angular/fire": "5.4.2",
+    "@angular/fire": "^6.0.0-rc.1",
     "@angular/flex-layout": "9.0.0-beta.29",
     "@angular/forms": "9.0.2",
     "@angular/localize": "9.0.2",
@@ -122,6 +122,7 @@
     "zone.js": "0.10.2"
   },
   "devDependencies": {
+    "@angular-devkit/architect": "0.900.3",
     "@angular-devkit/build-angular": "0.900.3",
     "@angular/cli": "9.0.3",
     "@angular/compiler-cli": "9.0.2",
