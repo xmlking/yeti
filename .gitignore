@@ -56,6 +56,14 @@ scully-routes.json
 # Firebase
 .firebase
 
+# Book build output
+_book/
+
+# eBook build output
+*.epub
+*.mobi
+*.pdf
+
 # Project
 TODO
 deploy/overlays/e2e/secrets/.dockerconfigjson

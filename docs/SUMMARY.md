@@ -19,7 +19,6 @@
   - [Protobuf Tools](advanced/buf.md)
   - [Prototool](advanced/prototool.md)
   - [Envoy](advanced/envoy.md)
-  - [Blog](advanced/blog.md)
   - [Style Guild](advanced/style-guide.md)
   - [Angular Universal](advanced/angular-universal.md)
   - [Firebase](advanced/firebase.md)

@@ -23,6 +23,7 @@ about.component.scss-theme.scss
 > use  https://next.json-generator.com
 > https://next.json-generator.com/4Js2XUryH
 > https://randomuser.me/api/?nat=us&results=100&exc=login,registered&seed=sumo
+
 ```
 [
   {
