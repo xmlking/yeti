@@ -1,3 +1,9 @@
+---
+id: awesome
+layout: main
+description: Frequently Asked Questions
+---
+
 # Awesome Links
 
 A curated list of awesome Angular resources

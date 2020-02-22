@@ -58,6 +58,11 @@
   - [Resources](community/projects.md)
   - [Contributors](community/contributors.md)
   - [Contributing](community/contributing.md)
+- FAQ
+  - [Yeti](faq/yeti.md)
+  - [Angular](faq/angular.md)
+  - [GitBook](faq/gitbook.md)
+  - [Awesome Links](faq/awesome.md)
 - [Change Log](../CHANGELOG.md)
-- [FAQ](faq/faq.md)
+
 
