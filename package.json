@@ -101,7 +101,7 @@
     "@nebular/auth": "5.0.0-beta.5",
     "@nebular/eva-icons": "5.0.0-beta.5",
     "@nebular/security": "5.0.0-beta.5",
-    "@nebular/theme": "5.0.0-beta.5",
+    "@nebular/theme": "5.0.0-beta.6",
     "@ngneat/until-destroy": "7.1.1",
     "@ngxs-labs/select-snapshot": "1.1.0",
     "@ngxs/devtools-plugin": "3.6.2",
