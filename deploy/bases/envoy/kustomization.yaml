@@ -17,8 +17,8 @@ configMapGenerator:
 vars:
   - name: ENVOY_SRV_ENDPOINT
     objref:
-      kind: EtcdCluster
-      name: etcd-cluster
-      apiVersion: etcd.database.coreos.com/v1beta2
+      kind: Service
+      name: envoy
+      apiVersion: v1
     fieldref:
       fieldpath: metadata.name

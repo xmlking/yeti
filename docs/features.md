@@ -12,3 +12,4 @@
 - [ ] [Storybooks](https://storybook.js.org/)
 - [x] 🚫💩 — Run linters on git staged files
 - [ ] [MikroORM](https://mikro-orm.io/)
+- [ ] [tailwind](https://github.com/aniftyco/awesome-tailwindcss)

@@ -60,6 +60,10 @@ for nx help `yarn run help`
 #### Create Workspace
 
 ```bash
+# ng new yeti --collection=@nrwl/workspace --preset="angular" --appName="webapp" --style="scss" --cli=nx --npmScope="yeti" --interactive
+
+# create-nx-workspace yeti --preset="angular" --appName="webapp" --style="scss" --cli=nx --interactive
+
 # create workspace Ref: https://nx.dev/tutorial/01-create-application
 # Options: --bazel  --verbose --strict
 ng new ngx-starter-kit --collection=@nrwl/workspace --npm-scope=ngx-starter-kit --preset=empty \
@@ -67,7 +71,7 @@ ng new ngx-starter-kit --collection=@nrwl/workspace --npm-scope=ngx-starter-kit 
 cd ngx-starter-kit
 
 # set yarn2 for project
-yarn set version berry
+# yarn set version berry
 
 # Set workspace defaults
 ng config cli.packageManager yarn
