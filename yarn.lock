@@ -1912,10 +1912,10 @@
   resolved "https://registry.yarnpkg.com/@nebular/eva-icons/-/eva-icons-5.0.0-beta.6.tgz#66013cfff3c0728a6a642e76d9268954fa8cd716"
   integrity sha512-TqdMiEsOSvmKxzf5VWQh8PH/dTVjoS9qB2w7oolStvFGpAVp7tN8dHMf5UqUeOHmp3f9muwWztSrZcul6XzK4g==
 
-"@nebular/security@5.0.0-beta.6":
-  version "5.0.0-beta.6"
-  resolved "https://registry.yarnpkg.com/@nebular/security/-/security-5.0.0-beta.6.tgz#3adbdbee2f75b10d6530d747083d01df85341c88"
-  integrity sha512-c3ozVIztS7IWCY+OTFGK11NRpinWoVu4Ht8WlT6qGhhdeKV81S1K/RrvC7HgWptfGs2y3uptXV/mP/5mH3FKrg==
+"@nebular/security@5.0.0-beta.8":
+  version "5.0.0-beta.8"
+  resolved "https://registry.yarnpkg.com/@nebular/security/-/security-5.0.0-beta.8.tgz#e5ac89d87c68debc7c15d436651fa67b3fc00528"
+  integrity sha512-Hf53WbbPLT5jhQJkoLN8kpLHS2s7X7joO2ioEdpDvTYTesiFd9nBTDj4JLMwo9jIpMY8L3MQrjF8X5UMp+Mojw==
 
 "@nebular/theme@5.0.0-beta.6":
   version "5.0.0-beta.6"
