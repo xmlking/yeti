@@ -9,11 +9,10 @@
   - [NestJs Playbook](introduction/nest-playbook.md)
   - [Scaffolding](introduction/scaffolding.md)
 - Concepts
-  - [Introduction](concepts/intro.md)
-  - [Store](concepts/store.md)
-  - [Actions](concepts/actions.md)
-  - [State](concepts/state.md)
-  - [Select](concepts/select.md)
+  - [Introduction](concepts/monorepo.md)
+  - [Monorepo](concepts/monorepo.md)
+  - [DDD](concepts/monorepo.md)
+  - [Clean Architecture](concepts/monorepo.md)
 - Advanced
   - [Content Management](advanced/blog.md)
   - [Protobuf Tools](advanced/buf.md)
@@ -64,5 +63,3 @@
   - [GitBook](faq/gitbook.md)
   - [Awesome Links](faq/awesome.md)
 - [Change Log](../CHANGELOG.md)
-
-
