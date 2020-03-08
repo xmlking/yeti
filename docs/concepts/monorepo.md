@@ -16,12 +16,11 @@ By contrast, strategic design deals with the breakdown of a large system into in
 
 ### Project structure
 
-hell Library patterns with Nx and Monorepo Architectures
-
-![shell-lib](../images/shell-lib.png)
 {% hint style='info' %}
-Figure 2. Manfred Steyer shell libraries. Made with https://creately.com
+Shell Library patterns with Nx and Monorepo Architectures
 {% endhint %}
+
+![Figure 2. Manfred Steyer shell libraries. Made with https://creately.com](../images/shell-lib.png)
 
 ### Directory structure
 
