@@ -110,7 +110,7 @@
     "@ngxs/router-plugin": "3.6.2",
     "@ngxs/storage-plugin": "3.6.2",
     "@ngxs/store": "3.6.2",
-    "@scullyio/ng-lib": "0.0.20",
+    "@scullyio/ng-lib": "0.0.21",
     "eva-icons": "1.1.3",
     "firebase": "7.10.0",
     "google-protobuf": "3.11.4",
