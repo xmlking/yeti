@@ -173,6 +173,6 @@
     "webpack-bundle-analyzer": "3.6.0"
   },
   "resolutions": {
-    "guess-parser": "0.4.14"
+    "guess-parser": "0.4.16"
   }
 }
