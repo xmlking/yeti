@@ -170,7 +170,7 @@
     "lite-server": "2.5.4",
     "ngx-semantic-version": "2.0.0-beta.5",
     "ts-proto": "1.13.0",
-    "webpack-bundle-analyzer": "3.6.0"
+    "webpack-bundle-analyzer": "3.6.1"
   },
   "resolutions": {
     "guess-parser": "0.4.14"
