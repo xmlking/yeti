@@ -99,7 +99,7 @@
     "@angular/router": "9.0.6",
     "@angular/service-worker": "9.0.6",
     "@nebular/auth": "5.0.0-beta.8",
-    "@nebular/eva-icons": "5.0.0-beta.8",
+    "@nebular/eva-icons": "5.0.0",
     "@nebular/security": "5.0.0-beta.8",
     "@nebular/theme": "5.0.0-beta.7",
     "@ngneat/until-destroy": "7.1.1",

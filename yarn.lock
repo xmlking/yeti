@@ -1869,10 +1869,10 @@
   resolved "https://registry.yarnpkg.com/@nebular/auth/-/auth-5.0.0-beta.8.tgz#856c74ff94e39cad6633ee8764f5b083834fc2dc"
   integrity sha512-1QiCB14VOLrgkIGXdEOKlJYUjMrZY96RUhNWru9HBxYOC4MPLOdnDo58cnhsvHxP+ys1l/gYR+WlLvIOhuf6bA==
 
-"@nebular/eva-icons@5.0.0-beta.8":
-  version "5.0.0-beta.8"
-  resolved "https://registry.yarnpkg.com/@nebular/eva-icons/-/eva-icons-5.0.0-beta.8.tgz#1c328924c09251f8c45cbef4515243a1c6a6b8a4"
-  integrity sha512-TABPqTbL5EBQ77ofm6TLC3VUQaqnKKDen3IzVUJdErlXbxAKOUCrjWYJd+RZO3XYUzmYDZRBNgvbpkuY6pYwUg==
+"@nebular/eva-icons@5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@nebular/eva-icons/-/eva-icons-5.0.0.tgz#e389885eb2cf9a2e29334f1df96d246747a502c9"
+  integrity sha512-1kCsQlfEJiNAfd3VxmhZUdk86FHSiNTkKtIvpyA72KKbyiBb4YTqOj3QDsTY9GLScyCxTJZcYF5Dp7KG2DSTUg==
 
 "@nebular/security@5.0.0-beta.8":
   version "5.0.0-beta.8"
