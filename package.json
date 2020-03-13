@@ -140,7 +140,7 @@
     "@scullyio/scully": "0.0.79",
     "@types/google-protobuf": "3.7.2",
     "@types/jest": "25.1.4",
-    "@types/node": "13.9.0",
+    "@types/node": "13.9.1",
     "codecov": "3.6.5",
     "codelyzer": "5.2.1",
     "commitizen": "4.0.3",
