@@ -1864,25 +1864,25 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@nebular/auth@5.0.0-beta.8":
-  version "5.0.0-beta.8"
-  resolved "https://registry.yarnpkg.com/@nebular/auth/-/auth-5.0.0-beta.8.tgz#856c74ff94e39cad6633ee8764f5b083834fc2dc"
-  integrity sha512-1QiCB14VOLrgkIGXdEOKlJYUjMrZY96RUhNWru9HBxYOC4MPLOdnDo58cnhsvHxP+ys1l/gYR+WlLvIOhuf6bA==
+"@nebular/auth@5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@nebular/auth/-/auth-5.0.0.tgz#d8cca297b0c41fbe99a18292133976f106f3a3b8"
+  integrity sha512-oD8XP8hqgjvKRE90Qrixb2n2qbYpkwUnpiqOHcLvDN7i+MVGpr8aZOogidTGZi+BkBlG7P6fAkPFjlhAmXlxzg==
 
 "@nebular/eva-icons@5.0.0-beta.8":
   version "5.0.0-beta.8"
   resolved "https://registry.yarnpkg.com/@nebular/eva-icons/-/eva-icons-5.0.0-beta.8.tgz#1c328924c09251f8c45cbef4515243a1c6a6b8a4"
   integrity sha512-TABPqTbL5EBQ77ofm6TLC3VUQaqnKKDen3IzVUJdErlXbxAKOUCrjWYJd+RZO3XYUzmYDZRBNgvbpkuY6pYwUg==
 
-"@nebular/security@5.0.0-beta.8":
-  version "5.0.0-beta.8"
-  resolved "https://registry.yarnpkg.com/@nebular/security/-/security-5.0.0-beta.8.tgz#e5ac89d87c68debc7c15d436651fa67b3fc00528"
-  integrity sha512-Hf53WbbPLT5jhQJkoLN8kpLHS2s7X7joO2ioEdpDvTYTesiFd9nBTDj4JLMwo9jIpMY8L3MQrjF8X5UMp+Mojw==
+"@nebular/security@5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@nebular/security/-/security-5.0.0.tgz#9178f467a8c78060916ee3ca787b439c5b3bcf09"
+  integrity sha512-tF1e+JoYCcyLynBUlkyfJRRzd6JZytxZt1Fh74AYe1l+LrVaKbHiKWJuieEW3s4S/n4dVrA3KqZG7HIyzTLCjA==
 
-"@nebular/theme@5.0.0-beta.7":
-  version "5.0.0-beta.7"
-  resolved "https://registry.yarnpkg.com/@nebular/theme/-/theme-5.0.0-beta.7.tgz#cdfad505a1a8aff70f9b247b5b42b04f5cd8c1ff"
-  integrity sha512-tOREkkWhKpFDPLOGoPUkQPLbwJhz1cVM6tHcr9Rr2wONXR9FAX5OdHNig2lUV/vSRj15/YsncileyCfNpeKXeg==
+"@nebular/theme@5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@nebular/theme/-/theme-5.0.0.tgz#9e9728a2dbc4a914cd9a7d64603f635bd00c440e"
+  integrity sha512-xSYyRyuvgT/UPQePB4br6lZtqjTupC2M+QUdLzuezwjeYwWvQw8q+04DQJK+JT+YI2s+LRkkwPsk8b716Ubhfg==
   dependencies:
     intersection-observer "0.7.0"
 
