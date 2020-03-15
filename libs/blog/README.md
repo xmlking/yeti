@@ -17,3 +17,7 @@ ng g component containers/BlogPost        --project=blog -d
 ng g service services/highlight           --project=blog --skip-tests -d
 ng g service services/content             --project=blog --skip-tests -d
 ```
+
+## Reference
+
+- [Add a blog to your Angular website using markdown files](https://medium.com/@david.dalbusco/add-a-blog-to-your-angular-website-using-markdown-files-31cdb0627bdd)

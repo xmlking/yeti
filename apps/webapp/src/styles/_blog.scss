@@ -1,14 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* style code with prismjs */
-/* include CSS for prism toolbar */
-@import '~prismjs/plugins/toolbar/prism-toolbar.css';
 /* check node_modules/prismjs/themes/ for the available themes */
-@import '~prismjs/themes/prism-tomorrow';
-
-// @import 'prismjs/themes/prism-okaidia.css';
-// @import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
-// @import 'prismjs/plugins/line-highlight/prism-line-highlight.css';
+// @import '~prismjs/themes/prism-tomorrow';
+@import 'prismjs/themes/prism-okaidia';
+/* prismjs plugins */
+@import '~prismjs/plugins/toolbar/prism-toolbar';
+@import '~prismjs/plugins/line-numbers/prism-line-numbers';
+@import '~prismjs/plugins/line-highlight/prism-line-highlight';
 
 /* Import Fonts */
 @import url('https://fonts.googleapis.com/css?family=Montserrat:800&display=swap');
