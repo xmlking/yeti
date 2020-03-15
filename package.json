@@ -110,7 +110,7 @@
     "google-protobuf": "3.11.4",
     "grpc-web": "1.0.7",
     "ngx-auto-unsubscribe": "3.0.1",
-    "ngx-markdown": "^9.0.0",
+    "ngx-markdown": "9.0.0",
     "prismjs": "1.19.0",
     "reflect-metadata": "0.1.13",
     "rxjs": "6.5.4",
