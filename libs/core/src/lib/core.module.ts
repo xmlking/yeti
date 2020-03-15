@@ -1,4 +1,4 @@
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule, Optional, SkipSelf } from '@angular/core';
 import { environment } from '@env/environment';
 import {
@@ -25,6 +25,7 @@ import { NgxsFormPluginModule } from '@ngxs/form-plugin';
 import { NgxsRouterPluginModule, RouterStateSerializer } from '@ngxs/router-plugin';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { NgxsModule } from '@ngxs/store';
+import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 import { AuthHandler } from './handler/auth.handler';
 import { RouteHandler } from './handler/route.handler';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
@@ -111,6 +112,21 @@ export function noop() {
     }),
     NgxsFormPluginModule.forRoot(),
     NgxsRouterPluginModule.forRoot(),
+    MarkdownModule.forRoot({
+      loader: HttpClient, // optional, only if you use [src] attribute
+      markedOptions: {
+        provide: MarkedOptions,
+        useValue: {
+          gfm: true,
+          tables: true,
+          breaks: false,
+          pedantic: false,
+          sanitize: false,
+          smartLists: true,
+          smartypants: false
+        }
+      }
+    }),
     environment.plugins
   ],
   providers: [

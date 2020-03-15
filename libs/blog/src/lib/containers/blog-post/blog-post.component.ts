@@ -1,8 +1,15 @@
-import { AfterViewChecked, ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  AfterViewChecked,
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  OnInit,
+  ViewEncapsulation
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { isScullyGenerated, ScullyRoute, ScullyRoutesService } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Content, ContentService } from '../../services/content.service';
 import { HighlightService } from '../../services/highlight.service';
 
 @Component({
@@ -14,16 +21,12 @@ import { HighlightService } from '../../services/highlight.service';
   encapsulation: ViewEncapsulation.Emulated
 })
 export class BlogPostComponent implements OnInit, AfterViewChecked {
-  post$: Observable<any>;
+  post$: Observable<Content | undefined>;
   location: null;
   showComments: boolean;
 
-  constructor(
-    private route: ActivatedRoute,
-    private srs: ScullyRoutesService,
-    private highlightService: HighlightService
-  ) {
-    this.showComments = isScullyGenerated();
+  constructor(private route: ActivatedRoute, private cs: ContentService, private highlightService: HighlightService) {
+    this.showComments = false;
   }
 
   /**
@@ -34,22 +37,26 @@ export class BlogPostComponent implements OnInit, AfterViewChecked {
   }
 
   ngOnInit() {
-    this.post$ = this.srs.available$.pipe(
-      map(routeList => {
-        return routeList.filter(
-          // prettier-ignore
-          (route: ScullyRoute) =>
-          route.route.startsWith(`/home/blog/`) &&
-          route.route.includes(this.route.snapshot.params.id)
+    this.post$ = this.cs.allContent$.pipe(
+      map(allPosts => {
+        return allPosts.find(
+          blog => blog.route.startsWith(`/home/blog/`) && blog.route.includes(this.route.snapshot.params.id)
         );
-      }),
-      map(currentPostData => {
-        return currentPostData[0];
       })
     );
   }
 
   shareTextContent() {
     return encodeURI(location.href);
+  }
+
+  onLoad(event: EventEmitter<string>) {
+    // console.log('onLoad', event)
+  }
+  onError(event: EventEmitter<string>) {
+    console.error('onError', event);
+  }
+  onReady(event: EventEmitter<void>) {
+    console.log('onReady');
   }
 }

@@ -1,5 +1,5 @@
 <section class="features">
-  <article *ngFor="let post of blogPostData$ | async; let i = index">
+  <article *ngFor="let post of posts$ | async; let i = index">
     <a [routerLink]="post.route" class="image">
       <img [src]="post.thumbnail" alt="thumbnail" />
     </a>

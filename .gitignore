@@ -50,9 +50,6 @@ Thumbs.db
 # Environment variables
 .env
 
-# Scully
-scully-routes.json
-
 # Firebase
 .firebase
 

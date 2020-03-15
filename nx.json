@@ -7,11 +7,7 @@
       "runner": "@nrwl/workspace/src/tasks-runner/tasks-runner-v2",
       "options": {
         // "accessToken": "YOUR_ACCESS_TOKEN",
-        "cacheableOperations": [
-          "build",
-          "test",
-          "lint"
-        ]
+        "cacheableOperations": ["build", "test", "lint"]
       }
     }
   },
@@ -27,79 +23,37 @@
   },
   "projects": {
     "webapp": {
-      "tags": [
-        "module:app1",
-        "scope:private"
-      ]
+      "tags": ["module:app1", "scope:private"]
     },
     "api": {
-      "tags": [
-        "module:api1",
-        "scope:private"
-      ]
+      "tags": ["module:api1", "scope:private"]
     },
     "shared": {
-      "tags": [
-        "module:shared",
-        "scope:public"
-      ]
+      "tags": ["module:shared", "scope:public"]
     },
     "gen": {
-      "tags": [
-        "module:shared",
-        "scope:public"
-      ]
+      "tags": ["module:shared", "scope:public"]
     },
     "core": {
-      "tags": [
-        "module:shared",
-        "module:core",
-        "scope:private"
-      ]
+      "tags": ["module:shared", "module:core", "scope:private"]
     },
     "not-found": {
-      "tags": [
-        "module:app1",
-        "module:entry",
-        "scope:private"
-      ]
+      "tags": ["module:app1", "module:entry", "scope:private"]
     },
     "home": {
-      "tags": [
-        "module:app1",
-        "module:layout",
-        "module:entry",
-        "scope:private"
-      ]
+      "tags": ["module:app1", "module:layout", "module:entry", "scope:private"]
     },
     "dashboard": {
-      "tags": [
-        "module:app1",
-        "module:layout",
-        "module:entry",
-        "scope:private"
-      ]
+      "tags": ["module:app1", "module:layout", "module:entry", "scope:private"]
     },
     "admin": {
-      "tags": [
-        "module:app1",
-        "module:layout",
-        "module:entry",
-        "scope:private"
-      ]
+      "tags": ["module:app1", "module:layout", "module:entry", "scope:private"]
     },
     "blog": {
-      "tags": [
-        "module:app1",
-        "module:child",
-        "scope:private"
-      ]
+      "tags": ["module:app1", "module:child", "scope:private"]
     },
     "accounts": {
-      "tags": [
-        "module:child",
-        "scope:private"
-      ]
+      "tags": ["module:child", "scope:private"]
     }
   }
 }

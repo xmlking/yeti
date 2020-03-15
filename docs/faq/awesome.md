@@ -97,9 +97,9 @@ A curated list of awesome Angular resources
 
 - How do I add `Content Management` to my angular app?
 
-  Using `Scully` you can add blogs, about, FAQ content on `markdown`, and it will generate static html and integrate with your Angular App.
+  Using `ngx-markdown` you can add blogs, about, FAQ content on `markdown`, and it will generate static html and integrate with your Angular App.
 
-  > Refer [Exploring Blogging With Scully - the Angular Static Site Generator](https://owlypixel.com/exploring-blog-feature-with-scully-angular-static-site-generator/)
+  > Refer [Add a blog to your Angular website using markdown files](https://medium.com/@david.dalbusco/add-a-blog-to-your-angular-website-using-markdown-files-31cdb0627bdd)
 
 - internationalization ?
 

@@ -156,8 +156,8 @@ yarn add @nebular/auth@next
 yarn add @nebular/security@next
 yarn add -D @fortawesome/fontawesome-free
 #---------------------------------
-# Add scullyio for SSG(Static Site Generator) and Content Management
-ng add @scullyio/init
+# Add ngx-markdown for SSG(Static Site Generator) and Content Management
+ng add ngx-markdown
 yarn add prismjs
 # Add universal for SSR
 ng add @nguniversal/express-engine@next
@@ -210,6 +210,8 @@ yarn add grpc-web
 # to generate TS interfaces from proto
 yarn add -O ts-proto
 #---------------------------------
+# for metagen CLI tool (node tools/metagen.mjs)
+yarn add -O parse-md
 
 # Add Socket.io
 yarn add socket.io-client
@@ -265,7 +267,6 @@ ng update @ngx-formly/schematics --ui-theme=material
 ng update @nrwl/workspace --next --force
 ng update @nrwl/angular --allow-dirty
 ng update @nrwl/nest --next
-ng update @scullyio/init --next
 ng update @nguniversal/express-engine —-next
 ```
 

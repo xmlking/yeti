@@ -51,5 +51,6 @@ nx run <project-name>:doc
 nx affect --target=doc
 
 ng run webapp:doc
-ng run webapp:scully
+# gen meta
+node tools/metagen.mjs
 ```
