@@ -11943,7 +11943,7 @@ ngx-auto-unsubscribe@3.0.1:
   resolved "https://registry.yarnpkg.com/ngx-auto-unsubscribe/-/ngx-auto-unsubscribe-3.0.1.tgz#b4970bb2c1289411a5e6a1e5ab175593cc9e76eb"
   integrity sha512-Yp3o2HxjGYNv2yZ0QwR5Wkh6Al3b07J3v7hhcdZhqm7DTJuXMmisaNi5zhnXq2+7rtCg0jaTBsA/SWhtS7zZbw==
 
-ngx-markdown@^9.0.0:
+ngx-markdown@9.0.0:
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/ngx-markdown/-/ngx-markdown-9.0.0.tgz#c01beb9aad75306164a430293ed63c1ba9fa9cd3"
   integrity sha512-wcXMxA4Skgk9SzhfDRjihap/Kjq17jmMQiE/Ccp0bNibGaDgS5DbZiPBlMNLkp669UvjY9wVuxE4NuDtmQHS9w==
