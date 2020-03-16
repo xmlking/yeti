@@ -137,7 +137,7 @@
     "codecov": "3.6.5",
     "codelyzer": "5.2.1",
     "commitizen": "4.0.3",
-    "cypress": "4.1.0",
+    "cypress": "4.2.0",
     "dotenv": "8.2.0",
     "eslint": "6.8.0",
     "jest": "25.1.0",
