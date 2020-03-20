@@ -15,10 +15,10 @@
   "dependencies": {
     "@godaddy/terminus": "4.3.1",
     "@grpc/proto-loader": "0.5.3",
-    "@nestjs/common": "7.0.1",
-    "@nestjs/core": "7.0.1",
-    "@nestjs/microservices": "7.0.1",
-    "@nestjs/platform-express": "7.0.1",
+    "@nestjs/common": "7.0.3",
+    "@nestjs/core": "7.0.3",
+    "@nestjs/microservices": "7.0.3",
+    "@nestjs/platform-express": "7.0.3",
     "@nestjs/swagger": "4.4.0",
     "@nestjs/terminus": "6.5.6",
     "helmet": "3.21.3"
@@ -32,7 +32,7 @@
   },
   "optionalDependencies": {
     "@nestjs/schematics": "7.0.0",
-    "@nestjs/testing": "7.0.1",
+    "@nestjs/testing": "7.0.3",
     "nodemon": "2.0.2",
     "supertest": "4.0.2"
   }
