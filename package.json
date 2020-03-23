@@ -136,7 +136,7 @@
     "@angular/compiler-cli": "9.0.7",
     "@angular/language-service": "9.0.7",
     "@compodoc/compodoc": "1.1.11",
-    "@fortawesome/fontawesome-free": "5.12.1",
+    "@fortawesome/fontawesome-free": "5.13.0",
     "@nguniversal/builders": "9.0.2",
     "@nrwl/angular": "9.1.2",
     "@nrwl/cypress": "9.1.2",
