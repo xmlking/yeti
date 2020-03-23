@@ -7,16 +7,18 @@ Server-Side Rendering (SSR), Static-Site Generator (SSG) aka pre-rendering
 ```bash
 ng add @nguniversal/express-engine --clientProject webapp
 # For a LIVE-reloading Node & browser dev-server:
-ng run <app_name>:serve-ssr
+ng run webapp:serve-ssr
 # Automatically generate static pre-rendering:
-ng run <app_name>:prerender
-ng run <app_name>:prerender --routes "/blog/1" --routes "/blog/2"
-ng run <app_name>:prerender --routesFile routes.txt
-npm run build:ssr && npm run serve:ssr
+ng run webapp:prerender
+ng run webapp:prerender --routes "/blog/1" --routes "/blog/2"
+ng run webapp:prerender --routesFile routes.txt
+
+yarn build:ssr && yarn serve:ssr
 ```
 
 ## Reference
 
+- <https://angular.io/guide/universal>
 - <https://trilon.io/blog/angular-universal-v9-whats-new>
 - <https://github.com/TrilonIO/angular-universal-v9>
 - <https://www.ganatan.com/tutorials/server-side-rendering-with-angular-universal>

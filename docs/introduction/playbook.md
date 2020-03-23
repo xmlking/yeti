@@ -160,7 +160,7 @@ yarn add -D @fortawesome/fontawesome-free
 ng add ngx-markdown
 yarn add prismjs
 # Add universal for SSR
-ng add @nguniversal/express-engine@next
+ng add @nguniversal/express-engine --clientProject webapp
 #---------------------------
 
 # Use either above nebular or below Material
@@ -253,7 +253,6 @@ yarn workspace @yeti/tools add cpx --dev
 ```
 
 > update 3rd party modules/schematics
-
 > use `--allow-dirty` `--next` --force` flags as needed
 
 ```bash
@@ -269,7 +268,6 @@ ng update @nrwl/angular --allow-dirty
 ng update @nrwl/nest --next
 ng update @nguniversal/express-engine —-next
 ```
-
 
 ### Install
 

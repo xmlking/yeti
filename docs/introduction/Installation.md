@@ -28,6 +28,7 @@ brew install node
 brew install yarn
 #brew upgrade yarn
 yarn config set workspaces-experimental true
+yarn config set ignore-engines true
 yarn global add lerna
 brew cleanup
 ```
