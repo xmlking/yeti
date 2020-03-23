@@ -10,11 +10,11 @@ export interface EchoResponse {
 }
 
 const baseEchoRequest: object = {
-  message: ''
+  message: '',
 };
 
 const baseEchoResponse: object = {
-  message: ''
+  message: '',
 };
 
 export interface EchoService {
@@ -31,7 +31,7 @@ export class EchoServiceClientImpl implements EchoService {
   Echo(request: EchoRequest): Promise<EchoResponse> {
     const data = EchoRequest.encode(request).finish();
     const promise = this.rpc.request('yeti.echo.v1.EchoService', 'Echo', data);
-    return promise.then(data => EchoResponse.decode(new Reader(data)));
+    return promise.then((data) => EchoResponse.decode(new Reader(data)));
   }
 }
 
@@ -82,7 +82,7 @@ export const EchoRequest = {
     const obj: any = {};
     obj.message = message.message || '';
     return obj;
-  }
+  },
 };
 
 export const EchoResponse = {
@@ -128,7 +128,7 @@ export const EchoResponse = {
     const obj: any = {};
     obj.message = message.message || '';
     return obj;
-  }
+  },
 };
 
 type DeepPartial<T> = {

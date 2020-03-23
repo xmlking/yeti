@@ -18,7 +18,7 @@ import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard';
 declare var Prism: any;
 
 @Injectable({
-  providedIn: 'any'
+  providedIn: 'any',
 })
 export class HighlightService {
   // tslint:disable-next-line: ban-types

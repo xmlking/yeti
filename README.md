@@ -62,5 +62,6 @@ nx affect --target=doc
 
 ng run webapp:doc
 # gen meta
-node tools/metagen.mjs
+# node tools/scripts/metagen.mjs
+yarn gen:metadata
 ```

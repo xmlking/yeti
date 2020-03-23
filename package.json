@@ -49,7 +49,12 @@
     "migrate": "nx migrate latest",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "// - EXTRA": "Extra commands",
+    "check:demo": "node dist/tools/scripts/demo.js",
+    "gen:metadata": "node tools/scripts/metagen.mjs",
+    "build:tools": "rimraf dist/tools && tsc -p ./tools/tsconfig.tools.json",
+    "run:tools": "ts-node --project ./tools/tsconfig.tools.json -r tsconfig-paths/register"
   },
   "husky": {
     "hooks": {

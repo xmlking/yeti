@@ -210,7 +210,7 @@ yarn add grpc-web
 # to generate TS interfaces from proto
 yarn add -O ts-proto
 #---------------------------------
-# for metagen CLI tool (node tools/metagen.mjs)
+# for metagen CLI tool (node tools/scripts/metagen.mjs)
 yarn add -O parse-md
 
 # Add Socket.io

@@ -55,12 +55,41 @@
     "template-no-any": true,
     //-----------------------
     // Nx Rules
+    // Ref: https://github.com/aiao-io/aiao/blob/master/nx.json
     //-----------------------
     "nx-enforce-module-boundaries": [
       true,
       {
         "allow": ["@yeti/core"],
         "depConstraints": [
+          {
+            "sourceTag": "all",
+            "onlyDependOnLibsWithTags": ["all"]
+          },
+          {
+            "sourceTag": "universal-lib",
+            "onlyDependOnLibsWithTags": ["*"]
+          },
+          {
+            "sourceTag": "angular-lib",
+            "onlyDependOnLibsWithTags": ["all", "angular-lib"]
+          },
+          {
+            "sourceTag": "angular-app",
+            "onlyDependOnLibsWithTags": ["all", "angular-lib", "universal-lib"]
+          },
+          {
+            "sourceTag": "nest-lib",
+            "onlyDependOnLibsWithTags": ["all", "nest-lib", "universal-lib"]
+          },
+          {
+            "sourceTag": "nest-app",
+            "onlyDependOnLibsWithTags": ["all", "nest-lib"]
+          },
+          {
+            "sourceTag": "angular-e2e",
+            "onlyDependOnLibsWithTags": ["all", "angular-app"]
+          },
           {
             "sourceTag": "scope:public",
             "onlyDependOnLibsWithTags": ["scope:public"]

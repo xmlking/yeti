@@ -4,7 +4,7 @@ import {
   Component,
   EventEmitter,
   OnInit,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -18,7 +18,7 @@ import { HighlightService } from '../../services/highlight.service';
   styleUrls: ['./blog-post.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: true,
-  encapsulation: ViewEncapsulation.Emulated
+  encapsulation: ViewEncapsulation.Emulated,
 })
 export class BlogPostComponent implements OnInit, AfterViewChecked {
   post$: Observable<Content | undefined>;
@@ -38,9 +38,9 @@ export class BlogPostComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
     this.post$ = this.cs.allContent$.pipe(
-      map(allPosts => {
+      map((allPosts) => {
         return allPosts.find(
-          blog => blog.route.startsWith(`/home/blog/`) && blog.route.includes(this.route.snapshot.params.id)
+          (blog) => blog.route.startsWith(`/home/blog/`) && blog.route.includes(this.route.snapshot.params.id)
         );
       })
     );

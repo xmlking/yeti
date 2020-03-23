@@ -7,7 +7,7 @@ import { Content, ContentService } from '../../services/content.service';
   selector: 'yeti-blog-preview',
   templateUrl: './blog-preview.component.html',
   styleUrls: ['./blog-preview.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogPreviewComponent implements OnInit {
   @Input() max: number;
@@ -18,11 +18,11 @@ export class BlogPreviewComponent implements OnInit {
 
   ngOnInit() {
     this.posts$ = this.cs.publishedContent$.pipe(
-      map(posts =>
+      map((posts) =>
         posts
-          .filter(post => post.route.startsWith(`/home/blog/`))
-          .filter(post => (this.keyword ? post.keywords.includes(this.keyword) : true))
-          .map(filteredPosts => (this.max ? filteredPosts.slice(0, this.max) : filteredPosts))
+          .filter((post) => post.route.startsWith(`/home/blog/`))
+          .filter((post) => (this.keyword ? post.keywords.includes(this.keyword) : true))
+          .map((filteredPosts) => (this.max ? filteredPosts.slice(0, this.max) : filteredPosts))
       )
     );
   }

@@ -19,7 +19,7 @@
   - [Prototool](advanced/prototool.md)
   - [Envoy](advanced/envoy.md)
   - [Style Guild](advanced/style-guide.md)
-  - [Angular Universal](advanced/angular-universal.md)
+  - [Angular Universal](advanced/universal.md)
   - [Firebase](advanced/firebase.md)
 - Modules
   - Apps

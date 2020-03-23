@@ -15,10 +15,10 @@ import { BlogPostComponent } from './containers/blog-post/blog-post.component';
       { path: '', component: BlogOverviewComponent },
       {
         path: ':id',
-        component: BlogPostComponent
-      }
-    ])
+        component: BlogPostComponent,
+      },
+    ]),
   ],
-  declarations: [BlogOverviewComponent, BlogPostComponent, BlogPreviewComponent]
+  declarations: [BlogOverviewComponent, BlogPostComponent, BlogPreviewComponent],
 })
 export class BlogModule {}
