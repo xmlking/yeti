@@ -150,7 +150,7 @@
     "@types/jest": "25.1.4",
     "@types/node": "13.9.3",
     "codecov": "3.6.5",
-    "codelyzer": "5.2.1",
+    "codelyzer": "5.2.2",
     "commitizen": "4.0.3",
     "cypress": "4.2.0",
     "dotenv": "8.2.0",
