@@ -106,6 +106,9 @@ yarn add @webcomponents/custom-elements ?
 
 # generate api app with nestjs
 ng g @nrwl/nest:app api --frontendProject=webapp --tags=api-module
+
+# to remove a module:
+ng g rm my-feature-lib --dry-run
 ```
 
 #### Add nx plugins
@@ -333,6 +336,7 @@ ng test <module>
 ng e2e webapp
 # headless tests (CI)
 ng e2e webapp --headless
+ng e2e webapp --headless --browser chrome
 # Production target
 ng e2e webapp --prod
 # Watching for changes
