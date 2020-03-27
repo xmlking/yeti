@@ -63,6 +63,7 @@ for nx help `yarn run help`
 # ng new yeti --collection=@nrwl/workspace --preset="angular" --appName="webapp" --style="scss" --cli=nx --npmScope="yeti" --interactive
 
 # create-nx-workspace yeti --preset="angular" --appName="webapp" --style="scss" --cli=nx --interactive
+# nx update @angular/cli @angular/core
 
 # create workspace Ref: https://nx.dev/tutorial/01-create-application
 # Options: --bazel  --verbose --strict
