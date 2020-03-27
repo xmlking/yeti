@@ -119,7 +119,7 @@
     "@ngxs/store": "3.6.2",
     "eva-icons": "1.1.3",
     "express": "4.17.1",
-    "firebase": "7.12.0",
+    "firebase": "7.13.0",
     "google-protobuf": "3.11.4",
     "grpc-web": "1.0.7",
     "ngx-auto-unsubscribe": "3.0.1",
