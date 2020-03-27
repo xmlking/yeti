@@ -60,16 +60,13 @@ for nx help `yarn run help`
 #### Create Workspace
 
 ```bash
-# ng new yeti --collection=@nrwl/workspace --preset="angular" --appName="webapp" --style="scss" --cli=nx --npmScope="yeti" --interactive
-
-# create-nx-workspace yeti --preset="angular" --appName="webapp" --style="scss" --cli=nx --interactive
-# nx update @angular/cli @angular/core
-
 # create workspace Ref: https://nx.dev/tutorial/01-create-application
 # Options: --bazel  --verbose --strict
-ng new ngx-starter-kit --collection=@nrwl/workspace --npm-scope=ngx-starter-kit --preset=empty \
---style=scss --package-manager=yarn --strict --verbose --skipInstall
-cd ngx-starter-kit
+create-nx-workspace yeti --preset=angular-nest --app-name=webapp \
+--style=scss --cli=nx --package-manager=yarn --npm-scope=yeti \
+--linter=eslint --interactive --strict --verbose
+
+cd yeti
 
 # set yarn2 for project
 # yarn set version berry
@@ -81,18 +78,18 @@ ng config schematics.@schematics/angular:component.prefix yeti
 ng config schematics.@schematics/angular:component.changeDetection OnPush
 
 # make sure we are up-to-date
-ng update --next
+ng update
 
 # and update as suggested. e.g.,
-ng update @angular/cli --next
-ng update @nrwl/workspace --next
+ng update @angular/cli
+ng update @angular/core
+ng update @nrwl/workspace
 # or update all
 ng update --all
 
 # also run `yarn outdated` and update versions in package.json then run `yarn install`
-yarn add --dev @nrwl/angular@next --defaults
-yarn add --dev @nrwl/nest@next
-
+yarn add --dev @nrwl/angular --defaults
+yarn add --dev @nrwl/nest
 
 # generate webapp app
 ng g @nrwl/angular:app webapp --routing --style=scss  --tags=app-module
@@ -106,7 +103,7 @@ ng add @angular/elements --project chat-box ?
 yarn add @webcomponents/custom-elements ?
 
 # generate api app with nestjs
-ng g @nrwl/nest:app api --frontendProject=webapp --tags=api-module
+ng g @nrwl/nest:app api --frontendProject=webapp --linter=eslint --tags=api-module
 
 # to remove a module:
 ng g rm my-feature-lib --dry-run
