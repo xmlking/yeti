@@ -86,6 +86,12 @@
     },
     "use-lifecycle-interface": true,
     "use-pipe-transform-interface": true,
+    "variable-name": {
+      "options": ["ban-keywords", "check-format", "allow-pascal-case"]
+    },
+    "whitespace": {
+      "options": ["check-branch", "check-decl", "check-operator", "check-separator", "check-type", "check-typecast"]
+    },
     //-----------------------
     // Codelyzer
     //-----------------------
@@ -93,12 +99,6 @@
     "use-component-view-encapsulation": true,
     "template-cyclomatic-complexity": [true, 5],
     "template-no-any": true,
-    "variable-name": {
-      "options": ["ban-keywords", "check-format", "allow-pascal-case"]
-    },
-    "whitespace": {
-      "options": ["check-branch", "check-decl", "check-operator", "check-separator", "check-type", "check-typecast"]
-    },
     //-----------------------
     // Nx Rules
     // Ref: https://github.com/aiao-io/aiao/blob/master/nx.json
