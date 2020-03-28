@@ -137,7 +137,7 @@
     "@angular/language-service": "9.1.0",
     "@compodoc/compodoc": "1.1.11",
     "@fortawesome/fontawesome-free": "5.13.0",
-    "@nguniversal/builders": "9.0.2",
+    "@nguniversal/builders": "9.1.0",
     "@nrwl/angular": "9.1.4",
     "@nrwl/cypress": "9.1.4",
     "@nrwl/eslint-plugin-nx": "9.1.4",
