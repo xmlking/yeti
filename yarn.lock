@@ -1943,10 +1943,10 @@
     optional "0.1.4"
     tslib "1.11.1"
 
-"@ngneat/until-destroy@7.1.1":
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/@ngneat/until-destroy/-/until-destroy-7.1.1.tgz#4177498711ad1217017b7f722d976aa5afceda3c"
-  integrity sha512-p2RtDxERlRiRkQIFl2OERucC7Dcbogob2en5q/RMXp6mZXV/MwTv+7obv0SqR+8gL++ABhLRA+cXSXleJfiEXg==
+"@ngneat/until-destroy@7.1.5":
+  version "7.1.5"
+  resolved "https://registry.yarnpkg.com/@ngneat/until-destroy/-/until-destroy-7.1.5.tgz#38041a980a5eb7d275a3f861f3b3b662328ee396"
+  integrity sha512-urQlU4RB+Rl5SdtEwCbrNOFxDtiWe9qsTHzLrf/q8Wjl73bYs32wdGgBzH8QZhrliMk63r7GNJgUa8RoD97b6w==
 
 "@ngtools/webpack@9.1.0":
   version "9.1.0"

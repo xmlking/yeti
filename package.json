@@ -108,7 +108,7 @@
     "@nebular/eva-icons": "5.0.0",
     "@nebular/security": "5.0.0",
     "@nebular/theme": "5.0.0",
-    "@ngneat/until-destroy": "7.1.1",
+    "@ngneat/until-destroy": "7.1.5",
     "@nguniversal/express-engine": "9.0.2",
     "@ngxs-labs/select-snapshot": "1.1.0",
     "@ngxs/devtools-plugin": "3.6.2",
