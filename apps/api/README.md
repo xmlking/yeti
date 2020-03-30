@@ -25,3 +25,16 @@ DEBUG=typeorm:* ng serve api
 # optionally you can run with prod env(environment.prod.ts) for testing! use this for testing only.
 ng serve api --prod
 ```
+
+#### Test Dev Mode
+
+```bash
+# test API directly (nestJS)
+grpcurl -plaintext \
+-protoset <(buf image build -o -) \
+-d '{"message": "sumo"}' 0.0.0.0:5000 yeti.echo.v1.EchoService/Echo
+# test API via envoy
+grpcurl -plaintext  \
+-protoset <(buf image build -o -) \
+-d '{"message": "sumo"}' 0.0.0.0:9090 yeti.echo.v1.EchoService/Echo
+```

@@ -62,9 +62,13 @@ for nx help `yarn run help`
 ```bash
 # create workspace Ref: https://nx.dev/tutorial/01-create-application
 # Options: --bazel  --verbose --strict
-create-nx-workspace yeti --preset=angular-nest --app-name=webapp \
+yarn create nx-workspace yeti --preset=angular-nest --app-name=yeti-web-app \
 --style=scss --cli=nx --package-manager=yarn --npm-scope=yeti \
 --linter=eslint --interactive --strict --verbose
+
+# or with cli=angular
+yarn create nx-workspace yeti --preset=angular-nest --app-name=yeti-web-app \
+--style=scss --cli=angular --npm-scope=yeti --interactive   --verbose
 
 cd yeti
 
@@ -85,7 +89,10 @@ ng update @angular/cli
 ng update @angular/core
 ng update @nrwl/workspace
 # or update all
-ng update --all
+ng update --all --force
+
+# move api to yeti-api
+nx g @nrwl/workspace:move --project api yeti-api
 
 # also run `yarn outdated` and update versions in package.json then run `yarn install`
 yarn add --dev @nrwl/angular --defaults
