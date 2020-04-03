@@ -139,12 +139,16 @@ Below are some nx plugins which you can add to your workspace:
 
 ```bash
 cd ngx-starter-kit
-
+#---------------------------
 # Add i18n
 ng add @angular/localize
+#---------------------------
 # Add PWA
 ng add @angular/pwa@next --project webapp
-
+#---------------------------
+# Add universal for SSR
+ng add @nguniversal/express-engine --clientProject webapp
+#---------------------------
 # `ng deploy`
 # Add architect for deploying webapp
 # ng add [provider] [angular-cli-ghpages, @angular/fire, @zeit/ng-deploy, @azure/ng-deploy, @netlify-builder/deploy]
@@ -167,8 +171,6 @@ yarn add -D @fortawesome/fontawesome-free
 # Add ngx-markdown for SSG(Static Site Generator) and Content Management
 ng add ngx-markdown
 yarn add prismjs
-# Add universal for SSR
-ng add @nguniversal/express-engine --clientProject webapp
 #---------------------------
 
 # Use either above nebular or below Material

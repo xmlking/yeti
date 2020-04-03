@@ -26,6 +26,7 @@ Deploy
 ng add @angular/fire
 ng run webapp:prerender
 ng deploy
+ng deploy --preview #  preview your application locally before continuing with the deploy
 # Everything should work fine.
 ```
 

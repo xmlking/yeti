@@ -26,9 +26,10 @@ Every **buildable** library has a build task.
 ```bash
 yarn create nx-workspace yeti --preset=empty -prefix=yeti # create an empty workspace
 nx g @nrwl/angular:app yeti-web-app --style=scss --prefix=yeti --routing --tags="domain:yeti,type:app,platform:web" --dry-run
-nx g @nrwl/nest:app yeti-api --frontendProject=yeti-web-app # generate nestJS API(app) module
+nx g @nrwl/nest:app yeti-api --frontendProject=yeti-web-app --tags="domain:yeti,type:api,platform:node"
 
 # generate share angular lib module
+nx g @nrwl/angular:lib ui  --style=scss --tags="domain:shared,type:ui,platform:web"
 nx g @nrwl/angular:lib knob --directory=components --buildable --style=scss  --tags="domain:shared,type:ui,platform:web"
 nx g @nrwl/nest:lib <nest-lib> [--controller] [--service] [--global] [--buildable] [--tags] # generate nestjs lib module
 nx g @nrwl/workspace:lib btree --directory=utils --tags="domain:shared,type:util,platform:universal" # generate share universal lib module
