@@ -9,11 +9,10 @@ spec:
         - name: envoy
           image: envoyproxy/envoy:latest
           command:
-            - 'envoy'
+            - envoy
           args:
-            - '-c'
+            - '-c /etc/envoy/envoy.yaml'
             - '--log-level $(ENVOY_LOG_LEVEL)'
-            - '/etc/envoy/envoy.yaml'
           env:
             - name: ENVOY_LOG_LEVEL
               value: debug
