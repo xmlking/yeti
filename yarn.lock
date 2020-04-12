@@ -16825,10 +16825,10 @@ ts-poet@^1.0.1:
     lodash "^4.17.15"
     ts-imm "0.4.0"
 
-ts-proto@1.14.0:
-  version "1.14.0"
-  resolved "https://registry.yarnpkg.com/ts-proto/-/ts-proto-1.14.0.tgz#9ee15c31b4b071e3a028398909f2e99bc2c47ea3"
-  integrity sha512-OYZDSg/S9TrkNmiKyx7yNzDwVjW6oUUJSO96Q6OEvMNPczkXYPoWG5/kO58joA+C8ZF7Iv2NL5UJP5gRYrHpyg==
+ts-proto@1.18.2:
+  version "1.18.2"
+  resolved "https://registry.yarnpkg.com/ts-proto/-/ts-proto-1.18.2.tgz#fb1f7614db3fc2d38e56cf603ba6ccc93133e891"
+  integrity sha512-dtiBEff8CdZD1ik0lNsO3eNSkEu6V3Fy5WatDUYPwyHYjGWlYVFsrJGYTC93B3n5frHJnlcapKNMMe35FRIEZg==
   dependencies:
     "@types/object-hash" "^1.3.0"
     dataloader "^1.4.0"
