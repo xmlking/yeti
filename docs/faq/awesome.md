@@ -71,8 +71,7 @@ A curated list of awesome Angular resources
 
   **Monorepo != Monolith**
 
-  > When you have all your codebase within the same repository it’s tempting to fall into the trap of creating a monolith (a gigantic application where all parts are intertwined with each other) so we need to ensure that modularity is a first class citizen within these repositories.
-
+  > When you have all your codebase within the same repository it’s tempting to fall into the trap of creating a monolith (a gigantic application where all parts are intertwined with each other) so we need to ensure that modularity is a first class citizen within these repositories.<br/>
   > Each package has clearly defined boundaries and ownership.
 
   - [Angular Enterprise Monorepo Patterns](https://go.nrwl.io/angular-enterprise-monorepo-patterns-new-book)
@@ -181,8 +180,7 @@ A curated list of awesome Angular resources
 
 - Best practices for NgRx Action?
 
-> Types of Actions: User Actions, Backend Actions, Device Actions
-
+> Types of Actions: User Actions, Backend Actions, Device Actions<br/>
 > Watch [Good Action Hygiene with NgRx Mike Ryan](https://www.youtube.com/watch?v=JmnsEvoy-gY)
 
 - How to implement route animations?
@@ -222,13 +220,12 @@ A curated list of awesome Angular resources
 
 - How to cache backed-end API?
 
-> Use [shareReplay](https://blog.thoughtram.io/angular/2018/03/05/advanced-caching-with-rxjs.html)
-
+> Use [shareReplay](https://blog.thoughtram.io/angular/2018/03/05/advanced-caching-with-rxjs.html)<br/>
 > Checkout **combineLatest** and **shareReplay** use in [DeborahK's](https://github.com/DeborahK/Angular-RxJS) Repo and her talk.
 
 -- ngadd
 
-> https://ngadd.com/
+> <https://ngadd.com/>
 
 - Angular Performance
   1. [make Angular app faster](https://timdeschryver.dev/blog/help-angular-to-make-your-application-faster)
@@ -287,11 +284,11 @@ semantic-release is a fully automated library/system for versioning, changelog g
 
 - 10 More Useful Angular Features You Might Not Have Heard Of
 
-> https://angular-guru.com/blog/angular-more-unknown-features
+> <https://angular-guru.com/blog/angular-more-unknown-features>
 
 - Apps That Work Natively on the Web and Mobile
 
-  > https://blog.angular.io/apps-that-work-natively-on-the-web-and-mobile-9b26852495e7
+  > <https://blog.angular.io/apps-that-work-natively-on-the-web-and-mobile-9b26852495e7>
 
 - How to use Angular CDK Tables?
 
@@ -313,14 +310,12 @@ semantic-release is a fully automated library/system for versioning, changelog g
 > Refer [An Introduction to NestJS](https://www.joshmorony.com/an-introduction-to-nestjs-for-ionic-developers/) > <br/>
 > Refer [Vendure](https://github.com/vendure-ecommerce/vendure) an eCommerce framework build with GraphQL and NestJS
 > <br/>
-> Refer [Getting Started with Nest.js](https://scotch.io/tutorials/getting-started-with-nestjs)
-
+> Refer [Getting Started with Nest.js](https://scotch.io/tutorials/getting-started-with-nestjs)<br/>
 > [What’s new in NestJS Swagger 4 ?](https://trilon.io/blog/nestjs-swagger-4-whats-new)
 
 - Shoud I use mergeMap or concatMap or switchMap or forkJoin for my usecase?
 
-> _Short Answer_: concatMap for writes, mergeMap for reads, switchMap when you have to cancel http call.
-
+> _Short Answer_: concatMap for writes, mergeMap for reads, switchMap when you have to cancel http call.<br/>
 > TL;DR: mergeMap doesn’t preserve the order, concatMap does preserve the order.
 > switchMap cancels previous inner Observables when a new inner Observable appears
 > Ref [blog](https://blog.angularindepth.com/practical-rxjs-in-the-wild-requests-with-concatmap-vs-mergemap-vs-forkjoin-11e5b2efe293)
@@ -335,18 +330,18 @@ in this project, we are demonstrating how to secure UI and backend APIs using fo
 2. Implicit FLow
 3. Authorization Code FLow [Waiting](https://github.com/manfredsteyer/angular-oauth2-oidc/pull/195)
 
-https://github.com/manfredsteyer/angular-oauth2-oidc
-https://github.com/damienbod/angular-auth-oidc-client
-https://github.com/jeroenheijmans/sample-auth0-angular-oauth2-oidc
-https://github.com/mauriciovigolo/keycloak-angular
-https://github.com/ssilvert/keycloak-schematic/wiki
-https://symbiotics.co.za/integrating-keycloak-with-an-angular-4-web-application-part-2/
-https://github.com/SchweizerischeBundesbahnen/api-devportal/blob/develop/src/app/shared/auth/auth.service.ts
+- <https://github.com/manfredsteyer/angular-oauth2-oidc>
+- <https://github.com/damienbod/angular-auth-oidc-client>
+- <https://github.com/jeroenheijmans/sample-auth0-angular-oauth2-oidc>
+- <https://github.com/mauriciovigolo/keycloak-angular>
+- <https://github.com/ssilvert/keycloak-schematic/wiki>
+- <https://symbiotics.co.za/integrating-keycloak-with-an-angular-4-web-application-part-2/>
+- <https://github.com/SchweizerischeBundesbahnen/api-devportal/blob/develop/src/app/shared/auth/auth.service.ts>
 
-- https://medium.com/@robert.broeckelmann/when-to-use-which-oauth2-grants-and-oidc-flows-ec6a5c00d864
+- <https://medium.com/@robert.broeckelmann/when-to-use-which-oauth2-grants-and-oidc-flows-ec6a5c00d864>
 
 - How to i18n?
-  https://github.com/SchweizerischeBundesbahnen/api-devportal/blob/develop/package.json
+  <https://github.com/SchweizerischeBundesbahnen/api-devportal/blob/develop/package.json>
   [Angular9 i18n with @angular/localize](https://blog.ninja-squad.com/2019/12/10/angular-localize/)
 
 - how to link local npm projects when you o patch a npm module locally?
@@ -355,12 +350,13 @@ https://github.com/SchweizerischeBundesbahnen/api-devportal/blob/develop/src/app
 ### NestJS
 
 - Intro [NestJS](https://www.youtube.com/watch?v=ets56yWvi84)
+- [Introducing Mapped Types for NestJS](https://trilon.io/blog/introducing-mapped-types-for-nestjs)
 
 ### Pattern
 
-1. https://tomastrajan.github.io/angular-model-pattern-example#/about
+1. <https://tomastrajan.github.io/angular-model-pattern-example#/about>
 
 ### Awesome links
 
 - Angular Articles
-  - https://angular-guru.com/blog
+  - <https://angular-guru.com/blog>

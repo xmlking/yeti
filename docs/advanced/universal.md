@@ -22,7 +22,6 @@ ng run webapp:prerender --routesFile routes.txt
 Deploy
 
 ```bash
-# Maybe wait until the v6 release this/next week
 ng add @angular/fire
 ng run webapp:prerender
 ng deploy

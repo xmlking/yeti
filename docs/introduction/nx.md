@@ -20,7 +20,9 @@ Global Options:
 {% hint style='info' %}
 **buildable** is alias for old **publishable**
 you can always make an existing library **buildable** after the fact.
+
 Every **buildable** library has a build task.
+
 {% endhint %}
 
 ```bash
@@ -40,6 +42,7 @@ nx g @nrwl/workspace:lib btree --directory=utils --tags="domain:shared,type:util
 ```bash
 # Move libs/my-feature-lib to libs/shared/my-feature-lib
 nx g @nrwl/workspace:move --project my-feature-lib shared/my-feature-lib
+nx g @nrwl/workspace:move --project api yeti-api
 # Remove my-feature-lib from the workspace:
 nx g @nrwl/workspace:remove my-feature-lib --dry-run
 # Force removal of my-feature-lib from the workspace:
@@ -97,7 +100,7 @@ nx run-many --target=build --all --prod # Any flags you pass to run-many that ar
 ### For Affected Projects
 
 {% hint style='info' %}
-The print-affected and run-many commands can be used to set up your CI to use multiple agents, while still rebuilding and retesting only what is affected.
+The **print-affected** and **run-many** commands can be used to set up your CI to use multiple agents, while still rebuilding and retesting only what is affected.
 {% endhint %}
 
 ```bash

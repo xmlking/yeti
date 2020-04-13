@@ -5,6 +5,7 @@
 - Getting Started
   - [Why](introduction/why.md)
   - [Installation](introduction/installation.md)
+  - [Project Layout](introduction/project-layout.md)
   - [NX commands](introduction/nx.md)
   - [Playbook](introduction/playbook.md)
   - [NestJS Playbook](introduction/nest-playbook.md)
