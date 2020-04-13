@@ -21,7 +21,9 @@
     "@nestjs/platform-express": "7.0.6",
     "@nestjs/swagger": "4.5.1",
     "@nestjs/terminus": "7.0.0-pre.3",
-    "helmet": "3.22.0"
+    "@nestjs/typeorm": "^7.0.0",
+    "helmet": "3.22.0",
+    "typeorm": "0.2.24"
   },
   "devDependencies": {
     "@types/helmet": "0.0.45",

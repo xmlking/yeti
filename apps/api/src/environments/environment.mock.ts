@@ -3,7 +3,7 @@ import { Environment } from './ienvironment';
 
 export const environment: Environment = {
   production: true,
-  envName: 'prod',
+  envName: 'mock',
 
   env: {
     NODE_TLS_REJECT_UNAUTHORIZED: '0',
@@ -25,8 +25,8 @@ export const environment: Environment = {
 
   database: {
     type: 'postgres',
-    host: process.env.TYPEORM_HOST ?? 'ngxdb-postgresql',
-    port: process.env.TYPEORM_PORT ? Number(process.env.TYPEORM_PORT) : 5432,
+    host: process.env.TYPEORM_HOST ?? 'localhost',
+    port: process.env.TYPEORM_PORT ? Number(process.env.TYPEORM_PORT) : 31432,
     database: process.env.TYPEORM_DATABASE ?? 'postgres',
     username: process.env.TYPEORM_USERNAME ?? 'postgres',
     password: process.env.TYPEORM_PASSWORD ?? 'postgres321',
@@ -37,8 +37,10 @@ export const environment: Environment = {
   },
 
   auth: {
-    clientId: process.env.OIDC_CLIENT_ID ?? 'ngxapi',
-    issuerExternalUrl: process.env.OIDC_ISSUER_EXTERNAL_URL ?? 'https://keycloak.traefik.k8s/auth/realms/ngx',
-    issuerInternalUrl: process.env.OIDC_ISSUER_INTERNAL_URL ?? 'http://keycloak-headless:8080/auth/realms/ngx',
+    clientId: process.env.OIDC_CLIENT_ID ?? '791772336084-vkt37abstm1du92ofdmhgi30vgd7t0oa.apps.googleusercontent.com',
+    issuerExternalUrl: process.env.OIDC_ISSUER_EXTERNAL_URL ?? 'https://accounts.google.com',
+    issuerInternalUrl: process.env.OIDC_ISSUER_INTERNAL_URL ?? 'https://accounts.google.com',
+    jwksUri: process.env.OIDC_JWKS_URL ?? 'https://www.googleapis.com/oauth2/v3/certs',
+    additionalQueryStringParams: { scope: 'openid profile email' },
   },
 };

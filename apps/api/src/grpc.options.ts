@@ -1,21 +1,42 @@
 import { GrpcOptions, Transport } from '@nestjs/microservices';
+import { ServerCredentials } from 'grpc';
 import { join } from 'path';
+import { environment as env } from './environments/environment';
 
 const protoDir = join(__dirname, '.', 'proto');
-
+const port = env.server.grpcPort ?? 5000;
+const host = env.server.host ?? '0.0.0.0';
+const credentials =
+  env.server.secure && env.server.httpsOptions
+    ? {
+        credentials: ServerCredentials.createSsl(
+          env.server.httpsOptions.ca,
+          [
+            {
+              // eslint-disable-next-line @typescript-eslint/camelcase
+              private_key: env.server.httpsOptions.key,
+              // eslint-disable-next-line @typescript-eslint/camelcase
+              cert_chain: env.server.httpsOptions.cert,
+            },
+          ],
+          false //  checkClientCertificate ??
+        ),
+      }
+    : {};
 export const grpcOptions: GrpcOptions = {
   transport: Transport.GRPC,
   options: {
-    url: '0.0.0.0:5000',
+    url: `${host}:${port}`,
     package: ['yeti.common.v1', 'yeti.echo.v1', 'yeti.account.v1'],
     protoPath: ['yeti/common/v1/common.proto', 'yeti/echo/v1/echo.proto', 'yeti/account/v1/account.proto'],
+    ...credentials,
     loader: {
       longs: Number,
       defaults: false,
       arrays: true,
       objects: true,
       oneofs: true,
-      includeDirs: [protoDir]
-    }
-  }
+      includeDirs: [protoDir],
+    },
+  },
 };
