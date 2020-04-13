@@ -62,7 +62,7 @@ export class ContentService {
       map((list) =>
         list.find(
           (r) =>
-            curLocation === r.route.trim() ||
+            curLocation === r.route.trim() ??
             (r.slugs && Array.isArray(r.slugs) && r.slugs.find((slug) => curLocation.endsWith(slug.trim())))
         )
       )

@@ -241,7 +241,8 @@
                 "input": "proto",
                 "output": "proto"
               }
-            ]
+            ],
+            "buildLibsFromSource": true
           },
           "configurations": {
             "production": {

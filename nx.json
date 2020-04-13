@@ -1,13 +1,10 @@
 {
   "npmScope": "yeti",
-  // FIXME: Till Nx 10
   "tasksRunnerOptions": {
     "default": {
-      // "runner": "@nrwl/nx-cloud",
-      "runner": "@nrwl/workspace/src/tasks-runner/tasks-runner-v2",
+      "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        // "accessToken": "YOUR_ACCESS_TOKEN",
-        "cacheableOperations": ["build", "test", "lint"]
+        "cacheableOperations": ["build", "test", "lint", "e2e"]
       }
     }
   },
