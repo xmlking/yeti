@@ -79,3 +79,25 @@ grpcurl -cacert=deploy/overlays/e2e/secrets/certs/ca-cert.pem \
 -protoset <(buf image build -o -) \
 -d '{"message": "sumo"}' localhost:9444 yeti.echo.v1.EchoService/Echo
 ```
+
+#### Test gRPC-Web
+
+```bash
+# without TLS
+
+ curl 'http://localhost:9090/greetersrv/Greeter.Hello' \
+ -H 'Content-Type: application/grpc-web+proto' \
+ -H 'X-Grpc-Web: 1' \
+ -H 'custom-header-1: value1' \
+ -H 'Accept: */*' \
+ -H 'Connection: keep-alive' \
+ --data-binary $'\x00\x00\x00\x00\x05\n\x03abc' --compressed
+
+curl 'http://localhost:9090/yeti.EchoService/Echo' \
+-H 'Accept: application/grpc-web-text' \
+-H 'Content-Type: application/grpc-web-text' \
+-H 'X-Grpc-Web: 1' \
+-H 'Connection: keep-alive' \
+-H 'Accept-Encoding: gzip, deflate, br' \
+--data-binary 'AAAAAAYKBHN1bW8=' --compressed
+```

@@ -1,6 +1,6 @@
 # DIY Playbook
 
-1. Install global [Prerequisites](./Installation.md)
+1. Install global [Prerequisites](./installation.md)
 
 ## Install
 
