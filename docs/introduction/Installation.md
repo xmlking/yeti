@@ -6,17 +6,19 @@ Do-it-yourself step-by-step instructions to create this project structure from s
 
 ### Prerequisites
 
-> you need following tools. versions listed here are minimal versions tested.
+you need following tools. versions listed here are minimal versions tested.
+
+> Recommended to install latest versions available
 
 | Software        | Version | Optional |
 | --------------- | ------- | -------- |
-| Node            | v13.8.0 |          |
-| Yarn            | v1.22.0 |          |
+| Node            | v13.12.0|          |
+| Yarn            | v1.22.4 |          |
 | Lerna           | v3.20.2 |          |
-| Angular CLI     | v9.0.2  |          |
-| @nrwl/workspace | v9.0.0  |          |
-| @nestjs/cli     | v6.14.2 |          |
-| commitizen      | v4.0.3  |          |
+| Angular CLI     | v9.1.1  |          |
+| @nrwl/workspace | v9.2.2  |          |
+| @nestjs/cli     | v7.1.2  |          |
+| commitizen      | v4.0.4  |          |
 
 ### Install Prerequisites
 
