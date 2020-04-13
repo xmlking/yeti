@@ -204,6 +204,7 @@ yarn workspace @yeti/api add nodemon supertest  -O
 yarn workspace @yeti/api add @types/{helmet,passport,passport-jwt,supertest,nodemailer} -D
 
 yarn workspace @yeti/api add @grpc/proto-loader
+yarn workspace @yeti/api add grpc
 
 yarn workspace @yeti/tools add cpx --dev
 ```

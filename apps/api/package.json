@@ -22,6 +22,7 @@
     "@nestjs/swagger": "4.5.1",
     "@nestjs/terminus": "7.0.1",
     "@nestjs/typeorm": "7.0.0",
+    "grpc": "^1.24.2",
     "helmet": "3.22.0",
     "typeorm": "0.2.24"
   },
