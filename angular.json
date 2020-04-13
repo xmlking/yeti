@@ -240,6 +240,11 @@
                 "glob": "**/*",
                 "input": "proto",
                 "output": "proto"
+              },
+              {
+                "glob": "**/*",
+                "input": "third_party/proto",
+                "output": "proto"
               }
             ],
             "buildLibsFromSource": true

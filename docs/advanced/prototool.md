@@ -97,24 +97,6 @@ prototool generate proto
 prototool generate proto --debug
 ```
 
-> Generate grpc-web client-side code
-
-```bash
-protoc -I="./proto" ./proto/yeti/echo/v1/echo.proto \
---js_out=import_style=commonjs:./libs/gen/src/lib \
---grpc-web_out=import_style=typescript,mode=grpcwebtext:./libs/gen/src/lib
-```
-
-> Generate node server-side code
-
-```bash
-protoc --plugin=./node_modules/ts-proto/protoc-gen-ts_proto \
--I="./proto" -I="third_party/proto" --ts_proto_out=apps/api/src/app/echo/interfaces  ./proto/yeti/echo/v1/echo.proto
-
-protoc --plugin=./node_modules/ts-proto/protoc-gen-ts_proto \
--I="./proto" -I="third_party/proto"  --ts_proto_out=apps/api/src/app/account/interfaces  ./proto/yeti/account/v1/account.proto
-```
-
 ## Reference
 
 - <https://github.com/grpc/grpc-web/tree/master/packages/grpc-web>
