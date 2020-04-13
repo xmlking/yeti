@@ -1994,7 +1994,7 @@
     optional "0.1.4"
     tslib "1.11.1"
 
-"@nestjs/typeorm@^7.0.0":
+"@nestjs/typeorm@7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@nestjs/typeorm/-/typeorm-7.0.0.tgz#0993a949bba81756317e8e865882184bd7f16133"
   integrity sha512-oIiQRihMVNQPE6PzEaB7UDfGlktCtkHNxI2HeSf/Uyrjl7DspPSHNLg9IVVSztk+L9kJquYMXhzApr2PxoK3EQ==
@@ -6925,7 +6925,7 @@ escodegen@~1.9.0:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-prettier@^6.10.1:
+eslint-config-prettier@6.10.1:
   version "6.10.1"
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-6.10.1.tgz#129ef9ec575d5ddc0e269667bf09defcd898642a"
   integrity sha512-svTy6zh1ecQojvpbJSgH3aei/Rt7C6i090l5f2WQ4aB05lYHeZIR1qL4wZyyILTbtmnbHP5Yn8MrsOJMGa8RkQ==
