@@ -12,7 +12,12 @@ resources:
 
 configMapGenerator:
   - name: envoy-config
-    files: ["envoy.yaml"]
+    files:
+      - 'config/envoy.yaml'
+      - 'config/clusters.yaml'
+      - 'config/endpoints.yaml'
+      - 'config/listeners.yaml'
+      - 'config/routes.yaml'
 
 vars:
   - name: ENVOY_SRV_ENDPOINT

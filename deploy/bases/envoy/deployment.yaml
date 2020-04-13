@@ -7,18 +7,23 @@ spec:
     spec:
       containers:
         - name: envoy
-          image: envoyproxy/envoy:latest
+          image: envoyproxy/envoy-alpine:latest
           command:
             - envoy
           args:
             - '-c /etc/envoy/envoy.yaml'
-            - '--log-level $(ENVOY_LOG_LEVEL)'
+            - '--service-node front'
+            - '--service-cluster front'
+            - '-l $(ENVOY_LOG_LEVEL)'
           env:
             - name: ENVOY_LOG_LEVEL
               value: debug
           volumeMounts:
             - name: envoy-config
               mountPath: /etc/envoy
+            - name: envoy-certs
+              mountPath: /etc/envoy
+            readOnly: true
           readinessProbe:
             httpGet:
               path: /server_info
@@ -34,3 +39,10 @@ spec:
               containerPort: 9090
             - name: https
               containerPort: 9443
+      volumes:
+        - name: envoy-config
+          configMap:
+            name: envoy-config
+        - name: envoy-certs
+          secret:
+            secretName: envoy-certs

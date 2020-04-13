@@ -54,6 +54,30 @@ secretGenerator:
   #       - ".dockerconfigjson=docker.secret.json"
   #   type: kubernetes.io/dockerconfigjson
 
+secretGenerator:
+  - name: yeti-certs
+    files:
+      - certs/ca-cert.pem
+      - certs/server-cert.pem
+      - certs/server-key.pem
+      - certs/upstream-ca-cert.pem
+      - certs/upstream-cert.pem
+      - certs/upstream-key.pem
+    type: Opaque
+
+# labels for generated secrets at this level
+generatorOptions:
+  disableNameSuffixHash: true
+  labels:
+    app.kubernetes.io/name: secrets
+    app.kubernetes.io/instance: secrets-abcxzy
+    app.kubernetes.io/component: infra
+    app.kubernetes.io/part-of: yeti
+    app.kubernetes.io/managed-by: kustomize
+  annotations:
+    org: acmeCorporation
+
+
 replicas:
   - name: srv
     count: 1
@@ -63,6 +87,9 @@ images:
     newTag: 3.3.15
   - name: postgres
     newTag: 11.5-alpine
+  - name: envoyproxy/envoy-alpine
+    newName: docker.io/envoyproxy/envoy-alpine
+    newTag: v1.14.1
   - name: micro/micro
     newName: docker.pkg.github.com/xmlking/micro-starter-kit/micro
     newTag: v2.0.0

@@ -2,8 +2,6 @@
 
 deploying with **Kustomize**
 
-
-
 ## Reference
 
 1. <https://github.com/kubernetes-sigs/kustomize/blob/master/docs/glossary.md>
