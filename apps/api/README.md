@@ -90,6 +90,12 @@ grpcurl -cacert=deploy/overlays/e2e/secrets/certs/ca-cert.pem \
 -key=deploy/overlays/e2e/secrets/certs/upstream-key.pem \
 -protoset <(buf image build -o -) \
 -d '{"message": "sumo"}' localhost:9444 yeti.echo.v1.EchoService/Echo
+
+# testing with request data from file.
+grpcurl -cacert=deploy/overlays/e2e/secrets/certs/ca-cert.pem \
+-protoset <(buf image build -o -) \
+-v -H trans_id=abc123 \
+-d @ localhost:9444 yeti.echo.v1.EchoService/Echo <test/echo-request.json
 ```
 
 #### Test gRPC-Web
