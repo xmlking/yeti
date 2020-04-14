@@ -183,6 +183,6 @@
     "ngx-semantic-version": "2.0.0-beta.5",
     "parse-md": "^2.0.4",
     "ts-proto": "1.18.2",
-    "webpack-bundle-analyzer": "3.6.1"
+    "webpack-bundle-analyzer": "3.7.0"
   }
 }
