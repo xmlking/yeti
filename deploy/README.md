@@ -37,12 +37,47 @@ deploying with **appctl** and **Kustomize**
 
   Subdirectories in `delivery/envs` contain information on the GKE clusters that host each environment. These files are automatically generated and don't need to be modified directly.
 
-### Setup
-
-#### Install
+### Install
 
 ```bash
 gcloud components install appctl
+```
+
+### Setup
+
+```bash
+GIT_USERNAME="xmlking"
+APPLICATION_NAME="yeti"
+# 1. Initialize existing repositories
+cd yeti
+appctl init yeti --app-config-repo=github.com/xmlking/yeti
+# 2. add new env dev and connect to `sumo` cluster
+appctl env add development --cluster=sumo
+appctl env add staging --cluster=sumo
+appctl env add production --cluster=sumo
+# 3. [optional] see commit logs - `appctl env add` committed a new `dev` env
+git log -p *
+# push auto-generated configurations
+git push origin master
+# 4. dry run to see what you will create
+kubectl apply -k config/base/ --dry-run=client -o yaml
+kubectl apply -k config/envs/staging  --dry-run=client -o yaml
+# 5. tag changes
+git tag v0.1.0
+git push origin  v0.1.0
+# 6. prepare env PR (response with created PR in seymour-env)
+appctl prepare staging
+# 7. run apply without merge the PR -> deny
+appctl apply staging
+# Merge PR in seymour-env and see created dev branch
+# Rerun apply
+# Open GCP and see GKE/Applications
+# To promote a release candidate from one environment to another, run the following command:
+appctl prepare prod --from-env staging
+# To deploy the release candidate to the target environment, run the following command:
+appctl apply prod
+# rollback
+appctl apply staging --from-tag v0.1.0
 ```
 
 ### Reference
