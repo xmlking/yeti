@@ -77,6 +77,7 @@ git tag v0.1.0
 git push origin  v0.1.0
 # 6. prepare env PR (response with created PR in seymour-env)
 appctl prepare staging
+appctl prepare staging --from-tag v0.1.3
 # 7. run apply without merge the PR -> deny
 appctl apply staging
 # Merge PR in seymour-env and see created dev branch

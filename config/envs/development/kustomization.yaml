@@ -16,11 +16,11 @@ resources:
   - ../../base
 
 # enable mage-pull-policy and resource_limit as needed
-patches:
-  - path: patches/image-pull-policy-if-not-present.yaml
-    target:
-      kind: Deployment
-      labelSelector: app.kubernetes.io/component=microservice
+#patches:
+#  - path: patches/image-pull-policy-if-not-present.yaml
+#    target:
+#      kind: Deployment
+#      labelSelector: app.kubernetes.io/component=microservice
 
 configMapGenerator:
   - name: env-vars
