@@ -20,10 +20,9 @@ async function bootstrap() {
   // Starts listening to shutdown hooks
   app.enableShutdownHooks();
 
-  await app.listen(port, host, () => {
-    console.log(`Version: ${config.getVersion()}`);
-    console.log(`Listening at ${host}:${port}/${globalPrefix}, Secure? ${env.server.secure}`);
-  });
+  await app.listen(port, host);
+  console.log(`Version: ${config.getVersion()}`);
+  console.log(`Application is running on: ${await app.getUrl()}`);
 }
 
 bootstrap();

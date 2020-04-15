@@ -22,8 +22,8 @@ docker-compose up envoy
 # (or) start standalone envoy container
 docker run -it --rm --name envoy2 \
 -p 9901:9901 -p 9090:9090 -p 9444:9443  \
--v `pwd`/deploy/bases/envoy/config/:/etc/envoy:ro \
--v `pwd`/deploy/overlays/e2e/secrets/certs:/etc/certs:ro \
+-v `pwd`/config/base/envoy/config/:/etc/envoy:ro \
+-v `pwd`/config/base/secrets/certs/:/etc/certs:ro \
 envoyproxy/envoy-alpine:v1.14.1
 # ssh if needed
 docker exec -it envoy /bin/bash

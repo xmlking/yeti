@@ -5,8 +5,8 @@ services:
     image: docker.io/envoyproxy/envoy-alpine:v1.14.1
     command: /usr/local/bin/envoy -c etc/envoy/envoy.yaml -l debug --service-cluster front --service-node front
     volumes:
-      - './deploy/overlays/e2e/secrets/certs:/etc/certs:ro'
-      - './deploy/bases/envoy/config/:/etc/envoy:ro'
+      - './config/base/secrets/certs:/etc/certs:ro'
+      - './config/base/envoy/config:/etc/envoy:ro'
     expose:
       - '9090'
       - '9443'

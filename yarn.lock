@@ -2006,6 +2006,10 @@
   resolved "https://registry.yarnpkg.com/@ngneat/until-destroy/-/until-destroy-7.1.5.tgz#38041a980a5eb7d275a3f861f3b3b662328ee396"
   integrity sha512-urQlU4RB+Rl5SdtEwCbrNOFxDtiWe9qsTHzLrf/q8Wjl73bYs32wdGgBzH8QZhrliMk63r7GNJgUa8RoD97b6w==
 
+"@ngrx/component@github:ngrx/component-builds.git":
+  version "9.1.0"
+  resolved "https://codeload.github.com/ngrx/component-builds/tar.gz/e7493040d9f6fe13d9fb9ea1ef413d5375401dbc"
+
 "@ngtools/webpack@9.1.1":
   version "9.1.1"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-9.1.1.tgz#d67c23a62cd6d5ff0ca8f46062d9dc4aa7eebff4"

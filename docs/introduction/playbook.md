@@ -148,6 +148,8 @@ yarn add @ngxs/devtools-plugin @ngxs/{store,router-plugin,form-plugin,storage-pl
 yarn add @ngxs-labs/immer-adapter
 yarn add @ngxs-labs/select-snapshot
 yarn add immer
+# add `Push Pipe` & `Let Directive` https://ngrx.io/guide/component
+yarn add github:ngrx/component-builds.git
 #---------------------------------
 # (optional) Add formly
 ng add @ngx-formly/schematics --ui-theme=material
