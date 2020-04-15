@@ -20,7 +20,7 @@ gcloud components install appctl
 ```bash
 export CLUSTER_NAME=sumo
 gcloud beta container clusters create ${CLUSTER_NAME} \
-  --cluster-version 1.15.11-gke.3 \
+  --cluster-version 1.15.11-gke.5 \
   --num-nodes=1 \
   --machine-type=n1-standard-4 \
   --addons ApplicationManager \

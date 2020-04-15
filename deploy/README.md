@@ -58,13 +58,12 @@ kustomize build config/base
 kustomize build envs/production
 # if works, add changes to git and commit.
 git add .
-git commit -m "Bootstraping config"
+git commit -m "chore(deploy): bootstraping config"
 git push
-
-# 2. add new env dev and connect to `sumo` cluster
-appctl env add development --cluster=sumo
-appctl env add staging --cluster=sumo
-appctl env add production --cluster=sumo
+# 2. add new envs and connect to cluster
+appctl env add development --cluster=sumo --namespace=development
+appctl env add staging --cluster=sumo --namespace=staging
+appctl env add production --cluster=sumo --namespace=production
 # 3. [optional] see commit logs - `appctl env add` committed a new `dev` env
 git log -p *
 # push auto-generated configurations
