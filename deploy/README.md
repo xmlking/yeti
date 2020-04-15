@@ -61,10 +61,10 @@ git add .
 git commit -m "chore(deploy): bootstraping config"
 git push
 # 2. add new envs and connect to cluster
-appctl env add development --cluster=sumo --namespace=development
-appctl env add staging --cluster=sumo --namespace=staging
-appctl env add production --cluster=sumo --namespace=production
-# 3. [optional] see commit logs - `appctl env add` committed a new `dev` env
+appctl env add development --cluster=sumo --namespace=development --review-required=false
+appctl env add staging --cluster=sumo --namespace=staging --review-required=false
+appctl env add production --cluster=sumo --namespace=production --review-required=true
+# [optional] see commit logs - `appctl env add` committed a new `dev` env
 git log -p *
 # push auto-generated configurations
 git push origin master
