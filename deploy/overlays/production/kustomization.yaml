@@ -11,7 +11,7 @@ commonLabels:
 commonAnnotations:
   note: Hello, I am production!
 
-bases:
+resources:
   - ../../bases/micros
   - ../../bases/etcd
 

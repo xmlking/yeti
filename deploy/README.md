@@ -45,12 +45,22 @@ gcloud components install appctl
 
 ### Setup
 
+> One time setup
+
 ```bash
-GIT_USERNAME="xmlking"
-APPLICATION_NAME="yeti"
-# 1. Initialize existing repositories
-cd yeti
+# Initialize existing repository
+cd ..
 appctl init yeti --app-config-repo=github.com/xmlking/yeti
+cd yeti
+# Create the configuration for your Kubernetes workload. add/update `config/base`, then test:
+# kubectl apply -k config/base/ --dry-run=client -o yaml
+kustomize build config/base
+kustomize build envs/production
+# if works, add changes to git and commit.
+git add .
+git commit -m "Bootstraping config"
+git push
+
 # 2. add new env dev and connect to `sumo` cluster
 appctl env add development --cluster=sumo
 appctl env add staging --cluster=sumo
@@ -60,7 +70,7 @@ git log -p *
 # push auto-generated configurations
 git push origin master
 # 4. dry run to see what you will create
-kubectl apply -k config/base/ --dry-run=client -o yaml
+
 kubectl apply -k config/envs/staging  --dry-run=client -o yaml
 # 5. tag changes
 git tag v0.1.0

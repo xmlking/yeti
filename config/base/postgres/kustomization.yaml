@@ -2,22 +2,20 @@ commonLabels:
   app.kubernetes.io/name: postgres
   app.kubernetes.io/instance: postgres-abcxzy
   app.kubernetes.io/component: database
+  app.kubernetes.io/part-of: yeti
+  app.kubernetes.io/managed-by: kustomize
+commonAnnotations:
+  org: acmeCorporation
 
 resources:
-  - postgres.yaml
+  - statefulset.yaml
   - service.yaml
+  - service-headless.yaml
 
 secretGenerator:
   - name: postgres-secrets
     literals:
       - postgres-password=postgres123
-
-# labels for generated secrets at this level
-generatorOptions:
-  labels:
-    app.kubernetes.io/name: postgres-secrets
-    app.kubernetes.io/instance: postgres-secrets-abcxzy
-    app.kubernetes.io/component: secrets
 
 vars:
   - name: DATABASE_ENDPOINT

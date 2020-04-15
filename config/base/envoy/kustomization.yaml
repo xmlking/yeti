@@ -2,13 +2,14 @@ commonLabels:
   app.kubernetes.io/name: envoy
   app.kubernetes.io/instance: envoy-abcxzy
   app.kubernetes.io/component: infra
-  app.kubernetes.io/part-of: micro-starter-kit
+  app.kubernetes.io/part-of: yeti
   app.kubernetes.io/managed-by: kustomize
 commonAnnotations:
   org: acmeCorporation
 
 resources:
   - deployment.yaml
+  - service.yaml
 
 configMapGenerator:
   - name: envoy-config

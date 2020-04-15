@@ -23,7 +23,7 @@ spec:
               mountPath: /etc/envoy
             - name: envoy-certs
               mountPath: /etc/envoy
-            readOnly: true
+              readOnly: true
           readinessProbe:
             httpGet:
               path: /server_info

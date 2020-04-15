@@ -67,3 +67,6 @@ deploy/overlays/e2e/secrets/.dockerconfigjson
 deploy/overlays/production/secrets/.dockerconfigjson
 deploy/overlays/consul/secrets/.dockerconfigjson
 tsconfig.nx-tmp
+
+.appctlconfig
+.deployment/

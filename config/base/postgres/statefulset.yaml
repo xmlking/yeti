@@ -15,10 +15,10 @@ spec:
       labels:
         app: postgres
     spec:
-      terminationGracePeriodSeconds: 0
+      terminationGracePeriodSeconds: 10
       containers:
         - name: postgres
-          image: postgres:11.5-alpine
+          image: postgres:latest
           imagePullPolicy: Always
           ports:
             - name: tcp-pg
