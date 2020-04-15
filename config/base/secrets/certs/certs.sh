@@ -1,7 +1,7 @@
 
 #!/bin/bash
 
-pushd deploy/overlays/e2e/secrets/certs
+pushd config/base/certificates/certs
 
 set -e
 

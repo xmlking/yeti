@@ -8,6 +8,7 @@ spec:
       containers:
         - name: envoy
           image: envoyproxy/envoy-alpine:latest
+          imagePullPolicy: Always
           command:
             - envoy
           args:
@@ -15,14 +16,16 @@ spec:
             - '--service-node front'
             - '--service-cluster front'
             - '-l $(ENVOY_LOG_LEVEL)'
-          env:
-            - name: ENVOY_LOG_LEVEL
-              value: debug
+          envFrom:
+            - configMapRef:
+                name: env-vars
+#            - configMapRef:
+#                name: env-vars-common
           volumeMounts:
-            - name: envoy-config
+            - name: config
               mountPath: /etc/envoy
-            - name: envoy-certs
-              mountPath: /etc/envoy
+            - name: certs
+              mountPath: /etc/certs
               readOnly: true
           readinessProbe:
             httpGet:
@@ -40,9 +43,9 @@ spec:
             - name: https
               containerPort: 9443
       volumes:
-        - name: envoy-config
+        - name: config
           configMap:
-            name: envoy-config
-        - name: envoy-certs
+            name: config
+        - name: certs
           secret:
-            secretName: envoy-certs
+            secretName: certs

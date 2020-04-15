@@ -1,3 +1,6 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
 commonLabels:
   app.kubernetes.io/name: envoy
   app.kubernetes.io/instance: envoy-abcxzy
@@ -12,7 +15,10 @@ resources:
   - service.yaml
 
 configMapGenerator:
-  - name: envoy-config
+  - name: env-vars
+    literals:
+      - ENVOY_LOG_LEVEL=info
+  - name: config
     files:
       - 'config/envoy.yaml'
       - 'config/clusters.yaml'

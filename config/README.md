@@ -52,10 +52,9 @@ gcloud components install appctl
 cd ..
 appctl init yeti --app-config-repo=github.com/xmlking/yeti
 cd yeti
-# Create the configuration for your Kubernetes workload. add/update `config/base`, then test:
+# Create the configuration for your Kubernetes workload. i.e., add/update `config/base`, then test:
 # kubectl apply -k config/base/ --dry-run=client -o yaml
 kustomize build config/base
-kustomize build envs/production
 # if works, add changes to git and commit.
 git add .
 git commit -m "chore(deploy): bootstraping config"
@@ -64,13 +63,15 @@ git push
 appctl env add development --cluster=sumo --namespace=development --review-required=false
 appctl env add staging --cluster=sumo --namespace=staging --review-required=false
 appctl env add production --cluster=sumo --namespace=production --review-required=true
-# [optional] see commit logs - `appctl env add` committed a new `dev` env
-git log -p *
+# To see appctl changes, run `git log -p *`.
 # push auto-generated configurations
-git push origin master
-# 4. dry run to see what you will create
-
-kubectl apply -k config/envs/staging  --dry-run=client -o yaml
+git push
+# Create the configuration for your enveronments. i.e., add/update `config/envs`, then test, push code.
+# dry run to see what you will create
+# kubectl apply -k config/envs/development  --dry-run=client -o yaml
+kustomize build config/envs/development --output ./dist/kubernetes/development
+kustomize build config/envs/production --output ./dist/kubernetes/production
+kustomize build config/envs/staging --output ./dist/kubernetes/staging
 # 5. tag changes
 git tag v0.1.0
 git push origin  v0.1.0
