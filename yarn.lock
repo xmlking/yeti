@@ -2045,12 +2045,10 @@
   dependencies:
     "@nguniversal/common" "9.1.0"
 
-"@ngxs-labs/select-snapshot@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@ngxs-labs/select-snapshot/-/select-snapshot-1.1.0.tgz#e498ca825eccad07d4ee1d0bfe91c1b6e140bf56"
-  integrity sha512-WpbpXur28sYMFz58HwuKmMHLDv6rTkSL816dKz/LkdowSBbK8NHaCJuQQc+rMeE3SSsP1SgHkqkb5zAo5Sfr8w==
-  dependencies:
-    tslib "^1.9.0"
+"@ngxs-labs/select-snapshot@2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@ngxs-labs/select-snapshot/-/select-snapshot-2.0.1.tgz#823a62666ca36aa8f6de42911aac5368606db256"
+  integrity sha512-trFLg1W/Knju/sx41cSEW7GEdXhdP3VA+ZyfQChm2DK6+yE6MpUvAGyxMEp6Vt1yA83GFDpds1jLY1PES1U9wA==
 
 "@ngxs/devtools-plugin@3.6.2":
   version "3.6.2"
