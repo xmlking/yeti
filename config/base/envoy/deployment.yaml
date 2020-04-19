@@ -36,7 +36,7 @@ spec:
               path: /server_info
               port: 9901
           ports:
-            - name: envoy-admin
+            - name: admin
               containerPort: 9901
             - name: http
               containerPort: 9090

@@ -12,5 +12,10 @@ spec:
   ports:
   - name: grpc-web
     port: 9090
-    protocol: TCP
-    targetPort: envoy
+    targetPort: http
+  - name: grpc-web-secure
+    port: 9443
+    targetPort: https
+  - name: http-admin
+    port: 9901
+    targetPort: admin

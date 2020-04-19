@@ -29,7 +29,7 @@ configMapGenerator:
     literals:
       - APP_ENV=development
       - LOG_LEVEL=debug
-      - ENVOY_LOG_LEVEL=debug
+      - ENVOY_LOG_LEVEL=info
 
 secretGenerator:
   - name: postgres-secrets
@@ -40,14 +40,6 @@ secretGenerator:
 # labels for generated secrets at this level
 #generatorOptions:
 #  disableNameSuffixHash: true
-#  labels:
-#    app.kubernetes.io/name: secrets
-#    app.kubernetes.io/instance: secrets-abcxzy
-#    app.kubernetes.io/component: infra
-#    app.kubernetes.io/part-of: yeti
-#    app.kubernetes.io/managed-by: kustomize
-#  annotations:
-#    org: acmeCorporation
 
 replicas:
   - name: postgres

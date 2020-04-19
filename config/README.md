@@ -21,6 +21,10 @@ deploying with **appctl** and **Kustomize**
         └── staging.yaml
 ```
 
+we can even have multiple levels of nested overlays
+
+e.g., base, envs, <regions/zones>
+
 #### config/base
 
   Configuration in the directory `config/base` applies to all environments. Additional configuration in `config/envs` can modify this configuration.
@@ -49,6 +53,7 @@ gcloud components install appctl
 
 ```bash
 # Initialize existing repository
+# make sure the `git remote -v` show `git@github.com:xmlking/yeti.git`
 cd ..
 appctl init yeti --app-config-repo=github.com/xmlking/yeti
 cd yeti
@@ -72,23 +77,23 @@ git push
 kustomize build config/envs/development --output ./dist/kubernetes/development
 kustomize build config/envs/production --output ./dist/kubernetes/production
 kustomize build config/envs/staging --output ./dist/kubernetes/staging
-# 5. tag changes
-git tag v0.1.0
-git push origin  v0.1.0
-# 6. prepare env PR (response with created PR in seymour-env)
-appctl prepare staging
-appctl prepare staging --from-tag v0.1.3
-# 7. run apply without merge the PR -> deny
+# tag changes
+git tag v0.1.3
+git push origin  v0.1.3
+# prepare env PR (response with created PR in seymour-env)
+appctl prepare development
+appctl prepare development --from-tag v0.1.3
+# run apply without merge the PR -> deny
 appctl apply staging
-# Merge PR in seymour-env and see created dev branch
-# Rerun apply
-# Open GCP and see GKE/Applications
-# To promote a release candidate from one environment to another, run the following command:
+# merge PR in seymour-env and see created dev branch
+# rerun apply
+# open GCP and see GKE/Applications
+# to promote a release candidate from one environment to another, run the following command:
 appctl prepare prod --from-env staging
-# To deploy the release candidate to the target environment, run the following command:
+# to deploy the release candidate to the target environment, run the following command:
 appctl apply prod
 # rollback
-appctl apply staging --from-tag v0.1.0
+appctl apply development --from-tag v0.1.0
 ```
 
 ### Reference

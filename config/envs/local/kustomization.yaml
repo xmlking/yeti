@@ -2,34 +2,34 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 # Please don't change the namespace field
-namespace: staging
-namePrefix: stag-
+namespace: local
+namePrefix: dev-
 nameSuffix: -v1
 
 commonLabels:
-  environment: development
+  environment: local
   app.kubernetes.io/version: v1
 commonAnnotations:
-  note: Hello, I am staging!
+  note: Hello, I am local!
 
 resources:
   - ../../base
 
 # enable mage-pull-policy and resource_limit as needed
-patches:
-  - path: patches/image-pull-policy-if-not-present.yaml
-    target:
-      kind: Deployment
-      labelSelector: app.kubernetes.io/component=microservice
+#patches:
+#  - path: patches/image-pull-policy-if-not-present.yaml
+#    target:
+#      kind: Deployment
+#      labelSelector: app.kubernetes.io/component=microservice
 
 configMapGenerator:
   - name: env-vars
 #  - name: env-vars-common
     behavior: merge
     literals:
-      - APP_ENV=staging
+      - APP_ENV=local
       - LOG_LEVEL=debug
-      - ENVOY_LOG_LEVEL=info
+      - ENVOY_LOG_LEVEL=debug
 
 secretGenerator:
   - name: postgres-secrets
