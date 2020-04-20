@@ -156,7 +156,7 @@
     "codecov": "3.6.5",
     "codelyzer": "5.2.2",
     "commitizen": "4.0.4",
-    "cypress": "4.4.0",
+    "cypress": "4.4.1",
     "dotenv": "8.2.0",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.10.1",
