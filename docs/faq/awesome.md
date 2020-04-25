@@ -38,7 +38,7 @@ A curated list of awesome Angular resources
   > Refer [here](https://blog.thoughtram.io/angular/2017/05/23/custom-themes-with-angular-material.html)
   > Refer [here](https://medium.com/@tomastrajan/the-complete-guide-to-angular-material-themes-4d165a9d24d1)
   > [Multiple Themes Without Killing Bundle Size](https://medium.com/better-programming/angular-multiple-themes-without-killing-bundle-size-with-material-or-not-5a80849b6b34)
-  
+
 - How do I Make Site Responsive?
 
   > Refer [here](https://github.com/angular/flex-layout/wiki/Responsive-API)
@@ -59,14 +59,6 @@ A curated list of awesome Angular resources
 - How to keep footers at the bottom of the page?
 
   > Refer [here](http://matthewjamestaylor.com/blog/keeping-footers-at-the-bottom-of-the-page)
-
-- Organizing Styles
-
-  > Global SCSS and per component specific SCSS (modular!)
-
-  1. Global styles
-  2. Component styles
-  3. Theme styles
 
 - WTF is monorepo?
 
@@ -348,14 +340,46 @@ in this project, we are demonstrating how to secure UI and backend APIs using fo
 - how to link local npm projects when you o patch a npm module locally?
   > Ref [blog](https://medium.com/@the1mills/how-to-test-your-npm-module-without-publishing-it-every-5-minutes-1c4cb4b369be)
 
+---
+
+### CSS
+
+- Organizing Styles
+
+  > Global SCSS and per component specific SCSS (modular!)
+
+  1. Global styles
+  2. Component styles
+  3. Theme styles
+
+Landing Page
+
+- A collection of pure css section separators. [separator-generator](https://github.com/wwebdev/separator-generator)
+
+Nebular Layout
+
+- Nebular Layout padding <https://stackoverflow.com/questions/59573196/nebular-page-causing-padding>
+
+---
+
+### UX Design
+
+- Landing Page Layout <https://lineardesign.com/blog/landing-page-layout/>
+
+---
+
 ### NestJS
 
 - Intro [NestJS](https://www.youtube.com/watch?v=ets56yWvi84)
 - [Introducing Mapped Types for NestJS](https://trilon.io/blog/introducing-mapped-types-for-nestjs)
 
+---
+
 ### Pattern
 
 1. <https://tomastrajan.github.io/angular-model-pattern-example#/about>
+
+---
 
 ### Awesome links
 

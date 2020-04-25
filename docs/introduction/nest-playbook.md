@@ -13,7 +13,7 @@ creating NestJS project and generate nest artifacts with-in monorepo.
 #### Install Global Packages
 
 ```bash
-npm global remove @nestjs/cli
+yarn global remove @nestjs/cli
 yarn global add @nestjs/cli
 ```
 
@@ -22,7 +22,12 @@ yarn global add @nestjs/cli
 > adding code dependencies
 
 ```bash
-ng g node-app api --framework=nestjs --unit-test-runner=jest --tags=api-module -d
+
+# generate Yeti API app
+# `nest generate app yeti-api`
+ng g @nrwl/nest:app yeti-api --frontend-project=yeti-app --linter=eslint --tags="domain:yeti,type:api,platform:node"
+# generate `config` lib
+nest generate lib nestjs/config # use prefix @yeti
 
 # Add nestjs
 yarn workspace @yeti/api add @nestjs/{common,core,microservices,swagger,websockets,typeorm,passport,elasticsearch}
@@ -141,10 +146,10 @@ ng g @nestjs/schematics:class match/match.entity --path app/game --source-root a
 ### Ref
 
 - Awesome Nest
-  - https://github.com/juliandavidmr/awesome-nest
+  - <https://github.com/juliandavidmr/awesome-nest>
 - ChatBot
-  - https://github.com/adrien2p/nestjs-dialogflow
-- https://github.com/beeman/nest-angular-nx
-- https://github.com/cgatian/customer-portal
-- http://blog.exceptionfound.com/index.php/2018/06/07/nestjs-basic-auth-and-sessions/
-- https://github.com/TorinAsakura/etl-api
+  - <https://github.com/adrien2p/nestjs-dialogflow>
+- <https://github.com/beeman/nest-angular-nx>
+- <https://github.com/cgatian/customer-portal>
+- <http://blog.exceptionfound.com/index.php/2018/06/07/nestjs-basic-auth-and-sessions/>
+- <https://github.com/TorinAsakura/etl-api>

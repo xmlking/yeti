@@ -15,11 +15,11 @@
   "dependencies": {
     "@godaddy/terminus": "4.3.1",
     "@grpc/proto-loader": "0.5.4",
-    "@nestjs/common": "7.0.8",
-    "@nestjs/core": "7.0.8",
-    "@nestjs/microservices": "7.0.8",
-    "@nestjs/platform-express": "7.0.8",
-    "@nestjs/swagger": "4.5.2",
+    "@nestjs/common": "7.0.9",
+    "@nestjs/core": "7.0.9",
+    "@nestjs/microservices": "7.0.9",
+    "@nestjs/platform-express": "7.0.9",
+    "@nestjs/swagger": "4.5.3",
     "@nestjs/terminus": "7.0.1",
     "@nestjs/typeorm": "7.0.0",
     "grpc": "1.24.2",
@@ -35,7 +35,7 @@
   },
   "optionalDependencies": {
     "@nestjs/schematics": "7.0.0",
-    "@nestjs/testing": "7.0.8",
+    "@nestjs/testing": "7.0.9",
     "nodemon": "2.0.3",
     "supertest": "4.0.2"
   }
