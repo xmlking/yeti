@@ -179,7 +179,7 @@
     "husky": "4.2.5",
     "inquirer": "7.1.0",
     "inquirer-autocomplete-prompt": "1.0.2",
-    "lint-staged": "10.1.7",
+    "lint-staged": "10.2.2",
     "lite-server": "2.5.4",
     "ngx-semantic-version": "2.0.0-beta.5",
     "parse-md": "^2.0.4",
