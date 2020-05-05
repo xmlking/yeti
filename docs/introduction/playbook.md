@@ -73,6 +73,7 @@ cd yeti
 ng config cli.packageManager yarn
 ng config schematics.@schematics/angular:component.style scss
 ng config schematics.@schematics/angular:component.prefix yeti
+ng config schematics.@schematics/angular:component.displayBlock true # optional, default `inline`
 ng config schematics.@schematics/angular:component.changeDetection OnPush
 
 # make sure we are up-to-date
@@ -193,11 +194,18 @@ yarn add -D rimraf
 # install without saving
 yarn add trianglify --no-save --no-lock
 
-# Add Optional Tools
+#---------------------------------
+## bundle analyzer
+# yarn add -O webpack-bundle-analyzer
+ng add @ngx-builders/analyze
+yarn global add source-map-explore # will be removed later
+# usage
+ng run [YOUR_PROJECT_NAME]:analyze --no-build
+#---------------------------------
+
+### Add Optional Tools
 # tools you only needed on Dev laptop
 yarn add -O lint-staged
-yarn add -O webpack-bundle-analyzer
-
 # alternative builder for nestjs (optional)
 yarn add -D ts-node-builder
 

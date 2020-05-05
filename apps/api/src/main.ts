@@ -5,7 +5,7 @@ import { environment as env } from './environments/environment';
 import { grpcOptions } from './grpc.options';
 
 async function bootstrap() {
-  const httpsOptions = env.server.secure ? env.server.httpsOptions : {};
+  const httpsOptions = env.server.secure ? env.server.httpsOptions : undefined;
 
   const app = await NestFactory.create(AppModule, { cors: true, httpsOptions });
   const config: ConfigService = app.get(ConfigService);
