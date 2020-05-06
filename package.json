@@ -183,7 +183,7 @@
     "lite-server": "2.5.4",
     "ngx-semantic-version": "2.0.0-beta.5",
     "parse-md": "^2.0.4",
-    "ts-proto": "1.19.0",
+    "ts-proto": "1.20.2",
     "webpack-bundle-analyzer": "3.7.0"
   }
 }
