@@ -1,3 +1,4 @@
+import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app/app.module';
 import { ConfigService } from './app/config';
@@ -21,8 +22,8 @@ async function bootstrap() {
   app.enableShutdownHooks();
 
   await app.listen(port, host);
-  console.log(`Version: ${config.getVersion()}`);
-  console.log(`Application is running on: ${await app.getUrl()}`);
+  Logger.log(`Version: ${config.getVersion()}`);
+  Logger.log(`Application is running on: ${await app.getUrl()}/${globalPrefix}`);
 }
 
 bootstrap();

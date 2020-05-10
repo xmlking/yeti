@@ -2,6 +2,7 @@
 
 ```bash
 lerna info
+lerna init # initialize a new lerna managed repository
 lerna ls # list all of the public packages in the current Lerna repo.
 lerna changed # check which packages have changed since the last release.
 lerna diff [package?] # Diff all packages or a single package since the last release.

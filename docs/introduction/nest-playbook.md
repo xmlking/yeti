@@ -27,7 +27,9 @@ yarn global add @nestjs/cli
 # `nest generate app yeti-api`
 ng g @nrwl/nest:app yeti-api --frontend-project=yeti-app --linter=eslint --tags="domain:yeti,type:api,platform:node"
 # generate `config` lib
-nest generate lib nestjs/config # use prefix @yeti
+ng g @nrwl/nest:lib config  --global=true --directory=nestjs \
+--controller=false --service=true --publishable=true \
+--target=es2020 --tags="domain:yeti,type:api,platform:node" --dry-run # use prefix @yeti
 
 # Add nestjs
 yarn workspace @yeti/api add @nestjs/{common,core,microservices,swagger,websockets,typeorm,passport,elasticsearch}
