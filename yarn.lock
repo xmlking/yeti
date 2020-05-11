@@ -2068,10 +2068,10 @@
     rxjs "6.5.4"
     webpack-sources "1.4.3"
 
-"@nguniversal/builders@9.1.0":
-  version "9.1.0"
-  resolved "https://registry.yarnpkg.com/@nguniversal/builders/-/builders-9.1.0.tgz#89cd4c1ff39338c28c990afcbade536f2ee076df"
-  integrity sha512-L/qwkkG/yjf5NUA/wKLt1lmHJzLsr5iUWy/QOD/EroAnRpPkLgN/u6ahpbgKyfJqe9lQwZ9SnZQYliSAkxr8Ig==
+"@nguniversal/builders@9.1.1":
+  version "9.1.1"
+  resolved "https://registry.yarnpkg.com/@nguniversal/builders/-/builders-9.1.1.tgz#5f741bf6b9922e13495d3c8c4f1846c24452f7cf"
+  integrity sha512-vQ52GDdu1P1miHUCYikkWh4Q6Pu/l/l5OgyGIMBrJLxEv920RN/Vn0HK5rR0QrE3EGoNun/y+g/TUevZoBlOUA==
   dependencies:
     "@angular-devkit/architect" "^0.901.0"
     "@angular-devkit/core" "^9.1.0"
