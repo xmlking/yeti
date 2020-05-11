@@ -3,13 +3,6 @@
   "explorer.sortOrder": "type",
   // Editor
   "editor.autoIndent": "full",
-  "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.organizeImports": true
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "editor.cursorBlinking": "solid",
   "editor.cursorSmoothCaretAnimation": true,
   "editor.cursorStyle": "line",
@@ -18,7 +11,14 @@
   "editor.fontLigatures": true,
   "editor.formatOnPaste": true,
   "editor.formatOnType": false,
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.tslint": true,
+    "source.organizeImports": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "editor.letterSpacing": 0.5,
   "editor.lineHeight": 25,
   "editor.minimap.enabled": false,

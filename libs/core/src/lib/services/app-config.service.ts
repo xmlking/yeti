@@ -4,12 +4,14 @@ import { environment } from '@env/environment';
 import { IEnvironment } from '@env/ienvironment';
 
 /**
+ * TODO: use deps: APP_CONFIG to fix corner cases
+ *  https://medium.com/angular-in-depth/angular-build-once-deploy-to-multiple-environments-5466f00e5402
  *  In Components, inject `AppConfigService` and usage:
  *  this.isShowingFeatureA = appConfig.config.featureFlags[ 'feature-a' ];
  */
 @Injectable({
   // providedIn: 'platform'
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AppConfigService {
   private configUrl = environment.REMOTE_CONFIG_URL;
