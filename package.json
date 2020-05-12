@@ -168,7 +168,8 @@
     "ts-jest": "25.5.1",
     "ts-node": "8.10.1",
     "tslint": "6.1.2",
-    "typescript": "3.8.3"
+    "typescript": "3.8.3",
+    "@twittwer/compodoc": "^1.1.1"
   },
   "optionalDependencies": {
     "@commitlint/cli": "8.3.5",
