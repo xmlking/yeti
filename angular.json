@@ -218,6 +218,19 @@
           "configurations": {
             "production": {}
           }
+        },
+        "compodoc": {
+          "builder": "@twittwer/compodoc:compodoc",
+          "options": {
+            "tsConfig": "apps/webapp/tsconfig.compodoc.json",
+            "outputPath": "dist/compodoc/webapp",
+            "workspaceDocs": true
+          },
+          "configurations": {
+            "json": {
+              "exportFormat": "json"
+            }
+          }
         }
       }
     },
