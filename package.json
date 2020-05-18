@@ -153,7 +153,7 @@
     "@types/node": "13.13.5",
     "@typescript-eslint/eslint-plugin": "2.32.0",
     "@typescript-eslint/parser": "2.32.0",
-    "codecov": "3.6.5",
+    "codecov": "3.7.0",
     "codelyzer": "5.2.2",
     "commitizen": "4.1.2",
     "cypress": "4.5.0",
