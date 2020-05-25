@@ -2,7 +2,7 @@
   <!-- <img width="650" src="docs/assets/yeti.svg"> -->
   <!-- <img width="400" height="200" src="docs/assets/yeti2.jpg"> -->
   <!-- <img  height="200" src="docs/assets/yeti3.png"> -->
-  <img src="docs/assets/logo.png">
+  <img src="docs/assets/yeti4.png">
 
 <br />
 YETI - Angular Starter Kit
