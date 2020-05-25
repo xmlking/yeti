@@ -22,11 +22,11 @@ Shell Library patterns with Nx and Monorepo Architectures
 
 Bounded-Context shell library model
 
-![Figure 2. Manfred Steyer shell libraries. Made with https://creately.com](../images/shell-lib.png)
+![Figure 2. Manfred Steyer shell libraries. Made with https://creately.com](../assets/shell-lib.png)
 
 Composite shell library model
 
-![Figure 3. Booking and check-in Composite shell libraries. Made with https://creately.com](../images/composite-shell-lib.png)
+![Figure 3. Booking and check-in Composite shell libraries. Made with https://creately.com](../assets/composite-shell-lib.png)
 
 ### Directory structure
 
