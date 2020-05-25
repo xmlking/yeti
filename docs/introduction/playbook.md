@@ -8,22 +8,23 @@
 
 ```bash
 yarn global remove lerna
+yarn global remove commitizen
 yarn global remove @angular/cli
 yarn global remove @nrwl/cli
 yarn global remove @nestjs/cli
-yarn global remove bloomrpc-mock
-yarn global remove gitbook-cli
-yarn global remove ts-protoc-gen
 yarn global remove grpc-tools
+yarn global remove ts-protoc-gen
+yarn global remove bloomrpc-mock
 
 yarn global add lerna
+yarn global add commitizen
 yarn global add @angular/cli
 yarn global add @nrwl/cli
 yarn global add @nestjs/cli
-yarn global add bloomrpc-mock
-yarn global add gitbook-cli
-yarn global add ts-protoc-gen
 yarn global add grpc-tools
+yarn global add ts-protoc-gen
+yarn global add bloomrpc-mock
+
 
 
 # verify globally installed packages
@@ -34,11 +35,11 @@ yarn global upgrade-interactive
 ng config -g defaults.style=scss
 ng config -g schematics.@schematics/angular:component.style scss
 ng config -g cli.packageManager yarn
-# set scss as default style for ngx-formly
+# (optional) set scss as default style for ngx-formly
 ng config -g schematics@ngx-formly/schematics:component.style scss
 # check your global defaults
 ng config -g
-# find reverse dependencies for a package
+# (optional) how to find reverse dependencies for a package?
 yarn why jasmine-marbles
 ```
 
@@ -69,13 +70,6 @@ cd yeti
 # set yarn2 for project
 # yarn set version berry
 
-# Set workspace defaults
-ng config cli.packageManager yarn
-ng config schematics.@schematics/angular:component.style scss
-ng config schematics.@schematics/angular:component.prefix yeti
-ng config schematics.@schematics/angular:component.displayBlock true # optional, default `inline`
-ng config schematics.@schematics/angular:component.changeDetection OnPush
-
 # make sure we are up-to-date
 ng update --all  --allow-dirty --force
 # also update versions in package.json
@@ -87,8 +81,20 @@ ng add @nrwl/angular --defaults
 ng add @nrwl/nest
 ng add @xmlking/nxp-ddd
 
+# Set workspace defaults
+ng config cli.packageManager yarn
+ng config schematics.@schematics/angular:component.style scss
+ng config schematics.@schematics/angular:component.prefix yeti
+ng config schematics.@schematics/angular:component.displayBlock true # optional, default `inline`
+ng config schematics.@schematics/angular:component.changeDetection OnPush
+
+TODO: move assets and styles to shated
+https://github.com/nrwl/nx-examples/tree/master/libs/shared # assets
+https://github.com/LayZeeDK/ngx-nrwl-airlines-workspace/tree/master/libs/shared # Env
+
 # generate webapp app
-# ng g @nrwl/angular:app yeti-web-app --routing --style=scss --tags="domain:yeti,type:app,platform:web"
+# use fullTemplateTypeCheck or strictTemplates
+# ng g @nrwl/angular:app yeti-web-app --routing --style=scss --strict=true --tags="domain:yeti,type:app,platform:web"
 ng g @xmlking/nxp-ddd:application yeti # optional flags: --platform <web/mobile/desktop/node>
 
 # NOTE: Remove `"types": []` from apps/webapp/tsconfig.app.json to allow global types. ???
@@ -133,6 +139,18 @@ yarn add @nebular/auth
 yarn add @nebular/security
 yarn add -D @fortawesome/fontawesome-free
 #---------------------------------
+
+#---------------------------------
+# compo docs
+ng add @twittwer/compodoc
+# adds a `compodoc` target to the specified project in your `angular.json`
+ng g @twittwer/compodoc:config <project> [options]
+ng g @twittwer/compodoc:config webapp --workspaceDocs
+# Generate your docs:
+ng run <project>:compodoc
+ng run webapp:compodoc
+#---------------------------------
+
 # Add ngx-markdown for SSG(Static Site Generator) and Content Management
 ng add ngx-markdown
 yarn add prismjs
@@ -187,7 +205,6 @@ yarn add ngx-perfect-scrollbar smooth-scrollbar ngx-page-scroll screenfull
 # tools you needed in CI/CD inv
 yarn add -D loaders.css
 yarn add -D api-ai-javascript
-yarn add -D @compodoc/compodoc
 yarn add -D codecov
 yarn add -D rimraf
 

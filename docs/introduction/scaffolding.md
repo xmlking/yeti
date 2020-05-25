@@ -6,6 +6,27 @@ Generate Angular Artifacts
 
 > Add `--dry-run` or `-d` option to following commands to see which artifacts will be created, without actually creating them.
 
+### generate domain modules
+
+```bash
+# generate domain. optional flags: --platform <web/mobile/desktop/node>  --app <appName> --lazy <true/false>
+# defaults platform=web, app=defaultProject, lazy=true
+nx g @xmlking/nxp-ddd:domain home
+nx g @xmlking/nxp-ddd:domain dashboard
+nx g @xmlking/nxp-ddd:domain admin
+```
+
+### generate feature modules for each domain
+
+```bash
+# generate feature module. optional flags: --platform <web/mobile/desktop/node> --lazy  --entity <entity>
+# defaults platform=web, lazy=true, entity= no entity created
+nx g @xmlking/nxp-ddd:feature blog --domain home
+nx g @xmlking/nxp-ddd:feature landing --domain home
+
+nx g @xmlking/nxp-ddd:feature account --domain dashboard --entity account
+```
+
 ### generate Lazy-loaded Feature Modules
 
 > with angular schematics (a.k.a. @nrwl/angular which is default in `angular.json`)
