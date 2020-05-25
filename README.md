@@ -20,12 +20,13 @@
     <img alt="GitHub" src="https://img.shields.io/github/license/xmlking/yeti?style=flat-square">
   </a>
 
-  <br />
+  <br /><br />
+
   <a href="https://lgtm.com/projects/g/xmlking/yeti/alerts/">
   <img alt="Total alerts" src="https://img.shields.io/lgtm/alerts/g/xmlking/yeti.svg?logo=lgtm&logoWidth=18"/>
   </a>
-  <a href="https://lgtm.com/projects/g/xmlking/yeti/alerts/">
-  <img alt="Total alerts" src="https://img.shields.io/lgtm/alerts/g/xmlking/yeti.svg?logo=lgtm&logoWidth=18"/>
+  <a href="https://lgtm.com/projects/g/xmlking/yeti/context:javascript">
+  <img alt="Language grade: JavaScript" src="https://img.shields.io/lgtm/grade/javascript/g/xmlking/yeti.svg?logo=lgtm&logoWidth=18"/>
   </a>
 </p>
 
