@@ -218,6 +218,11 @@ ng add @ngx-builders/analyze
 yarn global add source-map-explore # will be removed later
 # usage
 ng run [YOUR_PROJECT_NAME]:analyze --no-build
+
+# old way
+yarn add source-map-explore
+ng build --prod --sourceMap
+npx  source-map-explore dist/**/main*2015*js
 #---------------------------------
 
 ### Add Optional Tools
