@@ -8614,10 +8614,10 @@ google-p12-pem@^2.0.0:
   dependencies:
     node-forge "^0.9.0"
 
-google-protobuf@3.12.0-rc.1:
-  version "3.12.0-rc.1"
-  resolved "https://registry.yarnpkg.com/google-protobuf/-/google-protobuf-3.12.0-rc.1.tgz#8e99e8d89d67e47f949818457350719b51e3a8cd"
-  integrity sha512-EeofBulRUmUl1hX+NAcQVwAkTUI5hMd+5VmMcZRSRh4vWNCNCsNe+w2AvbbRh2sgS1JPx8RjJa0l7PIxTSR+bw==
+google-protobuf@3.12.2:
+  version "3.12.2"
+  resolved "https://registry.yarnpkg.com/google-protobuf/-/google-protobuf-3.12.2.tgz#50ce9f9b6281235724eb243d6a83e969a2176e53"
+  integrity sha512-4CZhpuRr1d6HjlyrxoXoocoGFnRYgKULgMtikMddA9ztRyYR59Aondv2FioyxWVamRo0rF2XpYawkTCBEQOSkA==
 
 got@^6.7.1:
   version "6.7.1"
