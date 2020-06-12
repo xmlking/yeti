@@ -23,7 +23,7 @@ docker-compose up envoy
 docker run -it --rm --name envoy2 \
 -p 9901:9901 -p 9090:9090 -p 9444:9443  \
 -v `pwd`/config/base/envoy/config/:/etc/envoy:ro \
--v `pwd`/config/base/secrets/certs/:/etc/certs:ro \
+-v `pwd`/config/certs/:/etc/certs:ro \
 envoyproxy/envoy-alpine:v1.14.1
 # ssh if needed
 docker exec -it envoy /bin/bash
@@ -80,3 +80,4 @@ curl '<http://localhost:8080/travelbob.blogs.BlogsAPI/GetAllBlogs'> \
 1. <https://github.com/jrockway/jrock.us/blob/master/ingress/envoy.yaml>
 1. <https://github.com/jrockway/jrock.us/blob/master/ingress/envoy.yaml>
 1. <https://blog.turbinelabs.io/setting-up-ssl-with-envoy-f7c5aa06a5ce>
+1. [How To Write Modern React App Using gRPC And Envoy](https://medium.com/effective-development/how-to-write-modern-react-app-using-grpc-and-envoy-a9d9a4f2785e)

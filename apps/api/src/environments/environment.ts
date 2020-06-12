@@ -20,9 +20,9 @@ export const environment: Environment = {
     globalPrefix: '/api',
     secure: process.env.SECURE ? true : false,
     httpsOptions: {
-      key: readFileSync('config/base/secrets/certs/upstream-localhost-key.pem'),
-      cert: readFileSync('config/base/secrets/certs/upstream-localhost-cert.pem'),
-      ca: readFileSync('config/base/secrets/certs/upstream-ca-cert.pem'),
+      key: readFileSync('config/certs/upstream-localhost-key.pem'),
+      cert: readFileSync('config/certs/upstream-localhost-cert.pem'),
+      ca: readFileSync('config/certs/upstream-ca-cert.pem'),
     },
   },
 

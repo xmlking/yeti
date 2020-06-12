@@ -28,7 +28,7 @@ protoc --plugin=./node_modules/ts-proto/protoc-gen-ts_proto \
 
 ```bash
 # first time, generate local certs
-./config/base/secrets/certs/certs.sh
+./config/certs/certs.sh
 ```
 
 ### Run
@@ -72,27 +72,27 @@ grpcurl -plaintext  \
 -protoset <(buf image build -o -) \
 -d '{"message": "sumo"}' 0.0.0.0:9090 yeti.echo.v1.EchoService/Echo
 # test API via envoy with TLS
-grpcurl -cacert=config/base/secrets/certs/ca-cert.pem \
+grpcurl -cacert=config/certs/ca-cert.pem \
 -protoset <(buf image build -o -) \
 -d '{"message": "sumo"}' localhost:9444 yeti.echo.v1.EchoService/Echo
 
 # make sure `require_client_certificate: true` is enabled in `listeners.yaml` for following tests:
 
 # test API via envoy with TLS, and client cert
-grpcurl -cacert=config/base/secrets/certs/ca-cert.pem \
--cert=config/base/secrets/certs/client-cert.pem \
--key=config/base/secrets/certs/client-key.pem \
+grpcurl -cacert=config/certs/ca-cert.pem \
+-cert=config/certs/client-cert.pem \
+-key=config/certs/client-key.pem \
 -protoset <(buf image build -o -) \
 -d '{"message": "sumo"}' localhost:9444 yeti.echo.v1.EchoService/Echo
 # test with wrong client cert. This will fail!
-grpcurl -cacert=config/base/secrets/certs/ca-cert.pem \
--cert=config/base/secrets/certs/upstream-cert.pem \
--key=config/base/secrets/certs/upstream-key.pem \
+grpcurl -cacert=config/certs/ca-cert.pem \
+-cert=config/certs/upstream-cert.pem \
+-key=config/certs/upstream-key.pem \
 -protoset <(buf image build -o -) \
 -d '{"message": "sumo"}' localhost:9444 yeti.echo.v1.EchoService/Echo
 
 # testing with request data from file.
-grpcurl -cacert=config/base/secrets/certs/ca-cert.pem \
+grpcurl -cacert=config/certs/ca-cert.pem \
 -protoset <(buf image build -o -) \
 -v -H trans_id=abc123 \
 -d @ localhost:9444 yeti.echo.v1.EchoService/Echo <test/echo-request.json

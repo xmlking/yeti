@@ -55,7 +55,7 @@ FROM node:12-alpine as final
 COPY --from=utils /user/group /user/passwd /etc/
 COPY --from=utils /tini /sbin/tini
 # copy certs. TODO only copy required certs
-COPY config/base/secrets/certs /etc/certs
+COPY config/certs /etc/certs
 
 WORKDIR /app
 COPY --from=prod-dependencies /app  .
