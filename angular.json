@@ -140,7 +140,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": ["apps/webapp/tsconfig.app.json", "apps/webapp/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!apps/webapp/**"]
+            "exclude": ["**/node_modules/**", "!apps/webapp/**/*"]
           }
         },
         "test": {
@@ -286,9 +286,8 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "config": "apps/api/.eslintrc",
             "tsConfig": ["apps/api/tsconfig.app.json", "apps/api/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!apps/api/**", "apps/api/src/app/echo/interfaces/yeti/echo/v1/echo.ts"]
+            "exclude": ["**/node_modules/**", "!apps/api/**/*", "apps/api/src/app/echo/interfaces/yeti/echo/v1/echo.ts"]
           }
         },
         "test": {
@@ -342,7 +341,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": ["libs/home/tsconfig.lib.json", "libs/home/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/home/**"]
+            "exclude": ["**/node_modules/**", "!libs/home/**/*"]
           }
         },
         "test": {
@@ -367,7 +366,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": ["libs/not-found/tsconfig.lib.json", "libs/not-found/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/not-found/**"]
+            "exclude": ["**/node_modules/**", "!libs/not-found/**/*"]
           }
         },
         "test": {
@@ -392,7 +391,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": ["libs/core/tsconfig.lib.json", "libs/core/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/core/**"]
+            "exclude": ["**/node_modules/**", "!libs/core/**/*"]
           }
         },
         "test": {
@@ -417,7 +416,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": ["libs/dashboard/tsconfig.lib.json", "libs/dashboard/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/dashboard/**"]
+            "exclude": ["**/node_modules/**", "!libs/dashboard/**/*"]
           }
         },
         "test": {
@@ -442,7 +441,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": ["libs/admin/tsconfig.lib.json", "libs/admin/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/admin/**"]
+            "exclude": ["**/node_modules/**", "!libs/admin/**/*"]
           }
         },
         "test": {
@@ -467,7 +466,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": ["libs/shared/tsconfig.lib.json", "libs/shared/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/shared/**"]
+            "exclude": ["**/node_modules/**", "!libs/shared/**/*"]
           }
         },
         "test": {
@@ -492,7 +491,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": ["libs/blog/tsconfig.lib.json", "libs/blog/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/blog/**"]
+            "exclude": ["**/node_modules/**", "!libs/blog/**/*"]
           }
         },
         "test": {
@@ -517,7 +516,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": ["libs/accounts/tsconfig.lib.json", "libs/accounts/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/accounts/**"]
+            "exclude": ["**/node_modules/**", "!libs/accounts/**/*"]
           }
         },
         "test": {
