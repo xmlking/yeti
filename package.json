@@ -180,7 +180,7 @@
     "firebase-tools": "8.4.2",
     "fuzzy": "0.1.3",
     "husky": "4.2.5",
-    "inquirer": "7.1.0",
+    "inquirer": "7.2.0",
     "inquirer-autocomplete-prompt": "1.0.2",
     "lint-staged": "10.2.10",
     "lite-server": "2.5.4",
