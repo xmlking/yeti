@@ -2114,10 +2114,10 @@
   dependencies:
     uuid "8.1.0"
 
-"@ngneat/until-destroy@7.1.6":
-  version "7.1.6"
-  resolved "https://registry.yarnpkg.com/@ngneat/until-destroy/-/until-destroy-7.1.6.tgz#e38fb56565588af68fd8612b6c5e47e774b5e1c1"
-  integrity sha512-sJDdoz5IEwv1pk4/ystOgPDHX0dK/EIda2yDXQe8DQzE/az88gElNLbGHbjMLUuo6cQgep5LA6Ecl/L6ltIlig==
+"@ngneat/until-destroy@7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@ngneat/until-destroy/-/until-destroy-7.2.0.tgz#64eda958363e6ea44841a305d73619f87c3100bf"
+  integrity sha512-Afs1yzVcaPlSN1kJHgwdHe3oOHaXFAwd2KiEbFv+eMSEecSNnd+O3wM4Ppb8TyExyW5arMDahzHJbGTxzuwRgw==
 
 "@ngrx/component@github:ngrx/component-builds.git":
   version "9.2.0"
