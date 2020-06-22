@@ -123,7 +123,7 @@
     "express": "4.17.1",
     "firebase": "7.15.1",
     "google-protobuf": "3.12.2",
-    "grpc-web": "1.1.0",
+    "grpc-web": "1.2.0",
     "ngx-auto-unsubscribe": "3.0.1",
     "ngx-markdown": "9.1.1",
     "prismjs": "1.20.0",
