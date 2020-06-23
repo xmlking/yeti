@@ -2518,7 +2518,7 @@
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
 
-"@twittwer/compodoc@^1.3.1":
+"@twittwer/compodoc@1.3.1":
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/@twittwer/compodoc/-/compodoc-1.3.1.tgz#0ebbf5de5f0f57e67a7fb2aecbf8546cb7af3d2e"
   integrity sha512-4YBIgefMnCvno/4lM8WVMYhGCKBqi4/aMF4+7DHnK9SD2oBKLV1gtGC7jj6YAWkV/LGZqrAyB2012FaaD9cQVA==
@@ -7168,7 +7168,7 @@ eslint-config-prettier@6.11.0:
   dependencies:
     get-stdin "^6.0.0"
 
-eslint-plugin-cypress@^2.10.3:
+eslint-plugin-cypress@2.11.1:
   version "2.11.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-cypress/-/eslint-plugin-cypress-2.11.1.tgz#a945e2774b88211e2c706a059d431e262b5c2862"
   integrity sha512-MxMYoReSO5+IZMGgpBZHHSx64zYPSPTpXDwsgW7ChlJTF/sA+obqRbHplxD6sBStE+g4Mi0LCLkG4t9liu//mQ==
