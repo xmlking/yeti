@@ -1,5 +1,6 @@
 import { GrpcOptions, Transport } from '@nestjs/microservices';
 import { ServerCredentials } from 'grpc';
+// import { ServerCredentials } from '@grpc/grpc-js';
 import { join } from 'path';
 import { environment as env } from './environments/environment';
 
@@ -13,9 +14,7 @@ const credentials =
           env.server.httpsOptions.ca,
           [
             {
-              // eslint-disable-next-line @typescript-eslint/camelcase
               private_key: env.server.httpsOptions.key,
-              // eslint-disable-next-line @typescript-eslint/camelcase
               cert_chain: env.server.httpsOptions.cert,
             },
           ],

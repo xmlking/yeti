@@ -27,7 +27,7 @@ configMapGenerator:
       - 'config/routes.yaml'
 
 vars:
-  - name: ENVOY_SRV_ENDPOINT
+  - name: ENVOY_SERVICE_ENDPOINT
     objref:
       kind: Service
       name: envoy

@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+// tslint:disable-next-line: nx-enforce-module-boundaries
 import { environment } from '@env/environment';
+// tslint:disable-next-line: nx-enforce-module-boundaries
 import { IEnvironment } from '@env/ienvironment';
 
 /**
