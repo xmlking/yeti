@@ -227,10 +227,12 @@
   resolved "https://registry.yarnpkg.com/@angular/core/-/core-9.1.11.tgz#7a92d27292212ed381be15f9000d4019867f1c7c"
   integrity sha512-KAlEedBo761O1aeoTJVziOSHi8Fttk9ipvbDZXYT/o0W/KdVwubxP34g9t5aD8LCcF8+L0z4VLw++HjdJAUpwg==
 
-"@angular/fire@6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@angular/fire/-/fire-6.0.0.tgz#c1dbae9e78ed74af951fb7222108c444300a4d15"
-  integrity sha512-zWhaJaZPtfJKiNSb1I3WqqvopW0fN3S61w4PjPdsm5WME+9M9alP0zpRVclpbCU26LpBSLhrRrSLyn3ROlAOIw==
+"@angular/fire@6.0.2":
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/@angular/fire/-/fire-6.0.2.tgz#6c391128496f4fa16afba436a7a57a25e3e510f1"
+  integrity sha512-r59v7XD2oNN1oJghRMcph+PVqJj49aQnQevArOU4ldW07K0t9k2Ud8ALO/z3iNvMOBkumenGlYSS/h3v4foLBg==
+  dependencies:
+    tslib "^1.10.0"
 
 "@angular/flex-layout@9.0.0-beta.31":
   version "9.0.0-beta.31"
