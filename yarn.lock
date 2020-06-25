@@ -12306,10 +12306,10 @@ ngx-markdown@9.1.1:
     marked "^1.1.0"
     prismjs "^1.20.0"
 
-ngx-semantic-version@2.0.0-beta.5:
-  version "2.0.0-beta.5"
-  resolved "https://registry.yarnpkg.com/ngx-semantic-version/-/ngx-semantic-version-2.0.0-beta.5.tgz#71d4e1d66bd0c149bb833359ec975d34f78a9f40"
-  integrity sha512-wHPqTXwRdDaynqIxcYjoOfjKKNeKRAb7vflAAro+DPrcxne3hI9giEFlyybXL3iughrinEGPVn6MnpSLnSG6pg==
+ngx-semantic-version@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/ngx-semantic-version/-/ngx-semantic-version-2.1.0.tgz#bd02912767f21ff32226b4d7766cd031575e1cb7"
+  integrity sha512-FoDGc19CwSkeoXLKCYfYaMBlnpZK9lf1JW7UI435xZs9xBVJFVN4m4gWkJupFfVllcjeNVUOlH08Lqy8fmMRxw==
   dependencies:
     "@angular-devkit/core" "^9.0.1"
     "@angular-devkit/schematics" "^9.0.1"
