@@ -154,6 +154,11 @@ A curated list of awesome Angular resources
 
   > useful for sharing bookmarkable links. e.g., `/account/edit` `/account/add` > [Routing to Angular Material Dialogs](https://medium.com/ngconf/routing-to-angular-material-dialogs-c3fb7231c177)
 
+- Customizable, Resizable, Draggable,  dialog Management lib.
+
+  `ng add @ngneat/dialog`
+  <https://github.com/ngneat/dialog>
+
 - How to use new `providedIn` Dependency Injection?
 
 > about new Angular 9 [providedIn scopes 'any' and 'platform'](https://dev.to/christiankohler/improved-dependeny-injection-with-the-new-providedin-scopes-any-and-platform-30bb)

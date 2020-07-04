@@ -24,3 +24,5 @@ Checkout this tweet
 {% embed url="https://twitter.com/manekinekko/status/1229347454522396672?s=20" %}
 
 ---
+
+- [Get Started with the Google Fonts API](https://developers.google.com/fonts/docs/getting_started)

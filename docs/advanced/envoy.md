@@ -81,3 +81,7 @@ curl '<http://localhost:8080/travelbob.blogs.BlogsAPI/GetAllBlogs'> \
 1. <https://github.com/jrockway/jrock.us/blob/master/ingress/envoy.yaml>
 1. <https://blog.turbinelabs.io/setting-up-ssl-with-envoy-f7c5aa06a5ce>
 1. [How To Write Modern React App Using gRPC And Envoy](https://medium.com/effective-development/how-to-write-modern-react-app-using-grpc-and-envoy-a9d9a4f2785e)
+1. [angular-nest-grpc](https://github.com/kmturley/angular-nest-grpc)
+1. [Using gRPC with NestJS and Angular](https://medium.com/creative-technology-concepts-code/using-grpc-with-nestjs-and-angular-b60b444bc3ab)
+1. [Using Envoy Proxy to load-balance gRPC services on GKE](https://github.com/GoogleCloudPlatform/grpc-gke-nlb-tutorial)
+    1. <https://cloud.google.com/solutions/exposing-grpc-services-on-gke-using-envoy-proxy>

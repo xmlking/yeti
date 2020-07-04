@@ -198,6 +198,10 @@ yarn add -O parse-md
 yarn add socket.io-client
 yarn add -D @types/socket.io-client
 
+#---------------------------------
+ng add @ngneat/dialog
+#---------------------------------
+
 # Add miscellaneous
 yarn add ngx-perfect-scrollbar smooth-scrollbar ngx-page-scroll screenfull
 
