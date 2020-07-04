@@ -4,13 +4,7 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "test",
-          "lint",
-          "e2e",
-          "compodoc"
-        ]
+        "cacheableOperations": ["build", "test", "lint", "e2e", "compodoc"]
       }
     }
   },
@@ -26,91 +20,37 @@
   },
   "projects": {
     "webapp": {
-      "tags": [
-        "module:app1",
-        "scope:private",
-        "angular-app"
-      ]
+      "tags": ["module:app1", "scope:private", "angular-app"]
     },
     "api": {
-      "tags": [
-        "module:api1",
-        "scope:private",
-        "nest-app"
-      ]
+      "tags": ["module:api1", "scope:private", "nest-app"]
     },
     "shared": {
-      "tags": [
-        "module:shared",
-        "scope:public",
-        "angular-lib"
-      ]
+      "tags": ["module:shared", "scope:public", "angular-lib"]
     },
     "gen": {
-      "tags": [
-        "module:shared",
-        "scope:public",
-        "angular-lib",
-        "nest-lib"
-      ]
+      "tags": ["module:shared", "scope:public", "angular-lib", "nest-lib"]
     },
     "core": {
-      "tags": [
-        "module:shared",
-        "module:core",
-        "scope:private",
-        "angular-lib"
-      ]
+      "tags": ["module:shared", "module:core", "scope:private", "angular-lib"]
     },
     "not-found": {
-      "tags": [
-        "module:app1",
-        "module:entry",
-        "scope:private",
-        "angular-lib"
-      ]
+      "tags": ["module:app1", "module:entry", "scope:private", "angular-lib"]
     },
     "home": {
-      "tags": [
-        "module:app1",
-        "module:layout",
-        "module:entry",
-        "scope:private",
-        "angular-lib"
-      ]
+      "tags": ["module:app1", "module:layout", "module:entry", "scope:private", "angular-lib"]
     },
     "dashboard": {
-      "tags": [
-        "module:app1",
-        "module:layout",
-        "module:entry",
-        "scope:private",
-        "angular-lib"
-      ]
+      "tags": ["module:app1", "module:layout", "module:entry", "scope:private", "angular-lib"]
     },
     "admin": {
-      "tags": [
-        "module:app1",
-        "module:layout",
-        "module:entry",
-        "scope:private",
-        "angular-lib"
-      ]
+      "tags": ["module:app1", "module:layout", "module:entry", "scope:private", "angular-lib"]
     },
     "blog": {
-      "tags": [
-        "module:app1",
-        "module:child",
-        "scope:private",
-        "angular-lib"
-      ]
+      "tags": ["module:app1", "module:child", "scope:private", "angular-lib"]
     },
     "accounts": {
-      "tags": [
-        "module:child",
-        "scope:private",
-        "angular-lib"
-      ]
+      "tags": ["module:child", "scope:private", "angular-lib"]
     }
   }
 }
