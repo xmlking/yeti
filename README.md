@@ -95,6 +95,9 @@ ng run webapp:doc
 # gen meta
 # node tools/scripts/metagen.mjs
 yarn gen:metadata
+
+# Run Source Map Explorer
+ng run webapp:analyze
 ```
 
 ## 🔗 Credits

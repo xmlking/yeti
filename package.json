@@ -24,7 +24,6 @@
     "build:prod": "ng build webapp -c=production",
     "deploy:mock": "ng deploy --base-href=/ngx-starter-kit/ --configuration=mock",
     "// - ANALYTICS": "Analyze builds",
-    "bundle-report": "ng build -c=production --stats-json && webpack-bundle-analyzer dist/apps/webapp/stats-es2015.json",
     "report-coverage": "codecov --token=$CODECOV_TOKEN",
     "// - RELEASE": "release Apps and Libs",
     "release": "standard-version",
@@ -123,7 +122,7 @@
     "express": "4.17.1",
     "firebase": "7.15.5",
     "google-protobuf": "3.12.2",
-    "grpc-web": "1.1.0",
+    "grpc-web": "1.2.0",
     "ngx-auto-unsubscribe": "3.0.1",
     "ngx-markdown": "10.0.0",
     "prismjs": "1.20.0",
@@ -140,6 +139,7 @@
     "@compodoc/compodoc": "1.1.11",
     "@fortawesome/fontawesome-free": "5.13.1",
     "@nguniversal/builders": "10.0.1",
+    "@ngx-builders/analyze": "^2.0.0",
     "@nrwl/angular": "9.5.1",
     "@nrwl/cypress": "9.5.1",
     "@nrwl/eslint-plugin-nx": "9.5.1",
@@ -186,7 +186,6 @@
     "lite-server": "2.5.4",
     "ngx-semantic-version": "2.1.0",
     "parse-md": "^2.0.4",
-    "ts-proto": "1.25.0",
-    "webpack-bundle-analyzer": "3.8.0"
+    "ts-proto": "1.25.0"
   }
 }
