@@ -139,7 +139,7 @@
     "@compodoc/compodoc": "1.1.11",
     "@fortawesome/fontawesome-free": "5.13.1",
     "@nguniversal/builders": "10.0.1",
-    "@ngx-builders/analyze": "^2.0.0",
+    "@ngx-builders/analyze": "2.0.0",
     "@nrwl/angular": "9.5.1",
     "@nrwl/cypress": "9.5.1",
     "@nrwl/eslint-plugin-nx": "9.5.1",
@@ -170,7 +170,7 @@
     "standard-version": "8.0.0",
     "ts-jest": "26.1.1",
     "ts-node": "8.10.2",
-    "tslint": "~6.1.0",
+    "tslint": "6.1.2",
     "typescript": "3.9.6"
   },
   "optionalDependencies": {

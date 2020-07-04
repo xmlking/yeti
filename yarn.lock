@@ -2311,7 +2311,7 @@
     "@nguniversal/common" "10.0.1"
     tslib "^2.0.0"
 
-"@ngx-builders/analyze@^2.0.0":
+"@ngx-builders/analyze@2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@ngx-builders/analyze/-/analyze-2.0.0.tgz#baffc73bd2d0ac91fcbfb40f75048e2d66892796"
   integrity sha512-pP0ISX9wwU5J8GheuBVZk3Ac9uj7YcGZ+0w2QoLeloDnGxt9hIobYHMbT4PWM+YhXvzSgdNBVhGppyd1ypkIJA==
@@ -17362,7 +17362,7 @@ tslib@^1.10.0, tslib@^1.11.1, tslib@^1.8.1, tslib@^1.9.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.13.0.tgz#c881e13cc7015894ed914862d276436fa9a47043"
   integrity sha512-i/6DQjL8Xf3be4K/E6Wgpekn5Qasl1usyw++dAA35Ue5orEn65VIxOA+YvNNl9HV3qv70T7CNwjODHZrLwvd1Q==
 
-tslint@~6.1.0:
+tslint@6.1.2:
   version "6.1.2"
   resolved "https://registry.yarnpkg.com/tslint/-/tslint-6.1.2.tgz#2433c248512cc5a7b2ab88ad44a6b1b34c6911cf"
   integrity sha512-UyNrLdK3E0fQG/xWNqAFAC5ugtFyPO4JJR1KyyfQAyzR8W0fTRrC91A8Wej4BntFzcvETdCSDa/4PnNYJQLYiA==
