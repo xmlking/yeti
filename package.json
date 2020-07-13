@@ -174,8 +174,8 @@
     "typescript": "3.9.6"
   },
   "optionalDependencies": {
-    "@commitlint/cli": "9.0.1",
-    "@commitlint/config-conventional": "9.0.1",
+    "@commitlint/cli": "9.1.1",
+    "@commitlint/config-conventional": "9.1.1",
     "cz-conventional-changelog": "3.2.0",
     "firebase-tools": "8.4.3",
     "fuzzy": "0.1.3",
