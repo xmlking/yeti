@@ -51,6 +51,9 @@
     },
     "accounts": {
       "tags": ["module:child", "scope:private", "angular-lib"]
+    },
+    "goapi": {
+      "tags": []
     }
   },
   "affected": {

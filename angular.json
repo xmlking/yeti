@@ -519,6 +519,35 @@
           "style": "scss"
         }
       }
+    },
+    "goapi": {
+      "projectType": "application",
+      "root": "apps/goapi",
+      "sourceRoot": "apps/goapi/src",
+      "architect": {
+        "build": {
+          "builder": "@nx-go/nx-go:build",
+          "options": {
+            "outputPath": "dist/apps/goapi",
+            "main": "apps/goapi/src/main.go"
+          }
+        },
+        "serve": {
+          "builder": "@nx-go/nx-go:serve",
+          "options": {
+            "main": "apps/goapi/src/main.go"
+          }
+        },
+        "test": {
+          "builder": "@nx-go/nx-go:test",
+          "options": {
+            "main": "apps/goapi/src/main_test.go"
+          }
+        },
+        "lint": {
+          "builder": "@nx-go/nx-go:lint"
+        }
+      }
     }
   },
   "cli": {

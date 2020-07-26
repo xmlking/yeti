@@ -2554,6 +2554,11 @@
     consola "^2.3.0"
     node-fetch "^2.3.0"
 
+"@nx-go/nx-go@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@nx-go/nx-go/-/nx-go-1.1.0.tgz#df29e613581a0d145414b3c7fc85e68d0af022c8"
+  integrity sha512-MBS2X5AYTCvgLtdcXvfbf325/Eym4/3p2dXWteSBHOqzEqMIQQ13XFT7UlNdiULYXzeg1zqJwWQPLJ0EUvxFeQ==
+
 "@protobufjs/aspromise@^1.1.1", "@protobufjs/aspromise@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@protobufjs/aspromise/-/aspromise-1.1.2.tgz#9b8b0cc663d669a7d8f6f5d0893a14d348f30fbf"
