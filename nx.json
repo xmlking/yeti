@@ -14,9 +14,9 @@
       "dependencies": "*",
       "devDependencies": "*"
     },
-    "tsconfig.json": "*",
     "tslint.json": "*",
-    "nx.json": "*"
+    "nx.json": "*",
+    "tsconfig.base.json": "*"
   },
   "projects": {
     "webapp": {
@@ -52,5 +52,8 @@
     "accounts": {
       "tags": ["module:child", "scope:private", "angular-lib"]
     }
+  },
+  "affected": {
+    "defaultBase": "master"
   }
 }

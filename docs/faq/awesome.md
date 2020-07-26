@@ -345,8 +345,20 @@ in this project, we are demonstrating how to secure UI and backend APIs using fo
 - how to link local npm projects when you o patch a npm module locally?
   > Ref [blog](https://medium.com/@the1mills/how-to-test-your-npm-module-without-publishing-it-every-5-minutes-1c4cb4b369be)
 
----
+- Do you know how many change detections are triggered in the component?
 
+Checkout this tweet
+{% embed url="https://twitter.com/ng_zorro/status/1281059865092165634?s=20" %}
+
+- Top 40+ Angular interview questions and answers that you need to know in 2020
+
+  <https://store.akveo.com/blogs/news/top-35-angular-interview-questions-and-answers-that-you-need-to-know-in-2020>
+
+---
+Angular Blogs
+- https://netbasal.com/
+
+---
 ### CSS
 
 - Organizing Styles
