@@ -2274,14 +2274,15 @@
   dependencies:
     uuid "8.1.0"
 
-"@ngneat/until-destroy@7.3.2":
-  version "7.3.2"
-  resolved "https://registry.yarnpkg.com/@ngneat/until-destroy/-/until-destroy-7.3.2.tgz#b7aabe0c86a61a9db88bcbadf1d0bfe4bd6b4c11"
-  integrity sha512-jzJTTcOJpAi0KG3w+dbpz2XyO5smZxSK5hlpp9pQ1E9eyZpcpyVSXHP6R5cTlFZi368fMOITO4ewG7illLSmAw==
+"@ngneat/until-destroy@8.0.1":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@ngneat/until-destroy/-/until-destroy-8.0.1.tgz#136172063578ac951a822a83ff4d80c1e676feda"
+  integrity sha512-KDpg2ZzrjniZZmU8B+xvC0qIF8+9VZJwzWNAYiVMbR1+F6PSBsiGeQ/6ySaX9HdY0VeERf+H2DjQvR1IdkwMYw==
   dependencies:
     glob "^7.1.6"
     minimist "1.2.5"
     ts-morph "^7.1.2"
+    tslib "^2.0.0"
 
 "@ngrx/component@github:ngrx/component-builds.git":
   version "10.0.0-beta.1"
