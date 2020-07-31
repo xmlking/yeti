@@ -107,7 +107,7 @@
     "@nebular/auth": "5.1.0",
     "@nebular/eva-icons": "5.1.0",
     "@nebular/security": "5.1.0",
-    "@nebular/theme": "5.1.0",
+    "@nebular/theme": "6.0.0",
     "@ngneat/until-destroy": "7.3.2",
     "@ngrx/component": "github:ngrx/component-builds.git",
     "@nguniversal/express-engine": "10.0.1",
