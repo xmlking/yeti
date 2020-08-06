@@ -106,7 +106,7 @@
     "@angular/service-worker": "10.0.5",
     "@nebular/auth": "5.1.0",
     "@nebular/eva-icons": "5.1.0",
-    "@nebular/security": "5.1.0",
+    "@nebular/security": "6.0.0",
     "@nebular/theme": "5.1.0",
     "@ngneat/until-destroy": "7.3.2",
     "@ngrx/component": "github:ngrx/component-builds.git",
