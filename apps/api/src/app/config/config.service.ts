@@ -34,6 +34,7 @@ export class ConfigService {
     return this.config.ALLOW_WHITE_LIST ? this.config.ALLOW_WHITE_LIST : [];
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   async getOpenIdConfiguration() {
     try {
       const response = await axios.get(`${this.config.auth.issuerExternalUrl}/.well-known/openid-configuration`);
@@ -46,6 +47,7 @@ export class ConfigService {
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   getAuth() {
     return this.config.auth;
   }
