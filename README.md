@@ -83,7 +83,7 @@ Analyzing bundle size `yarn bundle-report`
 
 ### Release
 ```bash
-make download
+make update_deps
 git add .
 # Start release on develop branch
 git flow release start v0.1.0
