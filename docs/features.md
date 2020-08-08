@@ -11,5 +11,5 @@
 - [ ] Routing animations for nested routes and Blog posts
 - [ ] [Storybooks](https://storybook.js.org/)
 - [x] 🚫💩 — Run linters on git staged files
-- [ ] [MikroORM](https://mikro-orm.io/)
+- [ ] [Prisma](https://notiz.dev/blog/how-to-connect-nestjs-with-prisma#step-3-update-prisma-datasource), [MikroORM](https://mikro-orm.io/),
 - [ ] [tailwind](https://github.com/aniftyco/awesome-tailwindcss)

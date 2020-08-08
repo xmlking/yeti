@@ -73,6 +73,14 @@ yarn add -D @types/web-push
 yarn add -D @types/helmet
 ```
 
+#### Plugins
+
+```bash
+# add https://github.com/prisma/prisma
+nest add nestjs-prisma
+```
+
+
 #### Generate Artifacts
 
 ```bash

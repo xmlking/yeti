@@ -2,9 +2,8 @@ syntax = "proto3";
 
 package yeti.echo.v1;
 
-// option go_package = "github.com/xmlking/yeti/gen/go/echo/v1;echo";
+option go_package = "github.com/xmlking/yeti/libs/gogen/yeti/echo/v1;echov1";
 option java_multiple_files = true;
-option java_outer_classname = "EchoServiceProto";
 option java_package = "yeti.echo.v1";
 
 service EchoService {
