@@ -110,7 +110,7 @@
     "@nebular/theme": "6.0.0",
     "@ngneat/until-destroy": "8.0.1",
     "@ngrx/component": "github:ngrx/component-builds.git",
-    "@nguniversal/express-engine": "10.0.1",
+    "@nguniversal/express-engine": "10.0.2",
     "@ngxs-labs/select-snapshot": "2.0.1",
     "@ngxs/devtools-plugin": "3.6.2",
     "@ngxs/form-plugin": "3.6.2",
