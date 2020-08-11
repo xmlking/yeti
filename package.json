@@ -138,7 +138,7 @@
     "@angular/language-service": "10.0.8",
     "@compodoc/compodoc": "1.1.11",
     "@fortawesome/fontawesome-free": "5.14.0",
-    "@nguniversal/builders": "10.0.1",
+    "@nguniversal/builders": "10.0.2",
     "@ngx-builders/analyze": "2.0.0",
     "@nrwl/angular": "10.0.10",
     "@nrwl/cypress": "10.0.10",
