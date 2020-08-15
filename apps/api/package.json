@@ -23,7 +23,7 @@
     "@nestjs/terminus": "7.0.1",
     "@nestjs/typeorm": "7.1.0",
     "grpc": "1.24.3",
-    "helmet": "4.0.0",
+    "helmet": "4.1.0",
     "typeorm": "0.2.25"
   },
   "devDependencies": {
