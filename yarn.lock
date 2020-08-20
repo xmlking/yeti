@@ -147,7 +147,7 @@
     rxjs "6.5.5"
     source-map "0.7.3"
 
-"@angular-devkit/core@10.0.6", "@angular-devkit/core@^10.0.5":
+"@angular-devkit/core@10.0.6", "@angular-devkit/core@^10.0.5", "@angular-devkit/core@^10.0.6":
   version "10.0.6"
   resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-10.0.6.tgz#cbb40a34f976f9496270efc4fbdb3ad836b9723e"
   integrity sha512-mVvqSEoeErZ7bAModk95EAa6R9Nl23rvX+/TXuKVTK2dziMFBOrwHjb1DYhnZxFIH4xfUftCx+BWHjXBXCPYlA==
@@ -167,17 +167,6 @@
     fast-json-stable-stringify "2.0.0"
     magic-string "0.25.3"
     rxjs "6.4.0"
-    source-map "0.7.3"
-
-"@angular-devkit/core@9.1.12", "@angular-devkit/core@^9.0.1":
-  version "9.1.12"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-9.1.12.tgz#7cebce51918fe7f3462d8c58c9fbd5a3e2c3b3e7"
-  integrity sha512-D/GnBeSlmdgGn7EhuE32HuPuRAjvUuxi7Q6WywBI8PSsXKAGnrypghBwMATNnOA24//CgbW2533Y9VWHaeXdeA==
-  dependencies:
-    ajv "6.12.3"
-    fast-json-stable-stringify "2.1.0"
-    magic-string "0.25.7"
-    rxjs "6.5.4"
     source-map "0.7.3"
 
 "@angular-devkit/core@9.1.7":
@@ -200,7 +189,7 @@
     ora "4.0.4"
     rxjs "6.5.5"
 
-"@angular-devkit/schematics@10.0.6":
+"@angular-devkit/schematics@10.0.6", "@angular-devkit/schematics@^10.0.6":
   version "10.0.6"
   resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-10.0.6.tgz#dc3486448cc34544f7076f7fe0a67b75137ae840"
   integrity sha512-V3T4cf+jVKiPYyBrSVHf3ZSnk4wIc1WEaaeFta56HccEGQCQpvAFKqDurmtMHer50Hhaxhn7IC3Oi5kPnvkNyQ==
@@ -223,15 +212,6 @@
   integrity sha512-oeHPJePBcPp/bd94jHQeFUnft93PGF5iJiKV9szxqS8WWC5OMZ5eK7icRY0PwvLyfenspAZxdZcNaqJqPMul5A==
   dependencies:
     "@angular-devkit/core" "9.1.7"
-    ora "4.0.3"
-    rxjs "6.5.4"
-
-"@angular-devkit/schematics@^9.0.1":
-  version "9.1.12"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-9.1.12.tgz#bbf457f1b35941fddeeb1ee77336dd04ca60b8ba"
-  integrity sha512-+GYnUzmIy1/QpYitCC8mI7jcrViGHTtOKvvDPEFjU2nggjNEQaMmsHcdIsjrqggEc23ZZyebNAIewT8CMkJyrQ==
-  dependencies:
-    "@angular-devkit/core" "9.1.12"
     ora "4.0.3"
     rxjs "6.5.4"
 
@@ -12778,14 +12758,14 @@ ngx-markdown@10.1.0:
     prismjs "^1.20.0"
     tslib "^2.0.0"
 
-ngx-semantic-version@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/ngx-semantic-version/-/ngx-semantic-version-2.1.0.tgz#bd02912767f21ff32226b4d7766cd031575e1cb7"
-  integrity sha512-FoDGc19CwSkeoXLKCYfYaMBlnpZK9lf1JW7UI435xZs9xBVJFVN4m4gWkJupFfVllcjeNVUOlH08Lqy8fmMRxw==
+ngx-semantic-version@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/ngx-semantic-version/-/ngx-semantic-version-2.2.0.tgz#77a2fa39887065f75ebb8292bc91f08ddf7bf965"
+  integrity sha512-BmjZXauR44MrhXclA4jq2bT71t79OHYl/YWv4naopDVfPHlTO7YUE73qbVxPr6hsgJYdXKW04Vsd8Iced5/Q3g==
   dependencies:
-    "@angular-devkit/core" "^9.0.1"
-    "@angular-devkit/schematics" "^9.0.1"
-    typescript "~3.7.5"
+    "@angular-devkit/core" "^10.0.6"
+    "@angular-devkit/schematics" "^10.0.6"
+    typescript "~3.9.5"
 
 nice-try@^1.0.4:
   version "1.0.5"
@@ -17657,7 +17637,7 @@ typescript@2.9.1:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.9.1.tgz#fdb19d2c67a15d11995fd15640e373e09ab09961"
   integrity sha512-h6pM2f/GDchCFlldnriOhs1QHuwbnmj6/v7499eMHqPeW4V2G0elua2eIc2nu8v2NdHV0Gm+tzX83Hr6nUFjQA==
 
-typescript@3.9.7, typescript@^3.6.3, typescript@~3.9.7:
+typescript@3.9.7, typescript@^3.6.3, typescript@~3.9.5, typescript@~3.9.7:
   version "3.9.7"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.7.tgz#98d600a5ebdc38f40cb277522f12dc800e9e25fa"
   integrity sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
@@ -17666,11 +17646,6 @@ typescript@^2.4.2:
   version "2.9.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.9.2.tgz#1cbf61d05d6b96269244eb6a3bce4bd914e0f00c"
   integrity sha512-Gr4p6nFNaoufRIY4NMdpQRNmgxVIGMs4Fcu/ujdYk3nAZqk7supzBE9idmvfZIlH/Cuj//dvi+019qEue9lV0w==
-
-typescript@~3.7.5:
-  version "3.7.5"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.7.5.tgz#0692e21f65fd4108b9330238aac11dd2e177a1ae"
-  integrity sha512-/P5lkRXkWHNAbcJIiHPfRoKqyd7bsyCma1hZNUGfn20qm64T6ZBlrzprymeu918H+mB/0rIg2gGK/BXkhhYgBw==
 
 ua-parser-js@^0.7.18:
   version "0.7.21"
