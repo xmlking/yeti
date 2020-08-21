@@ -27,7 +27,7 @@
     "typeorm": "0.2.25"
   },
   "devDependencies": {
-    "@types/helmet": "0.0.47",
+    "@types/helmet": "0.0.48",
     "@types/nodemailer": "6.4.0",
     "@types/passport": "1.0.4",
     "@types/passport-jwt": "3.0.3",
