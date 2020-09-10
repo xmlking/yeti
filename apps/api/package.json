@@ -34,7 +34,7 @@
     "@types/supertest": "2.0.10"
   },
   "optionalDependencies": {
-    "@nestjs/schematics": "7.0.1",
+    "@nestjs/schematics": "7.1.2",
     "@nestjs/testing": "7.4.2",
     "nodemon": "2.0.4",
     "supertest": "4.0.2"
