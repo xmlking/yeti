@@ -1,6 +1,7 @@
 /* eslint-disable */
 import { Reader, Writer } from 'protobufjs/minimal';
 
+
 export interface EchoRequest {
   message: string;
 }
@@ -10,18 +11,21 @@ export interface EchoResponse {
 }
 
 const baseEchoRequest: object = {
-  message: '',
+  message: "",
 };
 
 const baseEchoResponse: object = {
-  message: '',
+  message: "",
 };
 
 export interface EchoService {
+
   Echo(request: EchoRequest): Promise<EchoResponse>;
+
 }
 
 export class EchoServiceClientImpl implements EchoService {
+
   private readonly rpc: Rpc;
 
   constructor(rpc: Rpc) {
@@ -30,13 +34,16 @@ export class EchoServiceClientImpl implements EchoService {
 
   Echo(request: EchoRequest): Promise<EchoResponse> {
     const data = EchoRequest.encode(request).finish();
-    const promise = this.rpc.request('yeti.echo.v1.EchoService', 'Echo', data);
-    return promise.then((data) => EchoResponse.decode(new Reader(data)));
+    const promise = this.rpc.request("yeti.echo.v1.EchoService", "Echo", data);
+    return promise.then(data => EchoResponse.decode(new Reader(data)));
   }
+
 }
 
 interface Rpc {
+
   request(service: string, method: string, data: Uint8Array): Promise<Uint8Array>;
+
 }
 
 export const EchoRequest = {
@@ -44,9 +51,10 @@ export const EchoRequest = {
     writer.uint32(10).string(message.message);
     return writer;
   },
-  decode(reader: Reader, length?: number): EchoRequest {
+  decode(input: Uint8Array | Reader, length?: number): EchoRequest {
+    const reader = input instanceof Uint8Array ? new Reader(input) : input;
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = Object.create(baseEchoRequest) as EchoRequest;
+    const message = { ...baseEchoRequest } as EchoRequest;
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
@@ -61,26 +69,26 @@ export const EchoRequest = {
     return message;
   },
   fromJSON(object: any): EchoRequest {
-    const message = Object.create(baseEchoRequest) as EchoRequest;
+    const message = { ...baseEchoRequest } as EchoRequest;
     if (object.message !== undefined && object.message !== null) {
       message.message = String(object.message);
     } else {
-      message.message = '';
+      message.message = "";
     }
     return message;
   },
   fromPartial(object: DeepPartial<EchoRequest>): EchoRequest {
-    const message = Object.create(baseEchoRequest) as EchoRequest;
+    const message = { ...baseEchoRequest } as EchoRequest;
     if (object.message !== undefined && object.message !== null) {
       message.message = object.message;
     } else {
-      message.message = '';
+      message.message = "";
     }
     return message;
   },
   toJSON(message: EchoRequest): unknown {
     const obj: any = {};
-    obj.message = message.message || '';
+    message.message !== undefined && (obj.message = message.message);
     return obj;
   },
 };
@@ -90,9 +98,10 @@ export const EchoResponse = {
     writer.uint32(10).string(message.message);
     return writer;
   },
-  decode(reader: Reader, length?: number): EchoResponse {
+  decode(input: Uint8Array | Reader, length?: number): EchoResponse {
+    const reader = input instanceof Uint8Array ? new Reader(input) : input;
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = Object.create(baseEchoResponse) as EchoResponse;
+    const message = { ...baseEchoResponse } as EchoResponse;
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
@@ -107,26 +116,26 @@ export const EchoResponse = {
     return message;
   },
   fromJSON(object: any): EchoResponse {
-    const message = Object.create(baseEchoResponse) as EchoResponse;
+    const message = { ...baseEchoResponse } as EchoResponse;
     if (object.message !== undefined && object.message !== null) {
       message.message = String(object.message);
     } else {
-      message.message = '';
+      message.message = "";
     }
     return message;
   },
   fromPartial(object: DeepPartial<EchoResponse>): EchoResponse {
-    const message = Object.create(baseEchoResponse) as EchoResponse;
+    const message = { ...baseEchoResponse } as EchoResponse;
     if (object.message !== undefined && object.message !== null) {
       message.message = object.message;
     } else {
-      message.message = '';
+      message.message = "";
     }
     return message;
   },
   toJSON(message: EchoResponse): unknown {
     const obj: any = {};
-    obj.message = message.message || '';
+    message.message !== undefined && (obj.message = message.message);
     return obj;
   },
 };

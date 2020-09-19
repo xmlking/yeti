@@ -7,6 +7,10 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 
+/* eslint-disable */
+// @ts-nocheck
+
+
 import * as grpcWeb from 'grpc-web';
 
 import {
@@ -42,16 +46,33 @@ export class EchoServiceClient {
 
   echo(
     request: EchoRequest,
+    metadata: grpcWeb.Metadata | null): Promise<EchoResponse>;
+
+  echo(
+    request: EchoRequest,
     metadata: grpcWeb.Metadata | null,
     callback: (err: grpcWeb.Error,
+               response: EchoResponse) => void): grpcWeb.ClientReadableStream<EchoResponse>;
+
+  echo(
+    request: EchoRequest,
+    metadata: grpcWeb.Metadata | null,
+    callback?: (err: grpcWeb.Error,
                response: EchoResponse) => void) {
-    return this.client_.rpcCall(
-      this.hostname_ +
-        '/yeti.echo.v1.EchoService/Echo',
-      request,
-      metadata || {},
-      this.methodInfoEcho,
-      callback);
+    if (callback !== undefined) {
+      return this.client_.rpcCall(
+        new URL('/yeti.echo.v1.EchoService/Echo', this.hostname_).toString(),
+        request,
+        metadata || {},
+        this.methodInfoEcho,
+        callback);
+    }
+    return this.client_.unaryCall(
+    this.hostname_ +
+      '/yeti.echo.v1.EchoService/Echo',
+    request,
+    metadata || {},
+    this.methodInfoEcho);
   }
 
 }
