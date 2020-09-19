@@ -7,7 +7,7 @@ import {
   NbAuthModule,
   NbOAuth2ClientAuthMethod,
   NbOAuth2GrantType,
-  NbOAuth2ResponseType,
+  NbOAuth2ResponseType
 } from '@nebular/auth';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbSecurityModule } from '@nebular/security';
@@ -19,7 +19,7 @@ import {
   NbSidebarModule,
   NbThemeModule,
   NbToastrModule,
-  NbWindowModule,
+  NbWindowModule
 } from '@nebular/theme';
 import { NgxsSelectSnapshotModule } from '@ngxs-labs/select-snapshot';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';
@@ -81,6 +81,7 @@ export function noop() {
           // Firebase https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration
           // https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/
           // https://www.scottbrady91.com/OpenID-Connect/Implementing-Sign-In-with-Apple-in-ASPNET-Core
+          // https://api.nopasswordlogin.com/.well-known/openid-configuration
           name: 'github',
           clientId: environment.auth.generic.clientId,
           clientSecret: environment.auth.generic.clientSecret,
