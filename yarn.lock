@@ -2200,10 +2200,10 @@
   resolved "https://registry.yarnpkg.com/@nebular/eva-icons/-/eva-icons-6.1.0.tgz#a687b28e9d74e8e649ffc43211c8e64e66a1bc60"
   integrity sha512-C+jFmVs6uwcVRleeKMBaThd8R6GAfUmkpUD0fGlCZ0ZN3a+kP4buxlPYyGVy1tYdMRs1w6MnN0vw1f1S5QUY4g==
 
-"@nebular/security@6.1.0":
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/@nebular/security/-/security-6.1.0.tgz#a207a7d7259e921f639d9fae8227c7fcbd95b140"
-  integrity sha512-7ePYfLbrb/XBZAJqL4vJbWa/RKUn4oL+l3MuD5Cro/P6/oyL8O6ViY0y7AAEOTePsKbPUhNEy5x68RyPDdxUsQ==
+"@nebular/security@6.2.0":
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/@nebular/security/-/security-6.2.0.tgz#a9b1b1b48f540e2d678f8cddee2d6414d56a94f2"
+  integrity sha512-GMKGipitOrYDxIFlGtF3YTvQqdxC8TLXVjHaqSYZx9by/Ap5BvRx69kcKOoJ5DhxtXOP6YoZ6eAe4tuIHajnAw==
 
 "@nebular/theme@6.1.0":
   version "6.1.0"
