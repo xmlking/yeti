@@ -378,7 +378,7 @@
   dependencies:
     tslib "^2.0.0"
 
-"@angular/platform-browser@10.1.3":
+"@angular/platform-browser@10.1.3", "@angular/platform-browser@^10.1.1":
   version "10.1.3"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-10.1.3.tgz#f6a5c5098e878b964cfddc296fb63eb147710211"
   integrity sha512-Y5/M9NEmQceda96a9ntmxidfgJTf23DmEvGw0SJ1TAn2X9EjlM4s7H8KNH9R/tDPK9QcuvzX9FTZsxQ9b6kCFQ==
@@ -2355,12 +2355,6 @@
     ts-morph "^7.1.2"
     tslib "^2.0.0"
 
-"@ngrx/component@github:ngrx/component-builds.git":
-  version "10.0.0"
-  resolved "https://codeload.github.com/ngrx/component-builds/tar.gz/de62bd1e7170513426fe83921cae20ae5544455e"
-  dependencies:
-    tslib "^2.0.0"
-
 "@ngtools/webpack@10.1.3":
   version "10.1.3"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-10.1.3.tgz#f65c591daab7ed0c3372a115c6a90eba701a2ca1"
@@ -2697,6 +2691,14 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
+
+"@rx-angular/template@^1.0.0-beta.0":
+  version "1.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@rx-angular/template/-/template-1.0.0-beta.0.tgz#a5ee2ed10b17b4d4c14123cc56ebfa37935dfc7e"
+  integrity sha512-/6Lw3BN83gpf8m+DgexDx2APz0yZ+cJFRuVRnEX6c5Q8EBKzOMBYG0YZSiGi69HL97lPGmutKU9mRv1ju8bzWA==
+  dependencies:
+    "@angular/platform-browser" "^10.1.1"
+    tslib "^2.0.0"
 
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.1"

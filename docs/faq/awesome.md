@@ -135,6 +135,10 @@ A curated list of awesome Angular resources
 
   > Read [NGXS vs NGRX](https://blog.singular.uk/why-i-prefer-ngxs-over-ngrx-df727cd868b5?gi=405262c5a9c5)
 
+  To build  high-performance apps with #Angular you need 2 parts
+  State management & a rendering system with the principle of locality in mind.
+  we are using NGXS for State Management and [@rx-angular/template](https://github.com/rx-angular/rx-angular/blob/master/libs/template/README.md) for zoneless Rendering System
+
 - How to preload modules?
 
   > Read Angular Router: [Preloading Modules](https://vsavkin.com/angular-router-preloading-modules-ba3c75e424cb)
