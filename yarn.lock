@@ -2232,10 +2232,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@nebular/auth@6.2.0":
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/@nebular/auth/-/auth-6.2.0.tgz#cbcc025514021e0ef6b8d9acdb4bf4f305b7a79a"
-  integrity sha512-STK17Om79OBP6H5+Wxef0v0GPD0HyjjAGcBIXU3wGmJrQfdiY8Oeil8bAnprIvExzZV1VG36TB7kA7XRZLhgbg==
+"@nebular/auth@6.2.1":
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/@nebular/auth/-/auth-6.2.1.tgz#ff2eeec889480869462f95cac1bb498dbef17fba"
+  integrity sha512-s2xiyT5zUxVxz3UULZCjbHpaouPjAfUhPJKjQ5kl92YLIyj1PqFC5+ONiJh27i92rb90iuO0OatvrH//jSoZUA==
 
 "@nebular/eva-icons@6.2.0":
   version "6.2.0"
