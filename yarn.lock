@@ -2242,10 +2242,10 @@
   resolved "https://registry.yarnpkg.com/@nebular/eva-icons/-/eva-icons-6.2.0.tgz#9ae734b8291d3d095aef47a8f6d6bf26a0856f7c"
   integrity sha512-C4W2qqSiUcwjMV3kIFL6PaPOyCFMhwolOxzVcokmCVHPTj/Pnw7n5DJxROI0MZy8dPwULWpPOhyNVg5xF6YcIg==
 
-"@nebular/security@6.2.0":
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/@nebular/security/-/security-6.2.0.tgz#a9b1b1b48f540e2d678f8cddee2d6414d56a94f2"
-  integrity sha512-GMKGipitOrYDxIFlGtF3YTvQqdxC8TLXVjHaqSYZx9by/Ap5BvRx69kcKOoJ5DhxtXOP6YoZ6eAe4tuIHajnAw==
+"@nebular/security@6.2.1":
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/@nebular/security/-/security-6.2.1.tgz#ac7473c8e9aec9bbac650015053711cfc90cc73d"
+  integrity sha512-QSbrlCPBianhtk6nVupPaYiryyHC7A3UpTqYN1/nf1BPGwQffLdLeI+WNiqwxe8NbJOorLqaJodD9pAxxxP0gw==
 
 "@nebular/theme@6.2.0":
   version "6.2.0"
