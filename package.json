@@ -187,7 +187,7 @@
     "lite-server": "2.5.4",
     "ngx-semantic-version": "2.2.0",
     "parse-md": "^2.0.4",
-    "ts-proto": "1.35.1"
+    "ts-proto": "1.36.0"
   },
   "resolutions": {
     "node-forge": "0.10.0",
