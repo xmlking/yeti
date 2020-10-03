@@ -117,11 +117,12 @@ A curated list of awesome Angular resources
 
 > [Microfrontends and Monorepos](https://blog.nrwl.io/monorepos-and-react-microfrontends-a-perfect-match-d49dca64489a)
 
-- UI Kits
+- UI Kits, UX Components
 
   1. [Material](https://material.angular.io/)
   2. [Nebular](https://akveo.github.io/nebular/)
   3. [Clarity](https://clarity.design/)
+  4. [ng-aquila](https://aposin.github.io/ng-aquila/documentation)
 
 - Curated collection of useful Angular snippets that you can understand in 30 seconds or less.
 
@@ -224,6 +225,10 @@ A curated list of awesome Angular resources
 
 > Use [shareReplay](https://blog.thoughtram.io/angular/2018/03/05/advanced-caching-with-rxjs.html)<br/>
 > Checkout **combineLatest** and **shareReplay** use in [DeborahK's](https://github.com/DeborahK/Angular-RxJS) Repo and her talk.
+
+- Web APIs for Angular
+  - [Web APIs for Angular](https://github.com/ng-web-apis)
+  - [The missing Web Bluetooth module for Angular](https://github.com/manekinekko/angular-web-bluetooth)
 
 -- ngadd
 

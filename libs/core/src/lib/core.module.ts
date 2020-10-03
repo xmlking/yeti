@@ -25,7 +25,7 @@ import { NgxsSelectSnapshotModule } from '@ngxs-labs/select-snapshot';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';
 import { NgxsRouterPluginModule, RouterStateSerializer } from '@ngxs/router-plugin';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
-import { NgxsModule } from '@ngxs/store';
+import { NgxsModule, NoopNgxsExecutionStrategy } from '@ngxs/store';
 import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 import { AuthHandler } from './handler/auth.handler';
 import { RouteHandler } from './handler/route.handler';
@@ -107,6 +107,10 @@ export function noop() {
     NbSecurityModule.forRoot(),
     NgxsModule.forRoot([AuthState], {
       developmentMode: !environment.production,
+      compatibility: {
+        strictContentSecurityPolicy: true,
+      },
+      executionStrategy: NoopNgxsExecutionStrategy,
     }),
     NgxsSelectSnapshotModule.forRoot(),
     NgxsStoragePluginModule.forRoot({

@@ -52,13 +52,13 @@ export class AuthState {
     });
 
     const authResult = await this.nbAuthService.authenticate(provider).toPromise();
-    if (authResult.isSuccess()) {
+    if (authResult.isSuccess() && authResult.getToken() != null) {
       const token = authResult.getToken().getPayload().access_token;
       const userInfo = await this.authService.getUserInfo(provider, token).toPromise();
       patchState({
         isLoggedIn: true,
         token,
-        userInfo
+        userInfo,
       });
       dispatch(new LoginSuccess());
       if (authResult.getRedirect()) {
