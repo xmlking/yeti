@@ -2699,7 +2699,7 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
 
-"@rx-angular/template@^1.0.0-beta.0":
+"@rx-angular/template@1.0.0-beta.0":
   version "1.0.0-beta.0"
   resolved "https://registry.yarnpkg.com/@rx-angular/template/-/template-1.0.0-beta.0.tgz#a5ee2ed10b17b4d4c14123cc56ebfa37935dfc7e"
   integrity sha512-/6Lw3BN83gpf8m+DgexDx2APz0yZ+cJFRuVRnEX6c5Q8EBKzOMBYG0YZSiGi69HL97lPGmutKU9mRv1ju8bzWA==
