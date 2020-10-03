@@ -124,6 +124,10 @@ A curated list of awesome Angular resources
   3. [Clarity](https://clarity.design/)
   4. [ng-aquila](https://aposin.github.io/ng-aquila/documentation)
 
+- Angular Utils , Libs
+
+  1. [ngx-date-fns](https://github.com/joanllenas/ngx-date-fns)
+
 - Curated collection of useful Angular snippets that you can understand in 30 seconds or less.
 
   > Read [30-seconds-of-angular](https://github.com/30-seconds/30-seconds-of-angular)
@@ -135,6 +139,8 @@ A curated list of awesome Angular resources
 - Why I Prefer NGXS over NGRX
 
   > Read [NGXS vs NGRX](https://blog.singular.uk/why-i-prefer-ngxs-over-ngrx-df727cd868b5?gi=405262c5a9c5)
+
+  [Firebase + NGXS, the perfect couple](https://indepth.dev/firebase-ngxs-the-perfect-couple/)
 
   To build  high-performance apps with #Angular you need 2 parts
   State management & a rendering system with the principle of locality in mind.
@@ -236,8 +242,8 @@ A curated list of awesome Angular resources
 
 - Angular Performance
   1. [make Angular app faster](https://timdeschryver.dev/blog/help-angular-to-make-your-application-faster)
-  1. Refer [here](https://blog.ninja-squad.com/)
-  1. Refer [angular performance checklist](https://github.com/mgechev/angular-performance-checklist)
+  2. Refer [here](https://blog.ninja-squad.com/)
+  3. Refer [angular performance checklist](https://github.com/mgechev/angular-performance-checklist)
 
 > Refer [Curated list of common mistakes made when developing Angular applications](https://angular-checklist.io/projects)
 
