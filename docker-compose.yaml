@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   envoy:
-    image: docker.io/envoyproxy/envoy-alpine:v1.15.0
+    image: docker.io/envoyproxy/envoy-alpine:v1.15.2
     command: /usr/local/bin/envoy -c etc/envoy/envoy.yaml -l debug --service-cluster front --service-node front
     volumes:
       - './config/certs:/etc/certs:ro'
