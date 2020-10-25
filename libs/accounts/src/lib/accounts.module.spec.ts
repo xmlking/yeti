@@ -4,7 +4,7 @@ import { AccountsModule } from './accounts.module';
 describe('AccountsModule', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AccountsModule]
+      imports: [AccountsModule],
     }).compileComponents();
   });
 

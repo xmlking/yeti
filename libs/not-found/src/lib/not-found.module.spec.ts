@@ -4,7 +4,7 @@ import { NotFoundModule } from './not-found.module';
 describe('NotFoundModule', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NotFoundModule]
+      imports: [NotFoundModule],
     }).compileComponents();
   });
 

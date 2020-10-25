@@ -4,7 +4,7 @@ import { BlogModule } from './blog.module';
 describe('BlogModule', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BlogModule]
+      imports: [BlogModule],
     }).compileComponents();
   });
 

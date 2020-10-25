@@ -8,7 +8,7 @@ describe('AccountsGridComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AccountsGridComponent]
+      declarations: [AccountsGridComponent],
     }).compileComponents();
   });
 

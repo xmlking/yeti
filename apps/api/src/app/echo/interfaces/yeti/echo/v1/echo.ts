@@ -1,7 +1,6 @@
 /* eslint-disable */
 import { Reader, Writer } from 'protobufjs/minimal';
 
-
 export interface EchoRequest {
   message: string;
 }
@@ -11,21 +10,18 @@ export interface EchoResponse {
 }
 
 const baseEchoRequest: object = {
-  message: "",
+  message: '',
 };
 
 const baseEchoResponse: object = {
-  message: "",
+  message: '',
 };
 
 export interface EchoService {
-
   Echo(request: EchoRequest): Promise<EchoResponse>;
-
 }
 
 export class EchoServiceClientImpl implements EchoService {
-
   private readonly rpc: Rpc;
 
   constructor(rpc: Rpc) {
@@ -34,16 +30,13 @@ export class EchoServiceClientImpl implements EchoService {
 
   Echo(request: EchoRequest): Promise<EchoResponse> {
     const data = EchoRequest.encode(request).finish();
-    const promise = this.rpc.request("yeti.echo.v1.EchoService", "Echo", data);
-    return promise.then(data => EchoResponse.decode(new Reader(data)));
+    const promise = this.rpc.request('yeti.echo.v1.EchoService', 'Echo', data);
+    return promise.then((data) => EchoResponse.decode(new Reader(data)));
   }
-
 }
 
 interface Rpc {
-
   request(service: string, method: string, data: Uint8Array): Promise<Uint8Array>;
-
 }
 
 export const EchoRequest = {
@@ -73,7 +66,7 @@ export const EchoRequest = {
     if (object.message !== undefined && object.message !== null) {
       message.message = String(object.message);
     } else {
-      message.message = "";
+      message.message = '';
     }
     return message;
   },
@@ -82,7 +75,7 @@ export const EchoRequest = {
     if (object.message !== undefined && object.message !== null) {
       message.message = object.message;
     } else {
-      message.message = "";
+      message.message = '';
     }
     return message;
   },
@@ -120,7 +113,7 @@ export const EchoResponse = {
     if (object.message !== undefined && object.message !== null) {
       message.message = String(object.message);
     } else {
-      message.message = "";
+      message.message = '';
     }
     return message;
   },
@@ -129,7 +122,7 @@ export const EchoResponse = {
     if (object.message !== undefined && object.message !== null) {
       message.message = object.message;
     } else {
-      message.message = "";
+      message.message = '';
     }
     return message;
   },

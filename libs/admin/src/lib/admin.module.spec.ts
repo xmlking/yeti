@@ -4,7 +4,7 @@ import { AdminModule } from './admin.module';
 describe('AdminModule', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AdminModule]
+      imports: [AdminModule],
     }).compileComponents();
   });
 

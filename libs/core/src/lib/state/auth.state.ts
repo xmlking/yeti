@@ -19,11 +19,11 @@ export interface AuthStateModel {
     provider: 'google',
     isLoggedIn: false,
     token: null,
-    userInfo: null
-  }
+    userInfo: null,
+  },
 })
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthState {
   @Selector()
@@ -48,7 +48,7 @@ export class AuthState {
   async login({ getState, patchState, dispatch }: StateContext<AuthStateModel>, { payload }: Login) {
     const provider = payload?.provider ?? getState().provider;
     patchState({
-      provider
+      provider,
     });
 
     const authResult = await this.nbAuthService.authenticate(provider).toPromise();
@@ -73,7 +73,7 @@ export class AuthState {
       patchState({
         isLoggedIn: false,
         token: null,
-        userInfo: null
+        userInfo: null,
       });
       dispatch(new Navigate(['/home']));
     });

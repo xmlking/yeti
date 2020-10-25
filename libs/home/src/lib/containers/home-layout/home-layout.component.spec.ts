@@ -8,7 +8,7 @@ describe('HomeLayoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HomeLayoutComponent]
+      declarations: [HomeLayoutComponent],
     }).compileComponents();
   });
 

@@ -4,7 +4,7 @@ import { SharedModule } from './shared.module';
 describe('SharedModule', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SharedModule]
+      imports: [SharedModule],
     }).compileComponents();
   });
 
