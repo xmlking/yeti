@@ -27,7 +27,7 @@
     "typeorm": "0.2.28"
   },
   "devDependencies": {
-    "@types/helmet": "0.0.48",
+    "@types/helmet": "4.0.0",
     "@types/nodemailer": "6.4.0",
     "@types/passport": "1.0.4",
     "@types/passport-jwt": "3.0.3",
@@ -36,7 +36,7 @@
   "optionalDependencies": {
     "@nestjs/schematics": "7.1.2",
     "@nestjs/testing": "7.4.4",
-    "nodemon": "2.0.4",
+    "nodemon": "2.0.6",
     "supertest": "5.0.0"
   }
 }
