@@ -6,11 +6,11 @@ describe('DashboardLayoutComponent', () => {
   let component: DashboardLayoutComponent;
   let fixture: ComponentFixture<DashboardLayoutComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [DashboardLayoutComponent]
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [DashboardLayoutComponent],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(DashboardLayoutComponent);

@@ -1,49 +1,40 @@
 # Envoy
 
-### Prerequisite
+## Configuration
 
-```bash
-wget -O ~/Downloads/protoc-gen-grpc-web https://github.com/grpc/grpc-web/releases/download/1.0.7/protoc-gen-grpc-web-1.0.7-darwin-x86_64
-chmod +x ~/Downloads/protoc-gen-grpc-web
-mv  ~/Downloads/protoc-gen-grpc-web /usr/local/bin/protoc-gen-grpc-web
+Envoy can be configured dynamically in real time without any downtime.
 
-yarn global add grpc-tools
-```
+- Listener discovery service  —  configures on what ports envoy listens on, and the action to take on the incoming connections.
+- Cluster discovery service  —  configures the upstream clusters. Envoy will route incoming connections/requests to these clusters.
+- Route discovery service  —  configures L7 routes for incoming requests.
+- Endpoint discovery service  —  allows envoy to dynamically discover cluster membership and health information.
+- Secret discovery service  —  allows envoy to discover ssl secrets. This is used to configure ssl secrets independently of the listener, and allows to provide ssl secrets from a local node, instead of a centralized control plane.
 
-```bash
-protoc -I="./proto" ./proto/yeti/echo/v1/echo.proto \
---js_out=import_style=commonjs:./libs/gen/src/lib \
---grpc-web_out=import_style=typescript,mode=grpcwebtext:./libs/gen/src/lib
-```
+**Best Practice:** Here we are using partitioned file-based dynamic configuration.
 
-```bash
-protoc --plugin=./node_modules/ts-proto/protoc-gen-ts_proto \
--I./proto  --ts_proto_out=apps/api/src/app/echo/interfaces  ./proto/yeti/echo/v1/echo.proto
-
-protoc --plugin=./node_modules/ts-proto/protoc-gen-ts_proto \
--I./proto  --ts_proto_out=apps/api/src/app/account/interfaces  ./proto/yeti/account/v1/account.proto
-```
-
-### Reference
+## Start
 
 ```bash
 # minikube mount /Users/schintha/Developer/Work:/Work
 # mount '/Work/SPA/yeti/envoy.yaml:/etc/envoy/envoy.yaml'
 docker-compose up envoy
 
-
-docker run -it --rm --name envoy \
--p 9090:9090 -p 9901:9901  \
--v "$(pwd)/envoy.yaml:/etc/envoy/envoy.yaml:ro"  \
-envoyproxy/envoy:latest
-
+# (or) start standalone envoy container
+docker run -it --rm --name envoy2 \
+-p 9901:9901 -p 9090:9090 -p 9444:9443  \
+-v `pwd`/config/base/envoy/config/:/etc/envoy:ro \
+-v `pwd`/config/certs/:/etc/certs:ro \
+envoyproxy/envoy-alpine:v1.14.1
+# ssh if needed
 docker exec -it envoy /bin/bash
+```
 
-# admin http://localhost:9901/
+## Test
 
+ admin <http://localhost:9901/>
 
-
- curl 'http://localhost:9090/greetersrv/Greeter.Hello' \
+```bash
+ curl '<http://localhost:9090/greetersrv/Greeter.Hello'> \
  -H 'Content-Type: application/grpc-web+proto' \
  -H 'X-Grpc-Web: 1' \
  -H 'custom-header-1: value1' \
@@ -51,14 +42,13 @@ docker exec -it envoy /bin/bash
  -H 'Connection: keep-alive' \
  --data-binary $'\x00\x00\x00\x00\x05\n\x03abc' --compressed
 
- curl 'http://localhost:9090/greetersrv/Greeter.Hello' \
+ curl '<http://localhost:9090/greetersrv/Greeter.Hello'> \
  -H 'Content-Type: application/json' \
  -d '{
     "name": "sumo"
    }'
 
-
-curl 'http://localhost:9090/yeti.EchoService/Echo' \
+curl '<http://localhost:9090/yeti.EchoService/Echo'> \
  -H 'Content-Type: application/grpc-web+proto' \
  -H 'X-Grpc-Web: 1' \
  -H 'custom-header-1: value1' \
@@ -66,7 +56,7 @@ curl 'http://localhost:9090/yeti.EchoService/Echo' \
  -H 'Connection: keep-alive' \
  --data-binary $'\x00\x00\x00\x00\x05\n\x03abc' --compressed
 
-curl 'http://localhost:9090/yeti.EchoService/Echo' \
+curl '<http://localhost:9090/yeti.EchoService/Echo'> \
 -H 'Accept: application/grpc-web-text' \
 -H 'Content-Type: application/grpc-web-text' \
 -H 'X-Grpc-Web: 1' \
@@ -76,15 +66,22 @@ curl 'http://localhost:9090/yeti.EchoService/Echo' \
   "message": "sumo"
   }'
 
-curl 'http://localhost:8080/travelbob.blogs.BlogsAPI/GetAllBlogs' \
+curl '<http://localhost:8080/travelbob.blogs.BlogsAPI/GetAllBlogs'> \
 -H 'Accept: application/grpc-web-text' \
 -H 'Content-Type: application/grpc-web-text' \
 -H 'X-Grpc-Web: 1' \
 -H 'Connection: keep-alive' \
 -H 'Accept-Encoding: gzip, deflate, br' \
 --data-binary 'AAAAAAA=' --compressed
-
-
 ```
 
-1. https://github.com/jrockway/jrock.us/blob/master/ingress/envoy.yaml
+### Reference
+
+1. <https://github.com/jrockway/jrock.us/blob/master/ingress/envoy.yaml>
+1. <https://github.com/jrockway/jrock.us/blob/master/ingress/envoy.yaml>
+1. <https://blog.turbinelabs.io/setting-up-ssl-with-envoy-f7c5aa06a5ce>
+1. [How To Write Modern React App Using gRPC And Envoy](https://medium.com/effective-development/how-to-write-modern-react-app-using-grpc-and-envoy-a9d9a4f2785e)
+1. [angular-nest-grpc](https://github.com/kmturley/angular-nest-grpc)
+1. [Using gRPC with NestJS and Angular](https://medium.com/creative-technology-concepts-code/using-grpc-with-nestjs-and-angular-b60b444bc3ab)
+1. [Using Envoy Proxy to load-balance gRPC services on GKE](https://github.com/GoogleCloudPlatform/grpc-gke-nlb-tutorial)
+    1. <https://cloud.google.com/solutions/exposing-grpc-services-on-gke-using-envoy-proxy>

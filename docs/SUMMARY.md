@@ -5,20 +5,24 @@
 - Getting Started
   - [Why](introduction/why.md)
   - [Installation](introduction/installation.md)
+  - [Project Layout](introduction/project-layout.md)
+  - [NX commands](introduction/nx.md)
   - [Playbook](introduction/playbook.md)
-  - [NestJs Playbook](introduction/nest-playbook.md)
+  - [NestJS Playbook](introduction/nest-playbook.md)
   - [Scaffolding](introduction/scaffolding.md)
 - Concepts
-  - [Introduction](concepts/intro.md)
-  - [Store](concepts/store.md)
-  - [Actions](concepts/actions.md)
-  - [State](concepts/state.md)
-  - [Select](concepts/select.md)
+  - [Introduction](concepts/monorepo.md)
+  - [Monorepo](concepts/monorepo.md)
+  - [DDD](concepts/monorepo.md)
+  - [Clean Architecture](concepts/monorepo.md)
 - Advanced
   - [Content Management](advanced/blog.md)
   - [Protobuf Tools](advanced/buf.md)
+  - [Prototool](advanced/prototool.md)
   - [Envoy](advanced/envoy.md)
   - [Style Guild](advanced/style-guide.md)
+  - [Angular Universal](advanced/universal.md)
+  - [Firebase](advanced/firebase.md)
 - Modules
   - Apps
     - [WebApp](../apps/webapp/README.md)
@@ -55,6 +59,9 @@
   - [Resources](community/projects.md)
   - [Contributors](community/contributors.md)
   - [Contributing](community/contributing.md)
+- FAQ
+  - [Yeti](faq/yeti.md)
+  - [Angular](faq/angular.md)
+  - [GitBook](faq/gitbook.md)
+  - [Awesome Links](faq/awesome.md)
 - [Change Log](../CHANGELOG.md)
-- [FAQ](faq/faq.md)
-

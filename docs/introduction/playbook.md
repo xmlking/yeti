@@ -1,113 +1,54 @@
 # DIY Playbook
 
-Do-it-yourself step-by-step instructions to create this project structure from scratch.
+1. Install global [Prerequisites](./installation.md)
 
-## Setup
+## Install
 
-### Prerequisites
-
-> you need following tools. versions listed here are minimal versions tested.
-
-| Software        | Version | Optional |
-| --------------- | ------- | -------- |
-| Node            | v13.5.0 |          |
-| Yarn            | v1.21.1 |          |
-| Lerna           | v3.20.2 |          |
-| Angular CLI     | v9.0.0  |          |
-| @nrwl/workspace | v9.0.0  |          |
-| @nestjs/cli     | v6.13.2 |          |
-| commitizen      | v4.0.3  |          |
-
-### Install Prerequisites
-
-```bash
-# install or Update Node and Yarn with brew
-brew update
-brew install node
-#brew upgrade node
-brew install yarn
-#brew upgrade yarn
-yarn config set workspaces-experimental true
-yarn global add lerna
-brew cleanup
-```
-
-#### Editor Configuration
-
-Codelyzer should work out of the box with Atom but for VSCode you will have to open `Code > Preferences > User Settings`, and enter the following config:
-
-```json
-{
-  "tslint.rulesDirectory": "./node_modules/codelyzer",
-  "typescript.tsdk": "node_modules/typescript/lib"
-}
-```
-
-Install [redux-devtools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en) for Chrome (optional)
-
-#### Install Kubernetes (optional)
-
-follow instructions [here](https://gist.github.com/xmlking/62ab53753c0f0f5247d0e174b31dab21) to install kubernetes toolchain:
-
-1. Docker for Mac (edge version)
-2. Helm (optional)
-3. kubectx (optional)
-
-#### Install Bazel (optional)
-
-For Mac, install via Brew. [Instructions](https://docs.bazel.build/versions/master/install-os-x.html#install-on-mac-os-x-homebrew)
-
-```bash
-brew install bazel
-bazel version
-# you can upgrade to a newer version of Bazel with:
-brew upgrade bazel
-
-# if needed
-sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
-sudo xcodebuild -license
-bazel clean --expunge
-```
-
-#### Install Global Packages
+### Install Global Packages
 
 ```bash
 yarn global remove lerna
+yarn global remove commitizen
 yarn global remove @angular/cli
 yarn global remove @nrwl/cli
 yarn global remove @nestjs/cli
+yarn global remove grpc-tools
+yarn global remove ts-protoc-gen
 yarn global remove bloomrpc-mock
-yarn global remove gitbook-cli
 
 yarn global add lerna
-yarn global add @angular/cli@next
-yarn global add @nrwl/cli@next
+yarn global add commitizen
+yarn global add @angular/cli
+yarn global add @nrwl/cli
 yarn global add @nestjs/cli
+yarn global add grpc-tools
+yarn global add ts-protoc-gen
 yarn global add bloomrpc-mock
-yarn global add gitbook-cli
+
+
 
 # verify globally installed packages
 yarn global list
 # find out which packages need to be updated. Options: `--latest`
 yarn global upgrade-interactive
 # set scss as default css processor
-ng config -g defaults.styleExt=scss
+ng config -g defaults.style=scss
 ng config -g schematics.@schematics/angular:component.style scss
 ng config -g cli.packageManager yarn
-# set scss as default styleext for ngx-formly
-ng config -g schematics@ngx-formly/schematics:component.styleext scss
+# (optional) set scss as default style for ngx-formly
+ng config -g schematics@ngx-formly/schematics:component.style scss
 # check your global defaults
 ng config -g
-# find reverse dependencies for a package
+# (optional) how to find reverse dependencies for a package?
 yarn why jasmine-marbles
 ```
 
-#### Install Chrome Extensions
+### Install Chrome Extensions
 
 1. [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
 2. [Angular Tracer for View Updates](https://chrome.google.com/webstore/detail/angular-tracer-for-view-u/bdneljfoigfojeenmmgahnkjnkpbellg)
 
-### Scaffold Project
+## Scaffold Project
 
 > steps below are for setting up a new project from the scratch.
 
@@ -119,131 +60,121 @@ for nx help `yarn run help`
 
 `yarn affected -- --target lint --uncommitted --parallel -- --fix`
 
-#### Create Workspace
+### Create Workspace
 
 ```bash
-# create workspace Ref: https://nx.dev/tutorial/01-create-application
-# Options: --bazel  --verbose --strict
-ng new ngx-starter-kit --collection=@nrwl/workspace --npm-scope=ngx-starter-kit --preset=empty \
---style=scss --package-manager=yarn --strict --verbose --skipInstall
-cd ngx-starter-kit
+ng new yeti -c=@nrwl/workspace --preset=empty --style=scss --npm-scope=yeti --app-name=yeti -v
+
+cd yeti
+
+# set yarn2 for project
+# yarn set version berry
+
+# make sure we are up-to-date
+ng update --all  --allow-dirty --force
+# also update versions in package.json
+yarn upgrade-interactive --latest
+
+# add nx plugins (schematics)
+#  you can add more nrwl-nx plugins to your workspace as needed
+ng add @nrwl/angular --defaults
+ng add @nrwl/nest
+ng add @xmlking/nxp-ddd
 
 # Set workspace defaults
 ng config cli.packageManager yarn
 ng config schematics.@schematics/angular:component.style scss
 ng config schematics.@schematics/angular:component.prefix yeti
+ng config schematics.@schematics/angular:component.displayBlock true # optional, default `inline`
 ng config schematics.@schematics/angular:component.changeDetection OnPush
 
-# make sure we are up-to-date
-ng update --next
-
-# and update as suggested. e.g.,
-ng update @angular/cli --next
-ng update @nrwl/workspace --next
-# or update all
-ng update --all
-
-# also run `yarn outdated` and update versions in package.json then run `yarn install`
-yarn add --dev @nrwl/angular@next --defaults
-yarn add --dev @nrwl/nest@next
-
+TODO: move assets and styles to shated
+https://github.com/nrwl/nx-examples/tree/master/libs/shared # assets
+https://github.com/LayZeeDK/ngx-nrwl-airlines-workspace/tree/master/libs/shared # Env
 
 # generate webapp app
-ng g @nrwl/angular:app webapp --routing --style=scss  --tags=app-module
+# use fullTemplateTypeCheck or strictTemplates
+# ng g @nrwl/angular:app yeti-web-app --routing --style=scss --strict=true --tags="domain:yeti,type:app,platform:web"
+ng g @xmlking/nxp-ddd:application yeti # optional flags: --platform <web/mobile/desktop/node>
 
-# NOTE: Remove `"types": []` from apps/webapp/tsconfig.app.json to allow global types.
-
-# generate micro-app `chat-box` (optional)
-ng g @nrwl/web:app chatApp --routing --style=scss  --tags=micro-app-module -d
-ng add ngx-build-plus --project chat-box
-ng add @angular/elements --project chat-box ?
-yarn add @webcomponents/custom-elements ?
+# NOTE: Remove `"types": []` from apps/webapp/tsconfig.app.json to allow global types. ???
 
 # generate api app with nestjs
-ng g @nrwl/nest:app api --frontendProject=webapp --tags=api-module
+ng g @nrwl/nest:app yeti-api --frontend-project=yeti-app --linter=eslint --tags="domain:yeti,type:api,platform:node"
 ```
 
-#### Add nx plugins
-
-Below are some nx plugins which you can add to your workspace:
-
-- [Angular](https://angular.io)
-  - `ng add @nrwl/angular`
-- [React](https://reactjs.org)
-  - `ng add @nrwl/react`
-- Web (no framework frontends)
-  - `ng add @nrwl/web`
-- [Nest](https://nestjs.com)
-  - `ng add @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `ng add @nrwl/express`
-- [Node](https://nodejs.org)
-  - `ng add @nrwl/node`
-
-#### Dependencies
+### Dependencies
 
 > adding 3rd party modules/libs
 
 ```bash
-cd ngx-starter-kit
-
+cd yeti
+#---------------------------
 # Add i18n
 ng add @angular/localize
+#---------------------------
 # Add PWA
 ng add @angular/pwa@next --project webapp
-
+#---------------------------
+# Add universal for SSR
+ng add @nguniversal/express-engine --clientProject webapp
+#---------------------------
 # `ng deploy`
 # Add architect for deploying webapp
 # ng add [provider] [angular-cli-ghpages, @angular/fire, @zeit/ng-deploy, @azure/ng-deploy, @netlify-builder/deploy]
 # gh-pages deployment
 # ng add angular-cli-ghpages
 # firebase deploy
-ng add @angular/fire
-# Add architect for npm release
+# https://github.com/angular/angularfire/blob/master/docs/install-and-setup.md
+ng add @angular/fire # Note: add this, only after adding `@nguniversal/express-engine`
+# (optional) Add architect for npm release
 ng add ngx-deploy-npm
+#---------------------------
 # Add ngx-semantic-version (http://d-koppenhagen.de/blog/2019-11-ngx-semantic-version)
 ng add ngx-semantic-version
 #---------------------------
 # Add nebular
-ng add @nebular/theme@next
-yarn add @nebular/auth@next
-yarn add @nebular/security@next
+ng add @nebular/theme
+yarn add @nebular/auth
+yarn add @nebular/security
 yarn add -D @fortawesome/fontawesome-free
 #---------------------------------
-# Add scullyio for SSG(Static Site Generator) and Content Management
-ng add @scullyio/init
-yarn add prismjs
-# Add universal for SSR
-ng add @nguniversal/express-engine@next
-#---------------------------
 
-# Use either above nebular or below Material
-#  Add Material
-# Ref: https://material.angular.io/guide/schematics
-# Ref: https://material.angular.io/guide/getting-started
 #---------------------------------
-ng add @angular/material
-yarn add date-fns
+# compo docs
+ng add @twittwer/compodoc
+# adds a `compodoc` target to the specified project in your `angular.json`
+ng g @twittwer/compodoc:config <project> [options]
+ng g @twittwer/compodoc:config webapp --workspaceDocs
+# Generate your docs:
+ng run <project>:compodoc
+ng run webapp:compodoc
+#---------------------------------
+
+# Add ngx-markdown for SSG(Static Site Generator) and Content Management
+ng add ngx-markdown
+yarn add prismjs
+#---------------------------
 # Add Flex-Layout
 yarn add @angular/flex-layout
-# Add in-memory-web-api
+#---------------------------
+# (optional) Add in-memory-web-api
 yarn add angular-in-memory-web-api
 #---------------------------------
 # Add NGXS manually (prefered)
+# We are using NGXS for State Management and [@rx-angular/template](https://github.com/rx-angular/rx-angular/blob/master/libs/template/README.md) for zoneless Rendering System
 yarn add @ngxs/devtools-plugin @ngxs/{store,router-plugin,form-plugin,storage-plugin,devtools-plugin}
-# Or Add NGXS Automatically
-ng add @ngxs/schematics # makesure "defaultCollection" is set back to "@nrwl/schematics" in angular.json
-
+#  (optional) extra ngxs plugins
 yarn add @ngxs-labs/immer-adapter
 yarn add @ngxs-labs/select-snapshot
 yarn add immer
+# add `Push Pipe` & `Let Directive` Rendering System
+yarn add @rx-angular/template
 #---------------------------------
-
-# Add formly
+# (optional) Add formly
 ng add @ngx-formly/schematics --ui-theme=material
-
 #---------------------------------
-# Add Filepond
+#  (optional) Add Filepond
 yarn add ngx-filepond \
 filepond-plugin-file-encode \
 filepond-plugin-file-validate-size \
@@ -251,26 +182,26 @@ filepond-plugin-file-validate-type \
 filepond-plugin-image-crop \
 filepond-plugin-image-preview
 #---------------------------------
-
 # Add @UntilDestroy() to auto unsubscribe rxjs
 yarn add @ngneat/until-destroy
-
 #---------------------------------
 # Add gRPC
 yarn add google-protobuf
 yarn add -D @types/google-protobuf
 yarn add grpc-web
-
 # to generate TS interfaces from proto
 yarn add -O ts-proto
 #---------------------------------
+# for metagen CLI tool (node tools/scripts/metagen.mjs)
+yarn add -O parse-md
 
-# Add Socket.io
+# (optional) Add Socket.io
 yarn add socket.io-client
 yarn add -D @types/socket.io-client
 
-# add lite-server to test PWA locally
-yarn add -D lite-server
+#---------------------------------
+ng add @ngneat/dialog
+#---------------------------------
 
 # Add miscellaneous
 yarn add ngx-perfect-scrollbar smooth-scrollbar ngx-page-scroll screenfull
@@ -279,58 +210,68 @@ yarn add ngx-perfect-scrollbar smooth-scrollbar ngx-page-scroll screenfull
 # tools you needed in CI/CD inv
 yarn add -D loaders.css
 yarn add -D api-ai-javascript
-yarn add -D @compodoc/compodoc
 yarn add -D codecov
 yarn add -D rimraf
 
 # install without saving
 yarn add trianglify --no-save --no-lock
 
-# Add Optional Tools
+#---------------------------------
+## bundle analyzer
+# yarn add -O webpack-bundle-analyzer
+ng add @ngx-builders/analyze
+yarn global add source-map-explore # will be removed later
+# usage
+ng run [YOUR_PROJECT_NAME]:analyze --no-build
+
+# old way
+yarn add source-map-explore
+ng build --prod --sourceMap
+npx  source-map-explore dist/**/main*2015*js
+#---------------------------------
+
+### Add Optional Tools
 # tools you only needed on Dev laptop
 yarn add -O lint-staged
-yarn add -O webpack-bundle-analyzer
-yarn add -O prettier
-
 # alternative builder for nestjs (optional)
 yarn add -D ts-node-builder
 
-yarn workspace @yeti/api add  @xmlking/jwks-rsa @nestjsx/crud @nestjs/{terminus,cqrs,passport,swagger}
+yarn workspace @yeti/api add  @xmlking/jwks-rsa @nestjsx/crud @nestjs/{terminus,cqrs,passport,swagger,microservices,typeorm}
 yarn workspace @yeti/api add nodemon supertest  -O
 yarn workspace @yeti/api add @types/{helmet,passport,passport-jwt,supertest,nodemailer} -D
 
 yarn workspace @yeti/api add @grpc/proto-loader
+yarn workspace @yeti/api add grpc
 
 yarn workspace @yeti/tools add cpx --dev
 ```
 
 > update 3rd party modules/schematics
-
 > use `--allow-dirty` `--next` --force` flags as needed
 
 ```bash
 ng update
-# ng update --next
-ng update @angular/core --next
-ng update @angular/cli --next
-ng update @angular/material --force
-ng update @angular/pwa --next
+# ng update --next if needed
+ng update @angular/core
+ng update @angular/cli
+ng update @angular/material
+ng update @angular/pwa
 ng update @ngx-formly/schematics --ui-theme=material
-ng update @nrwl/workspace --next --force
-ng update @nrwl/angular --allow-dirty
-ng update @nrwl/nest --next
-ng update @scullyio/init --next
-ng update @nguniversal/express-engine —-next
+ng update @nrwl/workspace
+ng update @nrwl/angular
+ng update @nrwl/nest
+ng update @nguniversal/express-engine
 ```
 
+## Tasks
 
-### Install
+### Install Deps
 
 ```bash
 yarn
 ```
 
-### Update
+### Update Deps
 
 ```bash
 ng update
@@ -388,6 +329,7 @@ ng test <module>
 ng e2e webapp
 # headless tests (CI)
 ng e2e webapp --headless
+ng e2e webapp --headless --browser chrome
 # Production target
 ng e2e webapp --prod
 # Watching for changes
@@ -420,19 +362,6 @@ nest info
 yarn workspaces info
 ```
 
-### Production build and deployment
-
-The prod image serves the minified app (sources compiles with a minimal set of dependencies), via an Nginx server.
-It is self-contained, and can therefore be pushed to a Docker registry to be deployed somewhere else easily.
-
-To start the container, use:
-
-```bash
-docker-compose up web   # optional: --build, see below
-```
-
-Now open your browser at `http://localhost:80`
-
 ### IntelliJ/WebStorm
 
 Right click on `apps/webapp/src/styles` in project vie --> Make Directory as --> Resources Root.
@@ -441,7 +370,7 @@ Right click on `docs` in project view --> Make Directory as --> Excluded.
 Right click on `dist` in project view --> Make Directory as --> Excluded.
 Right click on `coverage` in project view --> Make Directory as --> Excluded.
 
-### Reference
+## Reference
 
 - [Nx and Angular CLI](https://github.com/nrwl/nx/wiki/Nx-and-Angular-CLI)
 - [NPM vs Yarn Cheat Sheet](https://shift.infinite.red/npm-vs-yarn-cheat-sheet-8755b092e5cc)

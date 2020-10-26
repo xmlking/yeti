@@ -21,7 +21,8 @@
       </div>
     </section>
     <section class="blog-content">
-      <scully-content></scully-content>
+      <markdown [src]="post.sourceFile" (load)="onLoad($event)" (error)="onError($event)" (ready)="onReady($event)">
+      </markdown>
     </section>
   </div>
 </div>

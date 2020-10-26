@@ -6,11 +6,11 @@ describe('AccountsGridComponent', () => {
   let component: AccountsGridComponent;
   let fixture: ComponentFixture<AccountsGridComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [AccountsGridComponent]
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [AccountsGridComponent],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AccountsGridComponent);

@@ -10,5 +10,5 @@ libs/shared                    @xmlking
 proto                          @xmlking
 
 docs/*  @xmlking
-deploy/*  @xmlking
+config/*  @xmlking
 *.go xmlking+github@email.com

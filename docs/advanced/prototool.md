@@ -13,6 +13,7 @@
 1. protoc-gen-micro
 1. protoc-gen-validate
 1. protoc-gen-grpc-gateway
+1. protoc-gen-grpc-web
 1. protoc-gen-swagger
 1. protoc-gen-grpc-java
 1. ts-protoc-gen
@@ -49,6 +50,15 @@ cd ~/go/src/github.com/envoyproxy/protoc-gen-validate
 make build
 ```
 
+> Install **protoc-gen-grpc-web**
+
+```bash
+GRPC_WEB_VERSION=1.2.0 # use latest available version
+wget -O ~/Downloads/protoc-gen-grpc-web https://github.com/grpc/grpc-web/releases/download/${GRPC_WEB_VERSION}/protoc-gen-grpc-web-${GRPC_WEB_VERSION}-darwin-x86_64
+chmod +x ~/Downloads/protoc-gen-grpc-web
+mv  ~/Downloads/protoc-gen-grpc-web /usr/local/bin/protoc-gen-grpc-web
+```
+
 > Install **protoc-gen-grpc-java**
 
 ```bash
@@ -64,7 +74,7 @@ chmod a+rx $PROTOC_PATH/protoc-gen-grpc-java
 
 If above step fail due to proxy, pre-compiled binaries for common platforms are available on Maven Central:
 
-- Navigate to https://mvnrepository.com/artifact/io.grpc/protoc-gen-grpc-java
+- Navigate to <https://mvnrepository.com/artifact/io.grpc/protoc-gen-grpc-java>
 - Click into a version
 - Click "Files"
 
@@ -80,10 +90,15 @@ prototool create proto/yeti/sumo/v1/sumo.proto
 
 ### Generate
 
-> Generating _Go/Java/JS_ from _protobuf_ definitions
+> Generating _Go/Java/JS_ from _protobuf_ definitions (skip for now)
 
 ```bash
 prototool generate proto --dry-run
 prototool generate proto
 prototool generate proto --debug
 ```
+
+## Reference
+
+- <https://github.com/grpc/grpc-web/tree/master/packages/grpc-web>
+- <https://github.com/stephenh/ts-proto>

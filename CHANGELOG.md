@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/xmlking/yeti/compare/v0.1.4...v0.1.3) (2020-10-26)
+
+
+### Features
+
+* **analyze:** switch to  Source Map Explorer ([c711ba9](https://github.com/xmlking/yeti/commit/c711ba9d56ac8e3d4b594c0ef8234c86891aae09))
+* **environment:** add dynamic config load feature ([a3d7f26](https://github.com/xmlking/yeti/commit/a3d7f265ea4161fef00220d0029a415b3064e6b4))
+* **goapi:** now using gogen lib with goapi ([c800d99](https://github.com/xmlking/yeti/commit/c800d9919b72f30b4a2cf8c450eca755c8e7ad4d))
+* **golang:** adding golang api support ([113b71e](https://github.com/xmlking/yeti/commit/113b71e2b7d819dab7a6303179221599d1bd1446))
+* **nopasswordlogin:** try adding nopasswordlogin OpenID connect provider ([f24ab1a](https://github.com/xmlking/yeti/commit/f24ab1a502a0bddeea6049dcbe48ee27fe9bba57))
+* **state:** switching from @ngrx/component to @rx-angular/template ([25afd7b](https://github.com/xmlking/yeti/commit/25afd7b990e6f82ab16c35385b5354b6bd38e4f8))
+
+
+### Bug Fixes
+
+* **api:** fix tls issue for REST API ([bf88863](https://github.com/xmlking/yeti/commit/bf88863c65364906c33bb186f4a5d77a54fda085))
+* **deps:** pin dependency @rx-angular/template to 1.0.0-beta.0 ([d0ba022](https://github.com/xmlking/yeti/commit/d0ba022358eb5cd7fb7aa77aeef3496f52dcbfae))
+* **deps:** try to fix Dependabot alerts ([85c5dc9](https://github.com/xmlking/yeti/commit/85c5dc986f68abae167278557d5b9a2ea6439218))
+* **deps:** update dependency @angular/flex-layout to v9.0.0-beta.30 ([28a7f2c](https://github.com/xmlking/yeti/commit/28a7f2c3d25292df861d028ac2a5f3232f7d95f3))
+* **deps:** update dependency @nguniversal/express-engine to v9.1.1 ([d6eb19b](https://github.com/xmlking/yeti/commit/d6eb19bd2434d71a95a208e713a49b4618e1dfe3))
+
 ### 0.1.2 (2020-02-10)
 
 

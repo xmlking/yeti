@@ -106,3 +106,33 @@ proto_format:
 	@prototool format -w proto;
 	@echo "✓ Proto: Formated"
 
+################################################################################
+# Target: go-mod                                                               #
+################################################################################
+
+update_deps:
+	@for d in `find . -name 'go.mod' ! -path "./node_modules/*"`; do \
+		pushd `dirname $$d` >/dev/null; \
+		go mod verify; \
+		go mod tidy; \
+		popd >/dev/null; \
+	done
+
+# @for d in `find *  -name 'go.mod'`; do \
+
+download_deps:
+	@for d in `find . -name 'go.mod' ! -path "./node_modules/*"`; do \
+		pushd `dirname $$d` >/dev/null; \
+		rm -f go.sum; \
+		go mod download; \
+		popd >/dev/null; \
+	done
+
+release: download_deps
+	@if [ -z $(TAG) ]; then \
+		echo "no  TAG. Usage: make release TAG=v0.1.1"; \
+	else \
+		for m in `find * -name 'go.mod' -mindepth 1 -exec dirname {} \;`; do \
+			hub release create -m "$$m/${TAG} release" $$m/${TAG}; \
+		done \
+	fi

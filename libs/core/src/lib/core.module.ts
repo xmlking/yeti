@@ -1,5 +1,6 @@
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule, Optional, SkipSelf } from '@angular/core';
+// tslint:disable-next-line: nx-enforce-module-boundaries
 import { environment } from '@env/environment';
 import {
   NbAuthJWTToken,
@@ -24,7 +25,8 @@ import { NgxsSelectSnapshotModule } from '@ngxs-labs/select-snapshot';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';
 import { NgxsRouterPluginModule, RouterStateSerializer } from '@ngxs/router-plugin';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
-import { NgxsModule } from '@ngxs/store';
+import { NgxsModule, NoopNgxsExecutionStrategy } from '@ngxs/store';
+import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 import { AuthHandler } from './handler/auth.handler';
 import { RouteHandler } from './handler/route.handler';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
@@ -67,17 +69,19 @@ export function noop() {
             endpoint: `${environment.auth.google.issuer}/o/oauth2/v2/auth`,
             responseType: NbOAuth2ResponseType.TOKEN,
             scope: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
-            redirectUri: environment.baseUrl + 'home/callback'
+            redirectUri: environment.baseUrl + 'home/callback',
           },
           redirect: {
             success: '/dashboard', // welcome page path
-            failure: undefined // stay on the same page
-          }
+            failure: undefined, // stay on the same page
+          },
         }),
         NbGenericOAuth2Strategy.setup({
+          // tslint:disable-next-line: max-line-length
           // Firebase https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration
           // https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/
           // https://www.scottbrady91.com/OpenID-Connect/Implementing-Sign-In-with-Apple-in-ASPNET-Core
+          // https://api.nopasswordlogin.com/.well-known/openid-configuration
           name: 'github',
           clientId: environment.auth.generic.clientId,
           clientSecret: environment.auth.generic.clientSecret,
@@ -85,60 +89,79 @@ export function noop() {
           authorize: {
             endpoint: `${environment.auth.generic.issuer}`,
             responseType: NbOAuth2ResponseType.CODE,
-            redirectUri: environment.baseUrl + 'home/callback'
+            redirectUri: environment.baseUrl + 'home/callback',
           },
           token: {
             endpoint: `${environment.auth.generic.issuer}/oauth/access_token`,
             grantType: NbOAuth2GrantType.AUTHORIZATION_CODE,
             class: NbAuthJWTToken,
-            redirectUri: environment.baseUrl + 'home/callback'
+            redirectUri: environment.baseUrl + 'home/callback',
           },
           redirect: {
             success: '/dashboard', // welcome page path
-            failure: undefined // stay on the same page
-          }
-        })
-      ]
+            failure: undefined, // stay on the same page
+          },
+        }),
+      ],
     }),
     NbSecurityModule.forRoot(),
     NgxsModule.forRoot([AuthState], {
-      developmentMode: !environment.production
+      developmentMode: !environment.production,
+      compatibility: {
+        strictContentSecurityPolicy: true,
+      },
+      executionStrategy: NoopNgxsExecutionStrategy,
     }),
     NgxsSelectSnapshotModule.forRoot(),
     NgxsStoragePluginModule.forRoot({
-      key: ['auth']
+      key: ['auth'],
       // key: ['preference', 'app.installed', 'auth.authenticated']
     }),
     NgxsFormPluginModule.forRoot(),
     NgxsRouterPluginModule.forRoot(),
-    environment.plugins
+    MarkdownModule.forRoot({
+      loader: HttpClient, // optional, only if you use [src] attribute
+      markedOptions: {
+        provide: MarkedOptions,
+        useValue: {
+          gfm: true,
+          tables: true,
+          breaks: false,
+          pedantic: false,
+          sanitize: false,
+          smartLists: true,
+          smartypants: false,
+        },
+      },
+    }),
+    environment.plugins,
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
-      multi: true
+      multi: true,
     },
     {
       provide: APP_INITIALIZER,
       useFactory: appConfigInitializerFn,
       deps: [AppConfigService],
-      multi: true
+      multi: true,
     },
     {
       provide: APP_INITIALIZER,
       useFactory: noop,
       deps: [
         // RouteHandler,
-        AuthHandler
+        AuthHandler,
       ],
-      multi: true
+      multi: true,
     },
     {
       provide: RouterStateSerializer,
-      useClass: CustomRouterStateSerializer
-    }
-  ]
+      useClass: CustomRouterStateSerializer,
+    },
+  ],
 })
 export class CoreModule {
   // HINT: RouteHandler is injected here to avoid cyclic dependency! issues with APP_INITIALIZER
@@ -153,11 +176,11 @@ export class CoreModule {
     // register fortawesome
     iconLibraries.registerFontPack('fas', {
       packClass: 'fas',
-      iconClassPrefix: 'fa'
+      iconClassPrefix: 'fa',
     });
     iconLibraries.registerFontPack('far', {
       packClass: 'far',
-      iconClassPrefix: 'fa'
+      iconClassPrefix: 'fa',
     });
   }
 }

@@ -1,44 +1,29 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { ScullyRoute, ScullyRoutesService } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Content, ContentService } from '../../services/content.service';
 
 @Component({
   selector: 'yeti-blog-preview',
   templateUrl: './blog-preview.component.html',
   styleUrls: ['./blog-preview.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogPreviewComponent implements OnInit {
   @Input() max: number;
   @Input() keyword: string;
-  blogPostData$: Observable<ScullyRoute[]>;
+  posts$: Observable<Content[]>;
 
-  constructor(private srs: ScullyRoutesService) {}
+  constructor(private cs: ContentService) {}
 
   ngOnInit() {
-    this.blogPostData$ = this.srs.available$.pipe(
-      map(routeList => {
-        // prettier-ignore
-        return routeList.filter((route: ScullyRoute) =>
-          route.route.startsWith(`/home/blog/`)
-        );
-      }),
-      map(routeList => {
-        if (!this.keyword) {
-          return routeList;
-        }
-        // prettier-ignore
-        return routeList.filter((route: ScullyRoute) =>
-          route.keywords.includes(this.keyword)
-        );
-      }),
-      map(routeList => {
-        if (this.max) {
-          routeList = routeList.slice(0, this.max);
-        }
-        return routeList.reverse();
-      })
+    this.posts$ = this.cs.publishedContent$.pipe(
+      map((posts) =>
+        posts
+          .filter((post) => post.route.startsWith(`/home/blog/`))
+          .filter((post) => (this.keyword ? post.keywords.includes(this.keyword) : true))
+          .map((filteredPosts) => (this.max ? filteredPosts.slice(0, this.max) : filteredPosts))
+      )
     );
   }
 }

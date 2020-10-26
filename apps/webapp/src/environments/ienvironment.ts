@@ -1,5 +1,5 @@
 // import { OidcProviderConfig } from '@ngx-starter-kit/oidc';
-import { ModuleWithProviders } from '@angular/core';
+import { InjectionToken, ModuleWithProviders } from '@angular/core';
 
 export type LogLevel = 'debug' | 'info' | 'warn' | 'error';
 
@@ -18,3 +18,6 @@ export interface IEnvironment {
     [key: string]: boolean;
   };
 }
+
+// AppConfig Token
+export const APP_CONFIG = new InjectionToken<IEnvironment>('App Config');

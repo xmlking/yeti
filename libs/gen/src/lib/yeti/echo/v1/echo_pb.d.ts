@@ -2,7 +2,7 @@ import * as jspb from "google-protobuf"
 
 export class EchoRequest extends jspb.Message {
   getMessage(): string;
-  setMessage(value: string): void;
+  setMessage(value: string): EchoRequest;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): EchoRequest.AsObject;
@@ -20,7 +20,7 @@ export namespace EchoRequest {
 
 export class EchoResponse extends jspb.Message {
   getMessage(): string;
-  setMessage(value: string): void;
+  setMessage(value: string): EchoResponse;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): EchoResponse.AsObject;

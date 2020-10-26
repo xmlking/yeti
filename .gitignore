@@ -50,14 +50,22 @@ Thumbs.db
 # Environment variables
 .env
 
-# Scully
-scully-routes.json
-
 # Firebase
 .firebase
 
+# Book build output
+_book/
+
+# eBook build output
+*.epub
+*.mobi
+*.pdf
+
+# appctl
+.appctlconfig
+.deployment/
+
 # Project
 TODO
-deploy/overlays/e2e/secrets/.dockerconfigjson
-deploy/overlays/production/secrets/.dockerconfigjson
-deploy/overlays/consul/secrets/.dockerconfigjson
+config/base/secrets/.dockerconfigjson
+tsconfig.nx-tmp

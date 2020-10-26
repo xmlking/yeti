@@ -6,17 +6,19 @@ Do-it-yourself step-by-step instructions to create this project structure from s
 
 ### Prerequisites
 
-> you need following tools. versions listed here are minimal versions tested.
+you need following tools. versions listed here are minimal versions tested.
+
+> Recommended to install latest versions available
 
 | Software        | Version | Optional |
 | --------------- | ------- | -------- |
-| Node            | v13.5.0 |          |
-| Yarn            | v1.21.1 |          |
+| Node            | v13.12.0|          |
+| Yarn            | v1.22.4 |          |
 | Lerna           | v3.20.2 |          |
-| Angular CLI     | v9.0.0  |          |
-| @nrwl/workspace | v9.0.0  |          |
-| @nestjs/cli     | v6.13.2 |          |
-| commitizen      | v4.0.3  |          |
+| Angular CLI     | v9.1.1  |          |
+| @nrwl/workspace | v9.2.2  |          |
+| @nestjs/cli     | v7.1.2  |          |
+| commitizen      | v4.0.4  |          |
 
 ### Install Prerequisites
 
@@ -28,6 +30,48 @@ brew install node
 brew install yarn
 #brew upgrade yarn
 yarn config set workspaces-experimental true
+yarn config set ignore-engines true
 yarn global add lerna
 brew cleanup
+```
+
+## Configuration
+
+### VSCode
+
+Codelyzer should work out of the box with Atom but for __VSCode__ you will have to open `Code > Preferences > User Settings`, and enter the following config:
+
+```json
+{
+  "tslint.rulesDirectory": "./node_modules/codelyzer",
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
+```
+
+### Chrome
+
+Install [redux-devtools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en) for Chrome (optional)
+
+### Install Kubernetes (optional)
+
+follow instructions [here](https://gist.github.com/xmlking/62ab53753c0f0f5247d0e174b31dab21) to install kubernetes toolchain:
+
+1. Docker for Mac (edge version)
+2. Helm (optional)
+3. kubectx (optional)
+
+### Install Bazel (optional)
+
+For Mac, install via Brew. [Instructions](https://docs.bazel.build/versions/master/install-os-x.html#install-on-mac-os-x-homebrew)
+
+```bash
+brew install bazel
+bazel version
+# you can upgrade to a newer version of Bazel with:
+brew upgrade bazel
+
+# if needed
+sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+sudo xcodebuild -license
+bazel clean --expunge
 ```
