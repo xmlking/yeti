@@ -34,14 +34,14 @@ yarn run release --release-as 1.1.0 --dry-run
 
 ```bash
 # from develop branch start a new release branch (use next version)
-git flow release start '0.1.1'
+git flow release start '0.1.4'
 # on release branch, do any release changes e.g., generate `CompoDoc`
 # then update CHANGELOG, Bump version and Commit both with:
-yarn run release --dry-run
+yarn run release
 # Optinally publish this release (if you have CI actions to do)
 git flow release publish
 # now finish release. you have to commit 3 times.
-git flow release finish  '0.1.1'
+git flow release finish
 # now you are back to develop. push all changes to remote
 # git push origin --all && git push origin --tags
 gpoat
