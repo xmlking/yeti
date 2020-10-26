@@ -7,7 +7,7 @@ import {
   NbAuthModule,
   NbOAuth2ClientAuthMethod,
   NbOAuth2GrantType,
-  NbOAuth2ResponseType,
+  NbOAuth2ResponseType
 } from '@nebular/auth';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbSecurityModule } from '@nebular/security';
@@ -19,7 +19,7 @@ import {
   NbSidebarModule,
   NbThemeModule,
   NbToastrModule,
-  NbWindowModule,
+  NbWindowModule
 } from '@nebular/theme';
 import { NgxsSelectSnapshotModule } from '@ngxs-labs/select-snapshot';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';

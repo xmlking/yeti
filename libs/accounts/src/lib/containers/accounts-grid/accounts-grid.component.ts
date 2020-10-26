@@ -28,6 +28,7 @@ export class AccountsGridComponent implements OnInit {
         this.token = token.getValue();
         console.log(token.getPayload());
         console.log(token.getName());
+        console.log(this.token);
       }
     });
   }
