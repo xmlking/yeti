@@ -203,6 +203,15 @@ yarn add -D @types/socket.io-client
 ng add @ngneat/dialog
 #---------------------------------
 
+#---------------------------------
+# add  Convoyr plugins
+# Enriching HTTP clients with capabilities related to security, performance or resilience
+yarn add @convoyr/core
+yarn add @convoyr/plugin-auth
+yarn add @convoyr/plugin-cache
+yarn add @convoyr/plugin-retry
+#---------------------------------
+
 # Add miscellaneous
 yarn add ngx-perfect-scrollbar smooth-scrollbar ngx-page-scroll screenfull
 

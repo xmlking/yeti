@@ -38,7 +38,7 @@ git flow release start '0.1.4'
 # on release branch, do any release changes e.g., generate `CompoDoc`
 # then update CHANGELOG, Bump version and Commit both with:
 yarn run release
-# Optinally publish this release (if you have CI actions to do)
+# Optionally publish this release (if you have CI actions to do)
 git flow release publish
 # now finish release. you have to commit 3 times.
 git flow release finish

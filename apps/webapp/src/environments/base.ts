@@ -1,4 +1,4 @@
-import * as packageJson from '../../../../package.json';
+import packageJson from '../../../../package.json';
 
 const base = document.querySelector('base'); // FIXME: SSR don't have `document`
 

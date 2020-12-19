@@ -4,6 +4,7 @@
     "baseUrl": ".",
     "rootDir": ".",
     "outDir": "./dist",
+    "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
