@@ -107,7 +107,7 @@
     "@nebular/auth": "v7.0.0-beta.1",
     "@nebular/eva-icons": "v7.0.0-beta.1",
     "@nebular/security": "v7.0.0-beta.1",
-    "@nebular/theme": "v7.0.0-beta.1",
+    "@nebular/theme": "7.0.0-beta.2",
     "@ngneat/until-destroy": "8.0.3",
     "@nguniversal/express-engine": "11.0.1",
     "@ngxs-labs/select-snapshot": "2.0.1",
