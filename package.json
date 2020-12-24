@@ -106,7 +106,7 @@
     "@angular/service-worker": "11.0.5",
     "@nebular/auth": "v7.0.0-beta.1",
     "@nebular/eva-icons": "v7.0.0-beta.1",
-    "@nebular/security": "v7.0.0-beta.1",
+    "@nebular/security": "7.0.0-beta.2",
     "@nebular/theme": "v7.0.0-beta.1",
     "@ngneat/until-destroy": "8.0.3",
     "@nguniversal/express-engine": "11.0.1",
