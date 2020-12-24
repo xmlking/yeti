@@ -2169,10 +2169,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@nebular/auth@v7.0.0-beta.1":
-  version "7.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@nebular/auth/-/auth-7.0.0-beta.1.tgz#9fda47debe6aea75e16d14f3e3ff0800f7d8408b"
-  integrity sha512-uQoVJZsSFIyKeYSdaRuJDK1Y1MQTPT1P2wh4PUWhWr85xzM+P4VvHMjmOYfrIQNsoJB4gnFTNJgnon7JX+P2MQ==
+"@nebular/auth@7.0.0-beta.2":
+  version "7.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@nebular/auth/-/auth-7.0.0-beta.2.tgz#bca9d2b36ef66c97dd779ba55d284902f2ca9fa8"
+  integrity sha512-a2LkncGfwCQ88X8SdRKWULLSJ582Zlp0o+L1LwsHMBExLE/EPyWprIH/hBpR4mKQgzqVf4gA1GsT19OVKSbAgA==
 
 "@nebular/eva-icons@v7.0.0-beta.1":
   version "7.0.0-beta.1"
