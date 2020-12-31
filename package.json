@@ -125,7 +125,7 @@
     "grpc-web": "1.2.1",
     "ngx-auto-unsubscribe": "3.0.1",
     "ngx-markdown": "11.0.1",
-    "prismjs": "1.22.0",
+    "prismjs": "1.23.0",
     "reflect-metadata": "0.1.13",
     "rxjs": "6.6.3",
     "zone.js": "0.11.3"
