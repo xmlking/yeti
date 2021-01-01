@@ -25,6 +25,9 @@
 
   <br />
 
+  <a href="https://github.com/xmlking/yeti/actions?query=workflow%3ACodeQL">
+  <img alt="Total alerts" src="https://github.com/xmlking/yeti/workflows/CodeQL/badge.svg"/>
+  </a>
   <a href="https://lgtm.com/projects/g/xmlking/yeti/alerts/">
   <img alt="Total alerts" src="https://img.shields.io/lgtm/alerts/g/xmlking/yeti.svg?logo=lgtm&logoWidth=18"/>
   </a>
