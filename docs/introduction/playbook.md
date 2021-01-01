@@ -259,7 +259,7 @@ yarn workspace @yeti/tools add cpx --dev
 > use `--allow-dirty` `--next` --force` flags as needed
 
 ```bash
-ng update
+nx migrate latest
 # ng update --next if needed
 ng update @angular/core
 ng update @angular/cli
