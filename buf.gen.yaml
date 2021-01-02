@@ -1,0 +1,17 @@
+version: v1beta1
+plugins:
+  - name: go
+    out: ./libs/golib
+    opt: paths=source_relative
+  - name: go-grpc
+    out: ./libs/golib
+    opt: paths=source_relative,require_unimplemented_servers=false
+  - name: validate
+    out: ./libs/golib
+    opt: lang=go,paths=source_relative
+
+#  - name: descriptor_set
+#    out: ./descriptor
+#    file_sufix: bin
+#    include_imports: true
+#    include_source_info: true

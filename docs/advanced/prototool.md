@@ -10,7 +10,6 @@
 1. clang-format
 1. proto
 1. protoc-gen-go
-1. protoc-gen-micro
 1. protoc-gen-validate
 1. protoc-gen-grpc-gateway
 1. protoc-gen-grpc-web
@@ -40,43 +39,21 @@ GO111MODULE=on go get github.com/bufbuild/buf/cmd/buf
 # VS Code plugin `vscode-proto3` need clang-format
 brew install clang-format
 # fetch protoc plugins into $GOPATH
-GO111MODULE=off go get github.com/golang/protobuf/{proto,protoc-gen-go}
-GO111MODULE=off go get github.com/micro/protoc-gen-micro
+GO111MODULE=on go get google.golang.org/protobuf/cmd/protoc-gen-go
+GO111MODULE=on go get google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.0
+
 GO111MODULE=on go get github.com/grpc-ecosystem/grpc-gateway/{protoc-gen-grpc-gateway,protoc-gen-swagger}
-# validate protoc plugin
-# Installing PGV can currently only be done from source:
+```
+
+> Installing PGV can currently only be done from source:
+
+```bash
 go get -d github.com/envoyproxy/protoc-gen-validate
 cd ~/go/src/github.com/envoyproxy/protoc-gen-validate
+git pull
 make build
 ```
 
-> Install **protoc-gen-grpc-web**
-
-```bash
-GRPC_WEB_VERSION=1.2.0 # use latest available version
-wget -O ~/Downloads/protoc-gen-grpc-web https://github.com/grpc/grpc-web/releases/download/${GRPC_WEB_VERSION}/protoc-gen-grpc-web-${GRPC_WEB_VERSION}-darwin-x86_64
-chmod +x ~/Downloads/protoc-gen-grpc-web
-mv  ~/Downloads/protoc-gen-grpc-web /usr/local/bin/protoc-gen-grpc-web
-```
-
-> Install **protoc-gen-grpc-java**
-
-```bash
-PROTOC_JAVA_GRPC_VERSION=1.27.0
-OS=osx
-PROTOC_PATH=/usr/local/bin
-# ORIGIN=http://central.maven.org/maven2/io/grpc/protoc-gen-grpc-java
-ORIGIN=https://repo1.maven.org/maven2/io/grpc/protoc-gen-grpc-java
-curl -fsSL -k $ORIGIN/$PROTOC_JAVA_GRPC_VERSION/protoc-gen-grpc-java-$PROTOC_JAVA_GRPC_VERSION-$OS-x86_64.exe \
--o $PROTOC_PATH/protoc-gen-grpc-java && \
-chmod a+rx $PROTOC_PATH/protoc-gen-grpc-java
-```
-
-If above step fail due to proxy, pre-compiled binaries for common platforms are available on Maven Central:
-
-- Navigate to <https://mvnrepository.com/artifact/io.grpc/protoc-gen-grpc-java>
-- Click into a version
-- Click "Files"
 
 ## Developer Workflow
 

@@ -1,110 +1,90 @@
-SHELL := /usr/bin/env bash -o pipefail
+ # Usage:
+ # make        	# compile all binary
+ # make clean  	# remove ALL binaries and objects
+ # make release  # add git TAG and push
+ GITHUB_REPO_OWNER 				:= xmlking
+ GITHUB_REPO_NAME 					:= yeti
+ GITHUB_RELEASES_UI_URL 		:= https://github.com/$(GITHUB_REPO_OWNER)/$(GITHUB_REPO_NAME)/releases
+ GITHUB_RELEASES_API_URL 	:= https://api.github.com/repos/$(GITHUB_REPO_OWNER)/$(GITHUB_REPO_NAME)/releases
+ GITHUB_RELEASE_ASSET_URL	:= https://uploads.github.com/repos/$(GITHUB_REPO_OWNER)/$(GITHUB_REPO_NAME)/releases
+ GITHUB_DEPLOY_API_URL			:= https://api.github.com/repos/$(GITHUB_REPO_OWNER)/$(GITHUB_REPO_NAME)/deployments
+ DOCKER_REGISTRY 					:= ghcr.io
+ # DOCKER_REGISTRY 					:= us.gcr.io
+ DOCKER_CONTEXT_PATH 			:= $(GITHUB_REPO_OWNER)/$(GITHUB_REPO_NAME)
+ # DOCKER_REGISTRY 					:= docker.io
+ # DOCKER_CONTEXT_PATH 			:= xmlking
+ BASE_VERSION					:= latest
 
-# This controls the location of the cache.
-PROJECT := yeti
-# This controls the remote HTTPS git location to compare against for breaking changes in CI.
-#
-# Most CI providers only clone the branch under test and to a certain depth, so when
-# running buf check breaking in CI, it is generally preferable to compare against
-# the remote repository directly.
-#
-# Basic authentication is available, see https://buf.build/docs/inputs#https for more details.
-HTTPS_GIT := https://github.com/xmlking/yeti.git
-# This controls the remote SSH git location to compare against for breaking changes in CI.
-#
-# CI providers will typically have an SSH key installed as part of your setup for both
-# public and private repositories. Buf knows how to look for an SSH key at ~/.ssh/id_rsa
-# and a known hosts file at ~/.ssh/known_hosts or /etc/ssh/known_hosts without any further
-# configuration. We demo this with CircleCI.
-#
-# See https://buf.build/docs/inputs#ssh for more details.
-SSH_GIT := ssh://git@github.com/bufbuild/buf-example.git
-# This controls the version of buf to install and use.
-BUF_VERSION := 0.7.0
+ VERSION					:= $(shell git describe --tags || echo "HEAD")
+ GOPATH					:= $(shell go env GOPATH)
+ CODECOV_FILE 		:= build/coverage.txt
+ TIMEOUT  				:= 60s
+ # don't override
+ GIT_TAG					:= $(shell git describe --tags --abbrev=0 --always --match "v*")
+ GIT_DIRTY 			:= $(shell git status --porcelain 2> /dev/null)
+ GIT_BRANCH  		:= $(shell git rev-parse --abbrev-ref HEAD)
+ HAS_GOVVV				:= $(shell command -v govvv 2> /dev/null)
+ HAS_PKGER				:= $(shell command -v pkger 2> /dev/null)
+ HAS_KO					:= $(shell command -v ko 2> /dev/null)
+ HTTPS_GIT 				:= https://github.com/$(GITHUB_REPO_OWNER)/$(GITHUB_REPO_NAME).git
 
-### Everything below this line is meant to be static, i.e. only adjust the above variables. ###
+ # Type of service e.g api, service, web, cmd (default: "service")
+ TYPE = $(or $(word 2,$(subst -, ,$*)), service)
+ override TYPES:= service
+ # Target for running the action
+ TARGET = $(word 1,$(subst -, ,$*))
 
-UNAME_OS := $(shell uname -s)
-UNAME_ARCH := $(shell uname -m)
-# Buf will be cached to ~/.cache/buf-example.
-CACHE_BASE := $(HOME)/.cache/$(PROJECT)
-# This allows switching between i.e a Docker container and your local setup without overwriting.
-CACHE := $(CACHE_BASE)/$(UNAME_OS)/$(UNAME_ARCH)
-# The location where buf will be installed.
-CACHE_BIN := $(CACHE)/bin
-# Marker files are put into this directory to denote the current version of binaries that are installed.
-CACHE_VERSIONS := $(CACHE)/versions
+ override VERSION_PACKAGE = $(shell go list ./internal/config)
+ BUILD_FLAGS = $(shell govvv -flags -version $(VERSION) -pkg $(VERSION_PACKAGE))
 
-# Update the $PATH so we can use buf directly
-export PATH := $(abspath $(CACHE_BIN)):$(PATH)
+ # $(warning TYPES = $(TYPE), TARGET = $(TARGET))
+ # $(warning VERSION = $(VERSION), HAS_GOVVV = $(HAS_GOVVV), HAS_KO = $(HAS_KO))
+ # $(warning VERSION_PACKAGE = $(VERSION_PACKAGE), BUILD_FLAGS = $(BUILD_FLAGS))
 
-# BUF points to the marker file for the installed version.
-#
-# If BUF_VERSION is changed, the binary will be re-downloaded.
-BUF := $(CACHE_VERSIONS)/buf/$(BUF_VERSION)
-$(BUF):
-	@rm -f $(CACHE_BIN)/buf
-	@mkdir -p $(CACHE_BIN)
-	curl -sSL \
-		"https://github.com/bufbuild/buf/releases/download/v$(BUF_VERSION)/buf-$(UNAME_OS)-$(UNAME_ARCH)" \
-		-o "$(CACHE_BIN)/buf"
-	chmod +x "$(CACHE_BIN)/buf"
-	@rm -rf $(dir $(BUF))
-	@mkdir -p $(dir $(BUF))
-	@touch $(BUF)
+ .PHONY: all tools check_dirty clean update_dep
+ .PHONY: proto proto_lint proto_breaking proto_format proto_generate proto_shared
+ .PHONY: lint lint-% upgrade_deps
+ .PHONY: format format-%
 
-.DEFAULT_GOAL := local
+ all: build
 
-# deps allows us to install deps without running any checks.
+################################################################################
+# Target: proto                                                                #
+################################################################################
 
-.PHONY: deps
-deps: $(BUF)
+proto_clean:
+	@echo "Deleting generated Go files....";
+	@for f in ./mkit/**/**/**/**/*.pb.*; do \
+		echo ✓ deleting: $$f; \
+		rm -f $$f; \
+	done
+	@for f in ./mkit/**/**/**/*.pb.*; do \
+		echo ✓ deleting: $$f; \
+		rm -f $$f; \
+	done
 
-# local is what we run when testing locally.
-# This does breaking change detection against our local git repository.
+proto_lint:
+	@echo "Linting protos";
+	@${GOPATH}/bin/buf check lint
 
-.PHONY: local
-local: $(BUF)
-	buf check lint
-	buf check breaking --against-input '.git#branch=master'
+proto_breaking:
+	@echo "Checking proto breaking changes";
+	@${GOPATH}/bin/buf check breaking --against '.git#branch=master'
+#	@${GOPATH}/bin/buf check breaking --against "$(HTTPS_GIT)#branch=master"
 
-# https is what we run when testing in most CI providers.
-# This does breaking change detection against our remote HTTPS git repository.
+# I prefer VS Code's proto plugin to format my code then prototool
+proto_format: proto_lint
+	@echo "Formatting protos";
+	@${GOPATH}/bin/prototool format -w proto;
+	@echo "✓ Proto: Formatted"
 
-.PHONY: https
-https: $(BUF)
-	buf check lint
-	buf check breaking --against-input "$(HTTPS_GIT)#branch=master"
+proto_check: proto_lint proto_breaking proto_format
 
-# ssh is what we run when testing in CI providers that provide ssh public key authentication.
-# This does breaking change detection against our remote HTTPS ssh repository.
-# This is especially useful for private repositories.
+proto_generate:
+	@echo "Generating protos";
+	@${GOPATH}/bin/buf generate --path proto/yeti;
 
-.PHONY: ssh
-ssh: $(BUF)
-	buf check lint
-	buf check breaking --against-input "$(SSH_GIT)#branch=master"
-
-# clean deletes any files not checked in and the cache for all platforms.
-
-.PHONY: clean
-clean:
-	git clean -xdf
-	rm -rf $(CACHE_BASE)
-
-# generate Go/Java/JS
-
-.PHONY: proto
-proto:
-	@prototool generate proto
-	@echo "✓ Proto: Go/Java/JS Generated"
-
-# format proto files
-
-.PHONY: proto_format
-proto_format:
-	@prototool format -w proto;
-	@echo "✓ Proto: Formated"
+proto: proto_check proto_clean proto_generate
 
 ################################################################################
 # Target: go-mod                                                               #

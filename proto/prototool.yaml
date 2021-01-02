@@ -2,64 +2,13 @@
 
 # Paths to exclude when searching for Protobuf files.
 excludes:
+  - e2e
+  - build
   - dist
   - node_modules
 
 # Protoc directives.
 protoc:
-  version: 3.11.3
+  version: 3.13.0
   includes:
     - ../third_party/proto
-
-# Create directives.
-create:
-  packages:
-    # This means that a file created "sumo.proto" in the `proto/yeti/sumo/v1` directory will have package "yeti.sumo.v1".
-    - directory: proto/yeti
-      name: yeti
-
-# Code generation directives.
-generate:
-  go_options:
-    import_path: github.com/xmlking/yeti/proto
-    extra_modifiers:
-      google/api/annotations.proto: google.golang.org/genproto/googleapis/api/annotations
-      google/api/http.proto: google.golang.org/genproto/googleapis/api/annotations
-
-  plugins:
-    # - name: descriptor_set
-    #   file_suffix: bin
-    #   include_imports: true
-    #   include_source_info: true
-    #   output: ../gen/descriptor
-
-    - name: go
-      flags: plugins=grpc,paths=source_relative
-      output: ../libs/golib
-      type: go
-    - name: validate
-      flags: lang=go,paths=source_relative
-      output: ../libs/golib
-      type: go
-    # - name: grpc-gateway
-    #   output: ../gen/go
-    #   type: go
-
-    # - name: swagger
-    #   output: ../gen/swagger
-    #   type: go
-
-    # - name: js
-    #   flags: binary,import_style=commonjs
-    #   output: ../gen/js
-    # - name: ts
-    #   flags: service=grpc-web
-    #   output: ../gen/js
-
-    # - name: java
-    #   output: ../gen/java/src/main/java
-    # - name: grpc-java
-    #   output: ../gen/java/src/main/java
-    # - name: validate
-    #   flags: lang=java
-    #   output: ../gen/java/src/main/java
