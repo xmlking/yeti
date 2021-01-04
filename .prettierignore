@@ -13,7 +13,6 @@
 node_modules
 
 /libs/gen
-apps/api/src/app/echo/interfaces/echo.ts
 
 # package.json
 # angular.json

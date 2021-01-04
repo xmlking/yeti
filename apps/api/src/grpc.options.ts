@@ -2,7 +2,8 @@ import { GrpcOptions, Transport } from '@nestjs/microservices';
 import { ServerCredentials } from 'grpc';
 // import { ServerCredentials } from '@grpc/grpc-js';
 import { join } from 'path';
-import { environment as env } from './environments/environment';
+import { environment as env } from '@env-api/environment';
+import { YETI_ECHO_V1_PACKAGE_NAME } from '@yeti/gen/nest';
 
 const protoDir = join(__dirname, '.', 'proto');
 const port = env.server.grpcPort ?? 5000;
@@ -26,7 +27,7 @@ export const grpcOptions: GrpcOptions = {
   transport: Transport.GRPC,
   options: {
     url: `${host}:${port}`,
-    package: ['yeti.common.v1', 'yeti.echo.v1', 'yeti.account.v1'],
+    package: ['yeti.common.v1', YETI_ECHO_V1_PACKAGE_NAME, 'yeti.account.v1'],
     protoPath: ['yeti/common/v1/common.proto', 'yeti/echo/v1/echo.proto', 'yeti/account/v1/account.proto'],
     ...credentials,
     loader: {

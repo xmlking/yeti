@@ -1,4 +1,7 @@
+# See https://docs.buf.build/generate-usage.
+
 version: v1beta1
+
 plugins:
   - name: go
     out: ./libs/golib
@@ -9,9 +12,47 @@ plugins:
   - name: validate
     out: ./libs/golib
     opt: lang=go,paths=source_relative
+    strategy: directory
+
+  ### for grpcweb ###
+  - name: js
+    out: libs/gen/grpcweb/src/lib
+    opt: import_style=commonjs,binary
+  - name: grpc-web
+    out: libs/gen/grpcweb/src/lib
+    opt: import_style=typescript,mode=grpcwebtext
+  - name: ts_proto
+    out: libs/gen/grpcweb2/src/lib
+    opt: outputClientImpl=grpc-web
+    path: ./node_modules/.bin/protoc-gen-ts_proto
+    strategy: all
+
+  ### for node ###
+  - name: js
+    out: libs/gen/node/src/lib
+    opt: import_style=commonjs,binary
+  - name: grpc-node
+    out: libs/gen/node/src/lib
+    opt: grpc_js
+    path: node_modules/.bin/grpc_tools_node_protoc_plugin
+  - name: ts
+    out: libs/gen/node/src/lib
+    opt: grpc_js
+    path: ./node_modules/.bin/protoc-gen-ts
+
+  ### for nestjs ###
+  - name: ts_proto
+    out: libs/gen/nest/src/lib
+    # opt: nestJs=true,addGrpcMetadata=true,addNestjsRestParameter=true
+    opt: nestJs=true,addGrpcMetadata=true
+    path: ./node_modules/.bin/protoc-gen-ts_proto
+    strategy: all
+
+
 
 #  - name: descriptor_set
 #    out: ./descriptor
+#    strategy: directory
 #    file_sufix: bin
 #    include_imports: true
 #    include_source_info: true

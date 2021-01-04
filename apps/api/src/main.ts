@@ -2,7 +2,7 @@ import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app/app.module';
 import { ConfigService } from './app/config';
-import { environment as env } from './environments/environment';
+import { environment as env } from '@env-api/environment';
 import { grpcOptions } from './grpc.options';
 
 async function bootstrap() {

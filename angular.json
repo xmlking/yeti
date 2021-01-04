@@ -293,7 +293,7 @@
           "options": {
             "linter": "eslint",
             "tsConfig": ["apps/api/tsconfig.app.json", "apps/api/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!apps/api/**/*", "apps/api/src/app/echo/interfaces/yeti/echo/v1/echo.ts"]
+            "exclude": ["**/node_modules/**", "!apps/api/**/*"]
           }
         },
         "test": {
@@ -311,29 +311,6 @@
             "passWithNoTests": true
           },
           "outputs": ["coverage/apps/api"]
-        }
-      }
-    },
-    "gen": {
-      "root": "libs/gen",
-      "sourceRoot": "libs/gen/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": ["libs/gen/tsconfig.lib.json", "libs/gen/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "libs/gen/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/gen/jest.config.js",
-            "passWithNoTests": true
-          },
-          "outputs": ["coverage/libs/gen"]
         }
       }
     },
@@ -561,6 +538,90 @@
           "builder": "@nx-go/nx-go:lint"
         }
       }
+    },
+    "gen-node": {
+      "projectType": "library",
+      "root": "libs/gen/node",
+      "sourceRoot": "libs/gen/node/src",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/gen/node/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/gen/node"],
+          "options": {
+            "jestConfig": "libs/gen/node/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "gen-nest": {
+      "root": "libs/gen/nest",
+      "sourceRoot": "libs/gen/nest/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/gen/nest/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/gen/nest"],
+          "options": {
+            "jestConfig": "libs/gen/nest/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "gen-grpcweb": {
+      "root": "libs/gen/grpcweb",
+      "sourceRoot": "libs/gen/grpcweb/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/gen/grpcweb/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/gen/grpcweb"],
+          "options": {
+            "jestConfig": "libs/gen/grpcweb/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "gen-grpcweb2": {
+      "root": "libs/gen/grpcweb2",
+      "sourceRoot": "libs/gen/grpcweb2/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/gen/grpcweb2/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/gen/grpcweb2"],
+          "options": {
+            "jestConfig": "libs/gen/grpcweb2/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
@@ -633,6 +694,9 @@
       "style": "scss",
       "prefix": "yeti",
       "changeDetection": "OnPush"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
     }
   },
   "defaultProject": "webapp"

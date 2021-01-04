@@ -41,6 +41,12 @@ ng g lib experiments    --routing --lazy  --parent-module=libs/dashboard/src/lib
 ng g lib widgets        --routing --lazy  --parent-module=libs/dashboard/src/lib/dashboard.module.ts    --defaults --tags=child-module
 ng g lib accounts       --routing --lazy  --parent-module=libs/dashboard/src/lib/dashboard.module.ts    --defaults --tags=child-module
 
+# generate `node`, `nest` `grpcweb` modules for generated code for proto
+nx g @nrwl/workspace:library node     --directory=gen --testEnvironment=node  --tags=scope:shared,type:generated,platform:web -d
+nx g @nrwl/workspace:library nest     --directory=gen --testEnvironment=node  --tags=scope:shared,type:generated,platform:nest -d
+nx g @nrwl/workspace:library grpcweb  --directory=gen --tags=scope:shared,type:generated,platform:web -d
+nx g @nrwl/workspace:library grpcweb2  --directory=gen --tags=scope:shared,type:generated,platform:web -d
+
 # ng g worker app --project=webapp -d # TODO
 ```
 

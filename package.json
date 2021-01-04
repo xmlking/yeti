@@ -60,7 +60,7 @@
     "gen:metadata": "node tools/scripts/metagen.mjs",
     "build:tools": "rimraf dist/tools && tsc -p ./tools/tsconfig.tools.json",
     "run:tools": "ts-node --project ./tools/tsconfig.tools.json -r tsconfig-paths/register",
-    "postinstall": "node ./decorate-angular-cli.js"
+    "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
   },
   "husky": {
     "hooks": {
@@ -129,11 +129,15 @@
     "prismjs": "1.23.0",
     "reflect-metadata": "0.1.13",
     "rxjs": "6.6.3",
+    "tslib": "^2.0.0",
     "zone.js": "0.11.3"
   },
   "devDependencies": {
     "@angular-devkit/architect": "0.1100.5",
     "@angular-devkit/build-angular": "0.1100.5",
+    "@angular-eslint/eslint-plugin": "0.8.0-beta.1",
+    "@angular-eslint/eslint-plugin-template": "0.8.0-beta.1",
+    "@angular-eslint/template-parser": "0.8.0-beta.1",
     "@angular/cli": "11.0.5",
     "@angular/compiler-cli": "11.0.5",
     "@angular/language-service": "11.0.5",
@@ -182,6 +186,8 @@
     "cz-conventional-changelog": "3.3.0",
     "firebase-tools": "9.1.0",
     "fuzzy": "0.1.3",
+    "grpc-tools": "^1.10.0",
+    "grpc_tools_node_protoc_ts": "^5.1.0",
     "husky": "4.3.6",
     "inquirer": "7.3.3",
     "inquirer-autocomplete-prompt": "1.3.0",

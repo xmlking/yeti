@@ -1,6 +1,6 @@
 module github.com/xmlking/yeti/libs/golib
 
-go 1.15
+go 1.16
 
 require (
 	github.com/envoyproxy/protoc-gen-validate v0.4.1

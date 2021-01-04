@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { EchoRequest, EchoResponse, EchoServiceClient } from '@yeti/gen';
+import { EchoRequest, EchoResponse, EchoServiceClient } from '@yeti/gen/grpcweb';
 import * as grpcWeb from 'grpc-web';
 
 @Injectable({
