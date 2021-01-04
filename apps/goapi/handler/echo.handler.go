@@ -4,10 +4,11 @@ import (
 	"context"
 
 	"github.com/rs/zerolog/log"
-	echov1 "github.com/xmlking/yeti/libs/golib/yeti/echo/v1"
+	echov1 "github.com/xmlking/yeti/libs/gen/go/yeti/echo/v1"
 )
 
 type echoHandler struct {
+	echov1.UnimplementedEchoServiceServer
 }
 
 // NewEchoHandler return echoHandler

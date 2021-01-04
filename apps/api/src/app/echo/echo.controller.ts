@@ -1,9 +1,8 @@
-import { GrpcMethod, GrpcService } from '@nestjs/microservices';
-// import { Controller } from '@nestjs/common';
+import { Controller } from '@nestjs/common';
 import { EchoRequest, EchoResponse, EchoServiceController, EchoServiceControllerMethods } from '@yeti/gen/nest';
 // var fakeUser [] = []
-@GrpcService()
-// @Controller()
+
+@Controller()
 // Generated decorator that applies all the @GrpcMethod and @GrpcStreamMethod to the right methods
 @EchoServiceControllerMethods()
 export class EchoController  implements EchoServiceController {

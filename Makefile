@@ -108,6 +108,9 @@ download_deps:
 		popd >/dev/null; \
 	done
 
+upgrade_deps:
+	@goup -v -m ./...
+
 release: download_deps
 	@if [ -z $(TAG) ]; then \
 		echo "no  TAG. Usage: make release TAG=v0.1.1"; \
@@ -116,3 +119,12 @@ release: download_deps
 			hub release create -m "$$m/${TAG} release" $$m/${TAG}; \
 		done \
 	fi
+
+
+################################################################################
+# Target: lints                                                                #
+################################################################################
+format:
+		@echo "Formatting Go";
+		@gofmt -l -w . ;
+		@echo "✓ Go: Formatted"

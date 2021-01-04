@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { CoreModule } from './core';
 import { EchoModule } from './echo/echo.module';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import { YETI_ECHO_V1_PACKAGE_NAME } from '@yeti/gen/nest';
+import { YETI_ECHO_V1_PACKAGE_NAME, Account } from '@yeti/gen/nest';
 import { join } from 'path';
 import { environment as env } from '@env-api/environment';
 
@@ -33,16 +33,16 @@ const host = env.server.host ?? '0.0.0.0';
           loader: loader
         },
       },
-      // {
-      //   name: 'YETI_ACCOUNT_V1_PACKAGE_NAME',
-      //   transport: Transport.GRPC,
-      //   options: {
-      //     url: '0.0.0.0:5000',
-      //     package: 'YETI_ACCOUNT_V1_PACKAGE_NAME',
-      //     protoPath: ['yeti/common/v1/common.proto', 'yeti/account/v1/account.proto'],
-      //     loader: loader
-      //   },
-      // },
+      {
+        name: Account.YETI_ACCOUNT_V1_PACKAGE_NAME,
+        transport: Transport.GRPC,
+        options: {
+          url: '0.0.0.0:5000',
+          package: Account.YETI_ACCOUNT_V1_PACKAGE_NAME,
+          protoPath: ['yeti/common/v1/common.proto', 'yeti/account/v1/account.proto'],
+          loader: loader
+        },
+      },
     ]),
   ],
   controllers: [AppController],
