@@ -89,9 +89,9 @@ Analyzing bundle size `yarn bundle-report`
 make update_deps
 git add .
 # Start release on develop branch
-git flow release start v0.1.0
+git flow release start v0.1.5
 # on release branch
-git-chglog -c .github/chglog/config.yml -o CHANGELOG.md --next-tag v0.1.0
+git-chglog -c .github/chglog/config.yml -o CHANGELOG.md --next-tag v0.1.5
 # update `github.com/xmlking/logger` version in each `go.mod` file.
 # commit all changes.
 # finish release on release branch
