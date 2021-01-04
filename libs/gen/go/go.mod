@@ -1,3 +1,3 @@
-module github.com/xmlking/yeti/libs/gen/golib
+module github.com/xmlking/yeti/libs/gen/go
 
 go 1.16
