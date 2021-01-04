@@ -18,7 +18,7 @@
 - Advanced
   - [Content Management](advanced/blog.md)
   - [Protobuf Tools](advanced/buf.md)
-  - [Prototool](advanced/prototool.md)
+  - [Protoc](advanced/protoc.md)
   - [Envoy](advanced/envoy.md)
   - [Style Guild](advanced/style-guide.md)
   - [Angular Universal](advanced/universal.md)

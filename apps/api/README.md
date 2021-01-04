@@ -6,25 +6,38 @@ Backend API build with [Nest](https://github.com/nestjs/nest) Framework.
 
 ### Generate
 
-> Generate grpc-web client-side code
+#### Generate code with protoc
+
+1. Generate nest server-side code
+1. Generate node server-side code (optional)
+1. Generate grpc-web client-side code
+1. Generate grpc-web client-side TS code (optional)
+
+```bash
+make proto
+```
+
+As an alternative to `make proto`, you can also generate same code manually...
 
 ```bash
 protoc -I="./proto" ./proto/yeti/echo/v1/echo.proto \
---js_out=import_style=commonjs:./libs/gen/src/lib \
---grpc-web_out=import_style=typescript,mode=grpcwebtext:./libs/gen/src/lib
+--js_out=import_style=commonjs:/libs/gen/grpcweb/src/lib \
+--grpc-web_out=import_style=typescript,mode=grpcwebtext:./libs/gen/grpcweb/src/lib
 ```
 
 > Generate node server-side code
 
+Refer [NESTJS](https://github.com/stephenh/ts-proto/blob/master/NESTJS.markdown)
+
 ```bash
 protoc --plugin=./node_modules/ts-proto/protoc-gen-ts_proto \
--I="./proto" -I="third_party/proto" --ts_proto_out=apps/api/src/app/echo/interfaces  ./proto/yeti/echo/v1/echo.proto
+-I="./proto" -I="third_party/proto" --ts_proto_opt=nestJs=true,addGrpcMetadata=true,addNestjsRestParameter=true --ts_proto_out=libs/gen/nest/src/lib  ./proto/yeti/echo/v1/echo.proto
 
 protoc --plugin=./node_modules/ts-proto/protoc-gen-ts_proto \
--I="./proto" -I="third_party/proto"  --ts_proto_out=apps/api/src/app/account/interfaces  ./proto/yeti/account/v1/account.proto
+-I="./proto" -I="third_party/proto" --ts_proto_opt=nestJs=true,addGrpcMetadata=true,addNestjsRestParameter=true --ts_proto_out=libs/gen/nest/src/lib  ./proto/yeti/account/v1/account.proto
 ```
 
-> Generate certs
+#### Generate certs
 
 ```bash
 # first time, generate local certs
@@ -38,7 +51,7 @@ protoc --plugin=./node_modules/ts-proto/protoc-gen-ts_proto \
 ```bash
 # start in watch mode
 ng serve api
-# start with TLS
+# start with TLS. ***To use with Envoy, start with TLS***
 SECURE=true ng serve api
 # to turn on logging for `request`
 NODE_DEBUG=request ng serve api

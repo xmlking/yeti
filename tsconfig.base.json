@@ -4,6 +4,7 @@
     "baseUrl": ".",
     "rootDir": ".",
     "outDir": "./dist",
+    "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -23,7 +24,6 @@
     "paths": {
       "@env-api/environment": ["apps/api/src/environments/environment.ts"],
       "@env/*": ["apps/webapp/src/environments/*"],
-      "@yeti/gen": ["libs/gen/src/index.ts"],
       "@yeti/home": ["libs/home/src/index.ts"],
       "@yeti/not-found": ["libs/not-found/src/index.ts"],
       "@yeti/core": ["libs/core/src/index.ts"],
@@ -31,7 +31,11 @@
       "@yeti/admin": ["libs/admin/src/index.ts"],
       "@yeti/shared": ["libs/shared/src/index.ts"],
       "@yeti/blog": ["libs/blog/src/index.ts"],
-      "@yeti/accounts": ["libs/accounts/src/index.ts"]
+      "@yeti/accounts": ["libs/accounts/src/index.ts"],
+      "@yeti/gen/node": ["libs/gen/node/src/index.ts"],
+      "@yeti/gen/nest": ["libs/gen/nest/src/index.ts"],
+      "@yeti/gen/grpcweb": ["libs/gen/grpcweb/src/index.ts"],
+      "@yeti/gen/grpcweb2": ["libs/gen/grpcweb2/src/index.ts"]
     }
   },
   "angularCompilerOptions": {

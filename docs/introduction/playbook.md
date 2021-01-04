@@ -12,8 +12,6 @@ yarn global remove commitizen
 yarn global remove @angular/cli
 yarn global remove @nrwl/cli
 yarn global remove @nestjs/cli
-yarn global remove grpc-tools
-yarn global remove ts-protoc-gen
 yarn global remove bloomrpc-mock
 
 yarn global add lerna
@@ -21,8 +19,6 @@ yarn global add commitizen
 yarn global add @angular/cli
 yarn global add @nrwl/cli
 yarn global add @nestjs/cli
-yarn global add grpc-tools
-yarn global add ts-protoc-gen
 yarn global add bloomrpc-mock
 
 
@@ -189,8 +185,10 @@ yarn add @ngneat/until-destroy
 yarn add google-protobuf
 yarn add -D @types/google-protobuf
 yarn add grpc-web
+yarn add -O grpc-tools
 # to generate TS interfaces from proto
 yarn add -O ts-proto
+yarn add -O grpc_tools_node_protoc_ts
 #---------------------------------
 # for metagen CLI tool (node tools/scripts/metagen.mjs)
 yarn add -O parse-md
@@ -201,6 +199,15 @@ yarn add -D @types/socket.io-client
 
 #---------------------------------
 ng add @ngneat/dialog
+#---------------------------------
+
+#---------------------------------
+# add  Convoyr plugins
+# Enriching HTTP clients with capabilities related to security, performance or resilience
+yarn add @convoyr/core
+yarn add @convoyr/plugin-auth
+yarn add @convoyr/plugin-cache
+yarn add @convoyr/plugin-retry
 #---------------------------------
 
 # Add miscellaneous
@@ -250,7 +257,7 @@ yarn workspace @yeti/tools add cpx --dev
 > use `--allow-dirty` `--next` --force` flags as needed
 
 ```bash
-ng update
+nx migrate latest
 # ng update --next if needed
 ng update @angular/core
 ng update @angular/cli

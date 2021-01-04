@@ -289,6 +289,7 @@ semantic-release is a fully automated library/system for versioning, changelog g
 
 - How to implement security interceptors?
 
+> [Enriching HTTP clients with capabilities related to security, performance or resilience](https://www.codamit.dev/introducing-convoyr)
 > [Refer](https://medium.com/@ryanchenkie_40935/angular-authentication-using-the-http-client-and-http-interceptors-2f9d1540eb8)
 
 - How to get HTTPS working on your local development environment?

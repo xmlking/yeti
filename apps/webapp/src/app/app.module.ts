@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { AuthGuard, CoreModule } from '@yeti/core';
-import { environment } from '../environments/environment';
+import { environment } from '@env/environment';
 import { AppComponent } from './app.component';
 
 @NgModule({

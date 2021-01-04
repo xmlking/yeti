@@ -61,6 +61,8 @@ make proto_format
 
 ### Generate
 
+Read [gRPC on Node.js with Buf and TypeScript](https://slavovojacek.medium.com/grpc-on-node-js-with-buf-and-typescript-part-1-5aad61bab03b)
+
 ```bash
 make proto
 ```

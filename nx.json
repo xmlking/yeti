@@ -28,9 +28,6 @@
     "shared": {
       "tags": ["module:shared", "scope:public", "angular-lib"]
     },
-    "gen": {
-      "tags": ["module:shared", "scope:public", "angular-lib", "nest-lib"]
-    },
     "core": {
       "tags": ["module:shared", "module:core", "scope:private", "angular-lib"]
     },
@@ -54,6 +51,18 @@
     },
     "goapi": {
       "tags": []
+    },
+    "gen-node": {
+      "tags": ["scope:shared", "type:generated", "platform:node"]
+    },
+    "gen-nest": {
+      "tags": ["scope:shared", "type:generated", "platform:nest"]
+    },
+    "gen-grpcweb": {
+      "tags": ["scope:shared", "type:generated", "platform:web"]
+    },
+    "gen-grpcweb2": {
+      "tags": ["scope:shared", "type:generated", "platform:web"]
     }
   },
   "affected": {

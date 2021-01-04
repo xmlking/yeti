@@ -25,6 +25,9 @@
 
   <br />
 
+  <a href="https://github.com/xmlking/yeti/actions?query=workflow%3ACodeQL">
+  <img alt="Total alerts" src="https://github.com/xmlking/yeti/workflows/CodeQL/badge.svg"/>
+  </a>
   <a href="https://lgtm.com/projects/g/xmlking/yeti/alerts/">
   <img alt="Total alerts" src="https://img.shields.io/lgtm/alerts/g/xmlking/yeti.svg?logo=lgtm&logoWidth=18"/>
   </a>
@@ -86,9 +89,9 @@ Analyzing bundle size `yarn bundle-report`
 make update_deps
 git add .
 # Start release on develop branch
-git flow release start v0.1.0
+git flow release start v0.1.5
 # on release branch
-git-chglog -c .github/chglog/config.yml -o CHANGELOG.md --next-tag v0.1.0
+git-chglog -c .github/chglog/config.yml -o CHANGELOG.md --next-tag v0.1.5
 # update `github.com/xmlking/logger` version in each `go.mod` file.
 # commit all changes.
 # finish release on release branch

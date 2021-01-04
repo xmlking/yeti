@@ -1,9 +1,8 @@
 {
   "recommendations": [
-    "johnpapa.angular-essentials",
     "nrwl.angular-console",
     "angular.ng-template",
-    "ms-vscode.vscode-typescript-tslint-plugin",
+    "dbaeumer.vscode-eslint",
     "humao.rest-client",
     "zxh404.vscode-proto3",
     "xaver.clang-format",

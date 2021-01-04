@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import axios from 'axios';
-import { environment } from '../../environments/environment';
+import { environment } from '@env-api/environment';
 import { Environment } from '../../environments/ienvironment';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
