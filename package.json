@@ -121,7 +121,7 @@
     "@rx-angular/template": "1.0.0-beta.4",
     "eva-icons": "1.1.3",
     "express": "4.17.1",
-    "firebase": "8.2.1",
+    "firebase": "8.2.5",
     "google-protobuf": "3.14.0",
     "grpc-web": "1.2.1",
     "ngx-auto-unsubscribe": "3.0.1",
