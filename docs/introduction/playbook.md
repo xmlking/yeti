@@ -11,6 +11,7 @@ yarn global remove lerna
 yarn global remove commitizen
 yarn global remove @angular/cli
 yarn global remove @nrwl/cli
+yarn global remove create-nx-workspace
 yarn global remove @nestjs/cli
 yarn global remove bloomrpc-mock
 

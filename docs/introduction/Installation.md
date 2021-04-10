@@ -10,15 +10,15 @@ you need following tools. versions listed here are minimal versions tested.
 
 > Recommended to install latest versions available
 
-| Software        | Version | Optional |
-| --------------- | ------- | -------- |
-| Node            | v13.12.0|          |
-| Yarn            | v1.22.4 |          |
-| Lerna           | v3.20.2 |          |
-| Angular CLI     | v9.1.1  |          |
-| @nrwl/workspace | v9.2.2  |          |
-| @nestjs/cli     | v7.1.2  |          |
-| commitizen      | v4.0.4  |          |
+| Software        | Version  | Optional |
+| --------------- | -------- | -------- |
+| Node            | 15.14.0  |          |
+| Yarn            | 1.22.10  |          |
+| Lerna           | 4.0.0    |          |
+| Angular CLI     | 11.2.8   |          |
+| nx              | 12.0.0   |          |
+| @nestjs/cli     | 7.6.0    |          |
+| commitizen      | 4.2.3    |          |
 
 ### Install Prerequisites
 
