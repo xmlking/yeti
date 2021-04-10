@@ -121,4 +121,9 @@ yarn gen:metadata
 ng run webapp:analyze
 ```
 
+```bash
+# build goapi image
+docker build -t ghcr.io/xmlking/yeti/goapi  .
+```
+
 ## 🔗 Credits
