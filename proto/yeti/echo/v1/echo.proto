@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package yeti.echo.v1;
 
-option go_package = "github.com/xmlking/yeti/libs/gogen/yeti/echo/v1;echov1";
+option go_package = "github.com/xmlking/yeti/libs/gen/go/yeti/echo/v1;echov1";
 option java_multiple_files = true;
 option java_package = "yeti.echo.v1";
 

@@ -10,7 +10,6 @@ export class EchoRequest extends jspb.Message {
     getMessage(): string;
     setMessage(value: string): EchoRequest;
 
-
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): EchoRequest.AsObject;
     static toObject(includeInstance: boolean, msg: EchoRequest): EchoRequest.AsObject;
@@ -30,7 +29,6 @@ export namespace EchoRequest {
 export class EchoResponse extends jspb.Message { 
     getMessage(): string;
     setMessage(value: string): EchoResponse;
-
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): EchoResponse.AsObject;

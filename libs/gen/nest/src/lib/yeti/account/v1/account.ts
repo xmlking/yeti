@@ -1,10 +1,13 @@
 /* eslint-disable */
+import { GrpcMethod, GrpcStreamMethod } from '@nestjs/microservices';
+import { util, configure } from 'protobufjs/minimal';
+import * as Long from 'long';
+import { Observable } from 'rxjs';
 import { Account } from '../../../yeti/common/v1/common';
 import { Metadata } from 'grpc';
-import { Observable } from 'rxjs';
 import { Empty } from '../../../google/protobuf/empty';
-import { GrpcMethod, GrpcStreamMethod } from '@nestjs/microservices';
 
+export const protobufPackage = 'yeti.account.v1';
 
 export interface GetRequest {
   key: string | undefined;
@@ -18,26 +21,22 @@ export interface WriteRequest {
   account: Account | undefined;
 }
 
-/**
- *  Account Service
- */
-export interface AccountServiceClient {
+export const YETI_ACCOUNT_V1_PACKAGE_NAME = 'yeti.account.v1';
 
+/** Account Service */
+
+export interface AccountServiceClient {
   get(request: GetRequest, metadata?: Metadata): Observable<GetResponse>;
 
   write(request: WriteRequest, metadata?: Metadata): Observable<Empty>;
-
 }
 
-/**
- *  Account Service
- */
-export interface AccountServiceController {
+/** Account Service */
 
+export interface AccountServiceController {
   get(request: GetRequest, metadata?: Metadata): Promise<GetResponse> | Observable<GetResponse> | GetResponse;
 
   write(request: WriteRequest, metadata?: Metadata): void;
-
 }
 
 export function AccountServiceControllerMethods() {
@@ -52,10 +51,14 @@ export function AccountServiceControllerMethods() {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
       GrpcStreamMethod('AccountService', method)(constructor.prototype[method], method, descriptor);
     }
-  }
+  };
 }
 
-export const protobufPackage = 'yeti.account.v1'
-
-export const YETI_ACCOUNT_V1_PACKAGE_NAME = 'yeti.account.v1'
 export const ACCOUNT_SERVICE_NAME = 'AccountService';
+
+// If you get a compile-error about 'Constructor<Long> and ... have no overlap',
+// add '--ts_proto_opt=esModuleInterop=true' as a flag when calling 'protoc'.
+if (util.Long !== Long) {
+  util.Long = Long as any;
+  configure();
+}

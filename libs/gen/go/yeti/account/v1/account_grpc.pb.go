@@ -4,14 +4,15 @@ package accountv1
 
 import (
 	context "context"
-	empty "github.com/golang/protobuf/ptypes/empty"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
+// Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
 // AccountServiceClient is the client API for AccountService service.
@@ -19,7 +20,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AccountServiceClient interface {
 	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
-	Write(ctx context.Context, in *WriteRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	Write(ctx context.Context, in *WriteRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 }
 
 type accountServiceClient struct {
@@ -39,8 +40,8 @@ func (c *accountServiceClient) Get(ctx context.Context, in *GetRequest, opts ...
 	return out, nil
 }
 
-func (c *accountServiceClient) Write(ctx context.Context, in *WriteRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
-	out := new(empty.Empty)
+func (c *accountServiceClient) Write(ctx context.Context, in *WriteRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, "/yeti.account.v1.AccountService/Write", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -53,7 +54,7 @@ func (c *accountServiceClient) Write(ctx context.Context, in *WriteRequest, opts
 // for forward compatibility
 type AccountServiceServer interface {
 	Get(context.Context, *GetRequest) (*GetResponse, error)
-	Write(context.Context, *WriteRequest) (*empty.Empty, error)
+	Write(context.Context, *WriteRequest) (*emptypb.Empty, error)
 }
 
 // UnimplementedAccountServiceServer should be embedded to have forward compatible implementations.
@@ -63,7 +64,7 @@ type UnimplementedAccountServiceServer struct {
 func (UnimplementedAccountServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
 }
-func (UnimplementedAccountServiceServer) Write(context.Context, *WriteRequest) (*empty.Empty, error) {
+func (UnimplementedAccountServiceServer) Write(context.Context, *WriteRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Write not implemented")
 }
 
@@ -75,7 +76,7 @@ type UnsafeAccountServiceServer interface {
 }
 
 func RegisterAccountServiceServer(s grpc.ServiceRegistrar, srv AccountServiceServer) {
-	s.RegisterService(&_AccountService_serviceDesc, srv)
+	s.RegisterService(&AccountService_ServiceDesc, srv)
 }
 
 func _AccountService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -114,7 +115,10 @@ func _AccountService_Write_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
-var _AccountService_serviceDesc = grpc.ServiceDesc{
+// AccountService_ServiceDesc is the grpc.ServiceDesc for AccountService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AccountService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "yeti.account.v1.AccountService",
 	HandlerType: (*AccountServiceServer)(nil),
 	Methods: []grpc.MethodDesc{

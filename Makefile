@@ -54,22 +54,22 @@
 
 proto_clean:
 	@echo "Deleting generated Go files....";
-	@for f in ./mkit/**/**/**/**/*.pb.*; do \
+	@for f in ./libs/gen/go/**/**/**/*.pb.*; do \
 		echo ✓ deleting: $$f; \
 		rm -f $$f; \
 	done
-	@for f in ./mkit/**/**/**/*.pb.*; do \
+	@for f in ./libs/gen/grpcweb/src/lib/**/**/**/*.*; do \
 		echo ✓ deleting: $$f; \
 		rm -f $$f; \
 	done
 
 proto_lint:
 	@echo "Linting protos";
-	@${GOPATH}/bin/buf check lint
+	@${GOPATH}/bin/buf lint
 
 proto_breaking:
 	@echo "Checking proto breaking changes";
-	@${GOPATH}/bin/buf check breaking --against '.git#branch=master'
+	@${GOPATH}/bin/buf breaking --against '.git#branch=master'
 #	@${GOPATH}/bin/buf check breaking --against "$(HTTPS_GIT)#branch=master"
 
 # I prefer VS Code's proto plugin to format my code then prototool

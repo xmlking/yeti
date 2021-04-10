@@ -17,7 +17,6 @@ export class GetRequest extends jspb.Message {
     getKey(): google_protobuf_wrappers_pb.StringValue | undefined;
     setKey(value?: google_protobuf_wrappers_pb.StringValue): GetRequest;
 
-
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): GetRequest.AsObject;
     static toObject(includeInstance: boolean, msg: GetRequest): GetRequest.AsObject;
@@ -41,7 +40,6 @@ export class GetResponse extends jspb.Message {
     getAccount(): yeti_common_v1_common_pb.Account | undefined;
     setAccount(value?: yeti_common_v1_common_pb.Account): GetResponse;
 
-
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): GetResponse.AsObject;
     static toObject(includeInstance: boolean, msg: GetResponse): GetResponse.AsObject;
@@ -64,7 +62,6 @@ export class WriteRequest extends jspb.Message {
     clearAccount(): void;
     getAccount(): yeti_common_v1_common_pb.Account | undefined;
     setAccount(value?: yeti_common_v1_common_pb.Account): WriteRequest;
-
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): WriteRequest.AsObject;

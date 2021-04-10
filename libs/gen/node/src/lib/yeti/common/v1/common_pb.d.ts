@@ -11,13 +11,10 @@ import * as validate_validate_pb from "../../../validate/validate_pb";
 export class Account extends jspb.Message { 
     getId(): string;
     setId(value: string): Account;
-
     getName(): string;
     setName(value: string): Account;
-
     getDescription(): string;
     setDescription(value: string): Account;
-
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Account.AsObject;
@@ -40,22 +37,16 @@ export namespace Account {
 export class Product extends jspb.Message { 
     getId(): string;
     setId(value: string): Product;
-
     getSlug(): string;
     setSlug(value: string): Product;
-
     getName(): string;
     setName(value: string): Product;
-
     getDescription(): string;
     setDescription(value: string): Product;
-
     getCurrency(): Currency;
     setCurrency(value: Currency): Product;
-
     getPrice(): number;
     setPrice(value: number): Product;
-
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Product.AsObject;
@@ -82,24 +73,18 @@ export class Order extends jspb.Message {
     getId(): string;
     setId(value: string): Order;
 
-
     hasSubject(): boolean;
     clearSubject(): void;
     getSubject(): google_protobuf_wrappers_pb.StringValue | undefined;
     setSubject(value?: google_protobuf_wrappers_pb.StringValue): Order;
-
     getBody(): string;
     setBody(value: string): Order;
-
     getTotalPrice(): number;
     setTotalPrice(value: number): Order;
-
     getCurrency(): Currency;
     setCurrency(value: Currency): Order;
-
     getChannel(): string;
     setChannel(value: string): Order;
-
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Order.AsObject;

@@ -1,32 +1,31 @@
 /* eslint-disable */
-import { Writer, Reader } from 'protobufjs/minimal';
+import { util, configure, Writer, Reader } from 'protobufjs/minimal';
+import * as Long from 'long';
 
+export const protobufPackage = 'google.protobuf';
 
 /**
- *  A generic empty message that you can re-use to avoid defining duplicated
- *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
+ * A generic empty message that you can re-use to avoid defining duplicated
+ * empty messages in your APIs. A typical example is to use it as the request
+ * or the response type of an API method. For instance:
  *
- *      service Foo {
- *        rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *      }
+ *     service Foo {
+ *       rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
+ *     }
  *
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ * The JSON representation for `Empty` is empty JSON object `{}`.
  */
-export interface Empty {
-}
+export interface Empty {}
 
-const baseEmpty: object = {
-};
-
-export const protobufPackage = 'google.protobuf'
+const baseEmpty: object = {};
 
 export const Empty = {
   encode(_: Empty, writer: Writer = Writer.create()): Writer {
     return writer;
   },
-  decode(input: Uint8Array | Reader, length?: number): Empty {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+
+  decode(input: Reader | Uint8Array, length?: number): Empty {
+    const reader = input instanceof Reader ? input : new Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseEmpty } as Empty;
     while (reader.pos < end) {
@@ -39,17 +38,20 @@ export const Empty = {
     }
     return message;
   },
+
   fromJSON(_: any): Empty {
     const message = { ...baseEmpty } as Empty;
     return message;
   },
-  fromPartial(_: DeepPartial<Empty>): Empty {
-    const message = { ...baseEmpty } as Empty;
-    return message;
-  },
+
   toJSON(_: Empty): unknown {
     const obj: any = {};
     return obj;
+  },
+
+  fromPartial(_: DeepPartial<Empty>): Empty {
+    const message = { ...baseEmpty } as Empty;
+    return message;
   },
 };
 
@@ -63,3 +65,10 @@ export type DeepPartial<T> = T extends Builtin
   : T extends {}
   ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
+
+// If you get a compile-error about 'Constructor<Long> and ... have no overlap',
+// add '--ts_proto_opt=esModuleInterop=true' as a flag when calling 'protoc'.
+if (util.Long !== Long) {
+  util.Long = Long as any;
+  configure();
+}

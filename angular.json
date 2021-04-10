@@ -513,7 +513,7 @@
     "goapi": {
       "projectType": "application",
       "root": "apps/goapi",
-      "sourceRoot": "apps/goapi/src",
+      "sourceRoot": "apps/goapi",
       "architect": {
         "build": {
           "builder": "@nx-go/nx-go:build",
@@ -529,10 +529,7 @@
           }
         },
         "test": {
-          "builder": "@nx-go/nx-go:test",
-          "options": {
-            "main": "apps/goapi/main_test.go"
-          }
+          "builder": "@nx-go/nx-go:test"
         },
         "lint": {
           "builder": "@nx-go/nx-go:lint"

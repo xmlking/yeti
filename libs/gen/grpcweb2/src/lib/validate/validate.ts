@@ -1,19 +1,18 @@
 /* eslint-disable */
-import { Duration } from '../google/protobuf/duration';
-import { Timestamp } from '../google/protobuf/timestamp';
+import { util, configure, Writer, Reader } from 'protobufjs/minimal';
 import * as Long from 'long';
-import { Writer, Reader, util, configure } from 'protobufjs/minimal';
+import { Timestamp } from '../google/protobuf/timestamp';
+import { Duration } from '../google/protobuf/duration';
 
+export const protobufPackage = 'validate';
 
 /**
- *  FieldRules encapsulates the rules for each type of field. Depending on the
- *  field, the correct set should be used to ensure proper validations.
+ * FieldRules encapsulates the rules for each type of field. Depending on the
+ * field, the correct set should be used to ensure proper validations.
  */
 export interface FieldRules {
   message: MessageRules | undefined;
-  /**
-   *  Scalar Field Types
-   */
+  /** Scalar Field Types */
   float: FloatRules | undefined;
   double: DoubleRules | undefined;
   int32: Int32Rules | undefined;
@@ -29,1171 +28,861 @@ export interface FieldRules {
   bool: BoolRules | undefined;
   string: StringRules | undefined;
   bytes: BytesRules | undefined;
-  /**
-   *  Complex Field Types
-   */
+  /** Complex Field Types */
   enum: EnumRules | undefined;
   repeated: RepeatedRules | undefined;
   map: MapRules | undefined;
-  /**
-   *  Well-Known Field Types
-   */
+  /** Well-Known Field Types */
   any: AnyRules | undefined;
   duration: DurationRules | undefined;
   timestamp: TimestampRules | undefined;
 }
 
-/**
- *  FloatRules describes the constraints applied to `float` values
- */
+/** FloatRules describes the constraints applied to `float` values */
 export interface FloatRules {
-  /**
-   *  Const specifies that this field must be exactly the specified value
-   */
+  /** Const specifies that this field must be exactly the specified value */
   const: number;
   /**
-   *  Lt specifies that this field must be less than the specified value,
-   *  exclusive
+   * Lt specifies that this field must be less than the specified value,
+   * exclusive
    */
   lt: number;
   /**
-   *  Lte specifies that this field must be less than or equal to the
-   *  specified value, inclusive
+   * Lte specifies that this field must be less than or equal to the
+   * specified value, inclusive
    */
   lte: number;
   /**
-   *  Gt specifies that this field must be greater than the specified value,
-   *  exclusive. If the value of Gt is larger than a specified Lt or Lte, the
-   *  range is reversed.
+   * Gt specifies that this field must be greater than the specified value,
+   * exclusive. If the value of Gt is larger than a specified Lt or Lte, the
+   * range is reversed.
    */
   gt: number;
   /**
-   *  Gte specifies that this field must be greater than or equal to the
-   *  specified value, inclusive. If the value of Gte is larger than a
-   *  specified Lt or Lte, the range is reversed.
+   * Gte specifies that this field must be greater than or equal to the
+   * specified value, inclusive. If the value of Gte is larger than a
+   * specified Lt or Lte, the range is reversed.
    */
   gte: number;
   /**
-   *  In specifies that this field must be equal to one of the specified
-   *  values
+   * In specifies that this field must be equal to one of the specified
+   * values
    */
   in: number[];
   /**
-   *  NotIn specifies that this field cannot be equal to one of the specified
-   *  values
+   * NotIn specifies that this field cannot be equal to one of the specified
+   * values
    */
   notIn: number[];
 }
 
-/**
- *  DoubleRules describes the constraints applied to `double` values
- */
+/** DoubleRules describes the constraints applied to `double` values */
 export interface DoubleRules {
-  /**
-   *  Const specifies that this field must be exactly the specified value
-   */
+  /** Const specifies that this field must be exactly the specified value */
   const: number;
   /**
-   *  Lt specifies that this field must be less than the specified value,
-   *  exclusive
+   * Lt specifies that this field must be less than the specified value,
+   * exclusive
    */
   lt: number;
   /**
-   *  Lte specifies that this field must be less than or equal to the
-   *  specified value, inclusive
+   * Lte specifies that this field must be less than or equal to the
+   * specified value, inclusive
    */
   lte: number;
   /**
-   *  Gt specifies that this field must be greater than the specified value,
-   *  exclusive. If the value of Gt is larger than a specified Lt or Lte, the
-   *  range is reversed.
+   * Gt specifies that this field must be greater than the specified value,
+   * exclusive. If the value of Gt is larger than a specified Lt or Lte, the
+   * range is reversed.
    */
   gt: number;
   /**
-   *  Gte specifies that this field must be greater than or equal to the
-   *  specified value, inclusive. If the value of Gte is larger than a
-   *  specified Lt or Lte, the range is reversed.
+   * Gte specifies that this field must be greater than or equal to the
+   * specified value, inclusive. If the value of Gte is larger than a
+   * specified Lt or Lte, the range is reversed.
    */
   gte: number;
   /**
-   *  In specifies that this field must be equal to one of the specified
-   *  values
+   * In specifies that this field must be equal to one of the specified
+   * values
    */
   in: number[];
   /**
-   *  NotIn specifies that this field cannot be equal to one of the specified
-   *  values
+   * NotIn specifies that this field cannot be equal to one of the specified
+   * values
    */
   notIn: number[];
 }
 
-/**
- *  Int32Rules describes the constraints applied to `int32` values
- */
+/** Int32Rules describes the constraints applied to `int32` values */
 export interface Int32Rules {
-  /**
-   *  Const specifies that this field must be exactly the specified value
-   */
+  /** Const specifies that this field must be exactly the specified value */
   const: number;
   /**
-   *  Lt specifies that this field must be less than the specified value,
-   *  exclusive
+   * Lt specifies that this field must be less than the specified value,
+   * exclusive
    */
   lt: number;
   /**
-   *  Lte specifies that this field must be less than or equal to the
-   *  specified value, inclusive
+   * Lte specifies that this field must be less than or equal to the
+   * specified value, inclusive
    */
   lte: number;
   /**
-   *  Gt specifies that this field must be greater than the specified value,
-   *  exclusive. If the value of Gt is larger than a specified Lt or Lte, the
-   *  range is reversed.
+   * Gt specifies that this field must be greater than the specified value,
+   * exclusive. If the value of Gt is larger than a specified Lt or Lte, the
+   * range is reversed.
    */
   gt: number;
   /**
-   *  Gte specifies that this field must be greater than or equal to the
-   *  specified value, inclusive. If the value of Gte is larger than a
-   *  specified Lt or Lte, the range is reversed.
+   * Gte specifies that this field must be greater than or equal to the
+   * specified value, inclusive. If the value of Gte is larger than a
+   * specified Lt or Lte, the range is reversed.
    */
   gte: number;
   /**
-   *  In specifies that this field must be equal to one of the specified
-   *  values
+   * In specifies that this field must be equal to one of the specified
+   * values
    */
   in: number[];
   /**
-   *  NotIn specifies that this field cannot be equal to one of the specified
-   *  values
+   * NotIn specifies that this field cannot be equal to one of the specified
+   * values
    */
   notIn: number[];
 }
 
-/**
- *  Int64Rules describes the constraints applied to `int64` values
- */
+/** Int64Rules describes the constraints applied to `int64` values */
 export interface Int64Rules {
-  /**
-   *  Const specifies that this field must be exactly the specified value
-   */
+  /** Const specifies that this field must be exactly the specified value */
   const: number;
   /**
-   *  Lt specifies that this field must be less than the specified value,
-   *  exclusive
+   * Lt specifies that this field must be less than the specified value,
+   * exclusive
    */
   lt: number;
   /**
-   *  Lte specifies that this field must be less than or equal to the
-   *  specified value, inclusive
+   * Lte specifies that this field must be less than or equal to the
+   * specified value, inclusive
    */
   lte: number;
   /**
-   *  Gt specifies that this field must be greater than the specified value,
-   *  exclusive. If the value of Gt is larger than a specified Lt or Lte, the
-   *  range is reversed.
+   * Gt specifies that this field must be greater than the specified value,
+   * exclusive. If the value of Gt is larger than a specified Lt or Lte, the
+   * range is reversed.
    */
   gt: number;
   /**
-   *  Gte specifies that this field must be greater than or equal to the
-   *  specified value, inclusive. If the value of Gte is larger than a
-   *  specified Lt or Lte, the range is reversed.
+   * Gte specifies that this field must be greater than or equal to the
+   * specified value, inclusive. If the value of Gte is larger than a
+   * specified Lt or Lte, the range is reversed.
    */
   gte: number;
   /**
-   *  In specifies that this field must be equal to one of the specified
-   *  values
+   * In specifies that this field must be equal to one of the specified
+   * values
    */
   in: number[];
   /**
-   *  NotIn specifies that this field cannot be equal to one of the specified
-   *  values
+   * NotIn specifies that this field cannot be equal to one of the specified
+   * values
    */
   notIn: number[];
 }
 
-/**
- *  UInt32Rules describes the constraints applied to `uint32` values
- */
+/** UInt32Rules describes the constraints applied to `uint32` values */
 export interface UInt32Rules {
-  /**
-   *  Const specifies that this field must be exactly the specified value
-   */
+  /** Const specifies that this field must be exactly the specified value */
   const: number;
   /**
-   *  Lt specifies that this field must be less than the specified value,
-   *  exclusive
+   * Lt specifies that this field must be less than the specified value,
+   * exclusive
    */
   lt: number;
   /**
-   *  Lte specifies that this field must be less than or equal to the
-   *  specified value, inclusive
+   * Lte specifies that this field must be less than or equal to the
+   * specified value, inclusive
    */
   lte: number;
   /**
-   *  Gt specifies that this field must be greater than the specified value,
-   *  exclusive. If the value of Gt is larger than a specified Lt or Lte, the
-   *  range is reversed.
+   * Gt specifies that this field must be greater than the specified value,
+   * exclusive. If the value of Gt is larger than a specified Lt or Lte, the
+   * range is reversed.
    */
   gt: number;
   /**
-   *  Gte specifies that this field must be greater than or equal to the
-   *  specified value, inclusive. If the value of Gte is larger than a
-   *  specified Lt or Lte, the range is reversed.
+   * Gte specifies that this field must be greater than or equal to the
+   * specified value, inclusive. If the value of Gte is larger than a
+   * specified Lt or Lte, the range is reversed.
    */
   gte: number;
   /**
-   *  In specifies that this field must be equal to one of the specified
-   *  values
+   * In specifies that this field must be equal to one of the specified
+   * values
    */
   in: number[];
   /**
-   *  NotIn specifies that this field cannot be equal to one of the specified
-   *  values
+   * NotIn specifies that this field cannot be equal to one of the specified
+   * values
    */
   notIn: number[];
 }
 
-/**
- *  UInt64Rules describes the constraints applied to `uint64` values
- */
+/** UInt64Rules describes the constraints applied to `uint64` values */
 export interface UInt64Rules {
-  /**
-   *  Const specifies that this field must be exactly the specified value
-   */
+  /** Const specifies that this field must be exactly the specified value */
   const: number;
   /**
-   *  Lt specifies that this field must be less than the specified value,
-   *  exclusive
+   * Lt specifies that this field must be less than the specified value,
+   * exclusive
    */
   lt: number;
   /**
-   *  Lte specifies that this field must be less than or equal to the
-   *  specified value, inclusive
+   * Lte specifies that this field must be less than or equal to the
+   * specified value, inclusive
    */
   lte: number;
   /**
-   *  Gt specifies that this field must be greater than the specified value,
-   *  exclusive. If the value of Gt is larger than a specified Lt or Lte, the
-   *  range is reversed.
+   * Gt specifies that this field must be greater than the specified value,
+   * exclusive. If the value of Gt is larger than a specified Lt or Lte, the
+   * range is reversed.
    */
   gt: number;
   /**
-   *  Gte specifies that this field must be greater than or equal to the
-   *  specified value, inclusive. If the value of Gte is larger than a
-   *  specified Lt or Lte, the range is reversed.
+   * Gte specifies that this field must be greater than or equal to the
+   * specified value, inclusive. If the value of Gte is larger than a
+   * specified Lt or Lte, the range is reversed.
    */
   gte: number;
   /**
-   *  In specifies that this field must be equal to one of the specified
-   *  values
+   * In specifies that this field must be equal to one of the specified
+   * values
    */
   in: number[];
   /**
-   *  NotIn specifies that this field cannot be equal to one of the specified
-   *  values
+   * NotIn specifies that this field cannot be equal to one of the specified
+   * values
    */
   notIn: number[];
 }
 
-/**
- *  SInt32Rules describes the constraints applied to `sint32` values
- */
+/** SInt32Rules describes the constraints applied to `sint32` values */
 export interface SInt32Rules {
-  /**
-   *  Const specifies that this field must be exactly the specified value
-   */
+  /** Const specifies that this field must be exactly the specified value */
   const: number;
   /**
-   *  Lt specifies that this field must be less than the specified value,
-   *  exclusive
+   * Lt specifies that this field must be less than the specified value,
+   * exclusive
    */
   lt: number;
   /**
-   *  Lte specifies that this field must be less than or equal to the
-   *  specified value, inclusive
+   * Lte specifies that this field must be less than or equal to the
+   * specified value, inclusive
    */
   lte: number;
   /**
-   *  Gt specifies that this field must be greater than the specified value,
-   *  exclusive. If the value of Gt is larger than a specified Lt or Lte, the
-   *  range is reversed.
+   * Gt specifies that this field must be greater than the specified value,
+   * exclusive. If the value of Gt is larger than a specified Lt or Lte, the
+   * range is reversed.
    */
   gt: number;
   /**
-   *  Gte specifies that this field must be greater than or equal to the
-   *  specified value, inclusive. If the value of Gte is larger than a
-   *  specified Lt or Lte, the range is reversed.
+   * Gte specifies that this field must be greater than or equal to the
+   * specified value, inclusive. If the value of Gte is larger than a
+   * specified Lt or Lte, the range is reversed.
    */
   gte: number;
   /**
-   *  In specifies that this field must be equal to one of the specified
-   *  values
+   * In specifies that this field must be equal to one of the specified
+   * values
    */
   in: number[];
   /**
-   *  NotIn specifies that this field cannot be equal to one of the specified
-   *  values
+   * NotIn specifies that this field cannot be equal to one of the specified
+   * values
    */
   notIn: number[];
 }
 
-/**
- *  SInt64Rules describes the constraints applied to `sint64` values
- */
+/** SInt64Rules describes the constraints applied to `sint64` values */
 export interface SInt64Rules {
-  /**
-   *  Const specifies that this field must be exactly the specified value
-   */
+  /** Const specifies that this field must be exactly the specified value */
   const: number;
   /**
-   *  Lt specifies that this field must be less than the specified value,
-   *  exclusive
+   * Lt specifies that this field must be less than the specified value,
+   * exclusive
    */
   lt: number;
   /**
-   *  Lte specifies that this field must be less than or equal to the
-   *  specified value, inclusive
+   * Lte specifies that this field must be less than or equal to the
+   * specified value, inclusive
    */
   lte: number;
   /**
-   *  Gt specifies that this field must be greater than the specified value,
-   *  exclusive. If the value of Gt is larger than a specified Lt or Lte, the
-   *  range is reversed.
+   * Gt specifies that this field must be greater than the specified value,
+   * exclusive. If the value of Gt is larger than a specified Lt or Lte, the
+   * range is reversed.
    */
   gt: number;
   /**
-   *  Gte specifies that this field must be greater than or equal to the
-   *  specified value, inclusive. If the value of Gte is larger than a
-   *  specified Lt or Lte, the range is reversed.
+   * Gte specifies that this field must be greater than or equal to the
+   * specified value, inclusive. If the value of Gte is larger than a
+   * specified Lt or Lte, the range is reversed.
    */
   gte: number;
   /**
-   *  In specifies that this field must be equal to one of the specified
-   *  values
+   * In specifies that this field must be equal to one of the specified
+   * values
    */
   in: number[];
   /**
-   *  NotIn specifies that this field cannot be equal to one of the specified
-   *  values
+   * NotIn specifies that this field cannot be equal to one of the specified
+   * values
    */
   notIn: number[];
 }
 
-/**
- *  Fixed32Rules describes the constraints applied to `fixed32` values
- */
+/** Fixed32Rules describes the constraints applied to `fixed32` values */
 export interface Fixed32Rules {
-  /**
-   *  Const specifies that this field must be exactly the specified value
-   */
+  /** Const specifies that this field must be exactly the specified value */
   const: number;
   /**
-   *  Lt specifies that this field must be less than the specified value,
-   *  exclusive
+   * Lt specifies that this field must be less than the specified value,
+   * exclusive
    */
   lt: number;
   /**
-   *  Lte specifies that this field must be less than or equal to the
-   *  specified value, inclusive
+   * Lte specifies that this field must be less than or equal to the
+   * specified value, inclusive
    */
   lte: number;
   /**
-   *  Gt specifies that this field must be greater than the specified value,
-   *  exclusive. If the value of Gt is larger than a specified Lt or Lte, the
-   *  range is reversed.
+   * Gt specifies that this field must be greater than the specified value,
+   * exclusive. If the value of Gt is larger than a specified Lt or Lte, the
+   * range is reversed.
    */
   gt: number;
   /**
-   *  Gte specifies that this field must be greater than or equal to the
-   *  specified value, inclusive. If the value of Gte is larger than a
-   *  specified Lt or Lte, the range is reversed.
+   * Gte specifies that this field must be greater than or equal to the
+   * specified value, inclusive. If the value of Gte is larger than a
+   * specified Lt or Lte, the range is reversed.
    */
   gte: number;
   /**
-   *  In specifies that this field must be equal to one of the specified
-   *  values
+   * In specifies that this field must be equal to one of the specified
+   * values
    */
   in: number[];
   /**
-   *  NotIn specifies that this field cannot be equal to one of the specified
-   *  values
+   * NotIn specifies that this field cannot be equal to one of the specified
+   * values
    */
   notIn: number[];
 }
 
-/**
- *  Fixed64Rules describes the constraints applied to `fixed64` values
- */
+/** Fixed64Rules describes the constraints applied to `fixed64` values */
 export interface Fixed64Rules {
-  /**
-   *  Const specifies that this field must be exactly the specified value
-   */
+  /** Const specifies that this field must be exactly the specified value */
   const: number;
   /**
-   *  Lt specifies that this field must be less than the specified value,
-   *  exclusive
+   * Lt specifies that this field must be less than the specified value,
+   * exclusive
    */
   lt: number;
   /**
-   *  Lte specifies that this field must be less than or equal to the
-   *  specified value, inclusive
+   * Lte specifies that this field must be less than or equal to the
+   * specified value, inclusive
    */
   lte: number;
   /**
-   *  Gt specifies that this field must be greater than the specified value,
-   *  exclusive. If the value of Gt is larger than a specified Lt or Lte, the
-   *  range is reversed.
+   * Gt specifies that this field must be greater than the specified value,
+   * exclusive. If the value of Gt is larger than a specified Lt or Lte, the
+   * range is reversed.
    */
   gt: number;
   /**
-   *  Gte specifies that this field must be greater than or equal to the
-   *  specified value, inclusive. If the value of Gte is larger than a
-   *  specified Lt or Lte, the range is reversed.
+   * Gte specifies that this field must be greater than or equal to the
+   * specified value, inclusive. If the value of Gte is larger than a
+   * specified Lt or Lte, the range is reversed.
    */
   gte: number;
   /**
-   *  In specifies that this field must be equal to one of the specified
-   *  values
+   * In specifies that this field must be equal to one of the specified
+   * values
    */
   in: number[];
   /**
-   *  NotIn specifies that this field cannot be equal to one of the specified
-   *  values
+   * NotIn specifies that this field cannot be equal to one of the specified
+   * values
    */
   notIn: number[];
 }
 
-/**
- *  SFixed32Rules describes the constraints applied to `sfixed32` values
- */
+/** SFixed32Rules describes the constraints applied to `sfixed32` values */
 export interface SFixed32Rules {
-  /**
-   *  Const specifies that this field must be exactly the specified value
-   */
+  /** Const specifies that this field must be exactly the specified value */
   const: number;
   /**
-   *  Lt specifies that this field must be less than the specified value,
-   *  exclusive
+   * Lt specifies that this field must be less than the specified value,
+   * exclusive
    */
   lt: number;
   /**
-   *  Lte specifies that this field must be less than or equal to the
-   *  specified value, inclusive
+   * Lte specifies that this field must be less than or equal to the
+   * specified value, inclusive
    */
   lte: number;
   /**
-   *  Gt specifies that this field must be greater than the specified value,
-   *  exclusive. If the value of Gt is larger than a specified Lt or Lte, the
-   *  range is reversed.
+   * Gt specifies that this field must be greater than the specified value,
+   * exclusive. If the value of Gt is larger than a specified Lt or Lte, the
+   * range is reversed.
    */
   gt: number;
   /**
-   *  Gte specifies that this field must be greater than or equal to the
-   *  specified value, inclusive. If the value of Gte is larger than a
-   *  specified Lt or Lte, the range is reversed.
+   * Gte specifies that this field must be greater than or equal to the
+   * specified value, inclusive. If the value of Gte is larger than a
+   * specified Lt or Lte, the range is reversed.
    */
   gte: number;
   /**
-   *  In specifies that this field must be equal to one of the specified
-   *  values
+   * In specifies that this field must be equal to one of the specified
+   * values
    */
   in: number[];
   /**
-   *  NotIn specifies that this field cannot be equal to one of the specified
-   *  values
+   * NotIn specifies that this field cannot be equal to one of the specified
+   * values
    */
   notIn: number[];
 }
 
-/**
- *  SFixed64Rules describes the constraints applied to `sfixed64` values
- */
+/** SFixed64Rules describes the constraints applied to `sfixed64` values */
 export interface SFixed64Rules {
-  /**
-   *  Const specifies that this field must be exactly the specified value
-   */
+  /** Const specifies that this field must be exactly the specified value */
   const: number;
   /**
-   *  Lt specifies that this field must be less than the specified value,
-   *  exclusive
+   * Lt specifies that this field must be less than the specified value,
+   * exclusive
    */
   lt: number;
   /**
-   *  Lte specifies that this field must be less than or equal to the
-   *  specified value, inclusive
+   * Lte specifies that this field must be less than or equal to the
+   * specified value, inclusive
    */
   lte: number;
   /**
-   *  Gt specifies that this field must be greater than the specified value,
-   *  exclusive. If the value of Gt is larger than a specified Lt or Lte, the
-   *  range is reversed.
+   * Gt specifies that this field must be greater than the specified value,
+   * exclusive. If the value of Gt is larger than a specified Lt or Lte, the
+   * range is reversed.
    */
   gt: number;
   /**
-   *  Gte specifies that this field must be greater than or equal to the
-   *  specified value, inclusive. If the value of Gte is larger than a
-   *  specified Lt or Lte, the range is reversed.
+   * Gte specifies that this field must be greater than or equal to the
+   * specified value, inclusive. If the value of Gte is larger than a
+   * specified Lt or Lte, the range is reversed.
    */
   gte: number;
   /**
-   *  In specifies that this field must be equal to one of the specified
-   *  values
+   * In specifies that this field must be equal to one of the specified
+   * values
    */
   in: number[];
   /**
-   *  NotIn specifies that this field cannot be equal to one of the specified
-   *  values
+   * NotIn specifies that this field cannot be equal to one of the specified
+   * values
    */
   notIn: number[];
 }
 
-/**
- *  BoolRules describes the constraints applied to `bool` values
- */
+/** BoolRules describes the constraints applied to `bool` values */
 export interface BoolRules {
-  /**
-   *  Const specifies that this field must be exactly the specified value
-   */
+  /** Const specifies that this field must be exactly the specified value */
   const: boolean;
 }
 
-/**
- *  StringRules describe the constraints applied to `string` values
- */
+/** StringRules describe the constraints applied to `string` values */
 export interface StringRules {
-  /**
-   *  Const specifies that this field must be exactly the specified value
-   */
+  /** Const specifies that this field must be exactly the specified value */
   const: string;
   /**
-   *  Len specifies that this field must be the specified number of
-   *  characters (Unicode code points). Note that the number of
-   *  characters may differ from the number of bytes in the string.
+   * Len specifies that this field must be the specified number of
+   * characters (Unicode code points). Note that the number of
+   * characters may differ from the number of bytes in the string.
    */
   len: number;
   /**
-   *  MinLen specifies that this field must be the specified number of
-   *  characters (Unicode code points) at a minimum. Note that the number of
-   *  characters may differ from the number of bytes in the string.
+   * MinLen specifies that this field must be the specified number of
+   * characters (Unicode code points) at a minimum. Note that the number of
+   * characters may differ from the number of bytes in the string.
    */
   minLen: number;
   /**
-   *  MaxLen specifies that this field must be the specified number of
-   *  characters (Unicode code points) at a maximum. Note that the number of
-   *  characters may differ from the number of bytes in the string.
+   * MaxLen specifies that this field must be the specified number of
+   * characters (Unicode code points) at a maximum. Note that the number of
+   * characters may differ from the number of bytes in the string.
    */
   maxLen: number;
   /**
-   *  LenBytes specifies that this field must be the specified number of bytes
-   *  at a minimum
+   * LenBytes specifies that this field must be the specified number of bytes
+   * at a minimum
    */
   lenBytes: number;
   /**
-   *  MinBytes specifies that this field must be the specified number of bytes
-   *  at a minimum
+   * MinBytes specifies that this field must be the specified number of bytes
+   * at a minimum
    */
   minBytes: number;
   /**
-   *  MaxBytes specifies that this field must be the specified number of bytes
-   *  at a maximum
+   * MaxBytes specifies that this field must be the specified number of bytes
+   * at a maximum
    */
   maxBytes: number;
   /**
-   *  Pattern specifes that this field must match against the specified
-   *  regular expression (RE2 syntax). The included expression should elide
-   *  any delimiters.
+   * Pattern specifes that this field must match against the specified
+   * regular expression (RE2 syntax). The included expression should elide
+   * any delimiters.
    */
   pattern: string;
   /**
-   *  Prefix specifies that this field must have the specified substring at
-   *  the beginning of the string.
+   * Prefix specifies that this field must have the specified substring at
+   * the beginning of the string.
    */
   prefix: string;
   /**
-   *  Suffix specifies that this field must have the specified substring at
-   *  the end of the string.
+   * Suffix specifies that this field must have the specified substring at
+   * the end of the string.
    */
   suffix: string;
   /**
-   *  Contains specifies that this field must have the specified substring
-   *  anywhere in the string.
+   * Contains specifies that this field must have the specified substring
+   * anywhere in the string.
    */
   contains: string;
   /**
-   *  NotContains specifies that this field cannot have the specified substring
-   *  anywhere in the string.
+   * NotContains specifies that this field cannot have the specified substring
+   * anywhere in the string.
    */
   notContains: string;
   /**
-   *  In specifies that this field must be equal to one of the specified
-   *  values
+   * In specifies that this field must be equal to one of the specified
+   * values
    */
   in: string[];
   /**
-   *  NotIn specifies that this field cannot be equal to one of the specified
-   *  values
+   * NotIn specifies that this field cannot be equal to one of the specified
+   * values
    */
   notIn: string[];
   /**
-   *  Email specifies that the field must be a valid email address as
-   *  defined by RFC 5322
+   * Email specifies that the field must be a valid email address as
+   * defined by RFC 5322
    */
   email: boolean | undefined;
   /**
-   *  Hostname specifies that the field must be a valid hostname as
-   *  defined by RFC 1034. This constraint does not support
-   *  internationalized domain names (IDNs).
+   * Hostname specifies that the field must be a valid hostname as
+   * defined by RFC 1034. This constraint does not support
+   * internationalized domain names (IDNs).
    */
   hostname: boolean | undefined;
   /**
-   *  Ip specifies that the field must be a valid IP (v4 or v6) address.
-   *  Valid IPv6 addresses should not include surrounding square brackets.
+   * Ip specifies that the field must be a valid IP (v4 or v6) address.
+   * Valid IPv6 addresses should not include surrounding square brackets.
    */
   ip: boolean | undefined;
-  /**
-   *  Ipv4 specifies that the field must be a valid IPv4 address.
-   */
+  /** Ipv4 specifies that the field must be a valid IPv4 address. */
   ipv4: boolean | undefined;
   /**
-   *  Ipv6 specifies that the field must be a valid IPv6 address. Valid
-   *  IPv6 addresses should not include surrounding square brackets.
+   * Ipv6 specifies that the field must be a valid IPv6 address. Valid
+   * IPv6 addresses should not include surrounding square brackets.
    */
   ipv6: boolean | undefined;
   /**
-   *  Uri specifies that the field must be a valid, absolute URI as defined
-   *  by RFC 3986
+   * Uri specifies that the field must be a valid, absolute URI as defined
+   * by RFC 3986
    */
   uri: boolean | undefined;
   /**
-   *  UriRef specifies that the field must be a valid URI as defined by RFC
-   *  3986 and may be relative or absolute.
+   * UriRef specifies that the field must be a valid URI as defined by RFC
+   * 3986 and may be relative or absolute.
    */
   uriRef: boolean | undefined;
   /**
-   *  Address specifies that the field must be either a valid hostname as
-   *  defined by RFC 1034 (which does not support internationalized domain
-   *  names or IDNs), or it can be a valid IP (v4 or v6).
+   * Address specifies that the field must be either a valid hostname as
+   * defined by RFC 1034 (which does not support internationalized domain
+   * names or IDNs), or it can be a valid IP (v4 or v6).
    */
   address: boolean | undefined;
   /**
-   *  Uuid specifies that the field must be a valid UUID as defined by
-   *  RFC 4122
+   * Uuid specifies that the field must be a valid UUID as defined by
+   * RFC 4122
    */
   uuid: boolean | undefined;
 }
 
-/**
- *  BytesRules describe the constraints applied to `bytes` values
- */
+/** BytesRules describe the constraints applied to `bytes` values */
 export interface BytesRules {
-  /**
-   *  Const specifies that this field must be exactly the specified value
-   */
+  /** Const specifies that this field must be exactly the specified value */
   const: Uint8Array;
-  /**
-   *  Len specifies that this field must be the specified number of bytes
-   */
+  /** Len specifies that this field must be the specified number of bytes */
   len: number;
   /**
-   *  MinLen specifies that this field must be the specified number of bytes
-   *  at a minimum
+   * MinLen specifies that this field must be the specified number of bytes
+   * at a minimum
    */
   minLen: number;
   /**
-   *  MaxLen specifies that this field must be the specified number of bytes
-   *  at a maximum
+   * MaxLen specifies that this field must be the specified number of bytes
+   * at a maximum
    */
   maxLen: number;
   /**
-   *  Pattern specifes that this field must match against the specified
-   *  regular expression (RE2 syntax). The included expression should elide
-   *  any delimiters.
+   * Pattern specifes that this field must match against the specified
+   * regular expression (RE2 syntax). The included expression should elide
+   * any delimiters.
    */
   pattern: string;
   /**
-   *  Prefix specifies that this field must have the specified bytes at the
-   *  beginning of the string.
+   * Prefix specifies that this field must have the specified bytes at the
+   * beginning of the string.
    */
   prefix: Uint8Array;
   /**
-   *  Suffix specifies that this field must have the specified bytes at the
-   *  end of the string.
+   * Suffix specifies that this field must have the specified bytes at the
+   * end of the string.
    */
   suffix: Uint8Array;
   /**
-   *  Contains specifies that this field must have the specified bytes
-   *  anywhere in the string.
+   * Contains specifies that this field must have the specified bytes
+   * anywhere in the string.
    */
   contains: Uint8Array;
   /**
-   *  In specifies that this field must be equal to one of the specified
-   *  values
+   * In specifies that this field must be equal to one of the specified
+   * values
    */
   in: Uint8Array[];
   /**
-   *  NotIn specifies that this field cannot be equal to one of the specified
-   *  values
+   * NotIn specifies that this field cannot be equal to one of the specified
+   * values
    */
   notIn: Uint8Array[];
   /**
-   *  Ip specifies that the field must be a valid IP (v4 or v6) address in
-   *  byte format
+   * Ip specifies that the field must be a valid IP (v4 or v6) address in
+   * byte format
    */
   ip: boolean | undefined;
   /**
-   *  Ipv4 specifies that the field must be a valid IPv4 address in byte
-   *  format
+   * Ipv4 specifies that the field must be a valid IPv4 address in byte
+   * format
    */
   ipv4: boolean | undefined;
   /**
-   *  Ipv6 specifies that the field must be a valid IPv6 address in byte
-   *  format
+   * Ipv6 specifies that the field must be a valid IPv6 address in byte
+   * format
    */
   ipv6: boolean | undefined;
 }
 
-/**
- *  EnumRules describe the constraints applied to enum values
- */
+/** EnumRules describe the constraints applied to enum values */
 export interface EnumRules {
-  /**
-   *  Const specifies that this field must be exactly the specified value
-   */
+  /** Const specifies that this field must be exactly the specified value */
   const: number;
   /**
-   *  DefinedOnly specifies that this field must be only one of the defined
-   *  values for this enum, failing on any undefined value.
+   * DefinedOnly specifies that this field must be only one of the defined
+   * values for this enum, failing on any undefined value.
    */
   definedOnly: boolean;
   /**
-   *  In specifies that this field must be equal to one of the specified
-   *  values
+   * In specifies that this field must be equal to one of the specified
+   * values
    */
   in: number[];
   /**
-   *  NotIn specifies that this field cannot be equal to one of the specified
-   *  values
+   * NotIn specifies that this field cannot be equal to one of the specified
+   * values
    */
   notIn: number[];
 }
 
 /**
- *  MessageRules describe the constraints applied to embedded message values.
- *  For message-type fields, validation is performed recursively.
+ * MessageRules describe the constraints applied to embedded message values.
+ * For message-type fields, validation is performed recursively.
  */
 export interface MessageRules {
   /**
-   *  Skip specifies that the validation rules of this field should not be
-   *  evaluated
+   * Skip specifies that the validation rules of this field should not be
+   * evaluated
    */
   skip: boolean;
-  /**
-   *  Required specifies that this field must be set
-   */
+  /** Required specifies that this field must be set */
   required: boolean;
 }
 
-/**
- *  RepeatedRules describe the constraints applied to `repeated` values
- */
+/** RepeatedRules describe the constraints applied to `repeated` values */
 export interface RepeatedRules {
   /**
-   *  MinItems specifies that this field must have the specified number of
-   *  items at a minimum
+   * MinItems specifies that this field must have the specified number of
+   * items at a minimum
    */
   minItems: number;
   /**
-   *  MaxItems specifies that this field must have the specified number of
-   *  items at a maximum
+   * MaxItems specifies that this field must have the specified number of
+   * items at a maximum
    */
   maxItems: number;
   /**
-   *  Unique specifies that all elements in this field must be unique. This
-   *  contraint is only applicable to scalar and enum types (messages are not
-   *  supported).
+   * Unique specifies that all elements in this field must be unique. This
+   * contraint is only applicable to scalar and enum types (messages are not
+   * supported).
    */
   unique: boolean;
   /**
-   *  Items specifies the contraints to be applied to each item in the field.
-   *  Repeated message fields will still execute validation against each item
-   *  unless skip is specified here.
+   * Items specifies the contraints to be applied to each item in the field.
+   * Repeated message fields will still execute validation against each item
+   * unless skip is specified here.
    */
   items: FieldRules | undefined;
 }
 
-/**
- *  MapRules describe the constraints applied to `map` values
- */
+/** MapRules describe the constraints applied to `map` values */
 export interface MapRules {
   /**
-   *  MinPairs specifies that this field must have the specified number of
-   *  KVs at a minimum
+   * MinPairs specifies that this field must have the specified number of
+   * KVs at a minimum
    */
   minPairs: number;
   /**
-   *  MaxPairs specifies that this field must have the specified number of
-   *  KVs at a maximum
+   * MaxPairs specifies that this field must have the specified number of
+   * KVs at a maximum
    */
   maxPairs: number;
   /**
-   *  NoSparse specifies values in this field cannot be unset. This only
-   *  applies to map's with message value types.
+   * NoSparse specifies values in this field cannot be unset. This only
+   * applies to map's with message value types.
    */
   noSparse: boolean;
-  /**
-   *  Keys specifies the constraints to be applied to each key in the field.
-   */
+  /** Keys specifies the constraints to be applied to each key in the field. */
   keys: FieldRules | undefined;
   /**
-   *  Values specifies the constraints to be applied to the value of each key
-   *  in the field. Message values will still have their validations evaluated
-   *  unless skip is specified here.
+   * Values specifies the constraints to be applied to the value of each key
+   * in the field. Message values will still have their validations evaluated
+   * unless skip is specified here.
    */
   values: FieldRules | undefined;
 }
 
 /**
- *  AnyRules describe constraints applied exclusively to the
- *  `google.protobuf.Any` well-known type
+ * AnyRules describe constraints applied exclusively to the
+ * `google.protobuf.Any` well-known type
  */
 export interface AnyRules {
-  /**
-   *  Required specifies that this field must be set
-   */
+  /** Required specifies that this field must be set */
   required: boolean;
   /**
-   *  In specifies that this field's `type_url` must be equal to one of the
-   *  specified values.
+   * In specifies that this field's `type_url` must be equal to one of the
+   * specified values.
    */
   in: string[];
   /**
-   *  NotIn specifies that this field's `type_url` must not be equal to any of
-   *  the specified values.
+   * NotIn specifies that this field's `type_url` must not be equal to any of
+   * the specified values.
    */
   notIn: string[];
 }
 
 /**
- *  DurationRules describe the constraints applied exclusively to the
- *  `google.protobuf.Duration` well-known type
+ * DurationRules describe the constraints applied exclusively to the
+ * `google.protobuf.Duration` well-known type
  */
 export interface DurationRules {
-  /**
-   *  Required specifies that this field must be set
-   */
+  /** Required specifies that this field must be set */
   required: boolean;
-  /**
-   *  Const specifies that this field must be exactly the specified value
-   */
+  /** Const specifies that this field must be exactly the specified value */
   const: Duration | undefined;
   /**
-   *  Lt specifies that this field must be less than the specified value,
-   *  exclusive
+   * Lt specifies that this field must be less than the specified value,
+   * exclusive
    */
   lt: Duration | undefined;
   /**
-   *  Lt specifies that this field must be less than the specified value,
-   *  inclusive
+   * Lt specifies that this field must be less than the specified value,
+   * inclusive
    */
   lte: Duration | undefined;
   /**
-   *  Gt specifies that this field must be greater than the specified value,
-   *  exclusive
+   * Gt specifies that this field must be greater than the specified value,
+   * exclusive
    */
   gt: Duration | undefined;
   /**
-   *  Gte specifies that this field must be greater than the specified value,
-   *  inclusive
+   * Gte specifies that this field must be greater than the specified value,
+   * inclusive
    */
   gte: Duration | undefined;
   /**
-   *  In specifies that this field must be equal to one of the specified
-   *  values
+   * In specifies that this field must be equal to one of the specified
+   * values
    */
   in: Duration[];
   /**
-   *  NotIn specifies that this field cannot be equal to one of the specified
-   *  values
+   * NotIn specifies that this field cannot be equal to one of the specified
+   * values
    */
   notIn: Duration[];
 }
 
 /**
- *  TimestampRules describe the constraints applied exclusively to the
- *  `google.protobuf.Timestamp` well-known type
+ * TimestampRules describe the constraints applied exclusively to the
+ * `google.protobuf.Timestamp` well-known type
  */
 export interface TimestampRules {
-  /**
-   *  Required specifies that this field must be set
-   */
+  /** Required specifies that this field must be set */
   required: boolean;
-  /**
-   *  Const specifies that this field must be exactly the specified value
-   */
+  /** Const specifies that this field must be exactly the specified value */
   const: Date | undefined;
   /**
-   *  Lt specifies that this field must be less than the specified value,
-   *  exclusive
+   * Lt specifies that this field must be less than the specified value,
+   * exclusive
    */
   lt: Date | undefined;
   /**
-   *  Lte specifies that this field must be less than the specified value,
-   *  inclusive
+   * Lte specifies that this field must be less than the specified value,
+   * inclusive
    */
   lte: Date | undefined;
   /**
-   *  Gt specifies that this field must be greater than the specified value,
-   *  exclusive
+   * Gt specifies that this field must be greater than the specified value,
+   * exclusive
    */
   gt: Date | undefined;
   /**
-   *  Gte specifies that this field must be greater than the specified value,
-   *  inclusive
+   * Gte specifies that this field must be greater than the specified value,
+   * inclusive
    */
   gte: Date | undefined;
   /**
-   *  LtNow specifies that this must be less than the current time. LtNow
-   *  can only be used with the Within rule.
+   * LtNow specifies that this must be less than the current time. LtNow
+   * can only be used with the Within rule.
    */
   ltNow: boolean;
   /**
-   *  GtNow specifies that this must be greater than the current time. GtNow
-   *  can only be used with the Within rule.
+   * GtNow specifies that this must be greater than the current time. GtNow
+   * can only be used with the Within rule.
    */
   gtNow: boolean;
   /**
-   *  Within specifies that this field must be within this duration of the
-   *  current time. This constraint can be used alone or with the LtNow and
-   *  GtNow rules.
+   * Within specifies that this field must be within this duration of the
+   * current time. This constraint can be used alone or with the LtNow and
+   * GtNow rules.
    */
   within: Duration | undefined;
 }
 
-const baseFieldRules: object = {
-};
-
-const baseFloatRules: object = {
-  const: 0,
-  lt: 0,
-  lte: 0,
-  gt: 0,
-  gte: 0,
-  in: 0,
-  notIn: 0,
-};
-
-const baseDoubleRules: object = {
-  const: 0,
-  lt: 0,
-  lte: 0,
-  gt: 0,
-  gte: 0,
-  in: 0,
-  notIn: 0,
-};
-
-const baseInt32Rules: object = {
-  const: 0,
-  lt: 0,
-  lte: 0,
-  gt: 0,
-  gte: 0,
-  in: 0,
-  notIn: 0,
-};
-
-const baseInt64Rules: object = {
-  const: 0,
-  lt: 0,
-  lte: 0,
-  gt: 0,
-  gte: 0,
-  in: 0,
-  notIn: 0,
-};
-
-const baseUInt32Rules: object = {
-  const: 0,
-  lt: 0,
-  lte: 0,
-  gt: 0,
-  gte: 0,
-  in: 0,
-  notIn: 0,
-};
-
-const baseUInt64Rules: object = {
-  const: 0,
-  lt: 0,
-  lte: 0,
-  gt: 0,
-  gte: 0,
-  in: 0,
-  notIn: 0,
-};
-
-const baseSInt32Rules: object = {
-  const: 0,
-  lt: 0,
-  lte: 0,
-  gt: 0,
-  gte: 0,
-  in: 0,
-  notIn: 0,
-};
-
-const baseSInt64Rules: object = {
-  const: 0,
-  lt: 0,
-  lte: 0,
-  gt: 0,
-  gte: 0,
-  in: 0,
-  notIn: 0,
-};
-
-const baseFixed32Rules: object = {
-  const: 0,
-  lt: 0,
-  lte: 0,
-  gt: 0,
-  gte: 0,
-  in: 0,
-  notIn: 0,
-};
-
-const baseFixed64Rules: object = {
-  const: 0,
-  lt: 0,
-  lte: 0,
-  gt: 0,
-  gte: 0,
-  in: 0,
-  notIn: 0,
-};
-
-const baseSFixed32Rules: object = {
-  const: 0,
-  lt: 0,
-  lte: 0,
-  gt: 0,
-  gte: 0,
-  in: 0,
-  notIn: 0,
-};
-
-const baseSFixed64Rules: object = {
-  const: 0,
-  lt: 0,
-  lte: 0,
-  gt: 0,
-  gte: 0,
-  in: 0,
-  notIn: 0,
-};
-
-const baseBoolRules: object = {
-  const: false,
-};
-
-const baseStringRules: object = {
-  const: "",
-  len: 0,
-  minLen: 0,
-  maxLen: 0,
-  lenBytes: 0,
-  minBytes: 0,
-  maxBytes: 0,
-  pattern: "",
-  prefix: "",
-  suffix: "",
-  contains: "",
-  notContains: "",
-  in: "",
-  notIn: "",
-};
-
-const baseBytesRules: object = {
-  len: 0,
-  minLen: 0,
-  maxLen: 0,
-  pattern: "",
-};
-
-const baseEnumRules: object = {
-  const: 0,
-  definedOnly: false,
-  in: 0,
-  notIn: 0,
-};
-
-const baseMessageRules: object = {
-  skip: false,
-  required: false,
-};
-
-const baseRepeatedRules: object = {
-  minItems: 0,
-  maxItems: 0,
-  unique: false,
-};
-
-const baseMapRules: object = {
-  minPairs: 0,
-  maxPairs: 0,
-  noSparse: false,
-};
-
-const baseAnyRules: object = {
-  required: false,
-  in: "",
-  notIn: "",
-};
-
-const baseDurationRules: object = {
-  required: false,
-};
-
-const baseTimestampRules: object = {
-  required: false,
-  ltNow: false,
-  gtNow: false,
-};
-
-function fromJsonTimestamp(o: any): Date {
-  if (o instanceof Date) {
-    return o;
-  } else if (typeof o === "string") {
-    return new Date(o);
-  } else {
-    return fromTimestamp(Timestamp.fromJSON(o));
-  }
-}
-
-function toTimestamp(date: Date): Timestamp {
-  const seconds = date.getTime() / 1_000;
-  const nanos = (date.getTime() % 1_000) * 1_000_000;
-  return { seconds, nanos };
-}
-
-function fromTimestamp(t: Timestamp): Date {
-  let millis = t.seconds * 1_000;
-  millis += t.nanos / 1_000_000;
-  return new Date(millis);
-}
-
-function longToNumber(long: Long) {
-  if (long.gt(Number.MAX_SAFE_INTEGER)) {
-    throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
-  }
-  return long.toNumber();
-}
-
-export const protobufPackage = 'validate'
+const baseFieldRules: object = {};
 
 export const FieldRules = {
   encode(message: FieldRules, writer: Writer = Writer.create()): Writer {
-    if (message.message !== undefined && message.message !== undefined) {
+    if (message.message !== undefined) {
       MessageRules.encode(message.message, writer.uint32(138).fork()).ldelim();
     }
     if (message.float !== undefined) {
@@ -1261,8 +950,9 @@ export const FieldRules = {
     }
     return writer;
   },
-  decode(input: Uint8Array | Reader, length?: number): FieldRules {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+
+  decode(input: Reader | Uint8Array, length?: number): FieldRules {
+    const reader = input instanceof Reader ? input : new Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseFieldRules } as FieldRules;
     while (reader.pos < end) {
@@ -1341,6 +1031,7 @@ export const FieldRules = {
     }
     return message;
   },
+
   fromJSON(object: any): FieldRules {
     const message = { ...baseFieldRules } as FieldRules;
     if (object.message !== undefined && object.message !== null) {
@@ -1455,6 +1146,39 @@ export const FieldRules = {
     }
     return message;
   },
+
+  toJSON(message: FieldRules): unknown {
+    const obj: any = {};
+    message.message !== undefined && (obj.message = message.message ? MessageRules.toJSON(message.message) : undefined);
+    message.float !== undefined && (obj.float = message.float ? FloatRules.toJSON(message.float) : undefined);
+    message.double !== undefined && (obj.double = message.double ? DoubleRules.toJSON(message.double) : undefined);
+    message.int32 !== undefined && (obj.int32 = message.int32 ? Int32Rules.toJSON(message.int32) : undefined);
+    message.int64 !== undefined && (obj.int64 = message.int64 ? Int64Rules.toJSON(message.int64) : undefined);
+    message.uint32 !== undefined && (obj.uint32 = message.uint32 ? UInt32Rules.toJSON(message.uint32) : undefined);
+    message.uint64 !== undefined && (obj.uint64 = message.uint64 ? UInt64Rules.toJSON(message.uint64) : undefined);
+    message.sint32 !== undefined && (obj.sint32 = message.sint32 ? SInt32Rules.toJSON(message.sint32) : undefined);
+    message.sint64 !== undefined && (obj.sint64 = message.sint64 ? SInt64Rules.toJSON(message.sint64) : undefined);
+    message.fixed32 !== undefined && (obj.fixed32 = message.fixed32 ? Fixed32Rules.toJSON(message.fixed32) : undefined);
+    message.fixed64 !== undefined && (obj.fixed64 = message.fixed64 ? Fixed64Rules.toJSON(message.fixed64) : undefined);
+    message.sfixed32 !== undefined &&
+      (obj.sfixed32 = message.sfixed32 ? SFixed32Rules.toJSON(message.sfixed32) : undefined);
+    message.sfixed64 !== undefined &&
+      (obj.sfixed64 = message.sfixed64 ? SFixed64Rules.toJSON(message.sfixed64) : undefined);
+    message.bool !== undefined && (obj.bool = message.bool ? BoolRules.toJSON(message.bool) : undefined);
+    message.string !== undefined && (obj.string = message.string ? StringRules.toJSON(message.string) : undefined);
+    message.bytes !== undefined && (obj.bytes = message.bytes ? BytesRules.toJSON(message.bytes) : undefined);
+    message.enum !== undefined && (obj.enum = message.enum ? EnumRules.toJSON(message.enum) : undefined);
+    message.repeated !== undefined &&
+      (obj.repeated = message.repeated ? RepeatedRules.toJSON(message.repeated) : undefined);
+    message.map !== undefined && (obj.map = message.map ? MapRules.toJSON(message.map) : undefined);
+    message.any !== undefined && (obj.any = message.any ? AnyRules.toJSON(message.any) : undefined);
+    message.duration !== undefined &&
+      (obj.duration = message.duration ? DurationRules.toJSON(message.duration) : undefined);
+    message.timestamp !== undefined &&
+      (obj.timestamp = message.timestamp ? TimestampRules.toJSON(message.timestamp) : undefined);
+    return obj;
+  },
+
   fromPartial(object: DeepPartial<FieldRules>): FieldRules {
     const message = { ...baseFieldRules } as FieldRules;
     if (object.message !== undefined && object.message !== null) {
@@ -1569,41 +1293,27 @@ export const FieldRules = {
     }
     return message;
   },
-  toJSON(message: FieldRules): unknown {
-    const obj: any = {};
-    message.message !== undefined && (obj.message = message.message ? MessageRules.toJSON(message.message) : undefined);
-    message.float !== undefined && (obj.float = message.float ? FloatRules.toJSON(message.float) : undefined);
-    message.double !== undefined && (obj.double = message.double ? DoubleRules.toJSON(message.double) : undefined);
-    message.int32 !== undefined && (obj.int32 = message.int32 ? Int32Rules.toJSON(message.int32) : undefined);
-    message.int64 !== undefined && (obj.int64 = message.int64 ? Int64Rules.toJSON(message.int64) : undefined);
-    message.uint32 !== undefined && (obj.uint32 = message.uint32 ? UInt32Rules.toJSON(message.uint32) : undefined);
-    message.uint64 !== undefined && (obj.uint64 = message.uint64 ? UInt64Rules.toJSON(message.uint64) : undefined);
-    message.sint32 !== undefined && (obj.sint32 = message.sint32 ? SInt32Rules.toJSON(message.sint32) : undefined);
-    message.sint64 !== undefined && (obj.sint64 = message.sint64 ? SInt64Rules.toJSON(message.sint64) : undefined);
-    message.fixed32 !== undefined && (obj.fixed32 = message.fixed32 ? Fixed32Rules.toJSON(message.fixed32) : undefined);
-    message.fixed64 !== undefined && (obj.fixed64 = message.fixed64 ? Fixed64Rules.toJSON(message.fixed64) : undefined);
-    message.sfixed32 !== undefined && (obj.sfixed32 = message.sfixed32 ? SFixed32Rules.toJSON(message.sfixed32) : undefined);
-    message.sfixed64 !== undefined && (obj.sfixed64 = message.sfixed64 ? SFixed64Rules.toJSON(message.sfixed64) : undefined);
-    message.bool !== undefined && (obj.bool = message.bool ? BoolRules.toJSON(message.bool) : undefined);
-    message.string !== undefined && (obj.string = message.string ? StringRules.toJSON(message.string) : undefined);
-    message.bytes !== undefined && (obj.bytes = message.bytes ? BytesRules.toJSON(message.bytes) : undefined);
-    message.enum !== undefined && (obj.enum = message.enum ? EnumRules.toJSON(message.enum) : undefined);
-    message.repeated !== undefined && (obj.repeated = message.repeated ? RepeatedRules.toJSON(message.repeated) : undefined);
-    message.map !== undefined && (obj.map = message.map ? MapRules.toJSON(message.map) : undefined);
-    message.any !== undefined && (obj.any = message.any ? AnyRules.toJSON(message.any) : undefined);
-    message.duration !== undefined && (obj.duration = message.duration ? DurationRules.toJSON(message.duration) : undefined);
-    message.timestamp !== undefined && (obj.timestamp = message.timestamp ? TimestampRules.toJSON(message.timestamp) : undefined);
-    return obj;
-  },
 };
+
+const baseFloatRules: object = { const: 0, lt: 0, lte: 0, gt: 0, gte: 0, in: 0, notIn: 0 };
 
 export const FloatRules = {
   encode(message: FloatRules, writer: Writer = Writer.create()): Writer {
-    writer.uint32(13).float(message.const);
-    writer.uint32(21).float(message.lt);
-    writer.uint32(29).float(message.lte);
-    writer.uint32(37).float(message.gt);
-    writer.uint32(45).float(message.gte);
+    if (message.const !== 0) {
+      writer.uint32(13).float(message.const);
+    }
+    if (message.lt !== 0) {
+      writer.uint32(21).float(message.lt);
+    }
+    if (message.lte !== 0) {
+      writer.uint32(29).float(message.lte);
+    }
+    if (message.gt !== 0) {
+      writer.uint32(37).float(message.gt);
+    }
+    if (message.gte !== 0) {
+      writer.uint32(45).float(message.gte);
+    }
     writer.uint32(50).fork();
     for (const v of message.in) {
       writer.float(v);
@@ -1616,8 +1326,9 @@ export const FloatRules = {
     writer.ldelim();
     return writer;
   },
-  decode(input: Uint8Array | Reader, length?: number): FloatRules {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+
+  decode(input: Reader | Uint8Array, length?: number): FloatRules {
+    const reader = input instanceof Reader ? input : new Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseFloatRules } as FloatRules;
     message.in = [];
@@ -1667,6 +1378,7 @@ export const FloatRules = {
     }
     return message;
   },
+
   fromJSON(object: any): FloatRules {
     const message = { ...baseFloatRules } as FloatRules;
     message.in = [];
@@ -1708,6 +1420,27 @@ export const FloatRules = {
     }
     return message;
   },
+
+  toJSON(message: FloatRules): unknown {
+    const obj: any = {};
+    message.const !== undefined && (obj.const = message.const);
+    message.lt !== undefined && (obj.lt = message.lt);
+    message.lte !== undefined && (obj.lte = message.lte);
+    message.gt !== undefined && (obj.gt = message.gt);
+    message.gte !== undefined && (obj.gte = message.gte);
+    if (message.in) {
+      obj.in = message.in.map((e) => e);
+    } else {
+      obj.in = [];
+    }
+    if (message.notIn) {
+      obj.notIn = message.notIn.map((e) => e);
+    } else {
+      obj.notIn = [];
+    }
+    return obj;
+  },
+
   fromPartial(object: DeepPartial<FloatRules>): FloatRules {
     const message = { ...baseFloatRules } as FloatRules;
     message.in = [];
@@ -1749,34 +1482,27 @@ export const FloatRules = {
     }
     return message;
   },
-  toJSON(message: FloatRules): unknown {
-    const obj: any = {};
-    message.const !== undefined && (obj.const = message.const);
-    message.lt !== undefined && (obj.lt = message.lt);
-    message.lte !== undefined && (obj.lte = message.lte);
-    message.gt !== undefined && (obj.gt = message.gt);
-    message.gte !== undefined && (obj.gte = message.gte);
-    if (message.in) {
-      obj.in = message.in.map(e => e);
-    } else {
-      obj.in = [];
-    }
-    if (message.notIn) {
-      obj.notIn = message.notIn.map(e => e);
-    } else {
-      obj.notIn = [];
-    }
-    return obj;
-  },
 };
+
+const baseDoubleRules: object = { const: 0, lt: 0, lte: 0, gt: 0, gte: 0, in: 0, notIn: 0 };
 
 export const DoubleRules = {
   encode(message: DoubleRules, writer: Writer = Writer.create()): Writer {
-    writer.uint32(9).double(message.const);
-    writer.uint32(17).double(message.lt);
-    writer.uint32(25).double(message.lte);
-    writer.uint32(33).double(message.gt);
-    writer.uint32(41).double(message.gte);
+    if (message.const !== 0) {
+      writer.uint32(9).double(message.const);
+    }
+    if (message.lt !== 0) {
+      writer.uint32(17).double(message.lt);
+    }
+    if (message.lte !== 0) {
+      writer.uint32(25).double(message.lte);
+    }
+    if (message.gt !== 0) {
+      writer.uint32(33).double(message.gt);
+    }
+    if (message.gte !== 0) {
+      writer.uint32(41).double(message.gte);
+    }
     writer.uint32(50).fork();
     for (const v of message.in) {
       writer.double(v);
@@ -1789,8 +1515,9 @@ export const DoubleRules = {
     writer.ldelim();
     return writer;
   },
-  decode(input: Uint8Array | Reader, length?: number): DoubleRules {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+
+  decode(input: Reader | Uint8Array, length?: number): DoubleRules {
+    const reader = input instanceof Reader ? input : new Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseDoubleRules } as DoubleRules;
     message.in = [];
@@ -1840,6 +1567,7 @@ export const DoubleRules = {
     }
     return message;
   },
+
   fromJSON(object: any): DoubleRules {
     const message = { ...baseDoubleRules } as DoubleRules;
     message.in = [];
@@ -1881,6 +1609,27 @@ export const DoubleRules = {
     }
     return message;
   },
+
+  toJSON(message: DoubleRules): unknown {
+    const obj: any = {};
+    message.const !== undefined && (obj.const = message.const);
+    message.lt !== undefined && (obj.lt = message.lt);
+    message.lte !== undefined && (obj.lte = message.lte);
+    message.gt !== undefined && (obj.gt = message.gt);
+    message.gte !== undefined && (obj.gte = message.gte);
+    if (message.in) {
+      obj.in = message.in.map((e) => e);
+    } else {
+      obj.in = [];
+    }
+    if (message.notIn) {
+      obj.notIn = message.notIn.map((e) => e);
+    } else {
+      obj.notIn = [];
+    }
+    return obj;
+  },
+
   fromPartial(object: DeepPartial<DoubleRules>): DoubleRules {
     const message = { ...baseDoubleRules } as DoubleRules;
     message.in = [];
@@ -1922,34 +1671,27 @@ export const DoubleRules = {
     }
     return message;
   },
-  toJSON(message: DoubleRules): unknown {
-    const obj: any = {};
-    message.const !== undefined && (obj.const = message.const);
-    message.lt !== undefined && (obj.lt = message.lt);
-    message.lte !== undefined && (obj.lte = message.lte);
-    message.gt !== undefined && (obj.gt = message.gt);
-    message.gte !== undefined && (obj.gte = message.gte);
-    if (message.in) {
-      obj.in = message.in.map(e => e);
-    } else {
-      obj.in = [];
-    }
-    if (message.notIn) {
-      obj.notIn = message.notIn.map(e => e);
-    } else {
-      obj.notIn = [];
-    }
-    return obj;
-  },
 };
+
+const baseInt32Rules: object = { const: 0, lt: 0, lte: 0, gt: 0, gte: 0, in: 0, notIn: 0 };
 
 export const Int32Rules = {
   encode(message: Int32Rules, writer: Writer = Writer.create()): Writer {
-    writer.uint32(8).int32(message.const);
-    writer.uint32(16).int32(message.lt);
-    writer.uint32(24).int32(message.lte);
-    writer.uint32(32).int32(message.gt);
-    writer.uint32(40).int32(message.gte);
+    if (message.const !== 0) {
+      writer.uint32(8).int32(message.const);
+    }
+    if (message.lt !== 0) {
+      writer.uint32(16).int32(message.lt);
+    }
+    if (message.lte !== 0) {
+      writer.uint32(24).int32(message.lte);
+    }
+    if (message.gt !== 0) {
+      writer.uint32(32).int32(message.gt);
+    }
+    if (message.gte !== 0) {
+      writer.uint32(40).int32(message.gte);
+    }
     writer.uint32(50).fork();
     for (const v of message.in) {
       writer.int32(v);
@@ -1962,8 +1704,9 @@ export const Int32Rules = {
     writer.ldelim();
     return writer;
   },
-  decode(input: Uint8Array | Reader, length?: number): Int32Rules {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+
+  decode(input: Reader | Uint8Array, length?: number): Int32Rules {
+    const reader = input instanceof Reader ? input : new Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseInt32Rules } as Int32Rules;
     message.in = [];
@@ -2013,6 +1756,7 @@ export const Int32Rules = {
     }
     return message;
   },
+
   fromJSON(object: any): Int32Rules {
     const message = { ...baseInt32Rules } as Int32Rules;
     message.in = [];
@@ -2054,6 +1798,27 @@ export const Int32Rules = {
     }
     return message;
   },
+
+  toJSON(message: Int32Rules): unknown {
+    const obj: any = {};
+    message.const !== undefined && (obj.const = message.const);
+    message.lt !== undefined && (obj.lt = message.lt);
+    message.lte !== undefined && (obj.lte = message.lte);
+    message.gt !== undefined && (obj.gt = message.gt);
+    message.gte !== undefined && (obj.gte = message.gte);
+    if (message.in) {
+      obj.in = message.in.map((e) => e);
+    } else {
+      obj.in = [];
+    }
+    if (message.notIn) {
+      obj.notIn = message.notIn.map((e) => e);
+    } else {
+      obj.notIn = [];
+    }
+    return obj;
+  },
+
   fromPartial(object: DeepPartial<Int32Rules>): Int32Rules {
     const message = { ...baseInt32Rules } as Int32Rules;
     message.in = [];
@@ -2095,34 +1860,27 @@ export const Int32Rules = {
     }
     return message;
   },
-  toJSON(message: Int32Rules): unknown {
-    const obj: any = {};
-    message.const !== undefined && (obj.const = message.const);
-    message.lt !== undefined && (obj.lt = message.lt);
-    message.lte !== undefined && (obj.lte = message.lte);
-    message.gt !== undefined && (obj.gt = message.gt);
-    message.gte !== undefined && (obj.gte = message.gte);
-    if (message.in) {
-      obj.in = message.in.map(e => e);
-    } else {
-      obj.in = [];
-    }
-    if (message.notIn) {
-      obj.notIn = message.notIn.map(e => e);
-    } else {
-      obj.notIn = [];
-    }
-    return obj;
-  },
 };
+
+const baseInt64Rules: object = { const: 0, lt: 0, lte: 0, gt: 0, gte: 0, in: 0, notIn: 0 };
 
 export const Int64Rules = {
   encode(message: Int64Rules, writer: Writer = Writer.create()): Writer {
-    writer.uint32(8).int64(message.const);
-    writer.uint32(16).int64(message.lt);
-    writer.uint32(24).int64(message.lte);
-    writer.uint32(32).int64(message.gt);
-    writer.uint32(40).int64(message.gte);
+    if (message.const !== 0) {
+      writer.uint32(8).int64(message.const);
+    }
+    if (message.lt !== 0) {
+      writer.uint32(16).int64(message.lt);
+    }
+    if (message.lte !== 0) {
+      writer.uint32(24).int64(message.lte);
+    }
+    if (message.gt !== 0) {
+      writer.uint32(32).int64(message.gt);
+    }
+    if (message.gte !== 0) {
+      writer.uint32(40).int64(message.gte);
+    }
     writer.uint32(50).fork();
     for (const v of message.in) {
       writer.int64(v);
@@ -2135,8 +1893,9 @@ export const Int64Rules = {
     writer.ldelim();
     return writer;
   },
-  decode(input: Uint8Array | Reader, length?: number): Int64Rules {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+
+  decode(input: Reader | Uint8Array, length?: number): Int64Rules {
+    const reader = input instanceof Reader ? input : new Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseInt64Rules } as Int64Rules;
     message.in = [];
@@ -2186,6 +1945,7 @@ export const Int64Rules = {
     }
     return message;
   },
+
   fromJSON(object: any): Int64Rules {
     const message = { ...baseInt64Rules } as Int64Rules;
     message.in = [];
@@ -2227,6 +1987,27 @@ export const Int64Rules = {
     }
     return message;
   },
+
+  toJSON(message: Int64Rules): unknown {
+    const obj: any = {};
+    message.const !== undefined && (obj.const = message.const);
+    message.lt !== undefined && (obj.lt = message.lt);
+    message.lte !== undefined && (obj.lte = message.lte);
+    message.gt !== undefined && (obj.gt = message.gt);
+    message.gte !== undefined && (obj.gte = message.gte);
+    if (message.in) {
+      obj.in = message.in.map((e) => e);
+    } else {
+      obj.in = [];
+    }
+    if (message.notIn) {
+      obj.notIn = message.notIn.map((e) => e);
+    } else {
+      obj.notIn = [];
+    }
+    return obj;
+  },
+
   fromPartial(object: DeepPartial<Int64Rules>): Int64Rules {
     const message = { ...baseInt64Rules } as Int64Rules;
     message.in = [];
@@ -2268,34 +2049,27 @@ export const Int64Rules = {
     }
     return message;
   },
-  toJSON(message: Int64Rules): unknown {
-    const obj: any = {};
-    message.const !== undefined && (obj.const = message.const);
-    message.lt !== undefined && (obj.lt = message.lt);
-    message.lte !== undefined && (obj.lte = message.lte);
-    message.gt !== undefined && (obj.gt = message.gt);
-    message.gte !== undefined && (obj.gte = message.gte);
-    if (message.in) {
-      obj.in = message.in.map(e => e);
-    } else {
-      obj.in = [];
-    }
-    if (message.notIn) {
-      obj.notIn = message.notIn.map(e => e);
-    } else {
-      obj.notIn = [];
-    }
-    return obj;
-  },
 };
+
+const baseUInt32Rules: object = { const: 0, lt: 0, lte: 0, gt: 0, gte: 0, in: 0, notIn: 0 };
 
 export const UInt32Rules = {
   encode(message: UInt32Rules, writer: Writer = Writer.create()): Writer {
-    writer.uint32(8).uint32(message.const);
-    writer.uint32(16).uint32(message.lt);
-    writer.uint32(24).uint32(message.lte);
-    writer.uint32(32).uint32(message.gt);
-    writer.uint32(40).uint32(message.gte);
+    if (message.const !== 0) {
+      writer.uint32(8).uint32(message.const);
+    }
+    if (message.lt !== 0) {
+      writer.uint32(16).uint32(message.lt);
+    }
+    if (message.lte !== 0) {
+      writer.uint32(24).uint32(message.lte);
+    }
+    if (message.gt !== 0) {
+      writer.uint32(32).uint32(message.gt);
+    }
+    if (message.gte !== 0) {
+      writer.uint32(40).uint32(message.gte);
+    }
     writer.uint32(50).fork();
     for (const v of message.in) {
       writer.uint32(v);
@@ -2308,8 +2082,9 @@ export const UInt32Rules = {
     writer.ldelim();
     return writer;
   },
-  decode(input: Uint8Array | Reader, length?: number): UInt32Rules {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+
+  decode(input: Reader | Uint8Array, length?: number): UInt32Rules {
+    const reader = input instanceof Reader ? input : new Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseUInt32Rules } as UInt32Rules;
     message.in = [];
@@ -2359,6 +2134,7 @@ export const UInt32Rules = {
     }
     return message;
   },
+
   fromJSON(object: any): UInt32Rules {
     const message = { ...baseUInt32Rules } as UInt32Rules;
     message.in = [];
@@ -2400,6 +2176,27 @@ export const UInt32Rules = {
     }
     return message;
   },
+
+  toJSON(message: UInt32Rules): unknown {
+    const obj: any = {};
+    message.const !== undefined && (obj.const = message.const);
+    message.lt !== undefined && (obj.lt = message.lt);
+    message.lte !== undefined && (obj.lte = message.lte);
+    message.gt !== undefined && (obj.gt = message.gt);
+    message.gte !== undefined && (obj.gte = message.gte);
+    if (message.in) {
+      obj.in = message.in.map((e) => e);
+    } else {
+      obj.in = [];
+    }
+    if (message.notIn) {
+      obj.notIn = message.notIn.map((e) => e);
+    } else {
+      obj.notIn = [];
+    }
+    return obj;
+  },
+
   fromPartial(object: DeepPartial<UInt32Rules>): UInt32Rules {
     const message = { ...baseUInt32Rules } as UInt32Rules;
     message.in = [];
@@ -2441,34 +2238,27 @@ export const UInt32Rules = {
     }
     return message;
   },
-  toJSON(message: UInt32Rules): unknown {
-    const obj: any = {};
-    message.const !== undefined && (obj.const = message.const);
-    message.lt !== undefined && (obj.lt = message.lt);
-    message.lte !== undefined && (obj.lte = message.lte);
-    message.gt !== undefined && (obj.gt = message.gt);
-    message.gte !== undefined && (obj.gte = message.gte);
-    if (message.in) {
-      obj.in = message.in.map(e => e);
-    } else {
-      obj.in = [];
-    }
-    if (message.notIn) {
-      obj.notIn = message.notIn.map(e => e);
-    } else {
-      obj.notIn = [];
-    }
-    return obj;
-  },
 };
+
+const baseUInt64Rules: object = { const: 0, lt: 0, lte: 0, gt: 0, gte: 0, in: 0, notIn: 0 };
 
 export const UInt64Rules = {
   encode(message: UInt64Rules, writer: Writer = Writer.create()): Writer {
-    writer.uint32(8).uint64(message.const);
-    writer.uint32(16).uint64(message.lt);
-    writer.uint32(24).uint64(message.lte);
-    writer.uint32(32).uint64(message.gt);
-    writer.uint32(40).uint64(message.gte);
+    if (message.const !== 0) {
+      writer.uint32(8).uint64(message.const);
+    }
+    if (message.lt !== 0) {
+      writer.uint32(16).uint64(message.lt);
+    }
+    if (message.lte !== 0) {
+      writer.uint32(24).uint64(message.lte);
+    }
+    if (message.gt !== 0) {
+      writer.uint32(32).uint64(message.gt);
+    }
+    if (message.gte !== 0) {
+      writer.uint32(40).uint64(message.gte);
+    }
     writer.uint32(50).fork();
     for (const v of message.in) {
       writer.uint64(v);
@@ -2481,8 +2271,9 @@ export const UInt64Rules = {
     writer.ldelim();
     return writer;
   },
-  decode(input: Uint8Array | Reader, length?: number): UInt64Rules {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+
+  decode(input: Reader | Uint8Array, length?: number): UInt64Rules {
+    const reader = input instanceof Reader ? input : new Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseUInt64Rules } as UInt64Rules;
     message.in = [];
@@ -2532,6 +2323,7 @@ export const UInt64Rules = {
     }
     return message;
   },
+
   fromJSON(object: any): UInt64Rules {
     const message = { ...baseUInt64Rules } as UInt64Rules;
     message.in = [];
@@ -2573,6 +2365,27 @@ export const UInt64Rules = {
     }
     return message;
   },
+
+  toJSON(message: UInt64Rules): unknown {
+    const obj: any = {};
+    message.const !== undefined && (obj.const = message.const);
+    message.lt !== undefined && (obj.lt = message.lt);
+    message.lte !== undefined && (obj.lte = message.lte);
+    message.gt !== undefined && (obj.gt = message.gt);
+    message.gte !== undefined && (obj.gte = message.gte);
+    if (message.in) {
+      obj.in = message.in.map((e) => e);
+    } else {
+      obj.in = [];
+    }
+    if (message.notIn) {
+      obj.notIn = message.notIn.map((e) => e);
+    } else {
+      obj.notIn = [];
+    }
+    return obj;
+  },
+
   fromPartial(object: DeepPartial<UInt64Rules>): UInt64Rules {
     const message = { ...baseUInt64Rules } as UInt64Rules;
     message.in = [];
@@ -2614,34 +2427,27 @@ export const UInt64Rules = {
     }
     return message;
   },
-  toJSON(message: UInt64Rules): unknown {
-    const obj: any = {};
-    message.const !== undefined && (obj.const = message.const);
-    message.lt !== undefined && (obj.lt = message.lt);
-    message.lte !== undefined && (obj.lte = message.lte);
-    message.gt !== undefined && (obj.gt = message.gt);
-    message.gte !== undefined && (obj.gte = message.gte);
-    if (message.in) {
-      obj.in = message.in.map(e => e);
-    } else {
-      obj.in = [];
-    }
-    if (message.notIn) {
-      obj.notIn = message.notIn.map(e => e);
-    } else {
-      obj.notIn = [];
-    }
-    return obj;
-  },
 };
+
+const baseSInt32Rules: object = { const: 0, lt: 0, lte: 0, gt: 0, gte: 0, in: 0, notIn: 0 };
 
 export const SInt32Rules = {
   encode(message: SInt32Rules, writer: Writer = Writer.create()): Writer {
-    writer.uint32(8).sint32(message.const);
-    writer.uint32(16).sint32(message.lt);
-    writer.uint32(24).sint32(message.lte);
-    writer.uint32(32).sint32(message.gt);
-    writer.uint32(40).sint32(message.gte);
+    if (message.const !== 0) {
+      writer.uint32(8).sint32(message.const);
+    }
+    if (message.lt !== 0) {
+      writer.uint32(16).sint32(message.lt);
+    }
+    if (message.lte !== 0) {
+      writer.uint32(24).sint32(message.lte);
+    }
+    if (message.gt !== 0) {
+      writer.uint32(32).sint32(message.gt);
+    }
+    if (message.gte !== 0) {
+      writer.uint32(40).sint32(message.gte);
+    }
     writer.uint32(50).fork();
     for (const v of message.in) {
       writer.sint32(v);
@@ -2654,8 +2460,9 @@ export const SInt32Rules = {
     writer.ldelim();
     return writer;
   },
-  decode(input: Uint8Array | Reader, length?: number): SInt32Rules {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+
+  decode(input: Reader | Uint8Array, length?: number): SInt32Rules {
+    const reader = input instanceof Reader ? input : new Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseSInt32Rules } as SInt32Rules;
     message.in = [];
@@ -2705,6 +2512,7 @@ export const SInt32Rules = {
     }
     return message;
   },
+
   fromJSON(object: any): SInt32Rules {
     const message = { ...baseSInt32Rules } as SInt32Rules;
     message.in = [];
@@ -2746,6 +2554,27 @@ export const SInt32Rules = {
     }
     return message;
   },
+
+  toJSON(message: SInt32Rules): unknown {
+    const obj: any = {};
+    message.const !== undefined && (obj.const = message.const);
+    message.lt !== undefined && (obj.lt = message.lt);
+    message.lte !== undefined && (obj.lte = message.lte);
+    message.gt !== undefined && (obj.gt = message.gt);
+    message.gte !== undefined && (obj.gte = message.gte);
+    if (message.in) {
+      obj.in = message.in.map((e) => e);
+    } else {
+      obj.in = [];
+    }
+    if (message.notIn) {
+      obj.notIn = message.notIn.map((e) => e);
+    } else {
+      obj.notIn = [];
+    }
+    return obj;
+  },
+
   fromPartial(object: DeepPartial<SInt32Rules>): SInt32Rules {
     const message = { ...baseSInt32Rules } as SInt32Rules;
     message.in = [];
@@ -2787,34 +2616,27 @@ export const SInt32Rules = {
     }
     return message;
   },
-  toJSON(message: SInt32Rules): unknown {
-    const obj: any = {};
-    message.const !== undefined && (obj.const = message.const);
-    message.lt !== undefined && (obj.lt = message.lt);
-    message.lte !== undefined && (obj.lte = message.lte);
-    message.gt !== undefined && (obj.gt = message.gt);
-    message.gte !== undefined && (obj.gte = message.gte);
-    if (message.in) {
-      obj.in = message.in.map(e => e);
-    } else {
-      obj.in = [];
-    }
-    if (message.notIn) {
-      obj.notIn = message.notIn.map(e => e);
-    } else {
-      obj.notIn = [];
-    }
-    return obj;
-  },
 };
+
+const baseSInt64Rules: object = { const: 0, lt: 0, lte: 0, gt: 0, gte: 0, in: 0, notIn: 0 };
 
 export const SInt64Rules = {
   encode(message: SInt64Rules, writer: Writer = Writer.create()): Writer {
-    writer.uint32(8).sint64(message.const);
-    writer.uint32(16).sint64(message.lt);
-    writer.uint32(24).sint64(message.lte);
-    writer.uint32(32).sint64(message.gt);
-    writer.uint32(40).sint64(message.gte);
+    if (message.const !== 0) {
+      writer.uint32(8).sint64(message.const);
+    }
+    if (message.lt !== 0) {
+      writer.uint32(16).sint64(message.lt);
+    }
+    if (message.lte !== 0) {
+      writer.uint32(24).sint64(message.lte);
+    }
+    if (message.gt !== 0) {
+      writer.uint32(32).sint64(message.gt);
+    }
+    if (message.gte !== 0) {
+      writer.uint32(40).sint64(message.gte);
+    }
     writer.uint32(50).fork();
     for (const v of message.in) {
       writer.sint64(v);
@@ -2827,8 +2649,9 @@ export const SInt64Rules = {
     writer.ldelim();
     return writer;
   },
-  decode(input: Uint8Array | Reader, length?: number): SInt64Rules {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+
+  decode(input: Reader | Uint8Array, length?: number): SInt64Rules {
+    const reader = input instanceof Reader ? input : new Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseSInt64Rules } as SInt64Rules;
     message.in = [];
@@ -2878,6 +2701,7 @@ export const SInt64Rules = {
     }
     return message;
   },
+
   fromJSON(object: any): SInt64Rules {
     const message = { ...baseSInt64Rules } as SInt64Rules;
     message.in = [];
@@ -2919,6 +2743,27 @@ export const SInt64Rules = {
     }
     return message;
   },
+
+  toJSON(message: SInt64Rules): unknown {
+    const obj: any = {};
+    message.const !== undefined && (obj.const = message.const);
+    message.lt !== undefined && (obj.lt = message.lt);
+    message.lte !== undefined && (obj.lte = message.lte);
+    message.gt !== undefined && (obj.gt = message.gt);
+    message.gte !== undefined && (obj.gte = message.gte);
+    if (message.in) {
+      obj.in = message.in.map((e) => e);
+    } else {
+      obj.in = [];
+    }
+    if (message.notIn) {
+      obj.notIn = message.notIn.map((e) => e);
+    } else {
+      obj.notIn = [];
+    }
+    return obj;
+  },
+
   fromPartial(object: DeepPartial<SInt64Rules>): SInt64Rules {
     const message = { ...baseSInt64Rules } as SInt64Rules;
     message.in = [];
@@ -2960,34 +2805,27 @@ export const SInt64Rules = {
     }
     return message;
   },
-  toJSON(message: SInt64Rules): unknown {
-    const obj: any = {};
-    message.const !== undefined && (obj.const = message.const);
-    message.lt !== undefined && (obj.lt = message.lt);
-    message.lte !== undefined && (obj.lte = message.lte);
-    message.gt !== undefined && (obj.gt = message.gt);
-    message.gte !== undefined && (obj.gte = message.gte);
-    if (message.in) {
-      obj.in = message.in.map(e => e);
-    } else {
-      obj.in = [];
-    }
-    if (message.notIn) {
-      obj.notIn = message.notIn.map(e => e);
-    } else {
-      obj.notIn = [];
-    }
-    return obj;
-  },
 };
+
+const baseFixed32Rules: object = { const: 0, lt: 0, lte: 0, gt: 0, gte: 0, in: 0, notIn: 0 };
 
 export const Fixed32Rules = {
   encode(message: Fixed32Rules, writer: Writer = Writer.create()): Writer {
-    writer.uint32(13).fixed32(message.const);
-    writer.uint32(21).fixed32(message.lt);
-    writer.uint32(29).fixed32(message.lte);
-    writer.uint32(37).fixed32(message.gt);
-    writer.uint32(45).fixed32(message.gte);
+    if (message.const !== 0) {
+      writer.uint32(13).fixed32(message.const);
+    }
+    if (message.lt !== 0) {
+      writer.uint32(21).fixed32(message.lt);
+    }
+    if (message.lte !== 0) {
+      writer.uint32(29).fixed32(message.lte);
+    }
+    if (message.gt !== 0) {
+      writer.uint32(37).fixed32(message.gt);
+    }
+    if (message.gte !== 0) {
+      writer.uint32(45).fixed32(message.gte);
+    }
     writer.uint32(50).fork();
     for (const v of message.in) {
       writer.fixed32(v);
@@ -3000,8 +2838,9 @@ export const Fixed32Rules = {
     writer.ldelim();
     return writer;
   },
-  decode(input: Uint8Array | Reader, length?: number): Fixed32Rules {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+
+  decode(input: Reader | Uint8Array, length?: number): Fixed32Rules {
+    const reader = input instanceof Reader ? input : new Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseFixed32Rules } as Fixed32Rules;
     message.in = [];
@@ -3051,6 +2890,7 @@ export const Fixed32Rules = {
     }
     return message;
   },
+
   fromJSON(object: any): Fixed32Rules {
     const message = { ...baseFixed32Rules } as Fixed32Rules;
     message.in = [];
@@ -3092,6 +2932,27 @@ export const Fixed32Rules = {
     }
     return message;
   },
+
+  toJSON(message: Fixed32Rules): unknown {
+    const obj: any = {};
+    message.const !== undefined && (obj.const = message.const);
+    message.lt !== undefined && (obj.lt = message.lt);
+    message.lte !== undefined && (obj.lte = message.lte);
+    message.gt !== undefined && (obj.gt = message.gt);
+    message.gte !== undefined && (obj.gte = message.gte);
+    if (message.in) {
+      obj.in = message.in.map((e) => e);
+    } else {
+      obj.in = [];
+    }
+    if (message.notIn) {
+      obj.notIn = message.notIn.map((e) => e);
+    } else {
+      obj.notIn = [];
+    }
+    return obj;
+  },
+
   fromPartial(object: DeepPartial<Fixed32Rules>): Fixed32Rules {
     const message = { ...baseFixed32Rules } as Fixed32Rules;
     message.in = [];
@@ -3133,34 +2994,27 @@ export const Fixed32Rules = {
     }
     return message;
   },
-  toJSON(message: Fixed32Rules): unknown {
-    const obj: any = {};
-    message.const !== undefined && (obj.const = message.const);
-    message.lt !== undefined && (obj.lt = message.lt);
-    message.lte !== undefined && (obj.lte = message.lte);
-    message.gt !== undefined && (obj.gt = message.gt);
-    message.gte !== undefined && (obj.gte = message.gte);
-    if (message.in) {
-      obj.in = message.in.map(e => e);
-    } else {
-      obj.in = [];
-    }
-    if (message.notIn) {
-      obj.notIn = message.notIn.map(e => e);
-    } else {
-      obj.notIn = [];
-    }
-    return obj;
-  },
 };
+
+const baseFixed64Rules: object = { const: 0, lt: 0, lte: 0, gt: 0, gte: 0, in: 0, notIn: 0 };
 
 export const Fixed64Rules = {
   encode(message: Fixed64Rules, writer: Writer = Writer.create()): Writer {
-    writer.uint32(9).fixed64(message.const);
-    writer.uint32(17).fixed64(message.lt);
-    writer.uint32(25).fixed64(message.lte);
-    writer.uint32(33).fixed64(message.gt);
-    writer.uint32(41).fixed64(message.gte);
+    if (message.const !== 0) {
+      writer.uint32(9).fixed64(message.const);
+    }
+    if (message.lt !== 0) {
+      writer.uint32(17).fixed64(message.lt);
+    }
+    if (message.lte !== 0) {
+      writer.uint32(25).fixed64(message.lte);
+    }
+    if (message.gt !== 0) {
+      writer.uint32(33).fixed64(message.gt);
+    }
+    if (message.gte !== 0) {
+      writer.uint32(41).fixed64(message.gte);
+    }
     writer.uint32(50).fork();
     for (const v of message.in) {
       writer.fixed64(v);
@@ -3173,8 +3027,9 @@ export const Fixed64Rules = {
     writer.ldelim();
     return writer;
   },
-  decode(input: Uint8Array | Reader, length?: number): Fixed64Rules {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+
+  decode(input: Reader | Uint8Array, length?: number): Fixed64Rules {
+    const reader = input instanceof Reader ? input : new Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseFixed64Rules } as Fixed64Rules;
     message.in = [];
@@ -3224,6 +3079,7 @@ export const Fixed64Rules = {
     }
     return message;
   },
+
   fromJSON(object: any): Fixed64Rules {
     const message = { ...baseFixed64Rules } as Fixed64Rules;
     message.in = [];
@@ -3265,6 +3121,27 @@ export const Fixed64Rules = {
     }
     return message;
   },
+
+  toJSON(message: Fixed64Rules): unknown {
+    const obj: any = {};
+    message.const !== undefined && (obj.const = message.const);
+    message.lt !== undefined && (obj.lt = message.lt);
+    message.lte !== undefined && (obj.lte = message.lte);
+    message.gt !== undefined && (obj.gt = message.gt);
+    message.gte !== undefined && (obj.gte = message.gte);
+    if (message.in) {
+      obj.in = message.in.map((e) => e);
+    } else {
+      obj.in = [];
+    }
+    if (message.notIn) {
+      obj.notIn = message.notIn.map((e) => e);
+    } else {
+      obj.notIn = [];
+    }
+    return obj;
+  },
+
   fromPartial(object: DeepPartial<Fixed64Rules>): Fixed64Rules {
     const message = { ...baseFixed64Rules } as Fixed64Rules;
     message.in = [];
@@ -3306,34 +3183,27 @@ export const Fixed64Rules = {
     }
     return message;
   },
-  toJSON(message: Fixed64Rules): unknown {
-    const obj: any = {};
-    message.const !== undefined && (obj.const = message.const);
-    message.lt !== undefined && (obj.lt = message.lt);
-    message.lte !== undefined && (obj.lte = message.lte);
-    message.gt !== undefined && (obj.gt = message.gt);
-    message.gte !== undefined && (obj.gte = message.gte);
-    if (message.in) {
-      obj.in = message.in.map(e => e);
-    } else {
-      obj.in = [];
-    }
-    if (message.notIn) {
-      obj.notIn = message.notIn.map(e => e);
-    } else {
-      obj.notIn = [];
-    }
-    return obj;
-  },
 };
+
+const baseSFixed32Rules: object = { const: 0, lt: 0, lte: 0, gt: 0, gte: 0, in: 0, notIn: 0 };
 
 export const SFixed32Rules = {
   encode(message: SFixed32Rules, writer: Writer = Writer.create()): Writer {
-    writer.uint32(13).sfixed32(message.const);
-    writer.uint32(21).sfixed32(message.lt);
-    writer.uint32(29).sfixed32(message.lte);
-    writer.uint32(37).sfixed32(message.gt);
-    writer.uint32(45).sfixed32(message.gte);
+    if (message.const !== 0) {
+      writer.uint32(13).sfixed32(message.const);
+    }
+    if (message.lt !== 0) {
+      writer.uint32(21).sfixed32(message.lt);
+    }
+    if (message.lte !== 0) {
+      writer.uint32(29).sfixed32(message.lte);
+    }
+    if (message.gt !== 0) {
+      writer.uint32(37).sfixed32(message.gt);
+    }
+    if (message.gte !== 0) {
+      writer.uint32(45).sfixed32(message.gte);
+    }
     writer.uint32(50).fork();
     for (const v of message.in) {
       writer.sfixed32(v);
@@ -3346,8 +3216,9 @@ export const SFixed32Rules = {
     writer.ldelim();
     return writer;
   },
-  decode(input: Uint8Array | Reader, length?: number): SFixed32Rules {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+
+  decode(input: Reader | Uint8Array, length?: number): SFixed32Rules {
+    const reader = input instanceof Reader ? input : new Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseSFixed32Rules } as SFixed32Rules;
     message.in = [];
@@ -3397,6 +3268,7 @@ export const SFixed32Rules = {
     }
     return message;
   },
+
   fromJSON(object: any): SFixed32Rules {
     const message = { ...baseSFixed32Rules } as SFixed32Rules;
     message.in = [];
@@ -3438,6 +3310,27 @@ export const SFixed32Rules = {
     }
     return message;
   },
+
+  toJSON(message: SFixed32Rules): unknown {
+    const obj: any = {};
+    message.const !== undefined && (obj.const = message.const);
+    message.lt !== undefined && (obj.lt = message.lt);
+    message.lte !== undefined && (obj.lte = message.lte);
+    message.gt !== undefined && (obj.gt = message.gt);
+    message.gte !== undefined && (obj.gte = message.gte);
+    if (message.in) {
+      obj.in = message.in.map((e) => e);
+    } else {
+      obj.in = [];
+    }
+    if (message.notIn) {
+      obj.notIn = message.notIn.map((e) => e);
+    } else {
+      obj.notIn = [];
+    }
+    return obj;
+  },
+
   fromPartial(object: DeepPartial<SFixed32Rules>): SFixed32Rules {
     const message = { ...baseSFixed32Rules } as SFixed32Rules;
     message.in = [];
@@ -3479,34 +3372,27 @@ export const SFixed32Rules = {
     }
     return message;
   },
-  toJSON(message: SFixed32Rules): unknown {
-    const obj: any = {};
-    message.const !== undefined && (obj.const = message.const);
-    message.lt !== undefined && (obj.lt = message.lt);
-    message.lte !== undefined && (obj.lte = message.lte);
-    message.gt !== undefined && (obj.gt = message.gt);
-    message.gte !== undefined && (obj.gte = message.gte);
-    if (message.in) {
-      obj.in = message.in.map(e => e);
-    } else {
-      obj.in = [];
-    }
-    if (message.notIn) {
-      obj.notIn = message.notIn.map(e => e);
-    } else {
-      obj.notIn = [];
-    }
-    return obj;
-  },
 };
+
+const baseSFixed64Rules: object = { const: 0, lt: 0, lte: 0, gt: 0, gte: 0, in: 0, notIn: 0 };
 
 export const SFixed64Rules = {
   encode(message: SFixed64Rules, writer: Writer = Writer.create()): Writer {
-    writer.uint32(9).sfixed64(message.const);
-    writer.uint32(17).sfixed64(message.lt);
-    writer.uint32(25).sfixed64(message.lte);
-    writer.uint32(33).sfixed64(message.gt);
-    writer.uint32(41).sfixed64(message.gte);
+    if (message.const !== 0) {
+      writer.uint32(9).sfixed64(message.const);
+    }
+    if (message.lt !== 0) {
+      writer.uint32(17).sfixed64(message.lt);
+    }
+    if (message.lte !== 0) {
+      writer.uint32(25).sfixed64(message.lte);
+    }
+    if (message.gt !== 0) {
+      writer.uint32(33).sfixed64(message.gt);
+    }
+    if (message.gte !== 0) {
+      writer.uint32(41).sfixed64(message.gte);
+    }
     writer.uint32(50).fork();
     for (const v of message.in) {
       writer.sfixed64(v);
@@ -3519,8 +3405,9 @@ export const SFixed64Rules = {
     writer.ldelim();
     return writer;
   },
-  decode(input: Uint8Array | Reader, length?: number): SFixed64Rules {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+
+  decode(input: Reader | Uint8Array, length?: number): SFixed64Rules {
+    const reader = input instanceof Reader ? input : new Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseSFixed64Rules } as SFixed64Rules;
     message.in = [];
@@ -3570,6 +3457,7 @@ export const SFixed64Rules = {
     }
     return message;
   },
+
   fromJSON(object: any): SFixed64Rules {
     const message = { ...baseSFixed64Rules } as SFixed64Rules;
     message.in = [];
@@ -3611,6 +3499,27 @@ export const SFixed64Rules = {
     }
     return message;
   },
+
+  toJSON(message: SFixed64Rules): unknown {
+    const obj: any = {};
+    message.const !== undefined && (obj.const = message.const);
+    message.lt !== undefined && (obj.lt = message.lt);
+    message.lte !== undefined && (obj.lte = message.lte);
+    message.gt !== undefined && (obj.gt = message.gt);
+    message.gte !== undefined && (obj.gte = message.gte);
+    if (message.in) {
+      obj.in = message.in.map((e) => e);
+    } else {
+      obj.in = [];
+    }
+    if (message.notIn) {
+      obj.notIn = message.notIn.map((e) => e);
+    } else {
+      obj.notIn = [];
+    }
+    return obj;
+  },
+
   fromPartial(object: DeepPartial<SFixed64Rules>): SFixed64Rules {
     const message = { ...baseSFixed64Rules } as SFixed64Rules;
     message.in = [];
@@ -3652,34 +3561,20 @@ export const SFixed64Rules = {
     }
     return message;
   },
-  toJSON(message: SFixed64Rules): unknown {
-    const obj: any = {};
-    message.const !== undefined && (obj.const = message.const);
-    message.lt !== undefined && (obj.lt = message.lt);
-    message.lte !== undefined && (obj.lte = message.lte);
-    message.gt !== undefined && (obj.gt = message.gt);
-    message.gte !== undefined && (obj.gte = message.gte);
-    if (message.in) {
-      obj.in = message.in.map(e => e);
-    } else {
-      obj.in = [];
-    }
-    if (message.notIn) {
-      obj.notIn = message.notIn.map(e => e);
-    } else {
-      obj.notIn = [];
-    }
-    return obj;
-  },
 };
+
+const baseBoolRules: object = { const: false };
 
 export const BoolRules = {
   encode(message: BoolRules, writer: Writer = Writer.create()): Writer {
-    writer.uint32(8).bool(message.const);
+    if (message.const === true) {
+      writer.uint32(8).bool(message.const);
+    }
     return writer;
   },
-  decode(input: Uint8Array | Reader, length?: number): BoolRules {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+
+  decode(input: Reader | Uint8Array, length?: number): BoolRules {
+    const reader = input instanceof Reader ? input : new Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseBoolRules } as BoolRules;
     while (reader.pos < end) {
@@ -3695,6 +3590,7 @@ export const BoolRules = {
     }
     return message;
   },
+
   fromJSON(object: any): BoolRules {
     const message = { ...baseBoolRules } as BoolRules;
     if (object.const !== undefined && object.const !== null) {
@@ -3704,6 +3600,13 @@ export const BoolRules = {
     }
     return message;
   },
+
+  toJSON(message: BoolRules): unknown {
+    const obj: any = {};
+    message.const !== undefined && (obj.const = message.const);
+    return obj;
+  },
+
   fromPartial(object: DeepPartial<BoolRules>): BoolRules {
     const message = { ...baseBoolRules } as BoolRules;
     if (object.const !== undefined && object.const !== null) {
@@ -3713,27 +3616,63 @@ export const BoolRules = {
     }
     return message;
   },
-  toJSON(message: BoolRules): unknown {
-    const obj: any = {};
-    message.const !== undefined && (obj.const = message.const);
-    return obj;
-  },
+};
+
+const baseStringRules: object = {
+  const: '',
+  len: 0,
+  minLen: 0,
+  maxLen: 0,
+  lenBytes: 0,
+  minBytes: 0,
+  maxBytes: 0,
+  pattern: '',
+  prefix: '',
+  suffix: '',
+  contains: '',
+  notContains: '',
+  in: '',
+  notIn: '',
 };
 
 export const StringRules = {
   encode(message: StringRules, writer: Writer = Writer.create()): Writer {
-    writer.uint32(10).string(message.const);
-    writer.uint32(152).uint64(message.len);
-    writer.uint32(16).uint64(message.minLen);
-    writer.uint32(24).uint64(message.maxLen);
-    writer.uint32(160).uint64(message.lenBytes);
-    writer.uint32(32).uint64(message.minBytes);
-    writer.uint32(40).uint64(message.maxBytes);
-    writer.uint32(50).string(message.pattern);
-    writer.uint32(58).string(message.prefix);
-    writer.uint32(66).string(message.suffix);
-    writer.uint32(74).string(message.contains);
-    writer.uint32(186).string(message.notContains);
+    if (message.const !== '') {
+      writer.uint32(10).string(message.const);
+    }
+    if (message.len !== 0) {
+      writer.uint32(152).uint64(message.len);
+    }
+    if (message.minLen !== 0) {
+      writer.uint32(16).uint64(message.minLen);
+    }
+    if (message.maxLen !== 0) {
+      writer.uint32(24).uint64(message.maxLen);
+    }
+    if (message.lenBytes !== 0) {
+      writer.uint32(160).uint64(message.lenBytes);
+    }
+    if (message.minBytes !== 0) {
+      writer.uint32(32).uint64(message.minBytes);
+    }
+    if (message.maxBytes !== 0) {
+      writer.uint32(40).uint64(message.maxBytes);
+    }
+    if (message.pattern !== '') {
+      writer.uint32(50).string(message.pattern);
+    }
+    if (message.prefix !== '') {
+      writer.uint32(58).string(message.prefix);
+    }
+    if (message.suffix !== '') {
+      writer.uint32(66).string(message.suffix);
+    }
+    if (message.contains !== '') {
+      writer.uint32(74).string(message.contains);
+    }
+    if (message.notContains !== '') {
+      writer.uint32(186).string(message.notContains);
+    }
     for (const v of message.in) {
       writer.uint32(82).string(v!);
     }
@@ -3769,8 +3708,9 @@ export const StringRules = {
     }
     return writer;
   },
-  decode(input: Uint8Array | Reader, length?: number): StringRules {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+
+  decode(input: Reader | Uint8Array, length?: number): StringRules {
+    const reader = input instanceof Reader ? input : new Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseStringRules } as StringRules;
     message.in = [];
@@ -3854,6 +3794,7 @@ export const StringRules = {
     }
     return message;
   },
+
   fromJSON(object: any): StringRules {
     const message = { ...baseStringRules } as StringRules;
     message.in = [];
@@ -3861,7 +3802,7 @@ export const StringRules = {
     if (object.const !== undefined && object.const !== null) {
       message.const = String(object.const);
     } else {
-      message.const = "";
+      message.const = '';
     }
     if (object.len !== undefined && object.len !== null) {
       message.len = Number(object.len);
@@ -3896,27 +3837,27 @@ export const StringRules = {
     if (object.pattern !== undefined && object.pattern !== null) {
       message.pattern = String(object.pattern);
     } else {
-      message.pattern = "";
+      message.pattern = '';
     }
     if (object.prefix !== undefined && object.prefix !== null) {
       message.prefix = String(object.prefix);
     } else {
-      message.prefix = "";
+      message.prefix = '';
     }
     if (object.suffix !== undefined && object.suffix !== null) {
       message.suffix = String(object.suffix);
     } else {
-      message.suffix = "";
+      message.suffix = '';
     }
     if (object.contains !== undefined && object.contains !== null) {
       message.contains = String(object.contains);
     } else {
-      message.contains = "";
+      message.contains = '';
     }
     if (object.notContains !== undefined && object.notContains !== null) {
       message.notContains = String(object.notContains);
     } else {
-      message.notContains = "";
+      message.notContains = '';
     }
     if (object.in !== undefined && object.in !== null) {
       for (const e of object.in) {
@@ -3975,6 +3916,43 @@ export const StringRules = {
     }
     return message;
   },
+
+  toJSON(message: StringRules): unknown {
+    const obj: any = {};
+    message.const !== undefined && (obj.const = message.const);
+    message.len !== undefined && (obj.len = message.len);
+    message.minLen !== undefined && (obj.minLen = message.minLen);
+    message.maxLen !== undefined && (obj.maxLen = message.maxLen);
+    message.lenBytes !== undefined && (obj.lenBytes = message.lenBytes);
+    message.minBytes !== undefined && (obj.minBytes = message.minBytes);
+    message.maxBytes !== undefined && (obj.maxBytes = message.maxBytes);
+    message.pattern !== undefined && (obj.pattern = message.pattern);
+    message.prefix !== undefined && (obj.prefix = message.prefix);
+    message.suffix !== undefined && (obj.suffix = message.suffix);
+    message.contains !== undefined && (obj.contains = message.contains);
+    message.notContains !== undefined && (obj.notContains = message.notContains);
+    if (message.in) {
+      obj.in = message.in.map((e) => e);
+    } else {
+      obj.in = [];
+    }
+    if (message.notIn) {
+      obj.notIn = message.notIn.map((e) => e);
+    } else {
+      obj.notIn = [];
+    }
+    message.email !== undefined && (obj.email = message.email);
+    message.hostname !== undefined && (obj.hostname = message.hostname);
+    message.ip !== undefined && (obj.ip = message.ip);
+    message.ipv4 !== undefined && (obj.ipv4 = message.ipv4);
+    message.ipv6 !== undefined && (obj.ipv6 = message.ipv6);
+    message.uri !== undefined && (obj.uri = message.uri);
+    message.uriRef !== undefined && (obj.uriRef = message.uriRef);
+    message.address !== undefined && (obj.address = message.address);
+    message.uuid !== undefined && (obj.uuid = message.uuid);
+    return obj;
+  },
+
   fromPartial(object: DeepPartial<StringRules>): StringRules {
     const message = { ...baseStringRules } as StringRules;
     message.in = [];
@@ -3982,7 +3960,7 @@ export const StringRules = {
     if (object.const !== undefined && object.const !== null) {
       message.const = object.const;
     } else {
-      message.const = "";
+      message.const = '';
     }
     if (object.len !== undefined && object.len !== null) {
       message.len = object.len;
@@ -4017,27 +3995,27 @@ export const StringRules = {
     if (object.pattern !== undefined && object.pattern !== null) {
       message.pattern = object.pattern;
     } else {
-      message.pattern = "";
+      message.pattern = '';
     }
     if (object.prefix !== undefined && object.prefix !== null) {
       message.prefix = object.prefix;
     } else {
-      message.prefix = "";
+      message.prefix = '';
     }
     if (object.suffix !== undefined && object.suffix !== null) {
       message.suffix = object.suffix;
     } else {
-      message.suffix = "";
+      message.suffix = '';
     }
     if (object.contains !== undefined && object.contains !== null) {
       message.contains = object.contains;
     } else {
-      message.contains = "";
+      message.contains = '';
     }
     if (object.notContains !== undefined && object.notContains !== null) {
       message.notContains = object.notContains;
     } else {
-      message.notContains = "";
+      message.notContains = '';
     }
     if (object.in !== undefined && object.in !== null) {
       for (const e of object.in) {
@@ -4096,53 +4074,36 @@ export const StringRules = {
     }
     return message;
   },
-  toJSON(message: StringRules): unknown {
-    const obj: any = {};
-    message.const !== undefined && (obj.const = message.const);
-    message.len !== undefined && (obj.len = message.len);
-    message.minLen !== undefined && (obj.minLen = message.minLen);
-    message.maxLen !== undefined && (obj.maxLen = message.maxLen);
-    message.lenBytes !== undefined && (obj.lenBytes = message.lenBytes);
-    message.minBytes !== undefined && (obj.minBytes = message.minBytes);
-    message.maxBytes !== undefined && (obj.maxBytes = message.maxBytes);
-    message.pattern !== undefined && (obj.pattern = message.pattern);
-    message.prefix !== undefined && (obj.prefix = message.prefix);
-    message.suffix !== undefined && (obj.suffix = message.suffix);
-    message.contains !== undefined && (obj.contains = message.contains);
-    message.notContains !== undefined && (obj.notContains = message.notContains);
-    if (message.in) {
-      obj.in = message.in.map(e => e);
-    } else {
-      obj.in = [];
-    }
-    if (message.notIn) {
-      obj.notIn = message.notIn.map(e => e);
-    } else {
-      obj.notIn = [];
-    }
-    message.email !== undefined && (obj.email = message.email);
-    message.hostname !== undefined && (obj.hostname = message.hostname);
-    message.ip !== undefined && (obj.ip = message.ip);
-    message.ipv4 !== undefined && (obj.ipv4 = message.ipv4);
-    message.ipv6 !== undefined && (obj.ipv6 = message.ipv6);
-    message.uri !== undefined && (obj.uri = message.uri);
-    message.uriRef !== undefined && (obj.uriRef = message.uriRef);
-    message.address !== undefined && (obj.address = message.address);
-    message.uuid !== undefined && (obj.uuid = message.uuid);
-    return obj;
-  },
 };
+
+const baseBytesRules: object = { len: 0, minLen: 0, maxLen: 0, pattern: '' };
 
 export const BytesRules = {
   encode(message: BytesRules, writer: Writer = Writer.create()): Writer {
-    writer.uint32(10).bytes(message.const);
-    writer.uint32(104).uint64(message.len);
-    writer.uint32(16).uint64(message.minLen);
-    writer.uint32(24).uint64(message.maxLen);
-    writer.uint32(34).string(message.pattern);
-    writer.uint32(42).bytes(message.prefix);
-    writer.uint32(50).bytes(message.suffix);
-    writer.uint32(58).bytes(message.contains);
+    if (message.const.length !== 0) {
+      writer.uint32(10).bytes(message.const);
+    }
+    if (message.len !== 0) {
+      writer.uint32(104).uint64(message.len);
+    }
+    if (message.minLen !== 0) {
+      writer.uint32(16).uint64(message.minLen);
+    }
+    if (message.maxLen !== 0) {
+      writer.uint32(24).uint64(message.maxLen);
+    }
+    if (message.pattern !== '') {
+      writer.uint32(34).string(message.pattern);
+    }
+    if (message.prefix.length !== 0) {
+      writer.uint32(42).bytes(message.prefix);
+    }
+    if (message.suffix.length !== 0) {
+      writer.uint32(50).bytes(message.suffix);
+    }
+    if (message.contains.length !== 0) {
+      writer.uint32(58).bytes(message.contains);
+    }
     for (const v of message.in) {
       writer.uint32(66).bytes(v!);
     }
@@ -4160,12 +4121,17 @@ export const BytesRules = {
     }
     return writer;
   },
-  decode(input: Uint8Array | Reader, length?: number): BytesRules {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+
+  decode(input: Reader | Uint8Array, length?: number): BytesRules {
+    const reader = input instanceof Reader ? input : new Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseBytesRules } as BytesRules;
     message.in = [];
     message.notIn = [];
+    message.const = new Uint8Array();
+    message.prefix = new Uint8Array();
+    message.suffix = new Uint8Array();
+    message.contains = new Uint8Array();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
@@ -4215,10 +4181,15 @@ export const BytesRules = {
     }
     return message;
   },
+
   fromJSON(object: any): BytesRules {
     const message = { ...baseBytesRules } as BytesRules;
     message.in = [];
     message.notIn = [];
+    message.const = new Uint8Array();
+    message.prefix = new Uint8Array();
+    message.suffix = new Uint8Array();
+    message.contains = new Uint8Array();
     if (object.const !== undefined && object.const !== null) {
       message.const = bytesFromBase64(object.const);
     }
@@ -4240,7 +4211,7 @@ export const BytesRules = {
     if (object.pattern !== undefined && object.pattern !== null) {
       message.pattern = String(object.pattern);
     } else {
-      message.pattern = "";
+      message.pattern = '';
     }
     if (object.prefix !== undefined && object.prefix !== null) {
       message.prefix = bytesFromBase64(object.prefix);
@@ -4278,6 +4249,37 @@ export const BytesRules = {
     }
     return message;
   },
+
+  toJSON(message: BytesRules): unknown {
+    const obj: any = {};
+    message.const !== undefined &&
+      (obj.const = base64FromBytes(message.const !== undefined ? message.const : new Uint8Array()));
+    message.len !== undefined && (obj.len = message.len);
+    message.minLen !== undefined && (obj.minLen = message.minLen);
+    message.maxLen !== undefined && (obj.maxLen = message.maxLen);
+    message.pattern !== undefined && (obj.pattern = message.pattern);
+    message.prefix !== undefined &&
+      (obj.prefix = base64FromBytes(message.prefix !== undefined ? message.prefix : new Uint8Array()));
+    message.suffix !== undefined &&
+      (obj.suffix = base64FromBytes(message.suffix !== undefined ? message.suffix : new Uint8Array()));
+    message.contains !== undefined &&
+      (obj.contains = base64FromBytes(message.contains !== undefined ? message.contains : new Uint8Array()));
+    if (message.in) {
+      obj.in = message.in.map((e) => base64FromBytes(e !== undefined ? e : new Uint8Array()));
+    } else {
+      obj.in = [];
+    }
+    if (message.notIn) {
+      obj.notIn = message.notIn.map((e) => base64FromBytes(e !== undefined ? e : new Uint8Array()));
+    } else {
+      obj.notIn = [];
+    }
+    message.ip !== undefined && (obj.ip = message.ip);
+    message.ipv4 !== undefined && (obj.ipv4 = message.ipv4);
+    message.ipv6 !== undefined && (obj.ipv6 = message.ipv6);
+    return obj;
+  },
+
   fromPartial(object: DeepPartial<BytesRules>): BytesRules {
     const message = { ...baseBytesRules } as BytesRules;
     message.in = [];
@@ -4305,7 +4307,7 @@ export const BytesRules = {
     if (object.pattern !== undefined && object.pattern !== null) {
       message.pattern = object.pattern;
     } else {
-      message.pattern = "";
+      message.pattern = '';
     }
     if (object.prefix !== undefined && object.prefix !== null) {
       message.prefix = object.prefix;
@@ -4349,37 +4351,18 @@ export const BytesRules = {
     }
     return message;
   },
-  toJSON(message: BytesRules): unknown {
-    const obj: any = {};
-    message.const !== undefined && (obj.const = base64FromBytes(message.const !== undefined ? message.const : new Uint8Array()));
-    message.len !== undefined && (obj.len = message.len);
-    message.minLen !== undefined && (obj.minLen = message.minLen);
-    message.maxLen !== undefined && (obj.maxLen = message.maxLen);
-    message.pattern !== undefined && (obj.pattern = message.pattern);
-    message.prefix !== undefined && (obj.prefix = base64FromBytes(message.prefix !== undefined ? message.prefix : new Uint8Array()));
-    message.suffix !== undefined && (obj.suffix = base64FromBytes(message.suffix !== undefined ? message.suffix : new Uint8Array()));
-    message.contains !== undefined && (obj.contains = base64FromBytes(message.contains !== undefined ? message.contains : new Uint8Array()));
-    if (message.in) {
-      obj.in = message.in.map(e => base64FromBytes(e !== undefined ? e : new Uint8Array()));
-    } else {
-      obj.in = [];
-    }
-    if (message.notIn) {
-      obj.notIn = message.notIn.map(e => base64FromBytes(e !== undefined ? e : new Uint8Array()));
-    } else {
-      obj.notIn = [];
-    }
-    message.ip !== undefined && (obj.ip = message.ip);
-    message.ipv4 !== undefined && (obj.ipv4 = message.ipv4);
-    message.ipv6 !== undefined && (obj.ipv6 = message.ipv6);
-    return obj;
-  },
 };
+
+const baseEnumRules: object = { const: 0, definedOnly: false, in: 0, notIn: 0 };
 
 export const EnumRules = {
   encode(message: EnumRules, writer: Writer = Writer.create()): Writer {
-    writer.uint32(8).int32(message.const);
-    writer.uint32(16).bool(message.definedOnly);
+    if (message.const !== 0) {
+      writer.uint32(8).int32(message.const);
+    }
+    if (message.definedOnly === true) {
+      writer.uint32(16).bool(message.definedOnly);
+    }
     writer.uint32(26).fork();
     for (const v of message.in) {
       writer.int32(v);
@@ -4392,8 +4375,9 @@ export const EnumRules = {
     writer.ldelim();
     return writer;
   },
-  decode(input: Uint8Array | Reader, length?: number): EnumRules {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+
+  decode(input: Reader | Uint8Array, length?: number): EnumRules {
+    const reader = input instanceof Reader ? input : new Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseEnumRules } as EnumRules;
     message.in = [];
@@ -4434,6 +4418,7 @@ export const EnumRules = {
     }
     return message;
   },
+
   fromJSON(object: any): EnumRules {
     const message = { ...baseEnumRules } as EnumRules;
     message.in = [];
@@ -4460,6 +4445,24 @@ export const EnumRules = {
     }
     return message;
   },
+
+  toJSON(message: EnumRules): unknown {
+    const obj: any = {};
+    message.const !== undefined && (obj.const = message.const);
+    message.definedOnly !== undefined && (obj.definedOnly = message.definedOnly);
+    if (message.in) {
+      obj.in = message.in.map((e) => e);
+    } else {
+      obj.in = [];
+    }
+    if (message.notIn) {
+      obj.notIn = message.notIn.map((e) => e);
+    } else {
+      obj.notIn = [];
+    }
+    return obj;
+  },
+
   fromPartial(object: DeepPartial<EnumRules>): EnumRules {
     const message = { ...baseEnumRules } as EnumRules;
     message.in = [];
@@ -4486,32 +4489,23 @@ export const EnumRules = {
     }
     return message;
   },
-  toJSON(message: EnumRules): unknown {
-    const obj: any = {};
-    message.const !== undefined && (obj.const = message.const);
-    message.definedOnly !== undefined && (obj.definedOnly = message.definedOnly);
-    if (message.in) {
-      obj.in = message.in.map(e => e);
-    } else {
-      obj.in = [];
-    }
-    if (message.notIn) {
-      obj.notIn = message.notIn.map(e => e);
-    } else {
-      obj.notIn = [];
-    }
-    return obj;
-  },
 };
+
+const baseMessageRules: object = { skip: false, required: false };
 
 export const MessageRules = {
   encode(message: MessageRules, writer: Writer = Writer.create()): Writer {
-    writer.uint32(8).bool(message.skip);
-    writer.uint32(16).bool(message.required);
+    if (message.skip === true) {
+      writer.uint32(8).bool(message.skip);
+    }
+    if (message.required === true) {
+      writer.uint32(16).bool(message.required);
+    }
     return writer;
   },
-  decode(input: Uint8Array | Reader, length?: number): MessageRules {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+
+  decode(input: Reader | Uint8Array, length?: number): MessageRules {
+    const reader = input instanceof Reader ? input : new Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseMessageRules } as MessageRules;
     while (reader.pos < end) {
@@ -4530,6 +4524,7 @@ export const MessageRules = {
     }
     return message;
   },
+
   fromJSON(object: any): MessageRules {
     const message = { ...baseMessageRules } as MessageRules;
     if (object.skip !== undefined && object.skip !== null) {
@@ -4544,6 +4539,14 @@ export const MessageRules = {
     }
     return message;
   },
+
+  toJSON(message: MessageRules): unknown {
+    const obj: any = {};
+    message.skip !== undefined && (obj.skip = message.skip);
+    message.required !== undefined && (obj.required = message.required);
+    return obj;
+  },
+
   fromPartial(object: DeepPartial<MessageRules>): MessageRules {
     const message = { ...baseMessageRules } as MessageRules;
     if (object.skip !== undefined && object.skip !== null) {
@@ -4558,26 +4561,29 @@ export const MessageRules = {
     }
     return message;
   },
-  toJSON(message: MessageRules): unknown {
-    const obj: any = {};
-    message.skip !== undefined && (obj.skip = message.skip);
-    message.required !== undefined && (obj.required = message.required);
-    return obj;
-  },
 };
+
+const baseRepeatedRules: object = { minItems: 0, maxItems: 0, unique: false };
 
 export const RepeatedRules = {
   encode(message: RepeatedRules, writer: Writer = Writer.create()): Writer {
-    writer.uint32(8).uint64(message.minItems);
-    writer.uint32(16).uint64(message.maxItems);
-    writer.uint32(24).bool(message.unique);
-    if (message.items !== undefined && message.items !== undefined) {
+    if (message.minItems !== 0) {
+      writer.uint32(8).uint64(message.minItems);
+    }
+    if (message.maxItems !== 0) {
+      writer.uint32(16).uint64(message.maxItems);
+    }
+    if (message.unique === true) {
+      writer.uint32(24).bool(message.unique);
+    }
+    if (message.items !== undefined) {
       FieldRules.encode(message.items, writer.uint32(34).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: Uint8Array | Reader, length?: number): RepeatedRules {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+
+  decode(input: Reader | Uint8Array, length?: number): RepeatedRules {
+    const reader = input instanceof Reader ? input : new Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseRepeatedRules } as RepeatedRules;
     while (reader.pos < end) {
@@ -4602,6 +4608,7 @@ export const RepeatedRules = {
     }
     return message;
   },
+
   fromJSON(object: any): RepeatedRules {
     const message = { ...baseRepeatedRules } as RepeatedRules;
     if (object.minItems !== undefined && object.minItems !== null) {
@@ -4626,6 +4633,16 @@ export const RepeatedRules = {
     }
     return message;
   },
+
+  toJSON(message: RepeatedRules): unknown {
+    const obj: any = {};
+    message.minItems !== undefined && (obj.minItems = message.minItems);
+    message.maxItems !== undefined && (obj.maxItems = message.maxItems);
+    message.unique !== undefined && (obj.unique = message.unique);
+    message.items !== undefined && (obj.items = message.items ? FieldRules.toJSON(message.items) : undefined);
+    return obj;
+  },
+
   fromPartial(object: DeepPartial<RepeatedRules>): RepeatedRules {
     const message = { ...baseRepeatedRules } as RepeatedRules;
     if (object.minItems !== undefined && object.minItems !== null) {
@@ -4650,31 +4667,32 @@ export const RepeatedRules = {
     }
     return message;
   },
-  toJSON(message: RepeatedRules): unknown {
-    const obj: any = {};
-    message.minItems !== undefined && (obj.minItems = message.minItems);
-    message.maxItems !== undefined && (obj.maxItems = message.maxItems);
-    message.unique !== undefined && (obj.unique = message.unique);
-    message.items !== undefined && (obj.items = message.items ? FieldRules.toJSON(message.items) : undefined);
-    return obj;
-  },
 };
+
+const baseMapRules: object = { minPairs: 0, maxPairs: 0, noSparse: false };
 
 export const MapRules = {
   encode(message: MapRules, writer: Writer = Writer.create()): Writer {
-    writer.uint32(8).uint64(message.minPairs);
-    writer.uint32(16).uint64(message.maxPairs);
-    writer.uint32(24).bool(message.noSparse);
-    if (message.keys !== undefined && message.keys !== undefined) {
+    if (message.minPairs !== 0) {
+      writer.uint32(8).uint64(message.minPairs);
+    }
+    if (message.maxPairs !== 0) {
+      writer.uint32(16).uint64(message.maxPairs);
+    }
+    if (message.noSparse === true) {
+      writer.uint32(24).bool(message.noSparse);
+    }
+    if (message.keys !== undefined) {
       FieldRules.encode(message.keys, writer.uint32(34).fork()).ldelim();
     }
-    if (message.values !== undefined && message.values !== undefined) {
+    if (message.values !== undefined) {
       FieldRules.encode(message.values, writer.uint32(42).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: Uint8Array | Reader, length?: number): MapRules {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+
+  decode(input: Reader | Uint8Array, length?: number): MapRules {
+    const reader = input instanceof Reader ? input : new Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseMapRules } as MapRules;
     while (reader.pos < end) {
@@ -4702,6 +4720,7 @@ export const MapRules = {
     }
     return message;
   },
+
   fromJSON(object: any): MapRules {
     const message = { ...baseMapRules } as MapRules;
     if (object.minPairs !== undefined && object.minPairs !== null) {
@@ -4731,6 +4750,17 @@ export const MapRules = {
     }
     return message;
   },
+
+  toJSON(message: MapRules): unknown {
+    const obj: any = {};
+    message.minPairs !== undefined && (obj.minPairs = message.minPairs);
+    message.maxPairs !== undefined && (obj.maxPairs = message.maxPairs);
+    message.noSparse !== undefined && (obj.noSparse = message.noSparse);
+    message.keys !== undefined && (obj.keys = message.keys ? FieldRules.toJSON(message.keys) : undefined);
+    message.values !== undefined && (obj.values = message.values ? FieldRules.toJSON(message.values) : undefined);
+    return obj;
+  },
+
   fromPartial(object: DeepPartial<MapRules>): MapRules {
     const message = { ...baseMapRules } as MapRules;
     if (object.minPairs !== undefined && object.minPairs !== null) {
@@ -4760,20 +4790,15 @@ export const MapRules = {
     }
     return message;
   },
-  toJSON(message: MapRules): unknown {
-    const obj: any = {};
-    message.minPairs !== undefined && (obj.minPairs = message.minPairs);
-    message.maxPairs !== undefined && (obj.maxPairs = message.maxPairs);
-    message.noSparse !== undefined && (obj.noSparse = message.noSparse);
-    message.keys !== undefined && (obj.keys = message.keys ? FieldRules.toJSON(message.keys) : undefined);
-    message.values !== undefined && (obj.values = message.values ? FieldRules.toJSON(message.values) : undefined);
-    return obj;
-  },
 };
+
+const baseAnyRules: object = { required: false, in: '', notIn: '' };
 
 export const AnyRules = {
   encode(message: AnyRules, writer: Writer = Writer.create()): Writer {
-    writer.uint32(8).bool(message.required);
+    if (message.required === true) {
+      writer.uint32(8).bool(message.required);
+    }
     for (const v of message.in) {
       writer.uint32(18).string(v!);
     }
@@ -4782,8 +4807,9 @@ export const AnyRules = {
     }
     return writer;
   },
-  decode(input: Uint8Array | Reader, length?: number): AnyRules {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+
+  decode(input: Reader | Uint8Array, length?: number): AnyRules {
+    const reader = input instanceof Reader ? input : new Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseAnyRules } as AnyRules;
     message.in = [];
@@ -4807,6 +4833,7 @@ export const AnyRules = {
     }
     return message;
   },
+
   fromJSON(object: any): AnyRules {
     const message = { ...baseAnyRules } as AnyRules;
     message.in = [];
@@ -4828,6 +4855,23 @@ export const AnyRules = {
     }
     return message;
   },
+
+  toJSON(message: AnyRules): unknown {
+    const obj: any = {};
+    message.required !== undefined && (obj.required = message.required);
+    if (message.in) {
+      obj.in = message.in.map((e) => e);
+    } else {
+      obj.in = [];
+    }
+    if (message.notIn) {
+      obj.notIn = message.notIn.map((e) => e);
+    } else {
+      obj.notIn = [];
+    }
+    return obj;
+  },
+
   fromPartial(object: DeepPartial<AnyRules>): AnyRules {
     const message = { ...baseAnyRules } as AnyRules;
     message.in = [];
@@ -4849,39 +4893,28 @@ export const AnyRules = {
     }
     return message;
   },
-  toJSON(message: AnyRules): unknown {
-    const obj: any = {};
-    message.required !== undefined && (obj.required = message.required);
-    if (message.in) {
-      obj.in = message.in.map(e => e);
-    } else {
-      obj.in = [];
-    }
-    if (message.notIn) {
-      obj.notIn = message.notIn.map(e => e);
-    } else {
-      obj.notIn = [];
-    }
-    return obj;
-  },
 };
+
+const baseDurationRules: object = { required: false };
 
 export const DurationRules = {
   encode(message: DurationRules, writer: Writer = Writer.create()): Writer {
-    writer.uint32(8).bool(message.required);
-    if (message.const !== undefined && message.const !== undefined) {
+    if (message.required === true) {
+      writer.uint32(8).bool(message.required);
+    }
+    if (message.const !== undefined) {
       Duration.encode(message.const, writer.uint32(18).fork()).ldelim();
     }
-    if (message.lt !== undefined && message.lt !== undefined) {
+    if (message.lt !== undefined) {
       Duration.encode(message.lt, writer.uint32(26).fork()).ldelim();
     }
-    if (message.lte !== undefined && message.lte !== undefined) {
+    if (message.lte !== undefined) {
       Duration.encode(message.lte, writer.uint32(34).fork()).ldelim();
     }
-    if (message.gt !== undefined && message.gt !== undefined) {
+    if (message.gt !== undefined) {
       Duration.encode(message.gt, writer.uint32(42).fork()).ldelim();
     }
-    if (message.gte !== undefined && message.gte !== undefined) {
+    if (message.gte !== undefined) {
       Duration.encode(message.gte, writer.uint32(50).fork()).ldelim();
     }
     for (const v of message.in) {
@@ -4892,8 +4925,9 @@ export const DurationRules = {
     }
     return writer;
   },
-  decode(input: Uint8Array | Reader, length?: number): DurationRules {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+
+  decode(input: Reader | Uint8Array, length?: number): DurationRules {
+    const reader = input instanceof Reader ? input : new Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseDurationRules } as DurationRules;
     message.in = [];
@@ -4932,6 +4966,7 @@ export const DurationRules = {
     }
     return message;
   },
+
   fromJSON(object: any): DurationRules {
     const message = { ...baseDurationRules } as DurationRules;
     message.in = [];
@@ -4978,6 +5013,28 @@ export const DurationRules = {
     }
     return message;
   },
+
+  toJSON(message: DurationRules): unknown {
+    const obj: any = {};
+    message.required !== undefined && (obj.required = message.required);
+    message.const !== undefined && (obj.const = message.const ? Duration.toJSON(message.const) : undefined);
+    message.lt !== undefined && (obj.lt = message.lt ? Duration.toJSON(message.lt) : undefined);
+    message.lte !== undefined && (obj.lte = message.lte ? Duration.toJSON(message.lte) : undefined);
+    message.gt !== undefined && (obj.gt = message.gt ? Duration.toJSON(message.gt) : undefined);
+    message.gte !== undefined && (obj.gte = message.gte ? Duration.toJSON(message.gte) : undefined);
+    if (message.in) {
+      obj.in = message.in.map((e) => (e ? Duration.toJSON(e) : undefined));
+    } else {
+      obj.in = [];
+    }
+    if (message.notIn) {
+      obj.notIn = message.notIn.map((e) => (e ? Duration.toJSON(e) : undefined));
+    } else {
+      obj.notIn = [];
+    }
+    return obj;
+  },
+
   fromPartial(object: DeepPartial<DurationRules>): DurationRules {
     const message = { ...baseDurationRules } as DurationRules;
     message.in = [];
@@ -5024,55 +5081,44 @@ export const DurationRules = {
     }
     return message;
   },
-  toJSON(message: DurationRules): unknown {
-    const obj: any = {};
-    message.required !== undefined && (obj.required = message.required);
-    message.const !== undefined && (obj.const = message.const ? Duration.toJSON(message.const) : undefined);
-    message.lt !== undefined && (obj.lt = message.lt ? Duration.toJSON(message.lt) : undefined);
-    message.lte !== undefined && (obj.lte = message.lte ? Duration.toJSON(message.lte) : undefined);
-    message.gt !== undefined && (obj.gt = message.gt ? Duration.toJSON(message.gt) : undefined);
-    message.gte !== undefined && (obj.gte = message.gte ? Duration.toJSON(message.gte) : undefined);
-    if (message.in) {
-      obj.in = message.in.map(e => e ? Duration.toJSON(e) : undefined);
-    } else {
-      obj.in = [];
-    }
-    if (message.notIn) {
-      obj.notIn = message.notIn.map(e => e ? Duration.toJSON(e) : undefined);
-    } else {
-      obj.notIn = [];
-    }
-    return obj;
-  },
 };
+
+const baseTimestampRules: object = { required: false, ltNow: false, gtNow: false };
 
 export const TimestampRules = {
   encode(message: TimestampRules, writer: Writer = Writer.create()): Writer {
-    writer.uint32(8).bool(message.required);
-    if (message.const !== undefined && message.const !== undefined) {
+    if (message.required === true) {
+      writer.uint32(8).bool(message.required);
+    }
+    if (message.const !== undefined) {
       Timestamp.encode(toTimestamp(message.const), writer.uint32(18).fork()).ldelim();
     }
-    if (message.lt !== undefined && message.lt !== undefined) {
+    if (message.lt !== undefined) {
       Timestamp.encode(toTimestamp(message.lt), writer.uint32(26).fork()).ldelim();
     }
-    if (message.lte !== undefined && message.lte !== undefined) {
+    if (message.lte !== undefined) {
       Timestamp.encode(toTimestamp(message.lte), writer.uint32(34).fork()).ldelim();
     }
-    if (message.gt !== undefined && message.gt !== undefined) {
+    if (message.gt !== undefined) {
       Timestamp.encode(toTimestamp(message.gt), writer.uint32(42).fork()).ldelim();
     }
-    if (message.gte !== undefined && message.gte !== undefined) {
+    if (message.gte !== undefined) {
       Timestamp.encode(toTimestamp(message.gte), writer.uint32(50).fork()).ldelim();
     }
-    writer.uint32(56).bool(message.ltNow);
-    writer.uint32(64).bool(message.gtNow);
-    if (message.within !== undefined && message.within !== undefined) {
+    if (message.ltNow === true) {
+      writer.uint32(56).bool(message.ltNow);
+    }
+    if (message.gtNow === true) {
+      writer.uint32(64).bool(message.gtNow);
+    }
+    if (message.within !== undefined) {
       Duration.encode(message.within, writer.uint32(74).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: Uint8Array | Reader, length?: number): TimestampRules {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+
+  decode(input: Reader | Uint8Array, length?: number): TimestampRules {
+    const reader = input instanceof Reader ? input : new Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseTimestampRules } as TimestampRules;
     while (reader.pos < end) {
@@ -5112,6 +5158,7 @@ export const TimestampRules = {
     }
     return message;
   },
+
   fromJSON(object: any): TimestampRules {
     const message = { ...baseTimestampRules } as TimestampRules;
     if (object.required !== undefined && object.required !== null) {
@@ -5161,6 +5208,21 @@ export const TimestampRules = {
     }
     return message;
   },
+
+  toJSON(message: TimestampRules): unknown {
+    const obj: any = {};
+    message.required !== undefined && (obj.required = message.required);
+    message.const !== undefined && (obj.const = message.const.toISOString());
+    message.lt !== undefined && (obj.lt = message.lt.toISOString());
+    message.lte !== undefined && (obj.lte = message.lte.toISOString());
+    message.gt !== undefined && (obj.gt = message.gt.toISOString());
+    message.gte !== undefined && (obj.gte = message.gte.toISOString());
+    message.ltNow !== undefined && (obj.ltNow = message.ltNow);
+    message.gtNow !== undefined && (obj.gtNow = message.gtNow);
+    message.within !== undefined && (obj.within = message.within ? Duration.toJSON(message.within) : undefined);
+    return obj;
+  },
+
   fromPartial(object: DeepPartial<TimestampRules>): TimestampRules {
     const message = { ...baseTimestampRules } as TimestampRules;
     if (object.required !== undefined && object.required !== null) {
@@ -5210,44 +5272,31 @@ export const TimestampRules = {
     }
     return message;
   },
-  toJSON(message: TimestampRules): unknown {
-    const obj: any = {};
-    message.required !== undefined && (obj.required = message.required);
-    message.const !== undefined && (obj.const = message.const !== undefined ? message.const.toISOString() : null);
-    message.lt !== undefined && (obj.lt = message.lt !== undefined ? message.lt.toISOString() : null);
-    message.lte !== undefined && (obj.lte = message.lte !== undefined ? message.lte.toISOString() : null);
-    message.gt !== undefined && (obj.gt = message.gt !== undefined ? message.gt.toISOString() : null);
-    message.gte !== undefined && (obj.gte = message.gte !== undefined ? message.gte.toISOString() : null);
-    message.ltNow !== undefined && (obj.ltNow = message.ltNow);
-    message.gtNow !== undefined && (obj.gtNow = message.gtNow);
-    message.within !== undefined && (obj.within = message.within ? Duration.toJSON(message.within) : undefined);
-    return obj;
-  },
 };
 
-if (util.Long !== Long as any) {
-  util.Long = Long as any;
-  configure();
-}
+declare var self: any | undefined;
+declare var window: any | undefined;
+var globalThis: any = (() => {
+  if (typeof globalThis !== 'undefined') return globalThis;
+  if (typeof self !== 'undefined') return self;
+  if (typeof window !== 'undefined') return window;
+  if (typeof global !== 'undefined') return global;
+  throw 'Unable to locate global object';
+})();
 
-interface WindowBase64 {
-  atob(b64: string): string;
-  btoa(bin: string): string;
-}
-
-const windowBase64 = (globalThis as unknown as WindowBase64);
-const atob = windowBase64.atob || ((b64: string) => Buffer.from(b64, 'base64').toString('binary'));
-const btoa = windowBase64.btoa || ((bin: string) => Buffer.from(bin, 'binary').toString('base64'));
-
+const atob: (b64: string) => string =
+  globalThis.atob || ((b64) => globalThis.Buffer.from(b64, 'base64').toString('binary'));
 function bytesFromBase64(b64: string): Uint8Array {
   const bin = atob(b64);
   const arr = new Uint8Array(bin.length);
   for (let i = 0; i < bin.length; ++i) {
-      arr[i] = bin.charCodeAt(i);
+    arr[i] = bin.charCodeAt(i);
   }
   return arr;
 }
 
+const btoa: (bin: string) => string =
+  globalThis.btoa || ((bin) => globalThis.Buffer.from(bin, 'binary').toString('base64'));
 function base64FromBytes(arr: Uint8Array): string {
   const bin: string[] = [];
   for (let i = 0; i < arr.byteLength; ++i) {
@@ -5255,6 +5304,7 @@ function base64FromBytes(arr: Uint8Array): string {
   }
   return btoa(bin.join(''));
 }
+
 type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
@@ -5265,3 +5315,39 @@ export type DeepPartial<T> = T extends Builtin
   : T extends {}
   ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
+
+function toTimestamp(date: Date): Timestamp {
+  const seconds = date.getTime() / 1_000;
+  const nanos = (date.getTime() % 1_000) * 1_000_000;
+  return { seconds, nanos };
+}
+
+function fromTimestamp(t: Timestamp): Date {
+  let millis = t.seconds * 1_000;
+  millis += t.nanos / 1_000_000;
+  return new Date(millis);
+}
+
+function fromJsonTimestamp(o: any): Date {
+  if (o instanceof Date) {
+    return o;
+  } else if (typeof o === 'string') {
+    return new Date(o);
+  } else {
+    return fromTimestamp(Timestamp.fromJSON(o));
+  }
+}
+
+function longToNumber(long: Long): number {
+  if (long.gt(Number.MAX_SAFE_INTEGER)) {
+    throw new globalThis.Error('Value is larger than Number.MAX_SAFE_INTEGER');
+  }
+  return long.toNumber();
+}
+
+// If you get a compile-error about 'Constructor<Long> and ... have no overlap',
+// add '--ts_proto_opt=esModuleInterop=true' as a flag when calling 'protoc'.
+if (util.Long !== Long) {
+  util.Long = Long as any;
+  configure();
+}
