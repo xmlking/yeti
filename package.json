@@ -197,6 +197,9 @@
     "node-fetch": "2.6.1",
     "object-path": "0.11.5",
     "webpack-subresource-integrity": "1.5.2",
-    "webpack": "5.31.2"
+    "webpack": "5.31.2",
+    "ssri": "8.0.1",
+    "socket.io": "2.4.0",
+    "highlight.js": "10.4.1"
   }
 }
