@@ -1,12 +1,14 @@
 # Add files here to ignore them from prettier formatting
+
+/dist
+/coverage
+
 *.js
 *.js.map
 *.d.ts
 *.md
 *.min.*
 
-/dist
-/coverage
 **/.idea
 **/.ng_pkg_build
 **/.vscode
@@ -19,6 +21,5 @@ node_modules
 # angular.json
 # nx.json
 # tsconfig*
-# tslint*
 # jest.config.js
 

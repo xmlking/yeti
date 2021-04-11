@@ -48,12 +48,12 @@ export class HeaderComponent implements OnInit {
       )
       .subscribe(title => {
         switch (title) {
-          case 'Logout':
-            this.store.dispatch(new Logout());
-            break;
-          default:
-            console.log('userMenuContextListener title:', title);
-            break;
+        case 'Logout':
+          this.store.dispatch(new Logout());
+          break;
+        default:
+          console.log('userMenuContextListener title:', title);
+          break;
         }
       });
   }

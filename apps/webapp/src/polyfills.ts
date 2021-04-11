@@ -1,4 +1,4 @@
-/***************************************************************************************************
+/** *************************************************************************************************
  * Load `$localize` onto the global scope - used if i18n tags appear in Angular templates.
  */
 import '@angular/localize/init';
@@ -17,7 +17,7 @@ import '@angular/localize/init';
  *
  * Learn more in https://angular.io/guide/browser-support
  */
-/***************************************************************************************************
+/** *************************************************************************************************
  * BROWSER POLYFILLS
  */
 /** IE10 and IE11 requires the following for NgClass support on SVG elements */
@@ -51,11 +51,11 @@ import '@angular/localize/init';
  *  (window as any).__Zone_enable_cross_context_check = true;
  *
  */
-/***************************************************************************************************
+/** *************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
 import 'zone.js/dist/zone'; // Included with Angular CLI.
 
-/***************************************************************************************************
+/** *************************************************************************************************
  * APPLICATION IMPORTS
  */

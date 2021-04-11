@@ -20,7 +20,7 @@ export class BlogPreviewComponent implements OnInit {
     this.posts$ = this.cs.publishedContent$.pipe(
       map((posts) =>
         posts
-          .filter((post) => post.route.startsWith(`/home/blog/`))
+          .filter((post) => post.route.startsWith('/home/blog/'))
           .filter((post) => (this.keyword ? post.keywords.includes(this.keyword) : true))
           .map((filteredPosts) => (this.max ? filteredPosts.slice(0, this.max) : filteredPosts))
       )

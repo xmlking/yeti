@@ -37,11 +37,7 @@ import { NbGoogleOAuth2Strategy } from './services/google-auth.strategy';
 import { AuthState } from './state/auth.state';
 
 // appConfig initializer factory function
-const appConfigInitializerFn = (appConfig: AppConfigService) => {
-  return () => {
-    return appConfig.load();
-  };
-};
+const appConfigInitializerFn = (appConfig: AppConfigService) => () => appConfig.load();
 
 // Noop handler for factory function
 export function noop() {
@@ -167,9 +163,9 @@ export function noop() {
 export class CoreModule {
   // HINT: RouteHandler is injected here to avoid cyclic dependency! issues with APP_INITIALIZER
   constructor(
-    @Optional() @SkipSelf() parentModule: CoreModule,
-    private routeHandler: RouteHandler,
-    private iconLibraries: NbIconLibraries
+  @Optional() @SkipSelf() parentModule: CoreModule,
+                          private routeHandler: RouteHandler,
+                          private iconLibraries: NbIconLibraries
   ) {
     if (parentModule) {
       throw new Error('CoreModule is already loaded. Import it in the AppModule only');

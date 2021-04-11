@@ -21,9 +21,7 @@ export class RouteHandler {
       .pipe(
         ofActionSuccessful(RouterNavigation),
         map((action: RouterNavigation) => action.routerState as any),
-        distinctUntilChanged((previous: RouterStateData, current: RouterStateData) => {
-          return previous.url === current.url;
-        })
+        distinctUntilChanged((previous: RouterStateData, current: RouterStateData) => previous.url === current.url)
       )
       .subscribe(data => {
         this.pageTitle.setTitle(data.breadcrumbs);

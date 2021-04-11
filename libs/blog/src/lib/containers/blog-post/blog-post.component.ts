@@ -38,11 +38,9 @@ export class BlogPostComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
     this.post$ = this.cs.allContent$.pipe(
-      map((allPosts) => {
-        return allPosts.find(
-          (blog) => blog.route.startsWith(`/home/blog/`) && blog.route.includes(this.route.snapshot.params.id)
-        );
-      })
+      map((allPosts) => allPosts.find(
+        (blog) => blog.route.startsWith('/home/blog/') && blog.route.includes(this.route.snapshot.params.id)
+      ))
     );
   }
 

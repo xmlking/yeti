@@ -40,7 +40,7 @@ import { LandingComponent } from './containers/landing/landing.component';
             path: 'blog',
             // prettier-ignore
             loadChildren: () =>
-            import('@yeti/blog').then(module => module.BlogModule)
+              import('@yeti/blog').then(module => module.BlogModule)
           }
         ]
       }
