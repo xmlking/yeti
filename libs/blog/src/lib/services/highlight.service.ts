@@ -21,7 +21,7 @@ declare var Prism: any;
   providedIn: 'any',
 })
 export class HighlightService {
-  // tslint:disable-next-line: ban-types
+  // eslint-disable-next-line @typescript-eslint/ban-types
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   highlightAll() {

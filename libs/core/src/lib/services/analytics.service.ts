@@ -2,24 +2,24 @@ import { Injectable } from '@angular/core';
 import { NavigationEnd, Router, RouterEvent } from '@angular/router';
 import { distinctUntilChanged, filter } from 'rxjs/operators';
 
-// tslint:disable-next-line:ban-types
+// eslint-disable-next-line @typescript-eslint/ban-types
 declare let ga: Function;
 
 export enum EventCategory {
   SideNav = 'sideNav',
   Outbound = 'outboundLink',
   Login = 'login',
-  Install = 'install'
+  Install = 'install',
 }
 
 export enum EventAction {
   Play = 'play',
-  Click = 'click'
+  Click = 'click',
 }
 
 // FIXME: to keep AnalyticsService injected before AuthHandler
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AnalyticsService {
   constructor(private router: Router) {}
@@ -27,7 +27,7 @@ export class AnalyticsService {
   trackPageViews() {
     this.router.events
       .pipe(
-        filter(event => event instanceof NavigationEnd),
+        filter((event) => event instanceof NavigationEnd),
         distinctUntilChanged((previous: any, current: RouterEvent) => {
           return previous.url === current.url;
         })
@@ -69,7 +69,7 @@ export class AnalyticsService {
         eventCategory,
         eventAction,
         eventLabel,
-        eventValue
+        eventValue,
       });
     }
   }
@@ -84,7 +84,7 @@ export class AnalyticsService {
       ga('send', 'social', {
         socialNetwork,
         socialAction,
-        socialTarget
+        socialTarget,
       });
     }
   }
@@ -102,7 +102,7 @@ export class AnalyticsService {
         timingCategory,
         timingVar,
         timingValue,
-        timingLabel
+        timingLabel,
       });
     }
   }
@@ -111,7 +111,7 @@ export class AnalyticsService {
     if (typeof ga === 'function') {
       ga('send', 'exception', {
         exDescription,
-        exFatal
+        exFatal,
       });
     }
   }

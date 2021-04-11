@@ -1,6 +1,6 @@
 import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule, Optional, SkipSelf } from '@angular/core';
-// tslint:disable-next-line: nx-enforce-module-boundaries
+// eslint-disable-next-line
 import { environment } from '@env/environment';
 import {
   NbAuthJWTToken,
@@ -78,7 +78,7 @@ export function noop() {
           },
         }),
         NbGenericOAuth2Strategy.setup({
-          // tslint:disable-next-line: max-line-length
+          // eslint-disable-next-line max-len
           // Firebase https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration
           // https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/
           // https://www.scottbrady91.com/OpenID-Connect/Implementing-Sign-In-with-Apple-in-ASPNET-Core

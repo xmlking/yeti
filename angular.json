@@ -1,7 +1,27 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "newProjectRoot": "",
+  "cli": {
+    "packageManager": "yarn",
+    "defaultCollection": "@nrwl/angular"
+  },
+  "defaultProject": "webapp",
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    },
+    "@schematics/angular:component": {
+      "style": "scss",
+      "prefix": "yeti",
+      "changeDetection": "OnPush"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
   "projects": {
     "webapp": {
       "projectType": "application",
@@ -137,10 +157,9 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["apps/webapp/tsconfig.app.json", "apps/webapp/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!apps/webapp/**/*"]
+            "lintFilePatterns": ["apps/webapp/src/**/*.ts", "apps/webapp/src/**/*.html"]
           }
         },
         "test": {
@@ -321,10 +340,9 @@
       "prefix": "yeti",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["libs/home/tsconfig.lib.json", "libs/home/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/home/**/*"]
+            "lintFilePatterns": ["libs/home/src/**/*.ts", "libs/home/src/**/*.html"]
           }
         },
         "test": {
@@ -345,10 +363,9 @@
       "prefix": "yeti",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["libs/not-found/tsconfig.lib.json", "libs/not-found/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/not-found/**/*"]
+            "lintFilePatterns": ["libs/not-found/src/**/*.ts", "libs/not-found/src/**/*.html"]
           }
         },
         "test": {
@@ -369,10 +386,9 @@
       "prefix": "yeti",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["libs/core/tsconfig.lib.json", "libs/core/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/core/**/*"]
+            "lintFilePatterns": ["libs/core/src/**/*.ts", "libs/core/src/**/*.html"]
           }
         },
         "test": {
@@ -393,10 +409,9 @@
       "prefix": "yeti",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["libs/dashboard/tsconfig.lib.json", "libs/dashboard/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/dashboard/**/*"]
+            "lintFilePatterns": ["libs/dashboard/src/**/*.ts", "libs/dashboard/src/**/*.html"]
           }
         },
         "test": {
@@ -417,10 +432,9 @@
       "prefix": "yeti",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["libs/admin/tsconfig.lib.json", "libs/admin/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/admin/**/*"]
+            "lintFilePatterns": ["libs/admin/src/**/*.ts", "libs/admin/src/**/*.html"]
           }
         },
         "test": {
@@ -441,10 +455,9 @@
       "prefix": "yeti",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["libs/shared/tsconfig.lib.json", "libs/shared/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/shared/**/*"]
+            "lintFilePatterns": ["libs/shared/src/**/*.ts", "libs/shared/src/**/*.html"]
           }
         },
         "test": {
@@ -465,10 +478,9 @@
       "prefix": "yeti",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["libs/blog/tsconfig.lib.json", "libs/blog/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/blog/**/*"]
+            "lintFilePatterns": ["libs/blog/src/**/*.ts", "libs/blog/src/**/*.html"]
           }
         },
         "test": {
@@ -489,10 +501,9 @@
       "prefix": "yeti",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["libs/accounts/tsconfig.lib.json", "libs/accounts/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/accounts/**/*"]
+            "lintFilePatterns": ["libs/accounts/src/**/*.ts", "libs/accounts/src/**/*.html"]
           }
         },
         "test": {
@@ -620,81 +631,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "packageManager": "yarn",
-    "defaultCollection": "@nrwl/angular"
-  },
-  "schematics": {
-    "@nrwl/workspace": {
-      "library": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/cypress": {
-      "cypress-project": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/react": {
-      "application": {
-        "linter": "eslint"
-      },
-      "library": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/next": {
-      "application": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/web": {
-      "application": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/node": {
-      "application": {
-        "linter": "eslint"
-      },
-      "library": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/nx-plugin": {
-      "plugin": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/nest": {
-      "application": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/express": {
-      "application": {
-        "linter": "eslint"
-      },
-      "library": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/angular:application": {
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
-    },
-    "@nrwl/angular:library": {
-      "unitTestRunner": "jest"
-    },
-    "@schematics/angular:component": {
-      "style": "scss",
-      "prefix": "yeti",
-      "changeDetection": "OnPush"
-    },
-    "@nrwl/angular:component": {
-      "style": "scss"
-    }
-  },
-  "defaultProject": "webapp"
+  }
 }

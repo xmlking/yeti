@@ -6,7 +6,7 @@ import { catchError } from 'rxjs/operators';
 // import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ErrorInterceptor implements HttpInterceptor {
   constructor(/*private snackBar: MatSnackBar, private store : Store*/) {}
@@ -15,10 +15,10 @@ export class ErrorInterceptor implements HttpInterceptor {
     return next.handle(req).pipe(catchError(this.handleError));
   }
 
-  /* tslint:disable */
+  /* eslint-disable */
   public handleError = (errorRes: HttpErrorResponse) => {
     const {
-      error: { status, error, message }
+      error: { status, error, message },
     } = errorRes;
     // Do messaging and error handling here
     // this.snackBar.open(
