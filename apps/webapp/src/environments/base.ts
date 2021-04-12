@@ -29,5 +29,10 @@ export default {
       clientSecret: '',
       issuer: 'https://securetoken.google.com/ngx-starter-kit',
     },
+    okta: {
+      clientId: '0oajz9f4vHoUw6LZb5d6',
+      clientSecret: '',
+      issuer: 'https://dev-13501486.okta.com/oauth2/default',
+    },
   },
 };
