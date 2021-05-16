@@ -17,7 +17,7 @@ Envoy can be configured dynamically in real time without any downtime.
 ```bash
 # minikube mount /Users/schintha/Developer/Work:/Work
 # mount '/Work/SPA/yeti/envoy.yaml:/etc/envoy/envoy.yaml'
-docker-compose up envoy
+docker compose up envoy
 
 # (or) start standalone envoy container
 docker run -it --rm --name envoy2 \

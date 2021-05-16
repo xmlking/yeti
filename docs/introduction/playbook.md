@@ -320,9 +320,9 @@ ng serve -c=mock
 ng serve -c=prod
 
 # build and run web
-docker-compose up --build web
+docker compose up --build web
 # run web
-docker-compose up web
+docker compose up web
 ```
 
 ### Uint Test

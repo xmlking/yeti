@@ -58,7 +58,7 @@ YETI is a Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmo
 # Start API
 ng serve api
 # Start Envoy proxy
-docker-compose up envoy
+docker compose up envoy
 ```
 
 ### WebApp

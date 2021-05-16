@@ -40,12 +40,12 @@ kubectl port-forward yeti-api 3000:3000
 kubectl exec -it yeti-api -- /bin/sh
 
 # if you are using `docker-compose` instead of `Kubernetes`
-docker-compose up api
+docker compose up api
 # docker run -it --env TYPEORM_HOST=postgres -p 3000:3000  xmlking/yeti-api
 # to see ditectory content: (as we are using scratch container, we dont have any unix commands to interact with)
-docker-compose exec api node
-docker-compose exec api node -e 'console.log(__dirname);'
-docker-compose exec api node -e 'const fs = require('fs'); fs.readdirSync('.').forEach(file => { console.log(file);})
+docker compose exec api node
+docker compose exec api node -e 'console.log(__dirname);'
+docker compose exec api node -e 'const fs = require('fs'); fs.readdirSync('.').forEach(file => { console.log(file);})
 ```
 
 ### Test

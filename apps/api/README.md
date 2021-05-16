@@ -63,7 +63,7 @@ ng serve api --prod
 > start envoy
 
 ```bash
-docker-compose up envoy
+docker compose up envoy
 ```
 
 envoy admin: <http://localhost:9901/>
@@ -73,20 +73,20 @@ envoy admin: <http://localhost:9901/>
 ```bash
 # test API directly (nestJS)
 grpcurl -plaintext \
--protoset <(buf image build -o -) \
+-protoset <(buf build -o -) \
 -d '{"message": "sumo"}' 0.0.0.0:5000 yeti.echo.v1.EchoService/Echo
 # test API directly (nestJS) with TLS
 grpcurl -insecure \
--protoset <(buf image build -o -) \
+-protoset <(buf build -o -) \
 -d '{"message": "sumo"}' 0.0.0.0:5000 yeti.echo.v1.EchoService/Echo
 
 # test API via envoy
 grpcurl -plaintext  \
--protoset <(buf image build -o -) \
+-protoset <(buf build -o -) \
 -d '{"message": "sumo"}' 0.0.0.0:9090 yeti.echo.v1.EchoService/Echo
 # test API via envoy with TLS
 grpcurl -cacert=config/certs/ca-cert.pem \
--protoset <(buf image build -o -) \
+-protoset <(buf build -o -) \
 -d '{"message": "sumo"}' localhost:9444 yeti.echo.v1.EchoService/Echo
 
 # make sure `require_client_certificate: true` is enabled in `listeners.yaml` for following tests:
@@ -95,18 +95,18 @@ grpcurl -cacert=config/certs/ca-cert.pem \
 grpcurl -cacert=config/certs/ca-cert.pem \
 -cert=config/certs/client-cert.pem \
 -key=config/certs/client-key.pem \
--protoset <(buf image build -o -) \
+-protoset <(buf build -o -) \
 -d '{"message": "sumo"}' localhost:9444 yeti.echo.v1.EchoService/Echo
 # test with wrong client cert. This will fail!
 grpcurl -cacert=config/certs/ca-cert.pem \
 -cert=config/certs/upstream-cert.pem \
 -key=config/certs/upstream-key.pem \
--protoset <(buf image build -o -) \
+-protoset <(buf build -o -) \
 -d '{"message": "sumo"}' localhost:9444 yeti.echo.v1.EchoService/Echo
 
 # testing with request data from file.
 grpcurl -cacert=config/certs/ca-cert.pem \
--protoset <(buf image build -o -) \
+-protoset <(buf build -o -) \
 -v -H trans_id=abc123 \
 -d @ localhost:9444 yeti.echo.v1.EchoService/Echo <test/echo-request.json
 ```
