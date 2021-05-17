@@ -4,8 +4,6 @@ import * as Long from 'long'
 import { grpc } from '@improbable-eng/grpc-web'
 import { BrowserHeaders } from 'browser-headers'
 
-export const protobufPackage = 'yeti.echo.v1'
-
 export interface EchoRequest {
   message: string
 }
@@ -237,7 +235,7 @@ export class GrpcWebImpl {
 }
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined
-export type DeepPartial<T> = T extends Builtin
+type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
   ? Array<DeepPartial<U>>

@@ -3,8 +3,6 @@ import { util, configure, Writer, Reader } from 'protobufjs/minimal'
 import * as Long from 'long'
 import { StringValue } from '../../../google/protobuf/wrappers'
 
-export const protobufPackage = 'yeti.common.v1'
-
 export enum Currency {
   CURRENCY_USD_UNSPECIFIED = 0,
   CURRENCY_INR = 1,
@@ -431,7 +429,7 @@ export const Order = {
 }
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined
-export type DeepPartial<T> = T extends Builtin
+type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
   ? Array<DeepPartial<U>>

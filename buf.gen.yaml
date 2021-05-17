@@ -22,7 +22,7 @@ plugins:
     opt: import_style=typescript,mode=grpcwebtext
   - name: ts_proto
     out: libs/gen/grpcweb2/src/lib
-    opt: outputClientImpl=grpc-web
+    opt: outputClientImpl=grpc-web,exportCommonSymbols=false
     path: ./node_modules/.bin/protoc-gen-ts_proto
     strategy: all
 
