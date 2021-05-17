@@ -48,8 +48,8 @@ export class OktaAuthStrategy extends NbOAuth2AuthStrategy {
       .pipe(
         switchMap(() => forkJoin({
           user: this.oktaAuth.getUser(),
-          idToken: this.oktaAuth.getIdToken(),
-          accessToken: this.oktaAuth.getAccessToken()
+          idToken: Promise.resolve(this.oktaAuth.getIdToken()),
+          accessToken: Promise.resolve(this.oktaAuth.getAccessToken())
         }) as Observable<OktaToken>),
         map((res) => new NbAuthResult(
           true,

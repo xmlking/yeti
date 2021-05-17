@@ -1,34 +1,145 @@
 {
   "implicitDependencies": {
     "angular.json": "*",
-    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     "tslint.json": "*",
     "nx.json": "*",
     "tsconfig.base.json": "*"
   },
-  "affected": { "defaultBase": "develop" },
+  "affected": {
+    "defaultBase": "develop"
+  },
   "npmScope": "yeti",
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": { "cacheableOperations": ["build", "test", "lint", "e2e", "compodoc"] }
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "test",
+          "lint",
+          "e2e",
+          "compodoc"
+        ],
+        "accessToken": "YTBhYTllNDItNjgyYi00N2RkLWE1OTEtY2I5NjQzN2ZhNDcyfHJlYWQtd3JpdGU=",
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
+      }
     }
   },
   "projects": {
-    "webapp": { "tags": ["module:app1", "scope:private", "angular-app"] },
-    "api": { "tags": ["module:api1", "scope:private", "nest-app"] },
-    "shared": { "tags": ["module:shared", "scope:public", "angular-lib"] },
-    "core": { "tags": ["module:shared", "module:core", "scope:private", "angular-lib"] },
-    "not-found": { "tags": ["module:app1", "module:entry", "scope:private", "angular-lib"] },
-    "home": { "tags": ["module:app1", "module:layout", "module:entry", "scope:private", "angular-lib"] },
-    "dashboard": { "tags": ["module:app1", "module:layout", "module:entry", "scope:private", "angular-lib"] },
-    "admin": { "tags": ["module:app1", "module:layout", "module:entry", "scope:private", "angular-lib"] },
-    "blog": { "tags": ["module:app1", "module:child", "scope:private", "angular-lib"] },
-    "accounts": { "tags": ["module:child", "scope:private", "angular-lib"] },
-    "goapi": { "tags": [] },
-    "gen-node": { "tags": ["scope:shared", "type:generated", "platform:node"] },
-    "gen-nest": { "tags": ["scope:shared", "type:generated", "platform:nest"] },
-    "gen-grpcweb": { "tags": ["scope:shared", "type:generated", "platform:web"] },
-    "gen-grpcweb2": { "tags": ["scope:shared", "type:generated", "platform:web"] }
+    "webapp": {
+      "tags": [
+        "module:app1",
+        "scope:private",
+        "angular-app"
+      ]
+    },
+    "api": {
+      "tags": [
+        "module:api1",
+        "scope:private",
+        "nest-app"
+      ]
+    },
+    "shared": {
+      "tags": [
+        "module:shared",
+        "scope:public",
+        "angular-lib"
+      ]
+    },
+    "core": {
+      "tags": [
+        "module:shared",
+        "module:core",
+        "scope:private",
+        "angular-lib"
+      ]
+    },
+    "not-found": {
+      "tags": [
+        "module:app1",
+        "module:entry",
+        "scope:private",
+        "angular-lib"
+      ]
+    },
+    "home": {
+      "tags": [
+        "module:app1",
+        "module:layout",
+        "module:entry",
+        "scope:private",
+        "angular-lib"
+      ]
+    },
+    "dashboard": {
+      "tags": [
+        "module:app1",
+        "module:layout",
+        "module:entry",
+        "scope:private",
+        "angular-lib"
+      ]
+    },
+    "admin": {
+      "tags": [
+        "module:app1",
+        "module:layout",
+        "module:entry",
+        "scope:private",
+        "angular-lib"
+      ]
+    },
+    "blog": {
+      "tags": [
+        "module:app1",
+        "module:child",
+        "scope:private",
+        "angular-lib"
+      ]
+    },
+    "accounts": {
+      "tags": [
+        "module:child",
+        "scope:private",
+        "angular-lib"
+      ]
+    },
+    "goapi": {
+      "tags": []
+    },
+    "gen-node": {
+      "tags": [
+        "scope:shared",
+        "type:generated",
+        "platform:node"
+      ]
+    },
+    "gen-nest": {
+      "tags": [
+        "scope:shared",
+        "type:generated",
+        "platform:nest"
+      ]
+    },
+    "gen-grpcweb": {
+      "tags": [
+        "scope:shared",
+        "type:generated",
+        "platform:web"
+      ]
+    },
+    "gen-grpcweb2": {
+      "tags": [
+        "scope:shared",
+        "type:generated",
+        "platform:web"
+      ]
+    }
   }
 }

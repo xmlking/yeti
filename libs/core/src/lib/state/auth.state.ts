@@ -5,6 +5,7 @@ import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { UserInfo } from '../interfaces/user-info';
 import { AuthService } from '../services/auth.service';
 import { Login, LoginSuccess, Logout } from './auth.actions';
+import { firstValueFrom } from 'rxjs';
 
 export interface AuthStateModel {
   provider: string;
@@ -51,7 +52,7 @@ export class AuthState {
       provider,
     });
 
-    const authResult = await this.nbAuthService.authenticate(provider).toPromise();
+    const authResult = await firstValueFrom(this.nbAuthService.authenticate(provider));
     if (authResult.isSuccess() && authResult.getToken() != null) {
       const token = authResult.getToken().getPayload().access_token;
       const userInfo = await this.authService.getUserInfo(provider, token).toPromise();
