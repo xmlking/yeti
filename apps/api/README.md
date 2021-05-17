@@ -31,10 +31,10 @@ Refer [NESTJS](https://github.com/stephenh/ts-proto/blob/master/NESTJS.markdown)
 
 ```bash
 protoc --plugin=./node_modules/ts-proto/protoc-gen-ts_proto \
--I="./proto" -I="third_party/proto" --ts_proto_opt=nestJs=true,addGrpcMetadata=true,addNestjsRestParameter=true --ts_proto_out=libs/gen/nest/src/lib  ./proto/yeti/echo/v1/echo.proto
+-I="./proto" -I="third_party/proto" --ts_proto_opt=nestJs=true,addGrpcMetadata=true,exportCommonSymbols=false,addNestjsRestParameter=true --ts_proto_out=libs/gen/nest/src/lib  ./proto/yeti/echo/v1/echo.proto
 
 protoc --plugin=./node_modules/ts-proto/protoc-gen-ts_proto \
--I="./proto" -I="third_party/proto" --ts_proto_opt=nestJs=true,addGrpcMetadata=true,addNestjsRestParameter=true --ts_proto_out=libs/gen/nest/src/lib  ./proto/yeti/account/v1/account.proto
+-I="./proto" -I="third_party/proto" --ts_proto_opt=nestJs=true,addGrpcMetadata=true,exportCommonSymbols=false,addNestjsRestParameter=true --ts_proto_out=libs/gen/nest/src/lib  ./proto/yeti/account/v1/account.proto
 ```
 
 #### Generate certs

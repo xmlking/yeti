@@ -42,8 +42,8 @@ plugins:
   ### for nestjs ###
   - name: ts_proto
     out: libs/gen/nest/src/lib
-    # opt: nestJs=true,addGrpcMetadata=true,addNestjsRestParameter=true
-    opt: nestJs=true,addGrpcMetadata=true
+    # opt: nestJs=true,addGrpcMetadata=true,exportCommonSymbols=false,addNestjsRestParameter=true
+    opt: nestJs=true,addGrpcMetadata=true,exportCommonSymbols=false
     path: ./node_modules/.bin/protoc-gen-ts_proto
     strategy: all
 
