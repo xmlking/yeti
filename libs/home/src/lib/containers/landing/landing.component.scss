@@ -54,3 +54,17 @@ section {
     }
   }
 }
+
+// kubernetes-wheel
+.lens-card-loading {
+    left: 50%;
+}
+.loading-spinner {
+    animation: spin 1800ms linear infinite;
+    margin: 0 auto;
+    margin-top: 2px;
+    padding: 0;
+    max-width: 50px;
+    display: block;
+    transform-origin: 50% 50%;
+}
