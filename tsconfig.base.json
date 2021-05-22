@@ -1,24 +1,18 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "strictPropertyInitialization": false,
     "baseUrl": ".",
     "rootDir": ".",
     "outDir": "./dist",
     "allowSyntheticDefaultImports": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noFallthroughCasesInSwitch": true,
-    "strictNullChecks": true,
     "sourceMap": true,
     "declaration": false,
-    "downlevelIteration": true,
     "experimentalDecorators": true,
     "module": "esnext",
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
-    "typeRoots": ["node_modules/@types"],
     "lib": ["dom", "es2019"],
     "resolveJsonModule": true,
     "skipLibCheck": true,
@@ -38,11 +32,6 @@
       "@yeti/gen/grpcweb": ["libs/gen/grpcweb/src/index.ts"],
       "@yeti/gen/grpcweb2": ["libs/gen/grpcweb2/src/index.ts"]
     }
-  },
-  "angularCompilerOptions": {
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true,
-    "disableTypeScriptVersionCheck": true
   },
   "exclude": ["coverage/**/*", "dist/**/*", "node_modules", "tmp", "todo/**/*", "tools/**/_*files/**/*"]
 }

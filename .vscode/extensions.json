@@ -11,6 +11,7 @@
     "hediet.vscode-drawio",
     "github.github-vscode-theme",
     "github.vscode-pull-request-github",
-    "firsttris.vscode-jest-runner"
+    "firsttris.vscode-jest-runner",
+    "cschleiden.vscode-github-actions"
   ]
 }

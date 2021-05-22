@@ -25,8 +25,7 @@
             "style": "kebab-case"
           }
         ]
-      },
-      "plugins": ["@angular-eslint/eslint-plugin", "@typescript-eslint"]
+      }
     },
     {
       "files": ["*.html"],

@@ -21,7 +21,7 @@
       </div>
     </section>
     <section class="blog-content">
-      <markdown [src]="post.sourceFile" (load)="onLoad($event)" (error)="onError($event)" (ready)="onReady($event)">
+      <markdown [src]="post.sourceFile" (load)="onLoad($event)" (error)="onError($event)" (ready)="onReady()">
       </markdown>
     </section>
   </div>

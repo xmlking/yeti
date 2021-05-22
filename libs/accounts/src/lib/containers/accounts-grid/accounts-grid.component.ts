@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { NbAuthJWTToken, NbAuthService } from '@nebular/auth';
+import { NbAuthJWTToken, NbAuthService, NbAuthToken } from '@nebular/auth';
 import { AccountService } from '../../services/account.service';
 
 @Component({
@@ -23,7 +23,8 @@ export class AccountsGridComponent implements OnInit {
   }
 
   testSecure() {
-    this.authService.onTokenChange().subscribe((token: NbAuthJWTToken) => {
+    this.authService.onTokenChange().subscribe((token: NbAuthToken) => {
+      token = token as NbAuthJWTToken;
       if (token.isValid()) {
         this.token = token.getValue();
         console.log(token.getPayload());

@@ -27,11 +27,12 @@ export class AnalyticsService {
   trackPageViews() {
     this.router.events
       .pipe(
-        filter((event) => event instanceof NavigationEnd),
-        distinctUntilChanged((previous: any, current: RouterEvent) => previous.url === current.url)
+        filter((event): event is NavigationEnd => event instanceof NavigationEnd),
+        distinctUntilChanged((previous: any, current: RouterEvent) => previous.url === current.url),
       )
-      .subscribe((event: NavigationEnd) => {
-        this.setPage(event.urlAfterRedirects);
+      .subscribe((event) => {
+        // .subscribe((event: NavigationEnd) => {
+        this.setPage((event as NavigationEnd).urlAfterRedirects);
       });
   }
 

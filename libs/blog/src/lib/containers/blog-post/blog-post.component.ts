@@ -1,11 +1,4 @@
-import {
-  AfterViewChecked,
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  OnInit,
-  ViewEncapsulation,
-} from '@angular/core';
+import { AfterViewChecked, ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -38,9 +31,11 @@ export class BlogPostComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
     this.post$ = this.cs.allContent$.pipe(
-      map((allPosts) => allPosts.find(
-        (blog) => blog.route.startsWith('/home/blog/') && blog.route.includes(this.route.snapshot.params.id)
-      ))
+      map((allPosts) =>
+        allPosts.find(
+          (blog) => blog.route.startsWith('/home/blog/') && blog.route.includes(this.route.snapshot.params.id),
+        ),
+      ),
     );
   }
 
@@ -48,13 +43,13 @@ export class BlogPostComponent implements OnInit, AfterViewChecked {
     return encodeURI(location.href);
   }
 
-  onLoad(event: EventEmitter<string>) {
-    // console.log('onLoad', event)
+  onLoad(event: string) {
+    console.log('onLoad', event);
   }
-  onError(event: EventEmitter<string>) {
+  onError(event: string) {
     console.error('onError', event);
   }
-  onReady(event: EventEmitter<void>) {
+  onReady() {
     console.log('onReady');
   }
 }
