@@ -21,6 +21,7 @@
     "typeRoots": ["node_modules/@types"],
     "lib": ["dom", "es2019"],
     "resolveJsonModule": true,
+    "skipLibCheck": true,
     "paths": {
       "@env-api/environment": ["apps/api/src/environments/environment.ts"],
       "@env/*": ["apps/webapp/src/environments/*"],

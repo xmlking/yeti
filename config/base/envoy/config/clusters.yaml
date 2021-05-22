@@ -24,6 +24,7 @@ resources:
       name: envoy.transport_sockets.tls
       typed_config:
         "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext
+        sni: localhost # for prod, e.g., www.sumo.com
         common_tls_context:
           alpn_protocols: [ 'h2', 'http/1.1' ]
           validation_context:
@@ -53,6 +54,7 @@ resources:
       name: envoy.transport_sockets.tls
       typed_config:
         "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext
+        sni: localhost # for prod, e.g., www.sumo.com
         common_tls_context:
           alpn_protocols: [ 'h2', 'http/1.1' ]
           validation_context:
