@@ -92,12 +92,12 @@ https://github.com/LayZeeDK/ngx-nrwl-airlines-workspace/tree/master/libs/shared 
 # generate webapp app
 # use fullTemplateTypeCheck or strictTemplates
 # ng g @nrwl/angular:app yeti-web-app --routing --style=scss --strict=true --tags="domain:yeti,type:app,platform:web"
-ng g @xmlking/nxp-ddd:application yeti # optional flags: --platform <web/mobile/desktop/node>
+ng g @xmlking/nxp-ddd:application yeti --standaloneConfig # optional flags: --platform <web/mobile/desktop/node>
 
 # NOTE: Remove `"types": []` from apps/webapp/tsconfig.app.json to allow global types. ???
 
 # generate api app with nestjs
-ng g @nrwl/nest:app yeti-api --frontend-project=yeti-app --linter=eslint --tags="domain:yeti,type:api,platform:node"
+ng g @nrwl/nest:app yeti-api --frontend-project=yeti-app --linter=eslint --tags="domain:yeti,type:api,platform:node" --standaloneConfig
 ```
 
 ### Dependencies

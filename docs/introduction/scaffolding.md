@@ -237,14 +237,14 @@ ng g module directives/mask --project=ngx-utils --skip-tests -d
 ng g directive directives/mask/mask  --selector=ngxMask --project=ngx-utils --module=mask --export -d
 
 # generate components for `blog` Module
-ng g lib blog --routing --lazy --parent-module=libs/home/src/lib/home.module.ts --tags=scope:app1 --defaults -d
+ng g lib blog --routing --lazy --parent-module=libs/home/src/lib/home.module.ts --tags=scope:app1 --defaults --standaloneConfig -d 
 ng g component containers/BlogOverview    --project=blog -d
 ng g component components/BlogPreview     --project=blog -d
 ng g component containers/BlogPost        --project=blog -d
 ng g service services/highlight           --project=blog --skip-tests -d
 
 # generate components for `toolbar` Module
-ng g lib toolbar --tags=scope:app1 --defaults -d
+ng g lib toolbar --tags=scope:app1 --defaults --standaloneConfig -d
 ng g component toolbar                        --project=toolbar --flat -d
 ng g component components/search              --project=toolbar -d
 ng g component components/searchBar           --project=toolbar -d

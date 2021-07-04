@@ -1,0 +1,24 @@
+{
+  "projectType": "library",
+  "root": "libs/core",
+  "sourceRoot": "libs/core/src",
+  "prefix": "yeti",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/core/src/**/*.ts", "libs/core/src/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "libs/core/jest.config.js",
+        "passWithNoTests": true
+      },
+      "outputs": ["coverage/libs/core"]
+    }
+  },
+  "generators": {},
+  "tags": ["module:shared", "module:core", "scope:private", "angular-lib"]
+}

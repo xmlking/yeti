@@ -1,0 +1,22 @@
+{
+  "root": "libs/gen/nest",
+  "sourceRoot": "libs/gen/nest/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/gen/nest/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/gen/nest"],
+      "options": {
+        "jestConfig": "libs/gen/nest/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["scope:shared", "type:generated", "platform:nest"]
+}

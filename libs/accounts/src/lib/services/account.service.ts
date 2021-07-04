@@ -3,7 +3,7 @@ import { EchoRequest, EchoResponse, EchoServiceClient } from '@yeti/gen/grpcweb'
 import * as grpcWeb from 'grpc-web';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AccountService {
   private grpcClient: EchoServiceClient;
@@ -12,7 +12,7 @@ export class AccountService {
     this.grpcClient = new EchoServiceClient('http://localhost:9090', null, null);
   }
 
-  getAccounts(callback: (msg: string) => {}) {
+  getAccounts(callback: (msg: string) => void) {
     const request = new EchoRequest();
     request.setMessage('sumo');
     console.log('request', request);

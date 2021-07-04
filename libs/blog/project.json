@@ -1,0 +1,24 @@
+{
+  "projectType": "library",
+  "root": "libs/blog",
+  "sourceRoot": "libs/blog/src",
+  "prefix": "yeti",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/blog/src/**/*.ts", "libs/blog/src/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "libs/blog/jest.config.js",
+        "passWithNoTests": true
+      },
+      "outputs": ["coverage/libs/blog"]
+    }
+  },
+  "generators": {},
+  "tags": ["module:app1", "module:child", "scope:private", "angular-lib"]
+}

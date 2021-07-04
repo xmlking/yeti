@@ -21,7 +21,7 @@
               },
               {
                 "sourceTag": "angular-lib",
-                "onlyDependOnLibsWithTags": ["all", "angular-lib"]
+                "onlyDependOnLibsWithTags": ["all", "angular-lib", "universal-lib"]
               },
               {
                 "sourceTag": "angular-app",
@@ -33,7 +33,7 @@
               },
               {
                 "sourceTag": "nest-app",
-                "onlyDependOnLibsWithTags": ["all", "nest-lib"]
+                "onlyDependOnLibsWithTags": ["all", "nest-lib", "universal-lib"]
               },
               {
                 "sourceTag": "angular-e2e",

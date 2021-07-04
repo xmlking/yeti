@@ -1,0 +1,24 @@
+{
+  "projectType": "library",
+  "root": "libs/dashboard",
+  "sourceRoot": "libs/dashboard/src",
+  "prefix": "yeti",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/dashboard/src/**/*.ts", "libs/dashboard/src/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "libs/dashboard/jest.config.js",
+        "passWithNoTests": true
+      },
+      "outputs": ["coverage/libs/dashboard"]
+    }
+  },
+  "generators": {},
+  "tags": ["module:app1", "module:layout", "module:entry", "scope:private", "angular-lib"]
+}

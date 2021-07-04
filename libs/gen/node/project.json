@@ -1,0 +1,22 @@
+{
+  "projectType": "library",
+  "root": "libs/gen/node",
+  "sourceRoot": "libs/gen/node/src",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/gen/node/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/gen/node"],
+      "options": {
+        "jestConfig": "libs/gen/node/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["scope:shared", "type:generated", "platform:node"]
+}

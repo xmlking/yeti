@@ -1,0 +1,22 @@
+{
+  "root": "libs/gen/grpcweb2",
+  "sourceRoot": "libs/gen/grpcweb2/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/gen/grpcweb2/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/gen/grpcweb2"],
+      "options": {
+        "jestConfig": "libs/gen/grpcweb2/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["scope:shared", "type:generated", "platform:web", "angular-lib"]
+}
