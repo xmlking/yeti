@@ -137,6 +137,14 @@ yarn add @nebular/security
 yarn add -D @fortawesome/fontawesome-free
 #---------------------------------
 
+#---------------------------
+# Add tailwind
+yarn add -D @ngneat/tailwind tailwindcss postcss autoprefixer
+nx generate @ngneat/tailwind:nx-setup
+# FIXME: https://github.com/ngneat/tailwind/issues/94
+npx nx generate @ngneat/tailwind:nx-setup --darkMode=media
+#---------------------------------
+
 #---------------------------------
 # compo docs
 ng add @twittwer/compodoc
