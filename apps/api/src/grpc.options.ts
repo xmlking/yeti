@@ -1,5 +1,5 @@
 import { GrpcOptions, Transport } from '@nestjs/microservices';
-import { ServerCredentials } from 'grpc';
+import { ServerCredentials } from '@grpc/grpc-js';
 // import { ServerCredentials } from '@grpc/grpc-js';
 import { join } from 'path';
 import { environment as env } from '@env-api/environment';

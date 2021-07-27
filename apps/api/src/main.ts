@@ -12,7 +12,7 @@ async function bootstrap() {
   const config: ConfigService = app.get(ConfigService);
 
   app.connectMicroservice(grpcOptions);
-  await app.startAllMicroservicesAsync();
+  await app.startAllMicroservices();
 
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);
