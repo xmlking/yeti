@@ -78,6 +78,9 @@ ng add @nrwl/angular --defaults
 ng add @nrwl/nest
 ng add @xmlking/nxp-ddd
 
+yarn add -D @jscutlery/semver
+nx g @jscutlery/semver:install
+
 # Set workspace defaults
 ng config cli.packageManager yarn
 ng config schematics.@schematics/angular:component.style scss
