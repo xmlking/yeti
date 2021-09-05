@@ -85,6 +85,7 @@ Run `ng deploy` to deploy demo app to firebase.
 Analyzing bundle size `yarn bundle-report`
 
 ### Release
+
 ```bash
 make update_deps
 git add .
@@ -100,6 +101,23 @@ git flow release finish
 gpoat
 # add git tags for sub-modules
 make release TAG=v0.1.5
+```
+
+[nx-semver plugin](https://github.com/jscutlery/semver)
+
+Independent mode
+
+```bash
+nx run my-project:version [...options]
+nx affected --target version [...options]
+```
+
+Synced mode
+
+```bash
+nx run workspace:version [...options]
+nx run workspace:version --version=minor --dry-run
+nx run workspace:version --version=prerelease --preid=alpha --dry-run
 ```
 
 ### NX

@@ -37,6 +37,7 @@
     "home": "libs/home",
     "not-found": "libs/not-found",
     "shared": "libs/shared",
-    "webapp": "apps/webapp"
+    "webapp": "apps/webapp",
+    "workspace": "."
   }
 }
