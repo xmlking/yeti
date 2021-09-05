@@ -63,8 +63,8 @@ COPY --from=prod-dependencies /app  .
 COPY --from=builder /app/dist/apps/api .
 
 ENV HTTP_PORT 3000
-ENV GRPC_PORT 5000
-EXPOSE 3000 5000
+ENV GRPC_PORT 5001
+EXPOSE 3000 5001
 
 # Perform any further action as an unprivileged user.
 USER nobody:nobody

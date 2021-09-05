@@ -74,11 +74,11 @@ envoy admin: <http://localhost:9901/>
 # test API directly (nestJS)
 grpcurl -plaintext \
 -protoset <(buf build -o -) \
--d '{"message": "sumo"}' 0.0.0.0:5000 yeti.echo.v1.EchoService/Echo
+-d '{"message": "sumo"}' 0.0.0.0:5001 yeti.echo.v1.EchoService/Echo
 # test API directly (nestJS) with TLS
 grpcurl -insecure \
 -protoset <(buf build -o -) \
--d '{"message": "sumo"}' 0.0.0.0:5000 yeti.echo.v1.EchoService/Echo
+-d '{"message": "sumo"}' 0.0.0.0:5001 yeti.echo.v1.EchoService/Echo
 
 # test API via envoy
 grpcurl -plaintext  \

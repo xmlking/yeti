@@ -6,7 +6,7 @@ import { environment as env } from '@env-api/environment';
 import { YETI_ECHO_V1_PACKAGE_NAME } from '@yeti/gen/nest';
 
 const protoDir = join(__dirname, '.', 'proto');
-const port = env.server.grpcPort ?? 5000;
+const port = env.server.grpcPort ?? 5001;
 const host = env.server.host ?? '0.0.0.0';
 const credentials =
   env.server.secure && env.server.httpsOptions

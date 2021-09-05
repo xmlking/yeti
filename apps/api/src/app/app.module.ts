@@ -18,7 +18,7 @@ const loader =  {
     oneofs: true,
     includeDirs: [protoDir],
 }
-const port = env.server.grpcPort ?? 5000;
+const port = env.server.grpcPort ?? 5001;
 const host = env.server.host ?? '0.0.0.0';
 
 @Module({
@@ -28,7 +28,7 @@ const host = env.server.host ?? '0.0.0.0';
         name: YETI_ECHO_V1_PACKAGE_NAME,
         transport: Transport.GRPC,
         options: {
-          url: '0.0.0.0:5000',
+          url: '0.0.0.0:5001',
           package: YETI_ECHO_V1_PACKAGE_NAME,
           protoPath: ['yeti/echo/v1/echo.proto'],
           loader: loader
@@ -38,7 +38,7 @@ const host = env.server.host ?? '0.0.0.0';
         name: YETI_ACCOUNT_V1_PACKAGE_NAME,
         transport: Transport.GRPC,
         options: {
-          url: '0.0.0.0:5000',
+          url: '0.0.0.0:5001',
           package: YETI_ACCOUNT_V1_PACKAGE_NAME,
           protoPath: ['yeti/common/v1/common.proto', 'yeti/account/v1/account.proto'],
           loader: loader

@@ -13,7 +13,7 @@ export const environment: Environment = {
     host: process.env.HOST ?? '0.0.0.0',
     domainUrl: process.env.DOMAIN_URL ?? 'http://localhost:3000',
     httpPort: process.env.HTTP_PORT ?? 3000,
-    grpcPort: process.env.GRPC_PORT ?? 5000,
+    grpcPort: process.env.GRPC_PORT ?? 5001,
     globalPrefix: '/api',
     secure: process.env.SECURE ? true : false,
     httpsOptions: {
