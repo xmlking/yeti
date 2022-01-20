@@ -35,7 +35,10 @@ export class EchoServiceClient {
     this.options_ = options;
   }
 
-  methodInfoEcho = new grpcWeb.AbstractClientBase.MethodInfo(
+  methodInfoEcho = new grpcWeb.MethodDescriptor(
+    '/yeti.echo.v1.EchoService/Echo',
+    grpcWeb.MethodType.UNARY,
+    yeti_echo_v1_echo_pb.EchoRequest,
     yeti_echo_v1_echo_pb.EchoResponse,
     (request: yeti_echo_v1_echo_pb.EchoRequest) => {
       return request.serializeBinary();
@@ -50,13 +53,13 @@ export class EchoServiceClient {
   echo(
     request: yeti_echo_v1_echo_pb.EchoRequest,
     metadata: grpcWeb.Metadata | null,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: yeti_echo_v1_echo_pb.EchoResponse) => void): grpcWeb.ClientReadableStream<yeti_echo_v1_echo_pb.EchoResponse>;
 
   echo(
     request: yeti_echo_v1_echo_pb.EchoRequest,
     metadata: grpcWeb.Metadata | null,
-    callback?: (err: grpcWeb.Error,
+    callback?: (err: grpcWeb.RpcError,
                response: yeti_echo_v1_echo_pb.EchoResponse) => void) {
     if (callback !== undefined) {
       return this.client_.rpcCall(

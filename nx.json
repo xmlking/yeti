@@ -17,11 +17,11 @@
         "cacheableOperations": ["build", "test", "lint", "e2e", "compodoc"],
         "accessToken": "YTBhYTllNDItNjgyYi00N2RkLWE1OTEtY2I5NjQzN2ZhNDcyfHJlYWQtd3JpdGU=",
         "canTrackAnalytics": false,
-        "showUsageWarnings": true
+        "showUsageWarnings": true,
+        "parallel": 3
       }
     }
   },
-  "projects": {},
   "targetDependencies": {
     "build": [
       {
@@ -29,5 +29,27 @@
         "projects": "dependencies"
       }
     ]
-  }
+  },
+  "cli": {
+    "packageManager": "npm",
+    "defaultCollection": "@nrwl/angular"
+  },
+  "generators": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    },
+    "@schematics/angular:component": {
+      "style": "scss",
+      "prefix": "yeti",
+      "changeDetection": "OnPush"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "webapp"
 }

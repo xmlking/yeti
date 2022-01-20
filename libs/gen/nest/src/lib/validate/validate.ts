@@ -4,8 +4,6 @@ import * as Long from 'long';
 import { Duration } from '../google/protobuf/duration';
 import { Timestamp } from '../google/protobuf/timestamp';
 
-export const protobufPackage = 'validate';
-
 /**
  * FieldRules encapsulates the rules for each type of field. Depending on the
  * field, the correct set should be used to ensure proper validations.

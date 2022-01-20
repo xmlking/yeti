@@ -56,7 +56,7 @@ YETI is a Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmo
 
 ```bash
 # Start API
-ng serve api
+nx serve api
 # Start Envoy proxy
 docker compose up envoy
 ```
@@ -65,24 +65,24 @@ docker compose up envoy
 
 ```bash
 ## gen i18n
-ng xi18n webapp
+nx xi18n webapp
 ## serve
-ng serve webapp --configuration=es
-ng serve webapp --configuration=hi
+nx serve webapp --configuration=es
+nx serve webapp --configuration=hi
 ## build
-ng build webapp --configuration=hi
+nx build webapp --configuration=hi
 # You can also build the app with a specific locale:
-ng build webapp --configuration=production,es
+nx build webapp --configuration=production,es
 # build all
-ng build --localize
-ng build --prod --localize
+nx build --localize
+nx build --prod --localize
 ```
 
 ### Deploy
 
 Run `ng deploy` to deploy demo app to firebase.
 
-Analyzing bundle size `yarn bundle-report`
+Analyzing bundle size `npm bundle-report`
 
 ### Release
 
@@ -133,7 +133,7 @@ nx affect --target=doc
 ng run webapp:doc
 # gen meta
 # node tools/scripts/metagen.mjs
-yarn gen:metadata
+npm gen:metadata
 
 # Run Source Map Explorer
 ng run webapp:analyze

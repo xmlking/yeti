@@ -4,8 +4,6 @@ import * as Long from 'long';
 import { Timestamp } from '../google/protobuf/timestamp';
 import { Duration } from '../google/protobuf/duration';
 
-export const protobufPackage = 'validate';
-
 /**
  * FieldRules encapsulates the rules for each type of field. Depending on the
  * field, the correct set should be used to ensure proper validations.
@@ -1034,116 +1032,44 @@ export const FieldRules = {
 
   fromJSON(object: any): FieldRules {
     const message = { ...baseFieldRules } as FieldRules;
-    if (object.message !== undefined && object.message !== null) {
-      message.message = MessageRules.fromJSON(object.message);
-    } else {
-      message.message = undefined;
-    }
-    if (object.float !== undefined && object.float !== null) {
-      message.float = FloatRules.fromJSON(object.float);
-    } else {
-      message.float = undefined;
-    }
-    if (object.double !== undefined && object.double !== null) {
-      message.double = DoubleRules.fromJSON(object.double);
-    } else {
-      message.double = undefined;
-    }
-    if (object.int32 !== undefined && object.int32 !== null) {
-      message.int32 = Int32Rules.fromJSON(object.int32);
-    } else {
-      message.int32 = undefined;
-    }
-    if (object.int64 !== undefined && object.int64 !== null) {
-      message.int64 = Int64Rules.fromJSON(object.int64);
-    } else {
-      message.int64 = undefined;
-    }
-    if (object.uint32 !== undefined && object.uint32 !== null) {
-      message.uint32 = UInt32Rules.fromJSON(object.uint32);
-    } else {
-      message.uint32 = undefined;
-    }
-    if (object.uint64 !== undefined && object.uint64 !== null) {
-      message.uint64 = UInt64Rules.fromJSON(object.uint64);
-    } else {
-      message.uint64 = undefined;
-    }
-    if (object.sint32 !== undefined && object.sint32 !== null) {
-      message.sint32 = SInt32Rules.fromJSON(object.sint32);
-    } else {
-      message.sint32 = undefined;
-    }
-    if (object.sint64 !== undefined && object.sint64 !== null) {
-      message.sint64 = SInt64Rules.fromJSON(object.sint64);
-    } else {
-      message.sint64 = undefined;
-    }
-    if (object.fixed32 !== undefined && object.fixed32 !== null) {
-      message.fixed32 = Fixed32Rules.fromJSON(object.fixed32);
-    } else {
-      message.fixed32 = undefined;
-    }
-    if (object.fixed64 !== undefined && object.fixed64 !== null) {
-      message.fixed64 = Fixed64Rules.fromJSON(object.fixed64);
-    } else {
-      message.fixed64 = undefined;
-    }
-    if (object.sfixed32 !== undefined && object.sfixed32 !== null) {
-      message.sfixed32 = SFixed32Rules.fromJSON(object.sfixed32);
-    } else {
-      message.sfixed32 = undefined;
-    }
-    if (object.sfixed64 !== undefined && object.sfixed64 !== null) {
-      message.sfixed64 = SFixed64Rules.fromJSON(object.sfixed64);
-    } else {
-      message.sfixed64 = undefined;
-    }
-    if (object.bool !== undefined && object.bool !== null) {
-      message.bool = BoolRules.fromJSON(object.bool);
-    } else {
-      message.bool = undefined;
-    }
-    if (object.string !== undefined && object.string !== null) {
-      message.string = StringRules.fromJSON(object.string);
-    } else {
-      message.string = undefined;
-    }
-    if (object.bytes !== undefined && object.bytes !== null) {
-      message.bytes = BytesRules.fromJSON(object.bytes);
-    } else {
-      message.bytes = undefined;
-    }
-    if (object.enum !== undefined && object.enum !== null) {
-      message.enum = EnumRules.fromJSON(object.enum);
-    } else {
-      message.enum = undefined;
-    }
-    if (object.repeated !== undefined && object.repeated !== null) {
-      message.repeated = RepeatedRules.fromJSON(object.repeated);
-    } else {
-      message.repeated = undefined;
-    }
-    if (object.map !== undefined && object.map !== null) {
-      message.map = MapRules.fromJSON(object.map);
-    } else {
-      message.map = undefined;
-    }
-    if (object.any !== undefined && object.any !== null) {
-      message.any = AnyRules.fromJSON(object.any);
-    } else {
-      message.any = undefined;
-    }
-    if (object.duration !== undefined && object.duration !== null) {
-      message.duration = DurationRules.fromJSON(object.duration);
-    } else {
-      message.duration = undefined;
-    }
-    if (object.timestamp !== undefined && object.timestamp !== null) {
-      message.timestamp = TimestampRules.fromJSON(object.timestamp);
-    } else {
-      message.timestamp = undefined;
-    }
+    message.message =
+      object.message !== undefined && object.message !== null ? MessageRules.fromJSON(object.message) : undefined;
+    message.float = object.float !== undefined && object.float !== null ? FloatRules.fromJSON(object.float) : undefined;
+    message.double =
+      object.double !== undefined && object.double !== null ? DoubleRules.fromJSON(object.double) : undefined;
+    message.int32 = object.int32 !== undefined && object.int32 !== null ? Int32Rules.fromJSON(object.int32) : undefined;
+    message.int64 = object.int64 !== undefined && object.int64 !== null ? Int64Rules.fromJSON(object.int64) : undefined;
+    message.uint32 =
+      object.uint32 !== undefined && object.uint32 !== null ? UInt32Rules.fromJSON(object.uint32) : undefined;
+    message.uint64 =
+      object.uint64 !== undefined && object.uint64 !== null ? UInt64Rules.fromJSON(object.uint64) : undefined;
+    message.sint32 =
+      object.sint32 !== undefined && object.sint32 !== null ? SInt32Rules.fromJSON(object.sint32) : undefined;
+    message.sint64 =
+      object.sint64 !== undefined && object.sint64 !== null ? SInt64Rules.fromJSON(object.sint64) : undefined;
+    message.fixed32 =
+      object.fixed32 !== undefined && object.fixed32 !== null ? Fixed32Rules.fromJSON(object.fixed32) : undefined;
+    message.fixed64 =
+      object.fixed64 !== undefined && object.fixed64 !== null ? Fixed64Rules.fromJSON(object.fixed64) : undefined;
+    message.sfixed32 =
+      object.sfixed32 !== undefined && object.sfixed32 !== null ? SFixed32Rules.fromJSON(object.sfixed32) : undefined;
+    message.sfixed64 =
+      object.sfixed64 !== undefined && object.sfixed64 !== null ? SFixed64Rules.fromJSON(object.sfixed64) : undefined;
+    message.bool = object.bool !== undefined && object.bool !== null ? BoolRules.fromJSON(object.bool) : undefined;
+    message.string =
+      object.string !== undefined && object.string !== null ? StringRules.fromJSON(object.string) : undefined;
+    message.bytes = object.bytes !== undefined && object.bytes !== null ? BytesRules.fromJSON(object.bytes) : undefined;
+    message.enum = object.enum !== undefined && object.enum !== null ? EnumRules.fromJSON(object.enum) : undefined;
+    message.repeated =
+      object.repeated !== undefined && object.repeated !== null ? RepeatedRules.fromJSON(object.repeated) : undefined;
+    message.map = object.map !== undefined && object.map !== null ? MapRules.fromJSON(object.map) : undefined;
+    message.any = object.any !== undefined && object.any !== null ? AnyRules.fromJSON(object.any) : undefined;
+    message.duration =
+      object.duration !== undefined && object.duration !== null ? DurationRules.fromJSON(object.duration) : undefined;
+    message.timestamp =
+      object.timestamp !== undefined && object.timestamp !== null
+        ? TimestampRules.fromJSON(object.timestamp)
+        : undefined;
     return message;
   },
 
@@ -1181,116 +1107,56 @@ export const FieldRules = {
 
   fromPartial(object: DeepPartial<FieldRules>): FieldRules {
     const message = { ...baseFieldRules } as FieldRules;
-    if (object.message !== undefined && object.message !== null) {
-      message.message = MessageRules.fromPartial(object.message);
-    } else {
-      message.message = undefined;
-    }
-    if (object.float !== undefined && object.float !== null) {
-      message.float = FloatRules.fromPartial(object.float);
-    } else {
-      message.float = undefined;
-    }
-    if (object.double !== undefined && object.double !== null) {
-      message.double = DoubleRules.fromPartial(object.double);
-    } else {
-      message.double = undefined;
-    }
-    if (object.int32 !== undefined && object.int32 !== null) {
-      message.int32 = Int32Rules.fromPartial(object.int32);
-    } else {
-      message.int32 = undefined;
-    }
-    if (object.int64 !== undefined && object.int64 !== null) {
-      message.int64 = Int64Rules.fromPartial(object.int64);
-    } else {
-      message.int64 = undefined;
-    }
-    if (object.uint32 !== undefined && object.uint32 !== null) {
-      message.uint32 = UInt32Rules.fromPartial(object.uint32);
-    } else {
-      message.uint32 = undefined;
-    }
-    if (object.uint64 !== undefined && object.uint64 !== null) {
-      message.uint64 = UInt64Rules.fromPartial(object.uint64);
-    } else {
-      message.uint64 = undefined;
-    }
-    if (object.sint32 !== undefined && object.sint32 !== null) {
-      message.sint32 = SInt32Rules.fromPartial(object.sint32);
-    } else {
-      message.sint32 = undefined;
-    }
-    if (object.sint64 !== undefined && object.sint64 !== null) {
-      message.sint64 = SInt64Rules.fromPartial(object.sint64);
-    } else {
-      message.sint64 = undefined;
-    }
-    if (object.fixed32 !== undefined && object.fixed32 !== null) {
-      message.fixed32 = Fixed32Rules.fromPartial(object.fixed32);
-    } else {
-      message.fixed32 = undefined;
-    }
-    if (object.fixed64 !== undefined && object.fixed64 !== null) {
-      message.fixed64 = Fixed64Rules.fromPartial(object.fixed64);
-    } else {
-      message.fixed64 = undefined;
-    }
-    if (object.sfixed32 !== undefined && object.sfixed32 !== null) {
-      message.sfixed32 = SFixed32Rules.fromPartial(object.sfixed32);
-    } else {
-      message.sfixed32 = undefined;
-    }
-    if (object.sfixed64 !== undefined && object.sfixed64 !== null) {
-      message.sfixed64 = SFixed64Rules.fromPartial(object.sfixed64);
-    } else {
-      message.sfixed64 = undefined;
-    }
-    if (object.bool !== undefined && object.bool !== null) {
-      message.bool = BoolRules.fromPartial(object.bool);
-    } else {
-      message.bool = undefined;
-    }
-    if (object.string !== undefined && object.string !== null) {
-      message.string = StringRules.fromPartial(object.string);
-    } else {
-      message.string = undefined;
-    }
-    if (object.bytes !== undefined && object.bytes !== null) {
-      message.bytes = BytesRules.fromPartial(object.bytes);
-    } else {
-      message.bytes = undefined;
-    }
-    if (object.enum !== undefined && object.enum !== null) {
-      message.enum = EnumRules.fromPartial(object.enum);
-    } else {
-      message.enum = undefined;
-    }
-    if (object.repeated !== undefined && object.repeated !== null) {
-      message.repeated = RepeatedRules.fromPartial(object.repeated);
-    } else {
-      message.repeated = undefined;
-    }
-    if (object.map !== undefined && object.map !== null) {
-      message.map = MapRules.fromPartial(object.map);
-    } else {
-      message.map = undefined;
-    }
-    if (object.any !== undefined && object.any !== null) {
-      message.any = AnyRules.fromPartial(object.any);
-    } else {
-      message.any = undefined;
-    }
-    if (object.duration !== undefined && object.duration !== null) {
-      message.duration = DurationRules.fromPartial(object.duration);
-    } else {
-      message.duration = undefined;
-    }
-    if (object.timestamp !== undefined && object.timestamp !== null) {
-      message.timestamp = TimestampRules.fromPartial(object.timestamp);
-    } else {
-      message.timestamp = undefined;
-    }
+    message.message =
+      object.message !== undefined && object.message !== null ? MessageRules.fromPartial(object.message) : undefined;
+    message.float =
+      object.float !== undefined && object.float !== null ? FloatRules.fromPartial(object.float) : undefined;
+    message.double =
+      object.double !== undefined && object.double !== null ? DoubleRules.fromPartial(object.double) : undefined;
+    message.int32 =
+      object.int32 !== undefined && object.int32 !== null ? Int32Rules.fromPartial(object.int32) : undefined;
+    message.int64 =
+      object.int64 !== undefined && object.int64 !== null ? Int64Rules.fromPartial(object.int64) : undefined;
+    message.uint32 =
+      object.uint32 !== undefined && object.uint32 !== null ? UInt32Rules.fromPartial(object.uint32) : undefined;
+    message.uint64 =
+      object.uint64 !== undefined && object.uint64 !== null ? UInt64Rules.fromPartial(object.uint64) : undefined;
+    message.sint32 =
+      object.sint32 !== undefined && object.sint32 !== null ? SInt32Rules.fromPartial(object.sint32) : undefined;
+    message.sint64 =
+      object.sint64 !== undefined && object.sint64 !== null ? SInt64Rules.fromPartial(object.sint64) : undefined;
+    message.fixed32 =
+      object.fixed32 !== undefined && object.fixed32 !== null ? Fixed32Rules.fromPartial(object.fixed32) : undefined;
+    message.fixed64 =
+      object.fixed64 !== undefined && object.fixed64 !== null ? Fixed64Rules.fromPartial(object.fixed64) : undefined;
+    message.sfixed32 =
+      object.sfixed32 !== undefined && object.sfixed32 !== null
+        ? SFixed32Rules.fromPartial(object.sfixed32)
+        : undefined;
+    message.sfixed64 =
+      object.sfixed64 !== undefined && object.sfixed64 !== null
+        ? SFixed64Rules.fromPartial(object.sfixed64)
+        : undefined;
+    message.bool = object.bool !== undefined && object.bool !== null ? BoolRules.fromPartial(object.bool) : undefined;
+    message.string =
+      object.string !== undefined && object.string !== null ? StringRules.fromPartial(object.string) : undefined;
+    message.bytes =
+      object.bytes !== undefined && object.bytes !== null ? BytesRules.fromPartial(object.bytes) : undefined;
+    message.enum = object.enum !== undefined && object.enum !== null ? EnumRules.fromPartial(object.enum) : undefined;
+    message.repeated =
+      object.repeated !== undefined && object.repeated !== null
+        ? RepeatedRules.fromPartial(object.repeated)
+        : undefined;
+    message.map = object.map !== undefined && object.map !== null ? MapRules.fromPartial(object.map) : undefined;
+    message.any = object.any !== undefined && object.any !== null ? AnyRules.fromPartial(object.any) : undefined;
+    message.duration =
+      object.duration !== undefined && object.duration !== null
+        ? DurationRules.fromPartial(object.duration)
+        : undefined;
+    message.timestamp =
+      object.timestamp !== undefined && object.timestamp !== null
+        ? TimestampRules.fromPartial(object.timestamp)
+        : undefined;
     return message;
   },
 };
@@ -1381,43 +1247,13 @@ export const FloatRules = {
 
   fromJSON(object: any): FloatRules {
     const message = { ...baseFloatRules } as FloatRules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = Number(object.const);
-    } else {
-      message.const = 0;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = Number(object.lt);
-    } else {
-      message.lt = 0;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = Number(object.lte);
-    } else {
-      message.lte = 0;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = Number(object.gt);
-    } else {
-      message.gt = 0;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = Number(object.gte);
-    } else {
-      message.gte = 0;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(Number(e));
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(Number(e));
-      }
-    }
+    message.const = object.const !== undefined && object.const !== null ? Number(object.const) : 0;
+    message.lt = object.lt !== undefined && object.lt !== null ? Number(object.lt) : 0;
+    message.lte = object.lte !== undefined && object.lte !== null ? Number(object.lte) : 0;
+    message.gt = object.gt !== undefined && object.gt !== null ? Number(object.gt) : 0;
+    message.gte = object.gte !== undefined && object.gte !== null ? Number(object.gte) : 0;
+    message.in = (object.in ?? []).map((e: any) => Number(e));
+    message.notIn = (object.notIn ?? []).map((e: any) => Number(e));
     return message;
   },
 
@@ -1443,43 +1279,13 @@ export const FloatRules = {
 
   fromPartial(object: DeepPartial<FloatRules>): FloatRules {
     const message = { ...baseFloatRules } as FloatRules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = object.const;
-    } else {
-      message.const = 0;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = object.lt;
-    } else {
-      message.lt = 0;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = object.lte;
-    } else {
-      message.lte = 0;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = object.gt;
-    } else {
-      message.gt = 0;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = object.gte;
-    } else {
-      message.gte = 0;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(e);
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(e);
-      }
-    }
+    message.const = object.const ?? 0;
+    message.lt = object.lt ?? 0;
+    message.lte = object.lte ?? 0;
+    message.gt = object.gt ?? 0;
+    message.gte = object.gte ?? 0;
+    message.in = (object.in ?? []).map((e) => e);
+    message.notIn = (object.notIn ?? []).map((e) => e);
     return message;
   },
 };
@@ -1570,43 +1376,13 @@ export const DoubleRules = {
 
   fromJSON(object: any): DoubleRules {
     const message = { ...baseDoubleRules } as DoubleRules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = Number(object.const);
-    } else {
-      message.const = 0;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = Number(object.lt);
-    } else {
-      message.lt = 0;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = Number(object.lte);
-    } else {
-      message.lte = 0;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = Number(object.gt);
-    } else {
-      message.gt = 0;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = Number(object.gte);
-    } else {
-      message.gte = 0;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(Number(e));
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(Number(e));
-      }
-    }
+    message.const = object.const !== undefined && object.const !== null ? Number(object.const) : 0;
+    message.lt = object.lt !== undefined && object.lt !== null ? Number(object.lt) : 0;
+    message.lte = object.lte !== undefined && object.lte !== null ? Number(object.lte) : 0;
+    message.gt = object.gt !== undefined && object.gt !== null ? Number(object.gt) : 0;
+    message.gte = object.gte !== undefined && object.gte !== null ? Number(object.gte) : 0;
+    message.in = (object.in ?? []).map((e: any) => Number(e));
+    message.notIn = (object.notIn ?? []).map((e: any) => Number(e));
     return message;
   },
 
@@ -1632,43 +1408,13 @@ export const DoubleRules = {
 
   fromPartial(object: DeepPartial<DoubleRules>): DoubleRules {
     const message = { ...baseDoubleRules } as DoubleRules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = object.const;
-    } else {
-      message.const = 0;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = object.lt;
-    } else {
-      message.lt = 0;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = object.lte;
-    } else {
-      message.lte = 0;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = object.gt;
-    } else {
-      message.gt = 0;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = object.gte;
-    } else {
-      message.gte = 0;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(e);
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(e);
-      }
-    }
+    message.const = object.const ?? 0;
+    message.lt = object.lt ?? 0;
+    message.lte = object.lte ?? 0;
+    message.gt = object.gt ?? 0;
+    message.gte = object.gte ?? 0;
+    message.in = (object.in ?? []).map((e) => e);
+    message.notIn = (object.notIn ?? []).map((e) => e);
     return message;
   },
 };
@@ -1759,43 +1505,13 @@ export const Int32Rules = {
 
   fromJSON(object: any): Int32Rules {
     const message = { ...baseInt32Rules } as Int32Rules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = Number(object.const);
-    } else {
-      message.const = 0;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = Number(object.lt);
-    } else {
-      message.lt = 0;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = Number(object.lte);
-    } else {
-      message.lte = 0;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = Number(object.gt);
-    } else {
-      message.gt = 0;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = Number(object.gte);
-    } else {
-      message.gte = 0;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(Number(e));
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(Number(e));
-      }
-    }
+    message.const = object.const !== undefined && object.const !== null ? Number(object.const) : 0;
+    message.lt = object.lt !== undefined && object.lt !== null ? Number(object.lt) : 0;
+    message.lte = object.lte !== undefined && object.lte !== null ? Number(object.lte) : 0;
+    message.gt = object.gt !== undefined && object.gt !== null ? Number(object.gt) : 0;
+    message.gte = object.gte !== undefined && object.gte !== null ? Number(object.gte) : 0;
+    message.in = (object.in ?? []).map((e: any) => Number(e));
+    message.notIn = (object.notIn ?? []).map((e: any) => Number(e));
     return message;
   },
 
@@ -1821,43 +1537,13 @@ export const Int32Rules = {
 
   fromPartial(object: DeepPartial<Int32Rules>): Int32Rules {
     const message = { ...baseInt32Rules } as Int32Rules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = object.const;
-    } else {
-      message.const = 0;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = object.lt;
-    } else {
-      message.lt = 0;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = object.lte;
-    } else {
-      message.lte = 0;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = object.gt;
-    } else {
-      message.gt = 0;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = object.gte;
-    } else {
-      message.gte = 0;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(e);
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(e);
-      }
-    }
+    message.const = object.const ?? 0;
+    message.lt = object.lt ?? 0;
+    message.lte = object.lte ?? 0;
+    message.gt = object.gt ?? 0;
+    message.gte = object.gte ?? 0;
+    message.in = (object.in ?? []).map((e) => e);
+    message.notIn = (object.notIn ?? []).map((e) => e);
     return message;
   },
 };
@@ -1948,43 +1634,13 @@ export const Int64Rules = {
 
   fromJSON(object: any): Int64Rules {
     const message = { ...baseInt64Rules } as Int64Rules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = Number(object.const);
-    } else {
-      message.const = 0;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = Number(object.lt);
-    } else {
-      message.lt = 0;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = Number(object.lte);
-    } else {
-      message.lte = 0;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = Number(object.gt);
-    } else {
-      message.gt = 0;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = Number(object.gte);
-    } else {
-      message.gte = 0;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(Number(e));
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(Number(e));
-      }
-    }
+    message.const = object.const !== undefined && object.const !== null ? Number(object.const) : 0;
+    message.lt = object.lt !== undefined && object.lt !== null ? Number(object.lt) : 0;
+    message.lte = object.lte !== undefined && object.lte !== null ? Number(object.lte) : 0;
+    message.gt = object.gt !== undefined && object.gt !== null ? Number(object.gt) : 0;
+    message.gte = object.gte !== undefined && object.gte !== null ? Number(object.gte) : 0;
+    message.in = (object.in ?? []).map((e: any) => Number(e));
+    message.notIn = (object.notIn ?? []).map((e: any) => Number(e));
     return message;
   },
 
@@ -2010,43 +1666,13 @@ export const Int64Rules = {
 
   fromPartial(object: DeepPartial<Int64Rules>): Int64Rules {
     const message = { ...baseInt64Rules } as Int64Rules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = object.const;
-    } else {
-      message.const = 0;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = object.lt;
-    } else {
-      message.lt = 0;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = object.lte;
-    } else {
-      message.lte = 0;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = object.gt;
-    } else {
-      message.gt = 0;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = object.gte;
-    } else {
-      message.gte = 0;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(e);
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(e);
-      }
-    }
+    message.const = object.const ?? 0;
+    message.lt = object.lt ?? 0;
+    message.lte = object.lte ?? 0;
+    message.gt = object.gt ?? 0;
+    message.gte = object.gte ?? 0;
+    message.in = (object.in ?? []).map((e) => e);
+    message.notIn = (object.notIn ?? []).map((e) => e);
     return message;
   },
 };
@@ -2137,43 +1763,13 @@ export const UInt32Rules = {
 
   fromJSON(object: any): UInt32Rules {
     const message = { ...baseUInt32Rules } as UInt32Rules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = Number(object.const);
-    } else {
-      message.const = 0;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = Number(object.lt);
-    } else {
-      message.lt = 0;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = Number(object.lte);
-    } else {
-      message.lte = 0;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = Number(object.gt);
-    } else {
-      message.gt = 0;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = Number(object.gte);
-    } else {
-      message.gte = 0;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(Number(e));
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(Number(e));
-      }
-    }
+    message.const = object.const !== undefined && object.const !== null ? Number(object.const) : 0;
+    message.lt = object.lt !== undefined && object.lt !== null ? Number(object.lt) : 0;
+    message.lte = object.lte !== undefined && object.lte !== null ? Number(object.lte) : 0;
+    message.gt = object.gt !== undefined && object.gt !== null ? Number(object.gt) : 0;
+    message.gte = object.gte !== undefined && object.gte !== null ? Number(object.gte) : 0;
+    message.in = (object.in ?? []).map((e: any) => Number(e));
+    message.notIn = (object.notIn ?? []).map((e: any) => Number(e));
     return message;
   },
 
@@ -2199,43 +1795,13 @@ export const UInt32Rules = {
 
   fromPartial(object: DeepPartial<UInt32Rules>): UInt32Rules {
     const message = { ...baseUInt32Rules } as UInt32Rules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = object.const;
-    } else {
-      message.const = 0;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = object.lt;
-    } else {
-      message.lt = 0;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = object.lte;
-    } else {
-      message.lte = 0;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = object.gt;
-    } else {
-      message.gt = 0;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = object.gte;
-    } else {
-      message.gte = 0;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(e);
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(e);
-      }
-    }
+    message.const = object.const ?? 0;
+    message.lt = object.lt ?? 0;
+    message.lte = object.lte ?? 0;
+    message.gt = object.gt ?? 0;
+    message.gte = object.gte ?? 0;
+    message.in = (object.in ?? []).map((e) => e);
+    message.notIn = (object.notIn ?? []).map((e) => e);
     return message;
   },
 };
@@ -2326,43 +1892,13 @@ export const UInt64Rules = {
 
   fromJSON(object: any): UInt64Rules {
     const message = { ...baseUInt64Rules } as UInt64Rules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = Number(object.const);
-    } else {
-      message.const = 0;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = Number(object.lt);
-    } else {
-      message.lt = 0;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = Number(object.lte);
-    } else {
-      message.lte = 0;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = Number(object.gt);
-    } else {
-      message.gt = 0;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = Number(object.gte);
-    } else {
-      message.gte = 0;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(Number(e));
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(Number(e));
-      }
-    }
+    message.const = object.const !== undefined && object.const !== null ? Number(object.const) : 0;
+    message.lt = object.lt !== undefined && object.lt !== null ? Number(object.lt) : 0;
+    message.lte = object.lte !== undefined && object.lte !== null ? Number(object.lte) : 0;
+    message.gt = object.gt !== undefined && object.gt !== null ? Number(object.gt) : 0;
+    message.gte = object.gte !== undefined && object.gte !== null ? Number(object.gte) : 0;
+    message.in = (object.in ?? []).map((e: any) => Number(e));
+    message.notIn = (object.notIn ?? []).map((e: any) => Number(e));
     return message;
   },
 
@@ -2388,43 +1924,13 @@ export const UInt64Rules = {
 
   fromPartial(object: DeepPartial<UInt64Rules>): UInt64Rules {
     const message = { ...baseUInt64Rules } as UInt64Rules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = object.const;
-    } else {
-      message.const = 0;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = object.lt;
-    } else {
-      message.lt = 0;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = object.lte;
-    } else {
-      message.lte = 0;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = object.gt;
-    } else {
-      message.gt = 0;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = object.gte;
-    } else {
-      message.gte = 0;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(e);
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(e);
-      }
-    }
+    message.const = object.const ?? 0;
+    message.lt = object.lt ?? 0;
+    message.lte = object.lte ?? 0;
+    message.gt = object.gt ?? 0;
+    message.gte = object.gte ?? 0;
+    message.in = (object.in ?? []).map((e) => e);
+    message.notIn = (object.notIn ?? []).map((e) => e);
     return message;
   },
 };
@@ -2515,43 +2021,13 @@ export const SInt32Rules = {
 
   fromJSON(object: any): SInt32Rules {
     const message = { ...baseSInt32Rules } as SInt32Rules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = Number(object.const);
-    } else {
-      message.const = 0;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = Number(object.lt);
-    } else {
-      message.lt = 0;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = Number(object.lte);
-    } else {
-      message.lte = 0;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = Number(object.gt);
-    } else {
-      message.gt = 0;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = Number(object.gte);
-    } else {
-      message.gte = 0;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(Number(e));
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(Number(e));
-      }
-    }
+    message.const = object.const !== undefined && object.const !== null ? Number(object.const) : 0;
+    message.lt = object.lt !== undefined && object.lt !== null ? Number(object.lt) : 0;
+    message.lte = object.lte !== undefined && object.lte !== null ? Number(object.lte) : 0;
+    message.gt = object.gt !== undefined && object.gt !== null ? Number(object.gt) : 0;
+    message.gte = object.gte !== undefined && object.gte !== null ? Number(object.gte) : 0;
+    message.in = (object.in ?? []).map((e: any) => Number(e));
+    message.notIn = (object.notIn ?? []).map((e: any) => Number(e));
     return message;
   },
 
@@ -2577,43 +2053,13 @@ export const SInt32Rules = {
 
   fromPartial(object: DeepPartial<SInt32Rules>): SInt32Rules {
     const message = { ...baseSInt32Rules } as SInt32Rules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = object.const;
-    } else {
-      message.const = 0;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = object.lt;
-    } else {
-      message.lt = 0;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = object.lte;
-    } else {
-      message.lte = 0;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = object.gt;
-    } else {
-      message.gt = 0;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = object.gte;
-    } else {
-      message.gte = 0;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(e);
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(e);
-      }
-    }
+    message.const = object.const ?? 0;
+    message.lt = object.lt ?? 0;
+    message.lte = object.lte ?? 0;
+    message.gt = object.gt ?? 0;
+    message.gte = object.gte ?? 0;
+    message.in = (object.in ?? []).map((e) => e);
+    message.notIn = (object.notIn ?? []).map((e) => e);
     return message;
   },
 };
@@ -2704,43 +2150,13 @@ export const SInt64Rules = {
 
   fromJSON(object: any): SInt64Rules {
     const message = { ...baseSInt64Rules } as SInt64Rules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = Number(object.const);
-    } else {
-      message.const = 0;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = Number(object.lt);
-    } else {
-      message.lt = 0;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = Number(object.lte);
-    } else {
-      message.lte = 0;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = Number(object.gt);
-    } else {
-      message.gt = 0;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = Number(object.gte);
-    } else {
-      message.gte = 0;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(Number(e));
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(Number(e));
-      }
-    }
+    message.const = object.const !== undefined && object.const !== null ? Number(object.const) : 0;
+    message.lt = object.lt !== undefined && object.lt !== null ? Number(object.lt) : 0;
+    message.lte = object.lte !== undefined && object.lte !== null ? Number(object.lte) : 0;
+    message.gt = object.gt !== undefined && object.gt !== null ? Number(object.gt) : 0;
+    message.gte = object.gte !== undefined && object.gte !== null ? Number(object.gte) : 0;
+    message.in = (object.in ?? []).map((e: any) => Number(e));
+    message.notIn = (object.notIn ?? []).map((e: any) => Number(e));
     return message;
   },
 
@@ -2766,43 +2182,13 @@ export const SInt64Rules = {
 
   fromPartial(object: DeepPartial<SInt64Rules>): SInt64Rules {
     const message = { ...baseSInt64Rules } as SInt64Rules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = object.const;
-    } else {
-      message.const = 0;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = object.lt;
-    } else {
-      message.lt = 0;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = object.lte;
-    } else {
-      message.lte = 0;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = object.gt;
-    } else {
-      message.gt = 0;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = object.gte;
-    } else {
-      message.gte = 0;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(e);
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(e);
-      }
-    }
+    message.const = object.const ?? 0;
+    message.lt = object.lt ?? 0;
+    message.lte = object.lte ?? 0;
+    message.gt = object.gt ?? 0;
+    message.gte = object.gte ?? 0;
+    message.in = (object.in ?? []).map((e) => e);
+    message.notIn = (object.notIn ?? []).map((e) => e);
     return message;
   },
 };
@@ -2893,43 +2279,13 @@ export const Fixed32Rules = {
 
   fromJSON(object: any): Fixed32Rules {
     const message = { ...baseFixed32Rules } as Fixed32Rules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = Number(object.const);
-    } else {
-      message.const = 0;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = Number(object.lt);
-    } else {
-      message.lt = 0;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = Number(object.lte);
-    } else {
-      message.lte = 0;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = Number(object.gt);
-    } else {
-      message.gt = 0;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = Number(object.gte);
-    } else {
-      message.gte = 0;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(Number(e));
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(Number(e));
-      }
-    }
+    message.const = object.const !== undefined && object.const !== null ? Number(object.const) : 0;
+    message.lt = object.lt !== undefined && object.lt !== null ? Number(object.lt) : 0;
+    message.lte = object.lte !== undefined && object.lte !== null ? Number(object.lte) : 0;
+    message.gt = object.gt !== undefined && object.gt !== null ? Number(object.gt) : 0;
+    message.gte = object.gte !== undefined && object.gte !== null ? Number(object.gte) : 0;
+    message.in = (object.in ?? []).map((e: any) => Number(e));
+    message.notIn = (object.notIn ?? []).map((e: any) => Number(e));
     return message;
   },
 
@@ -2955,43 +2311,13 @@ export const Fixed32Rules = {
 
   fromPartial(object: DeepPartial<Fixed32Rules>): Fixed32Rules {
     const message = { ...baseFixed32Rules } as Fixed32Rules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = object.const;
-    } else {
-      message.const = 0;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = object.lt;
-    } else {
-      message.lt = 0;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = object.lte;
-    } else {
-      message.lte = 0;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = object.gt;
-    } else {
-      message.gt = 0;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = object.gte;
-    } else {
-      message.gte = 0;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(e);
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(e);
-      }
-    }
+    message.const = object.const ?? 0;
+    message.lt = object.lt ?? 0;
+    message.lte = object.lte ?? 0;
+    message.gt = object.gt ?? 0;
+    message.gte = object.gte ?? 0;
+    message.in = (object.in ?? []).map((e) => e);
+    message.notIn = (object.notIn ?? []).map((e) => e);
     return message;
   },
 };
@@ -3082,43 +2408,13 @@ export const Fixed64Rules = {
 
   fromJSON(object: any): Fixed64Rules {
     const message = { ...baseFixed64Rules } as Fixed64Rules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = Number(object.const);
-    } else {
-      message.const = 0;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = Number(object.lt);
-    } else {
-      message.lt = 0;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = Number(object.lte);
-    } else {
-      message.lte = 0;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = Number(object.gt);
-    } else {
-      message.gt = 0;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = Number(object.gte);
-    } else {
-      message.gte = 0;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(Number(e));
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(Number(e));
-      }
-    }
+    message.const = object.const !== undefined && object.const !== null ? Number(object.const) : 0;
+    message.lt = object.lt !== undefined && object.lt !== null ? Number(object.lt) : 0;
+    message.lte = object.lte !== undefined && object.lte !== null ? Number(object.lte) : 0;
+    message.gt = object.gt !== undefined && object.gt !== null ? Number(object.gt) : 0;
+    message.gte = object.gte !== undefined && object.gte !== null ? Number(object.gte) : 0;
+    message.in = (object.in ?? []).map((e: any) => Number(e));
+    message.notIn = (object.notIn ?? []).map((e: any) => Number(e));
     return message;
   },
 
@@ -3144,43 +2440,13 @@ export const Fixed64Rules = {
 
   fromPartial(object: DeepPartial<Fixed64Rules>): Fixed64Rules {
     const message = { ...baseFixed64Rules } as Fixed64Rules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = object.const;
-    } else {
-      message.const = 0;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = object.lt;
-    } else {
-      message.lt = 0;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = object.lte;
-    } else {
-      message.lte = 0;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = object.gt;
-    } else {
-      message.gt = 0;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = object.gte;
-    } else {
-      message.gte = 0;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(e);
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(e);
-      }
-    }
+    message.const = object.const ?? 0;
+    message.lt = object.lt ?? 0;
+    message.lte = object.lte ?? 0;
+    message.gt = object.gt ?? 0;
+    message.gte = object.gte ?? 0;
+    message.in = (object.in ?? []).map((e) => e);
+    message.notIn = (object.notIn ?? []).map((e) => e);
     return message;
   },
 };
@@ -3271,43 +2537,13 @@ export const SFixed32Rules = {
 
   fromJSON(object: any): SFixed32Rules {
     const message = { ...baseSFixed32Rules } as SFixed32Rules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = Number(object.const);
-    } else {
-      message.const = 0;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = Number(object.lt);
-    } else {
-      message.lt = 0;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = Number(object.lte);
-    } else {
-      message.lte = 0;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = Number(object.gt);
-    } else {
-      message.gt = 0;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = Number(object.gte);
-    } else {
-      message.gte = 0;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(Number(e));
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(Number(e));
-      }
-    }
+    message.const = object.const !== undefined && object.const !== null ? Number(object.const) : 0;
+    message.lt = object.lt !== undefined && object.lt !== null ? Number(object.lt) : 0;
+    message.lte = object.lte !== undefined && object.lte !== null ? Number(object.lte) : 0;
+    message.gt = object.gt !== undefined && object.gt !== null ? Number(object.gt) : 0;
+    message.gte = object.gte !== undefined && object.gte !== null ? Number(object.gte) : 0;
+    message.in = (object.in ?? []).map((e: any) => Number(e));
+    message.notIn = (object.notIn ?? []).map((e: any) => Number(e));
     return message;
   },
 
@@ -3333,43 +2569,13 @@ export const SFixed32Rules = {
 
   fromPartial(object: DeepPartial<SFixed32Rules>): SFixed32Rules {
     const message = { ...baseSFixed32Rules } as SFixed32Rules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = object.const;
-    } else {
-      message.const = 0;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = object.lt;
-    } else {
-      message.lt = 0;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = object.lte;
-    } else {
-      message.lte = 0;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = object.gt;
-    } else {
-      message.gt = 0;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = object.gte;
-    } else {
-      message.gte = 0;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(e);
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(e);
-      }
-    }
+    message.const = object.const ?? 0;
+    message.lt = object.lt ?? 0;
+    message.lte = object.lte ?? 0;
+    message.gt = object.gt ?? 0;
+    message.gte = object.gte ?? 0;
+    message.in = (object.in ?? []).map((e) => e);
+    message.notIn = (object.notIn ?? []).map((e) => e);
     return message;
   },
 };
@@ -3460,43 +2666,13 @@ export const SFixed64Rules = {
 
   fromJSON(object: any): SFixed64Rules {
     const message = { ...baseSFixed64Rules } as SFixed64Rules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = Number(object.const);
-    } else {
-      message.const = 0;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = Number(object.lt);
-    } else {
-      message.lt = 0;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = Number(object.lte);
-    } else {
-      message.lte = 0;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = Number(object.gt);
-    } else {
-      message.gt = 0;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = Number(object.gte);
-    } else {
-      message.gte = 0;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(Number(e));
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(Number(e));
-      }
-    }
+    message.const = object.const !== undefined && object.const !== null ? Number(object.const) : 0;
+    message.lt = object.lt !== undefined && object.lt !== null ? Number(object.lt) : 0;
+    message.lte = object.lte !== undefined && object.lte !== null ? Number(object.lte) : 0;
+    message.gt = object.gt !== undefined && object.gt !== null ? Number(object.gt) : 0;
+    message.gte = object.gte !== undefined && object.gte !== null ? Number(object.gte) : 0;
+    message.in = (object.in ?? []).map((e: any) => Number(e));
+    message.notIn = (object.notIn ?? []).map((e: any) => Number(e));
     return message;
   },
 
@@ -3522,43 +2698,13 @@ export const SFixed64Rules = {
 
   fromPartial(object: DeepPartial<SFixed64Rules>): SFixed64Rules {
     const message = { ...baseSFixed64Rules } as SFixed64Rules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = object.const;
-    } else {
-      message.const = 0;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = object.lt;
-    } else {
-      message.lt = 0;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = object.lte;
-    } else {
-      message.lte = 0;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = object.gt;
-    } else {
-      message.gt = 0;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = object.gte;
-    } else {
-      message.gte = 0;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(e);
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(e);
-      }
-    }
+    message.const = object.const ?? 0;
+    message.lt = object.lt ?? 0;
+    message.lte = object.lte ?? 0;
+    message.gt = object.gt ?? 0;
+    message.gte = object.gte ?? 0;
+    message.in = (object.in ?? []).map((e) => e);
+    message.notIn = (object.notIn ?? []).map((e) => e);
     return message;
   },
 };
@@ -3593,11 +2739,7 @@ export const BoolRules = {
 
   fromJSON(object: any): BoolRules {
     const message = { ...baseBoolRules } as BoolRules;
-    if (object.const !== undefined && object.const !== null) {
-      message.const = Boolean(object.const);
-    } else {
-      message.const = false;
-    }
+    message.const = object.const !== undefined && object.const !== null ? Boolean(object.const) : false;
     return message;
   },
 
@@ -3609,11 +2751,7 @@ export const BoolRules = {
 
   fromPartial(object: DeepPartial<BoolRules>): BoolRules {
     const message = { ...baseBoolRules } as BoolRules;
-    if (object.const !== undefined && object.const !== null) {
-      message.const = object.const;
-    } else {
-      message.const = false;
-    }
+    message.const = object.const ?? false;
     return message;
   },
 };
@@ -3797,123 +2935,30 @@ export const StringRules = {
 
   fromJSON(object: any): StringRules {
     const message = { ...baseStringRules } as StringRules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = String(object.const);
-    } else {
-      message.const = '';
-    }
-    if (object.len !== undefined && object.len !== null) {
-      message.len = Number(object.len);
-    } else {
-      message.len = 0;
-    }
-    if (object.minLen !== undefined && object.minLen !== null) {
-      message.minLen = Number(object.minLen);
-    } else {
-      message.minLen = 0;
-    }
-    if (object.maxLen !== undefined && object.maxLen !== null) {
-      message.maxLen = Number(object.maxLen);
-    } else {
-      message.maxLen = 0;
-    }
-    if (object.lenBytes !== undefined && object.lenBytes !== null) {
-      message.lenBytes = Number(object.lenBytes);
-    } else {
-      message.lenBytes = 0;
-    }
-    if (object.minBytes !== undefined && object.minBytes !== null) {
-      message.minBytes = Number(object.minBytes);
-    } else {
-      message.minBytes = 0;
-    }
-    if (object.maxBytes !== undefined && object.maxBytes !== null) {
-      message.maxBytes = Number(object.maxBytes);
-    } else {
-      message.maxBytes = 0;
-    }
-    if (object.pattern !== undefined && object.pattern !== null) {
-      message.pattern = String(object.pattern);
-    } else {
-      message.pattern = '';
-    }
-    if (object.prefix !== undefined && object.prefix !== null) {
-      message.prefix = String(object.prefix);
-    } else {
-      message.prefix = '';
-    }
-    if (object.suffix !== undefined && object.suffix !== null) {
-      message.suffix = String(object.suffix);
-    } else {
-      message.suffix = '';
-    }
-    if (object.contains !== undefined && object.contains !== null) {
-      message.contains = String(object.contains);
-    } else {
-      message.contains = '';
-    }
-    if (object.notContains !== undefined && object.notContains !== null) {
-      message.notContains = String(object.notContains);
-    } else {
-      message.notContains = '';
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(String(e));
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(String(e));
-      }
-    }
-    if (object.email !== undefined && object.email !== null) {
-      message.email = Boolean(object.email);
-    } else {
-      message.email = undefined;
-    }
-    if (object.hostname !== undefined && object.hostname !== null) {
-      message.hostname = Boolean(object.hostname);
-    } else {
-      message.hostname = undefined;
-    }
-    if (object.ip !== undefined && object.ip !== null) {
-      message.ip = Boolean(object.ip);
-    } else {
-      message.ip = undefined;
-    }
-    if (object.ipv4 !== undefined && object.ipv4 !== null) {
-      message.ipv4 = Boolean(object.ipv4);
-    } else {
-      message.ipv4 = undefined;
-    }
-    if (object.ipv6 !== undefined && object.ipv6 !== null) {
-      message.ipv6 = Boolean(object.ipv6);
-    } else {
-      message.ipv6 = undefined;
-    }
-    if (object.uri !== undefined && object.uri !== null) {
-      message.uri = Boolean(object.uri);
-    } else {
-      message.uri = undefined;
-    }
-    if (object.uriRef !== undefined && object.uriRef !== null) {
-      message.uriRef = Boolean(object.uriRef);
-    } else {
-      message.uriRef = undefined;
-    }
-    if (object.address !== undefined && object.address !== null) {
-      message.address = Boolean(object.address);
-    } else {
-      message.address = undefined;
-    }
-    if (object.uuid !== undefined && object.uuid !== null) {
-      message.uuid = Boolean(object.uuid);
-    } else {
-      message.uuid = undefined;
-    }
+    message.const = object.const !== undefined && object.const !== null ? String(object.const) : '';
+    message.len = object.len !== undefined && object.len !== null ? Number(object.len) : 0;
+    message.minLen = object.minLen !== undefined && object.minLen !== null ? Number(object.minLen) : 0;
+    message.maxLen = object.maxLen !== undefined && object.maxLen !== null ? Number(object.maxLen) : 0;
+    message.lenBytes = object.lenBytes !== undefined && object.lenBytes !== null ? Number(object.lenBytes) : 0;
+    message.minBytes = object.minBytes !== undefined && object.minBytes !== null ? Number(object.minBytes) : 0;
+    message.maxBytes = object.maxBytes !== undefined && object.maxBytes !== null ? Number(object.maxBytes) : 0;
+    message.pattern = object.pattern !== undefined && object.pattern !== null ? String(object.pattern) : '';
+    message.prefix = object.prefix !== undefined && object.prefix !== null ? String(object.prefix) : '';
+    message.suffix = object.suffix !== undefined && object.suffix !== null ? String(object.suffix) : '';
+    message.contains = object.contains !== undefined && object.contains !== null ? String(object.contains) : '';
+    message.notContains =
+      object.notContains !== undefined && object.notContains !== null ? String(object.notContains) : '';
+    message.in = (object.in ?? []).map((e: any) => String(e));
+    message.notIn = (object.notIn ?? []).map((e: any) => String(e));
+    message.email = object.email !== undefined && object.email !== null ? Boolean(object.email) : undefined;
+    message.hostname = object.hostname !== undefined && object.hostname !== null ? Boolean(object.hostname) : undefined;
+    message.ip = object.ip !== undefined && object.ip !== null ? Boolean(object.ip) : undefined;
+    message.ipv4 = object.ipv4 !== undefined && object.ipv4 !== null ? Boolean(object.ipv4) : undefined;
+    message.ipv6 = object.ipv6 !== undefined && object.ipv6 !== null ? Boolean(object.ipv6) : undefined;
+    message.uri = object.uri !== undefined && object.uri !== null ? Boolean(object.uri) : undefined;
+    message.uriRef = object.uriRef !== undefined && object.uriRef !== null ? Boolean(object.uriRef) : undefined;
+    message.address = object.address !== undefined && object.address !== null ? Boolean(object.address) : undefined;
+    message.uuid = object.uuid !== undefined && object.uuid !== null ? Boolean(object.uuid) : undefined;
     return message;
   },
 
@@ -3955,123 +3000,29 @@ export const StringRules = {
 
   fromPartial(object: DeepPartial<StringRules>): StringRules {
     const message = { ...baseStringRules } as StringRules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = object.const;
-    } else {
-      message.const = '';
-    }
-    if (object.len !== undefined && object.len !== null) {
-      message.len = object.len;
-    } else {
-      message.len = 0;
-    }
-    if (object.minLen !== undefined && object.minLen !== null) {
-      message.minLen = object.minLen;
-    } else {
-      message.minLen = 0;
-    }
-    if (object.maxLen !== undefined && object.maxLen !== null) {
-      message.maxLen = object.maxLen;
-    } else {
-      message.maxLen = 0;
-    }
-    if (object.lenBytes !== undefined && object.lenBytes !== null) {
-      message.lenBytes = object.lenBytes;
-    } else {
-      message.lenBytes = 0;
-    }
-    if (object.minBytes !== undefined && object.minBytes !== null) {
-      message.minBytes = object.minBytes;
-    } else {
-      message.minBytes = 0;
-    }
-    if (object.maxBytes !== undefined && object.maxBytes !== null) {
-      message.maxBytes = object.maxBytes;
-    } else {
-      message.maxBytes = 0;
-    }
-    if (object.pattern !== undefined && object.pattern !== null) {
-      message.pattern = object.pattern;
-    } else {
-      message.pattern = '';
-    }
-    if (object.prefix !== undefined && object.prefix !== null) {
-      message.prefix = object.prefix;
-    } else {
-      message.prefix = '';
-    }
-    if (object.suffix !== undefined && object.suffix !== null) {
-      message.suffix = object.suffix;
-    } else {
-      message.suffix = '';
-    }
-    if (object.contains !== undefined && object.contains !== null) {
-      message.contains = object.contains;
-    } else {
-      message.contains = '';
-    }
-    if (object.notContains !== undefined && object.notContains !== null) {
-      message.notContains = object.notContains;
-    } else {
-      message.notContains = '';
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(e);
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(e);
-      }
-    }
-    if (object.email !== undefined && object.email !== null) {
-      message.email = object.email;
-    } else {
-      message.email = undefined;
-    }
-    if (object.hostname !== undefined && object.hostname !== null) {
-      message.hostname = object.hostname;
-    } else {
-      message.hostname = undefined;
-    }
-    if (object.ip !== undefined && object.ip !== null) {
-      message.ip = object.ip;
-    } else {
-      message.ip = undefined;
-    }
-    if (object.ipv4 !== undefined && object.ipv4 !== null) {
-      message.ipv4 = object.ipv4;
-    } else {
-      message.ipv4 = undefined;
-    }
-    if (object.ipv6 !== undefined && object.ipv6 !== null) {
-      message.ipv6 = object.ipv6;
-    } else {
-      message.ipv6 = undefined;
-    }
-    if (object.uri !== undefined && object.uri !== null) {
-      message.uri = object.uri;
-    } else {
-      message.uri = undefined;
-    }
-    if (object.uriRef !== undefined && object.uriRef !== null) {
-      message.uriRef = object.uriRef;
-    } else {
-      message.uriRef = undefined;
-    }
-    if (object.address !== undefined && object.address !== null) {
-      message.address = object.address;
-    } else {
-      message.address = undefined;
-    }
-    if (object.uuid !== undefined && object.uuid !== null) {
-      message.uuid = object.uuid;
-    } else {
-      message.uuid = undefined;
-    }
+    message.const = object.const ?? '';
+    message.len = object.len ?? 0;
+    message.minLen = object.minLen ?? 0;
+    message.maxLen = object.maxLen ?? 0;
+    message.lenBytes = object.lenBytes ?? 0;
+    message.minBytes = object.minBytes ?? 0;
+    message.maxBytes = object.maxBytes ?? 0;
+    message.pattern = object.pattern ?? '';
+    message.prefix = object.prefix ?? '';
+    message.suffix = object.suffix ?? '';
+    message.contains = object.contains ?? '';
+    message.notContains = object.notContains ?? '';
+    message.in = (object.in ?? []).map((e) => e);
+    message.notIn = (object.notIn ?? []).map((e) => e);
+    message.email = object.email ?? undefined;
+    message.hostname = object.hostname ?? undefined;
+    message.ip = object.ip ?? undefined;
+    message.ipv4 = object.ipv4 ?? undefined;
+    message.ipv6 = object.ipv6 ?? undefined;
+    message.uri = object.uri ?? undefined;
+    message.uriRef = object.uriRef ?? undefined;
+    message.address = object.address ?? undefined;
+    message.uuid = object.uuid ?? undefined;
     return message;
   },
 };
@@ -4184,69 +3135,23 @@ export const BytesRules = {
 
   fromJSON(object: any): BytesRules {
     const message = { ...baseBytesRules } as BytesRules;
-    message.in = [];
-    message.notIn = [];
-    message.const = new Uint8Array();
-    message.prefix = new Uint8Array();
-    message.suffix = new Uint8Array();
-    message.contains = new Uint8Array();
-    if (object.const !== undefined && object.const !== null) {
-      message.const = bytesFromBase64(object.const);
-    }
-    if (object.len !== undefined && object.len !== null) {
-      message.len = Number(object.len);
-    } else {
-      message.len = 0;
-    }
-    if (object.minLen !== undefined && object.minLen !== null) {
-      message.minLen = Number(object.minLen);
-    } else {
-      message.minLen = 0;
-    }
-    if (object.maxLen !== undefined && object.maxLen !== null) {
-      message.maxLen = Number(object.maxLen);
-    } else {
-      message.maxLen = 0;
-    }
-    if (object.pattern !== undefined && object.pattern !== null) {
-      message.pattern = String(object.pattern);
-    } else {
-      message.pattern = '';
-    }
-    if (object.prefix !== undefined && object.prefix !== null) {
-      message.prefix = bytesFromBase64(object.prefix);
-    }
-    if (object.suffix !== undefined && object.suffix !== null) {
-      message.suffix = bytesFromBase64(object.suffix);
-    }
-    if (object.contains !== undefined && object.contains !== null) {
-      message.contains = bytesFromBase64(object.contains);
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(bytesFromBase64(e));
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(bytesFromBase64(e));
-      }
-    }
-    if (object.ip !== undefined && object.ip !== null) {
-      message.ip = Boolean(object.ip);
-    } else {
-      message.ip = undefined;
-    }
-    if (object.ipv4 !== undefined && object.ipv4 !== null) {
-      message.ipv4 = Boolean(object.ipv4);
-    } else {
-      message.ipv4 = undefined;
-    }
-    if (object.ipv6 !== undefined && object.ipv6 !== null) {
-      message.ipv6 = Boolean(object.ipv6);
-    } else {
-      message.ipv6 = undefined;
-    }
+    message.const =
+      object.const !== undefined && object.const !== null ? bytesFromBase64(object.const) : new Uint8Array();
+    message.len = object.len !== undefined && object.len !== null ? Number(object.len) : 0;
+    message.minLen = object.minLen !== undefined && object.minLen !== null ? Number(object.minLen) : 0;
+    message.maxLen = object.maxLen !== undefined && object.maxLen !== null ? Number(object.maxLen) : 0;
+    message.pattern = object.pattern !== undefined && object.pattern !== null ? String(object.pattern) : '';
+    message.prefix =
+      object.prefix !== undefined && object.prefix !== null ? bytesFromBase64(object.prefix) : new Uint8Array();
+    message.suffix =
+      object.suffix !== undefined && object.suffix !== null ? bytesFromBase64(object.suffix) : new Uint8Array();
+    message.contains =
+      object.contains !== undefined && object.contains !== null ? bytesFromBase64(object.contains) : new Uint8Array();
+    message.in = (object.in ?? []).map((e: any) => bytesFromBase64(e));
+    message.notIn = (object.notIn ?? []).map((e: any) => bytesFromBase64(e));
+    message.ip = object.ip !== undefined && object.ip !== null ? Boolean(object.ip) : undefined;
+    message.ipv4 = object.ipv4 !== undefined && object.ipv4 !== null ? Boolean(object.ipv4) : undefined;
+    message.ipv6 = object.ipv6 !== undefined && object.ipv6 !== null ? Boolean(object.ipv6) : undefined;
     return message;
   },
 
@@ -4282,73 +3187,19 @@ export const BytesRules = {
 
   fromPartial(object: DeepPartial<BytesRules>): BytesRules {
     const message = { ...baseBytesRules } as BytesRules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = object.const;
-    } else {
-      message.const = new Uint8Array();
-    }
-    if (object.len !== undefined && object.len !== null) {
-      message.len = object.len;
-    } else {
-      message.len = 0;
-    }
-    if (object.minLen !== undefined && object.minLen !== null) {
-      message.minLen = object.minLen;
-    } else {
-      message.minLen = 0;
-    }
-    if (object.maxLen !== undefined && object.maxLen !== null) {
-      message.maxLen = object.maxLen;
-    } else {
-      message.maxLen = 0;
-    }
-    if (object.pattern !== undefined && object.pattern !== null) {
-      message.pattern = object.pattern;
-    } else {
-      message.pattern = '';
-    }
-    if (object.prefix !== undefined && object.prefix !== null) {
-      message.prefix = object.prefix;
-    } else {
-      message.prefix = new Uint8Array();
-    }
-    if (object.suffix !== undefined && object.suffix !== null) {
-      message.suffix = object.suffix;
-    } else {
-      message.suffix = new Uint8Array();
-    }
-    if (object.contains !== undefined && object.contains !== null) {
-      message.contains = object.contains;
-    } else {
-      message.contains = new Uint8Array();
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(e);
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(e);
-      }
-    }
-    if (object.ip !== undefined && object.ip !== null) {
-      message.ip = object.ip;
-    } else {
-      message.ip = undefined;
-    }
-    if (object.ipv4 !== undefined && object.ipv4 !== null) {
-      message.ipv4 = object.ipv4;
-    } else {
-      message.ipv4 = undefined;
-    }
-    if (object.ipv6 !== undefined && object.ipv6 !== null) {
-      message.ipv6 = object.ipv6;
-    } else {
-      message.ipv6 = undefined;
-    }
+    message.const = object.const ?? new Uint8Array();
+    message.len = object.len ?? 0;
+    message.minLen = object.minLen ?? 0;
+    message.maxLen = object.maxLen ?? 0;
+    message.pattern = object.pattern ?? '';
+    message.prefix = object.prefix ?? new Uint8Array();
+    message.suffix = object.suffix ?? new Uint8Array();
+    message.contains = object.contains ?? new Uint8Array();
+    message.in = (object.in ?? []).map((e) => e);
+    message.notIn = (object.notIn ?? []).map((e) => e);
+    message.ip = object.ip ?? undefined;
+    message.ipv4 = object.ipv4 ?? undefined;
+    message.ipv6 = object.ipv6 ?? undefined;
     return message;
   },
 };
@@ -4421,28 +3272,11 @@ export const EnumRules = {
 
   fromJSON(object: any): EnumRules {
     const message = { ...baseEnumRules } as EnumRules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = Number(object.const);
-    } else {
-      message.const = 0;
-    }
-    if (object.definedOnly !== undefined && object.definedOnly !== null) {
-      message.definedOnly = Boolean(object.definedOnly);
-    } else {
-      message.definedOnly = false;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(Number(e));
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(Number(e));
-      }
-    }
+    message.const = object.const !== undefined && object.const !== null ? Number(object.const) : 0;
+    message.definedOnly =
+      object.definedOnly !== undefined && object.definedOnly !== null ? Boolean(object.definedOnly) : false;
+    message.in = (object.in ?? []).map((e: any) => Number(e));
+    message.notIn = (object.notIn ?? []).map((e: any) => Number(e));
     return message;
   },
 
@@ -4465,28 +3299,10 @@ export const EnumRules = {
 
   fromPartial(object: DeepPartial<EnumRules>): EnumRules {
     const message = { ...baseEnumRules } as EnumRules;
-    message.in = [];
-    message.notIn = [];
-    if (object.const !== undefined && object.const !== null) {
-      message.const = object.const;
-    } else {
-      message.const = 0;
-    }
-    if (object.definedOnly !== undefined && object.definedOnly !== null) {
-      message.definedOnly = object.definedOnly;
-    } else {
-      message.definedOnly = false;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(e);
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(e);
-      }
-    }
+    message.const = object.const ?? 0;
+    message.definedOnly = object.definedOnly ?? false;
+    message.in = (object.in ?? []).map((e) => e);
+    message.notIn = (object.notIn ?? []).map((e) => e);
     return message;
   },
 };
@@ -4527,16 +3343,8 @@ export const MessageRules = {
 
   fromJSON(object: any): MessageRules {
     const message = { ...baseMessageRules } as MessageRules;
-    if (object.skip !== undefined && object.skip !== null) {
-      message.skip = Boolean(object.skip);
-    } else {
-      message.skip = false;
-    }
-    if (object.required !== undefined && object.required !== null) {
-      message.required = Boolean(object.required);
-    } else {
-      message.required = false;
-    }
+    message.skip = object.skip !== undefined && object.skip !== null ? Boolean(object.skip) : false;
+    message.required = object.required !== undefined && object.required !== null ? Boolean(object.required) : false;
     return message;
   },
 
@@ -4549,16 +3357,8 @@ export const MessageRules = {
 
   fromPartial(object: DeepPartial<MessageRules>): MessageRules {
     const message = { ...baseMessageRules } as MessageRules;
-    if (object.skip !== undefined && object.skip !== null) {
-      message.skip = object.skip;
-    } else {
-      message.skip = false;
-    }
-    if (object.required !== undefined && object.required !== null) {
-      message.required = object.required;
-    } else {
-      message.required = false;
-    }
+    message.skip = object.skip ?? false;
+    message.required = object.required ?? false;
     return message;
   },
 };
@@ -4611,26 +3411,10 @@ export const RepeatedRules = {
 
   fromJSON(object: any): RepeatedRules {
     const message = { ...baseRepeatedRules } as RepeatedRules;
-    if (object.minItems !== undefined && object.minItems !== null) {
-      message.minItems = Number(object.minItems);
-    } else {
-      message.minItems = 0;
-    }
-    if (object.maxItems !== undefined && object.maxItems !== null) {
-      message.maxItems = Number(object.maxItems);
-    } else {
-      message.maxItems = 0;
-    }
-    if (object.unique !== undefined && object.unique !== null) {
-      message.unique = Boolean(object.unique);
-    } else {
-      message.unique = false;
-    }
-    if (object.items !== undefined && object.items !== null) {
-      message.items = FieldRules.fromJSON(object.items);
-    } else {
-      message.items = undefined;
-    }
+    message.minItems = object.minItems !== undefined && object.minItems !== null ? Number(object.minItems) : 0;
+    message.maxItems = object.maxItems !== undefined && object.maxItems !== null ? Number(object.maxItems) : 0;
+    message.unique = object.unique !== undefined && object.unique !== null ? Boolean(object.unique) : false;
+    message.items = object.items !== undefined && object.items !== null ? FieldRules.fromJSON(object.items) : undefined;
     return message;
   },
 
@@ -4645,26 +3429,11 @@ export const RepeatedRules = {
 
   fromPartial(object: DeepPartial<RepeatedRules>): RepeatedRules {
     const message = { ...baseRepeatedRules } as RepeatedRules;
-    if (object.minItems !== undefined && object.minItems !== null) {
-      message.minItems = object.minItems;
-    } else {
-      message.minItems = 0;
-    }
-    if (object.maxItems !== undefined && object.maxItems !== null) {
-      message.maxItems = object.maxItems;
-    } else {
-      message.maxItems = 0;
-    }
-    if (object.unique !== undefined && object.unique !== null) {
-      message.unique = object.unique;
-    } else {
-      message.unique = false;
-    }
-    if (object.items !== undefined && object.items !== null) {
-      message.items = FieldRules.fromPartial(object.items);
-    } else {
-      message.items = undefined;
-    }
+    message.minItems = object.minItems ?? 0;
+    message.maxItems = object.maxItems ?? 0;
+    message.unique = object.unique ?? false;
+    message.items =
+      object.items !== undefined && object.items !== null ? FieldRules.fromPartial(object.items) : undefined;
     return message;
   },
 };
@@ -4723,31 +3492,12 @@ export const MapRules = {
 
   fromJSON(object: any): MapRules {
     const message = { ...baseMapRules } as MapRules;
-    if (object.minPairs !== undefined && object.minPairs !== null) {
-      message.minPairs = Number(object.minPairs);
-    } else {
-      message.minPairs = 0;
-    }
-    if (object.maxPairs !== undefined && object.maxPairs !== null) {
-      message.maxPairs = Number(object.maxPairs);
-    } else {
-      message.maxPairs = 0;
-    }
-    if (object.noSparse !== undefined && object.noSparse !== null) {
-      message.noSparse = Boolean(object.noSparse);
-    } else {
-      message.noSparse = false;
-    }
-    if (object.keys !== undefined && object.keys !== null) {
-      message.keys = FieldRules.fromJSON(object.keys);
-    } else {
-      message.keys = undefined;
-    }
-    if (object.values !== undefined && object.values !== null) {
-      message.values = FieldRules.fromJSON(object.values);
-    } else {
-      message.values = undefined;
-    }
+    message.minPairs = object.minPairs !== undefined && object.minPairs !== null ? Number(object.minPairs) : 0;
+    message.maxPairs = object.maxPairs !== undefined && object.maxPairs !== null ? Number(object.maxPairs) : 0;
+    message.noSparse = object.noSparse !== undefined && object.noSparse !== null ? Boolean(object.noSparse) : false;
+    message.keys = object.keys !== undefined && object.keys !== null ? FieldRules.fromJSON(object.keys) : undefined;
+    message.values =
+      object.values !== undefined && object.values !== null ? FieldRules.fromJSON(object.values) : undefined;
     return message;
   },
 
@@ -4763,31 +3513,12 @@ export const MapRules = {
 
   fromPartial(object: DeepPartial<MapRules>): MapRules {
     const message = { ...baseMapRules } as MapRules;
-    if (object.minPairs !== undefined && object.minPairs !== null) {
-      message.minPairs = object.minPairs;
-    } else {
-      message.minPairs = 0;
-    }
-    if (object.maxPairs !== undefined && object.maxPairs !== null) {
-      message.maxPairs = object.maxPairs;
-    } else {
-      message.maxPairs = 0;
-    }
-    if (object.noSparse !== undefined && object.noSparse !== null) {
-      message.noSparse = object.noSparse;
-    } else {
-      message.noSparse = false;
-    }
-    if (object.keys !== undefined && object.keys !== null) {
-      message.keys = FieldRules.fromPartial(object.keys);
-    } else {
-      message.keys = undefined;
-    }
-    if (object.values !== undefined && object.values !== null) {
-      message.values = FieldRules.fromPartial(object.values);
-    } else {
-      message.values = undefined;
-    }
+    message.minPairs = object.minPairs ?? 0;
+    message.maxPairs = object.maxPairs ?? 0;
+    message.noSparse = object.noSparse ?? false;
+    message.keys = object.keys !== undefined && object.keys !== null ? FieldRules.fromPartial(object.keys) : undefined;
+    message.values =
+      object.values !== undefined && object.values !== null ? FieldRules.fromPartial(object.values) : undefined;
     return message;
   },
 };
@@ -4836,23 +3567,9 @@ export const AnyRules = {
 
   fromJSON(object: any): AnyRules {
     const message = { ...baseAnyRules } as AnyRules;
-    message.in = [];
-    message.notIn = [];
-    if (object.required !== undefined && object.required !== null) {
-      message.required = Boolean(object.required);
-    } else {
-      message.required = false;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(String(e));
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(String(e));
-      }
-    }
+    message.required = object.required !== undefined && object.required !== null ? Boolean(object.required) : false;
+    message.in = (object.in ?? []).map((e: any) => String(e));
+    message.notIn = (object.notIn ?? []).map((e: any) => String(e));
     return message;
   },
 
@@ -4874,23 +3591,9 @@ export const AnyRules = {
 
   fromPartial(object: DeepPartial<AnyRules>): AnyRules {
     const message = { ...baseAnyRules } as AnyRules;
-    message.in = [];
-    message.notIn = [];
-    if (object.required !== undefined && object.required !== null) {
-      message.required = object.required;
-    } else {
-      message.required = false;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(e);
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(e);
-      }
-    }
+    message.required = object.required ?? false;
+    message.in = (object.in ?? []).map((e) => e);
+    message.notIn = (object.notIn ?? []).map((e) => e);
     return message;
   },
 };
@@ -4969,48 +3672,14 @@ export const DurationRules = {
 
   fromJSON(object: any): DurationRules {
     const message = { ...baseDurationRules } as DurationRules;
-    message.in = [];
-    message.notIn = [];
-    if (object.required !== undefined && object.required !== null) {
-      message.required = Boolean(object.required);
-    } else {
-      message.required = false;
-    }
-    if (object.const !== undefined && object.const !== null) {
-      message.const = Duration.fromJSON(object.const);
-    } else {
-      message.const = undefined;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = Duration.fromJSON(object.lt);
-    } else {
-      message.lt = undefined;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = Duration.fromJSON(object.lte);
-    } else {
-      message.lte = undefined;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = Duration.fromJSON(object.gt);
-    } else {
-      message.gt = undefined;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = Duration.fromJSON(object.gte);
-    } else {
-      message.gte = undefined;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(Duration.fromJSON(e));
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(Duration.fromJSON(e));
-      }
-    }
+    message.required = object.required !== undefined && object.required !== null ? Boolean(object.required) : false;
+    message.const = object.const !== undefined && object.const !== null ? Duration.fromJSON(object.const) : undefined;
+    message.lt = object.lt !== undefined && object.lt !== null ? Duration.fromJSON(object.lt) : undefined;
+    message.lte = object.lte !== undefined && object.lte !== null ? Duration.fromJSON(object.lte) : undefined;
+    message.gt = object.gt !== undefined && object.gt !== null ? Duration.fromJSON(object.gt) : undefined;
+    message.gte = object.gte !== undefined && object.gte !== null ? Duration.fromJSON(object.gte) : undefined;
+    message.in = (object.in ?? []).map((e: any) => Duration.fromJSON(e));
+    message.notIn = (object.notIn ?? []).map((e: any) => Duration.fromJSON(e));
     return message;
   },
 
@@ -5037,48 +3706,15 @@ export const DurationRules = {
 
   fromPartial(object: DeepPartial<DurationRules>): DurationRules {
     const message = { ...baseDurationRules } as DurationRules;
-    message.in = [];
-    message.notIn = [];
-    if (object.required !== undefined && object.required !== null) {
-      message.required = object.required;
-    } else {
-      message.required = false;
-    }
-    if (object.const !== undefined && object.const !== null) {
-      message.const = Duration.fromPartial(object.const);
-    } else {
-      message.const = undefined;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = Duration.fromPartial(object.lt);
-    } else {
-      message.lt = undefined;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = Duration.fromPartial(object.lte);
-    } else {
-      message.lte = undefined;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = Duration.fromPartial(object.gt);
-    } else {
-      message.gt = undefined;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = Duration.fromPartial(object.gte);
-    } else {
-      message.gte = undefined;
-    }
-    if (object.in !== undefined && object.in !== null) {
-      for (const e of object.in) {
-        message.in.push(Duration.fromPartial(e));
-      }
-    }
-    if (object.notIn !== undefined && object.notIn !== null) {
-      for (const e of object.notIn) {
-        message.notIn.push(Duration.fromPartial(e));
-      }
-    }
+    message.required = object.required ?? false;
+    message.const =
+      object.const !== undefined && object.const !== null ? Duration.fromPartial(object.const) : undefined;
+    message.lt = object.lt !== undefined && object.lt !== null ? Duration.fromPartial(object.lt) : undefined;
+    message.lte = object.lte !== undefined && object.lte !== null ? Duration.fromPartial(object.lte) : undefined;
+    message.gt = object.gt !== undefined && object.gt !== null ? Duration.fromPartial(object.gt) : undefined;
+    message.gte = object.gte !== undefined && object.gte !== null ? Duration.fromPartial(object.gte) : undefined;
+    message.in = (object.in ?? []).map((e) => Duration.fromPartial(e));
+    message.notIn = (object.notIn ?? []).map((e) => Duration.fromPartial(e));
     return message;
   },
 };
@@ -5161,51 +3797,16 @@ export const TimestampRules = {
 
   fromJSON(object: any): TimestampRules {
     const message = { ...baseTimestampRules } as TimestampRules;
-    if (object.required !== undefined && object.required !== null) {
-      message.required = Boolean(object.required);
-    } else {
-      message.required = false;
-    }
-    if (object.const !== undefined && object.const !== null) {
-      message.const = fromJsonTimestamp(object.const);
-    } else {
-      message.const = undefined;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = fromJsonTimestamp(object.lt);
-    } else {
-      message.lt = undefined;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = fromJsonTimestamp(object.lte);
-    } else {
-      message.lte = undefined;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = fromJsonTimestamp(object.gt);
-    } else {
-      message.gt = undefined;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = fromJsonTimestamp(object.gte);
-    } else {
-      message.gte = undefined;
-    }
-    if (object.ltNow !== undefined && object.ltNow !== null) {
-      message.ltNow = Boolean(object.ltNow);
-    } else {
-      message.ltNow = false;
-    }
-    if (object.gtNow !== undefined && object.gtNow !== null) {
-      message.gtNow = Boolean(object.gtNow);
-    } else {
-      message.gtNow = false;
-    }
-    if (object.within !== undefined && object.within !== null) {
-      message.within = Duration.fromJSON(object.within);
-    } else {
-      message.within = undefined;
-    }
+    message.required = object.required !== undefined && object.required !== null ? Boolean(object.required) : false;
+    message.const = object.const !== undefined && object.const !== null ? fromJsonTimestamp(object.const) : undefined;
+    message.lt = object.lt !== undefined && object.lt !== null ? fromJsonTimestamp(object.lt) : undefined;
+    message.lte = object.lte !== undefined && object.lte !== null ? fromJsonTimestamp(object.lte) : undefined;
+    message.gt = object.gt !== undefined && object.gt !== null ? fromJsonTimestamp(object.gt) : undefined;
+    message.gte = object.gte !== undefined && object.gte !== null ? fromJsonTimestamp(object.gte) : undefined;
+    message.ltNow = object.ltNow !== undefined && object.ltNow !== null ? Boolean(object.ltNow) : false;
+    message.gtNow = object.gtNow !== undefined && object.gtNow !== null ? Boolean(object.gtNow) : false;
+    message.within =
+      object.within !== undefined && object.within !== null ? Duration.fromJSON(object.within) : undefined;
     return message;
   },
 
@@ -5225,57 +3826,23 @@ export const TimestampRules = {
 
   fromPartial(object: DeepPartial<TimestampRules>): TimestampRules {
     const message = { ...baseTimestampRules } as TimestampRules;
-    if (object.required !== undefined && object.required !== null) {
-      message.required = object.required;
-    } else {
-      message.required = false;
-    }
-    if (object.const !== undefined && object.const !== null) {
-      message.const = object.const;
-    } else {
-      message.const = undefined;
-    }
-    if (object.lt !== undefined && object.lt !== null) {
-      message.lt = object.lt;
-    } else {
-      message.lt = undefined;
-    }
-    if (object.lte !== undefined && object.lte !== null) {
-      message.lte = object.lte;
-    } else {
-      message.lte = undefined;
-    }
-    if (object.gt !== undefined && object.gt !== null) {
-      message.gt = object.gt;
-    } else {
-      message.gt = undefined;
-    }
-    if (object.gte !== undefined && object.gte !== null) {
-      message.gte = object.gte;
-    } else {
-      message.gte = undefined;
-    }
-    if (object.ltNow !== undefined && object.ltNow !== null) {
-      message.ltNow = object.ltNow;
-    } else {
-      message.ltNow = false;
-    }
-    if (object.gtNow !== undefined && object.gtNow !== null) {
-      message.gtNow = object.gtNow;
-    } else {
-      message.gtNow = false;
-    }
-    if (object.within !== undefined && object.within !== null) {
-      message.within = Duration.fromPartial(object.within);
-    } else {
-      message.within = undefined;
-    }
+    message.required = object.required ?? false;
+    message.const = object.const ?? undefined;
+    message.lt = object.lt ?? undefined;
+    message.lte = object.lte ?? undefined;
+    message.gt = object.gt ?? undefined;
+    message.gte = object.gte ?? undefined;
+    message.ltNow = object.ltNow ?? false;
+    message.gtNow = object.gtNow ?? false;
+    message.within =
+      object.within !== undefined && object.within !== null ? Duration.fromPartial(object.within) : undefined;
     return message;
   },
 };
 
 declare var self: any | undefined;
 declare var window: any | undefined;
+declare var global: any | undefined;
 var globalThis: any = (() => {
   if (typeof globalThis !== 'undefined') return globalThis;
   if (typeof self !== 'undefined') return self;
@@ -5299,14 +3866,14 @@ const btoa: (bin: string) => string =
   globalThis.btoa || ((bin) => globalThis.Buffer.from(bin, 'binary').toString('base64'));
 function base64FromBytes(arr: Uint8Array): string {
   const bin: string[] = [];
-  for (let i = 0; i < arr.byteLength; ++i) {
-    bin.push(String.fromCharCode(arr[i]));
+  for (const byte of arr) {
+    bin.push(String.fromCharCode(byte));
   }
   return btoa(bin.join(''));
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined;
-export type DeepPartial<T> = T extends Builtin
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
+type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
   ? Array<DeepPartial<U>>

@@ -2,8 +2,6 @@
 import { util, configure, Writer, Reader } from 'protobufjs/minimal';
 import * as Long from 'long';
 
-export const protobufPackage = 'google.protobuf';
-
 /**
  * A generic empty message that you can re-use to avoid defining duplicated
  * empty messages in your APIs. A typical example is to use it as the request
@@ -55,8 +53,8 @@ export const Empty = {
   },
 };
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined;
-export type DeepPartial<T> = T extends Builtin
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
+type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
   ? Array<DeepPartial<U>>

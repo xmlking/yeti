@@ -5,7 +5,6 @@
 /* eslint-disable */
 
 import * as grpc from "@grpc/grpc-js";
-import {handleClientStreamingCall} from "@grpc/grpc-js/build/src/server-call";
 import * as yeti_echo_v1_echo_pb from "../../../yeti/echo/v1/echo_pb";
 
 interface IEchoServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {

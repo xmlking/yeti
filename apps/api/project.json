@@ -24,6 +24,14 @@
             "output": "proto"
           }
         ],
+        "tsPlugins1": [
+          {
+            "name": "@nestjs/swagger/plugin",
+            "options": {
+              "dtoFileNameSuffix": [".dto.ts",".vm.ts"]
+            }
+          }
+        ],
         "buildLibsFromSource": true
       },
       "configurations": {

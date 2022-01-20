@@ -1,27 +1,5 @@
 {
   "version": 2,
-  "cli": {
-    "packageManager": "yarn",
-    "defaultCollection": "@nrwl/angular"
-  },
-  "defaultProject": "webapp",
-  "generators": {
-    "@nrwl/angular:application": {
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
-    },
-    "@nrwl/angular:library": {
-      "unitTestRunner": "jest"
-    },
-    "@schematics/angular:component": {
-      "style": "scss",
-      "prefix": "yeti",
-      "changeDetection": "OnPush"
-    },
-    "@nrwl/angular:component": {
-      "style": "scss"
-    }
-  },
   "projects": {
     "accounts": "libs/accounts",
     "admin": "libs/admin",

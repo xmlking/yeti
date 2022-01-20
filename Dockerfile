@@ -5,17 +5,17 @@ FROM nxgo/cli as builder
 WORKDIR /workspace
 
 # Copy package.json and the lock file
-COPY package.json yarn.lock /workspace/
+COPY package.json package-lock.json /workspace/
 
 # Install app dependencies
 COPY decorate-angular-cli.js .
-RUN yarn
+RUN npm i
 
 # Copy source files
 COPY . .
 
 # Build apps
-RUN yarn build goapi
+RUN npm build goapi
 
 # This is the stage where the final production image is built
 FROM golang:1.16-alpine as final

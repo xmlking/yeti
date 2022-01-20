@@ -26,7 +26,7 @@ Every **buildable** library has a build task.
 {% endhint %}
 
 ```bash
-yarn create nx-workspace yeti --preset=empty -prefix=yeti # create an empty workspace
+npm create nx-workspace yeti --preset=empty -prefix=yeti # create an empty workspace
 nx g @nrwl/angular:app yeti-web-app --style=scss --prefix=yeti --routing --tags="domain:yeti,type:app,platform:web" --dry-run
 nx g @nrwl/nest:app yeti-api --frontendProject=yeti-web-app --tags="domain:yeti,type:api,platform:node"
 

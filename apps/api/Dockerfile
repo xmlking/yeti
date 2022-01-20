@@ -23,16 +23,16 @@ FROM node-with-tools as prod-dependencies
 ######################################################################
 WORKDIR /app
 ENV NODE_ENV production
-COPY apps/api/package.json yarn.lock ./
-RUN yarn --production --frozen-lockfile
+COPY apps/api/package.json package-lock.json ./
+RUN npm --production --frozen-lockfile
 
 ######################################################################
 FROM node-with-tools as dev-dependencies
 ######################################################################
 WORKDIR /app
 COPY apps/api/package.json apps/api/package.json
-COPY package.json yarn.lock ./
-RUN yarn --no-cache --ignore-optional --frozen-lockfile -W
+COPY package.json package-lock.json ./
+RUN npm --no-cache --ignore-optional --frozen-lockfile -W
 
 ######################################################################
 FROM node:12-alpine as builder

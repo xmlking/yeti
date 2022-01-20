@@ -3,7 +3,7 @@ install `protoc` and required plugins.
 
 ## Prerequisites
 
-1. node, yarn
+1. node, npm
 1. buf
 1. prototool
 1. clang-format
@@ -20,10 +20,9 @@ install `protoc` and required plugins.
 ```bash
 # basics
 brew install node
-brew install yarn
 
 # plugins
-yarn global add grpc-tools
+npm install -g grpc-tools
 brew install protoc-gen-grpc-web
 ```
 

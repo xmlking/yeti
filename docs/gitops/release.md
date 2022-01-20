@@ -16,16 +16,16 @@ Using [GitFlow](https://xmlking.gitbook.io/gitops/v/develop/getting-started/gitf
 ```bash
 npm whoami
 # create the initial release and create the `CHANGELOG.md`
-yarn run release --first-release --dry-run
+npm run release --first-release --dry-run
 # This will tag a release without bumping the version in package.json (et al.).
 # Cut a Release
-yarn run release --dry-run
+npm run release --dry-run
 # create a pre-release instead of a regular one
-yarn run release --prereleas --dry-run
+npm run release --prereleas --dry-run
 # cut a new alpha release version
-yarn run release --prerelease alpha --dry-run
+npm run release --prerelease alpha --dry-run
 # fource a version
-yarn run release --release-as 1.1.0 --dry-run
+npm run release --release-as 1.1.0 --dry-run
 ```
 
 ### Developer Workflow
@@ -37,7 +37,7 @@ yarn run release --release-as 1.1.0 --dry-run
 git flow release start '0.1.4'
 # on release branch, do any release changes e.g., generate `CompoDoc`
 # then update CHANGELOG, Bump version and Commit both with:
-yarn run release
+npm run release
 # Optionally publish this release (if you have CI actions to do)
 git flow release publish
 # now finish release. you have to commit 3 times.
@@ -47,4 +47,4 @@ git flow release finish
 gpoat
 ```
 
-> `"release": "standard-version && git push — follow-tags origin master && yarn publish"`
+> `"release": "standard-version && git push — follow-tags origin master && npm publish"`

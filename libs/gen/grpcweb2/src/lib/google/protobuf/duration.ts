@@ -2,8 +2,6 @@
 import { util, configure, Writer, Reader } from 'protobufjs/minimal';
 import * as Long from 'long';
 
-export const protobufPackage = 'google.protobuf';
-
 /**
  * A Duration represents a signed, fixed-length span of time represented
  * as a count of seconds and fractions of seconds at nanosecond
@@ -118,16 +116,8 @@ export const Duration = {
 
   fromJSON(object: any): Duration {
     const message = { ...baseDuration } as Duration;
-    if (object.seconds !== undefined && object.seconds !== null) {
-      message.seconds = Number(object.seconds);
-    } else {
-      message.seconds = 0;
-    }
-    if (object.nanos !== undefined && object.nanos !== null) {
-      message.nanos = Number(object.nanos);
-    } else {
-      message.nanos = 0;
-    }
+    message.seconds = object.seconds !== undefined && object.seconds !== null ? Number(object.seconds) : 0;
+    message.nanos = object.nanos !== undefined && object.nanos !== null ? Number(object.nanos) : 0;
     return message;
   },
 
@@ -140,22 +130,15 @@ export const Duration = {
 
   fromPartial(object: DeepPartial<Duration>): Duration {
     const message = { ...baseDuration } as Duration;
-    if (object.seconds !== undefined && object.seconds !== null) {
-      message.seconds = object.seconds;
-    } else {
-      message.seconds = 0;
-    }
-    if (object.nanos !== undefined && object.nanos !== null) {
-      message.nanos = object.nanos;
-    } else {
-      message.nanos = 0;
-    }
+    message.seconds = object.seconds ?? 0;
+    message.nanos = object.nanos ?? 0;
     return message;
   },
 };
 
 declare var self: any | undefined;
 declare var window: any | undefined;
+declare var global: any | undefined;
 var globalThis: any = (() => {
   if (typeof globalThis !== 'undefined') return globalThis;
   if (typeof self !== 'undefined') return self;
@@ -164,8 +147,8 @@ var globalThis: any = (() => {
   throw 'Unable to locate global object';
 })();
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined;
-export type DeepPartial<T> = T extends Builtin
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
+type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
   ? Array<DeepPartial<U>>

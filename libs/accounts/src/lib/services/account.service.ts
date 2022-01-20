@@ -18,7 +18,7 @@ export class AccountService {
     console.log('request', request);
 
     this.grpcClient
-      .echo(request, {}, (err: grpcWeb.Error, response: EchoResponse) => {
+      .echo(request, {}, (err: grpcWeb.RpcError, response: EchoResponse) => {
         if (err) {
           console.log('getAccounts Error:: ', err);
         }

@@ -9,14 +9,14 @@
 > Analyzing bundle size
 
 ```bash
-yarn bundle-report
+npm bundle-report
 ```
 
 #### Publish Code Coverage
 
 ```bash
 export CODECOV_TOKEN="my token"
-yarn codecov -t $CODECOV_TOKEN \
+npm codecov -t $CODECOV_TOKEN \
 --branch=develop --file=coverage/libs/ngx-utils/coverage-final.json
 ```
 

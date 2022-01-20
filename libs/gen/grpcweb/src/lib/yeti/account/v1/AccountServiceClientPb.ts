@@ -36,7 +36,10 @@ export class AccountServiceClient {
     this.options_ = options;
   }
 
-  methodInfoGet = new grpcWeb.AbstractClientBase.MethodInfo(
+  methodInfoGet = new grpcWeb.MethodDescriptor(
+    '/yeti.account.v1.AccountService/Get',
+    grpcWeb.MethodType.UNARY,
+    yeti_account_v1_account_pb.GetRequest,
     yeti_account_v1_account_pb.GetResponse,
     (request: yeti_account_v1_account_pb.GetRequest) => {
       return request.serializeBinary();
@@ -51,13 +54,13 @@ export class AccountServiceClient {
   get(
     request: yeti_account_v1_account_pb.GetRequest,
     metadata: grpcWeb.Metadata | null,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: yeti_account_v1_account_pb.GetResponse) => void): grpcWeb.ClientReadableStream<yeti_account_v1_account_pb.GetResponse>;
 
   get(
     request: yeti_account_v1_account_pb.GetRequest,
     metadata: grpcWeb.Metadata | null,
-    callback?: (err: grpcWeb.Error,
+    callback?: (err: grpcWeb.RpcError,
                response: yeti_account_v1_account_pb.GetResponse) => void) {
     if (callback !== undefined) {
       return this.client_.rpcCall(
@@ -76,7 +79,10 @@ export class AccountServiceClient {
     this.methodInfoGet);
   }
 
-  methodInfoWrite = new grpcWeb.AbstractClientBase.MethodInfo(
+  methodInfoWrite = new grpcWeb.MethodDescriptor(
+    '/yeti.account.v1.AccountService/Write',
+    grpcWeb.MethodType.UNARY,
+    yeti_account_v1_account_pb.WriteRequest,
     google_protobuf_empty_pb.Empty,
     (request: yeti_account_v1_account_pb.WriteRequest) => {
       return request.serializeBinary();
@@ -91,13 +97,13 @@ export class AccountServiceClient {
   write(
     request: yeti_account_v1_account_pb.WriteRequest,
     metadata: grpcWeb.Metadata | null,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: google_protobuf_empty_pb.Empty) => void): grpcWeb.ClientReadableStream<google_protobuf_empty_pb.Empty>;
 
   write(
     request: yeti_account_v1_account_pb.WriteRequest,
     metadata: grpcWeb.Metadata | null,
-    callback?: (err: grpcWeb.Error,
+    callback?: (err: grpcWeb.RpcError,
                response: google_protobuf_empty_pb.Empty) => void) {
     if (callback !== undefined) {
       return this.client_.rpcCall(

@@ -100,13 +100,14 @@ appctl apply development --from-tag v0.1.0
 ### Reference
 
 1. [kustomize](https://kubectl.docs.kubernetes.io/pages/examples/kustomize.html)
-1. <https://github.com/kubernetes-sigs/kustomize/blob/master/docs/glossary.md>
-1. <https://blog.jetstack.io/blog/kustomize-cert-manager/>
-1. <https://kustomize.io/>
-1. with sops <https://teuto.net/deploying-jupyterhub-to-kubernetes-via-kustomize-using-sops-secret-management/?lang=en>
-1. <https://github.com/pwittrock-me/petclinic-config/tree/master/config>
-1. [TODO: gRPC-Web Istio Demo](https://github.com/venilnoronha/grpc-web-istio-demo)
-1. patch example, keycloak traefik <https://github.com/piotrjanik/opa-warsaw-cloud-native-conf/tree/master/manifests>
-1. [Application Delivery](https://cloud.google.com/kubernetes-engine/docs/concepts/add-on/application-delivery)
-1. [Application Manager for GKE](https://cloud.google.com/blog/products/containers-kubernetes/announcing-application-manager-for-google-kubernetes-engine)
-1. [Application Manager brings GitOps to GKE](https://www.youtube.com/watch?v=r5_xYtbZPfc)
+2. <https://github.com/kubernetes-sigs/kustomize/blob/master/docs/glossary.md>
+3. <https://blog.jetstack.io/blog/kustomize-cert-manager/>
+4. <https://kustomize.io/>
+5. with sops <https://teuto.net/deploying-jupyterhub-to-kubernetes-via-kustomize-using-sops-secret-management/?lang=en>
+6. <https://github.com/pwittrock-me/petclinic-config/tree/master/config>
+7. [TODO: gRPC-Web Istio Demo](https://github.com/venilnoronha/grpc-web-istio-demo)
+8. [TODO: blog-grpc-web-istio](https://github.com/cmwylie19/blog-grpc-web-istio)
+9. patch example, keycloak traefik <https://github.com/piotrjanik/opa-warsaw-cloud-native-conf/tree/master/manifests>
+10. [Application Delivery](https://cloud.google.com/kubernetes-engine/docs/concepts/add-on/application-delivery)
+11. [Application Manager for GKE](https://cloud.google.com/blog/products/containers-kubernetes/announcing-application-manager-for-google-kubernetes-engine)
+12. [Application Manager brings GitOps to GKE](https://www.youtube.com/watch?v=r5_xYtbZPfc)

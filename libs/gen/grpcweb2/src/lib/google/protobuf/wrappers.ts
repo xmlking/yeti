@@ -2,8 +2,6 @@
 import { util, configure, Writer, Reader } from 'protobufjs/minimal';
 import * as Long from 'long';
 
-export const protobufPackage = 'google.protobuf';
-
 /**
  * Wrapper message for `double`.
  *
@@ -124,11 +122,7 @@ export const DoubleValue = {
 
   fromJSON(object: any): DoubleValue {
     const message = { ...baseDoubleValue } as DoubleValue;
-    if (object.value !== undefined && object.value !== null) {
-      message.value = Number(object.value);
-    } else {
-      message.value = 0;
-    }
+    message.value = object.value !== undefined && object.value !== null ? Number(object.value) : 0;
     return message;
   },
 
@@ -140,11 +134,7 @@ export const DoubleValue = {
 
   fromPartial(object: DeepPartial<DoubleValue>): DoubleValue {
     const message = { ...baseDoubleValue } as DoubleValue;
-    if (object.value !== undefined && object.value !== null) {
-      message.value = object.value;
-    } else {
-      message.value = 0;
-    }
+    message.value = object.value ?? 0;
     return message;
   },
 };
@@ -179,11 +169,7 @@ export const FloatValue = {
 
   fromJSON(object: any): FloatValue {
     const message = { ...baseFloatValue } as FloatValue;
-    if (object.value !== undefined && object.value !== null) {
-      message.value = Number(object.value);
-    } else {
-      message.value = 0;
-    }
+    message.value = object.value !== undefined && object.value !== null ? Number(object.value) : 0;
     return message;
   },
 
@@ -195,11 +181,7 @@ export const FloatValue = {
 
   fromPartial(object: DeepPartial<FloatValue>): FloatValue {
     const message = { ...baseFloatValue } as FloatValue;
-    if (object.value !== undefined && object.value !== null) {
-      message.value = object.value;
-    } else {
-      message.value = 0;
-    }
+    message.value = object.value ?? 0;
     return message;
   },
 };
@@ -234,11 +216,7 @@ export const Int64Value = {
 
   fromJSON(object: any): Int64Value {
     const message = { ...baseInt64Value } as Int64Value;
-    if (object.value !== undefined && object.value !== null) {
-      message.value = Number(object.value);
-    } else {
-      message.value = 0;
-    }
+    message.value = object.value !== undefined && object.value !== null ? Number(object.value) : 0;
     return message;
   },
 
@@ -250,11 +228,7 @@ export const Int64Value = {
 
   fromPartial(object: DeepPartial<Int64Value>): Int64Value {
     const message = { ...baseInt64Value } as Int64Value;
-    if (object.value !== undefined && object.value !== null) {
-      message.value = object.value;
-    } else {
-      message.value = 0;
-    }
+    message.value = object.value ?? 0;
     return message;
   },
 };
@@ -289,11 +263,7 @@ export const UInt64Value = {
 
   fromJSON(object: any): UInt64Value {
     const message = { ...baseUInt64Value } as UInt64Value;
-    if (object.value !== undefined && object.value !== null) {
-      message.value = Number(object.value);
-    } else {
-      message.value = 0;
-    }
+    message.value = object.value !== undefined && object.value !== null ? Number(object.value) : 0;
     return message;
   },
 
@@ -305,11 +275,7 @@ export const UInt64Value = {
 
   fromPartial(object: DeepPartial<UInt64Value>): UInt64Value {
     const message = { ...baseUInt64Value } as UInt64Value;
-    if (object.value !== undefined && object.value !== null) {
-      message.value = object.value;
-    } else {
-      message.value = 0;
-    }
+    message.value = object.value ?? 0;
     return message;
   },
 };
@@ -344,11 +310,7 @@ export const Int32Value = {
 
   fromJSON(object: any): Int32Value {
     const message = { ...baseInt32Value } as Int32Value;
-    if (object.value !== undefined && object.value !== null) {
-      message.value = Number(object.value);
-    } else {
-      message.value = 0;
-    }
+    message.value = object.value !== undefined && object.value !== null ? Number(object.value) : 0;
     return message;
   },
 
@@ -360,11 +322,7 @@ export const Int32Value = {
 
   fromPartial(object: DeepPartial<Int32Value>): Int32Value {
     const message = { ...baseInt32Value } as Int32Value;
-    if (object.value !== undefined && object.value !== null) {
-      message.value = object.value;
-    } else {
-      message.value = 0;
-    }
+    message.value = object.value ?? 0;
     return message;
   },
 };
@@ -399,11 +357,7 @@ export const UInt32Value = {
 
   fromJSON(object: any): UInt32Value {
     const message = { ...baseUInt32Value } as UInt32Value;
-    if (object.value !== undefined && object.value !== null) {
-      message.value = Number(object.value);
-    } else {
-      message.value = 0;
-    }
+    message.value = object.value !== undefined && object.value !== null ? Number(object.value) : 0;
     return message;
   },
 
@@ -415,11 +369,7 @@ export const UInt32Value = {
 
   fromPartial(object: DeepPartial<UInt32Value>): UInt32Value {
     const message = { ...baseUInt32Value } as UInt32Value;
-    if (object.value !== undefined && object.value !== null) {
-      message.value = object.value;
-    } else {
-      message.value = 0;
-    }
+    message.value = object.value ?? 0;
     return message;
   },
 };
@@ -454,11 +404,7 @@ export const BoolValue = {
 
   fromJSON(object: any): BoolValue {
     const message = { ...baseBoolValue } as BoolValue;
-    if (object.value !== undefined && object.value !== null) {
-      message.value = Boolean(object.value);
-    } else {
-      message.value = false;
-    }
+    message.value = object.value !== undefined && object.value !== null ? Boolean(object.value) : false;
     return message;
   },
 
@@ -470,11 +416,7 @@ export const BoolValue = {
 
   fromPartial(object: DeepPartial<BoolValue>): BoolValue {
     const message = { ...baseBoolValue } as BoolValue;
-    if (object.value !== undefined && object.value !== null) {
-      message.value = object.value;
-    } else {
-      message.value = false;
-    }
+    message.value = object.value ?? false;
     return message;
   },
 };
@@ -509,11 +451,7 @@ export const StringValue = {
 
   fromJSON(object: any): StringValue {
     const message = { ...baseStringValue } as StringValue;
-    if (object.value !== undefined && object.value !== null) {
-      message.value = String(object.value);
-    } else {
-      message.value = '';
-    }
+    message.value = object.value !== undefined && object.value !== null ? String(object.value) : '';
     return message;
   },
 
@@ -525,11 +463,7 @@ export const StringValue = {
 
   fromPartial(object: DeepPartial<StringValue>): StringValue {
     const message = { ...baseStringValue } as StringValue;
-    if (object.value !== undefined && object.value !== null) {
-      message.value = object.value;
-    } else {
-      message.value = '';
-    }
+    message.value = object.value ?? '';
     return message;
   },
 };
@@ -565,10 +499,8 @@ export const BytesValue = {
 
   fromJSON(object: any): BytesValue {
     const message = { ...baseBytesValue } as BytesValue;
-    message.value = new Uint8Array();
-    if (object.value !== undefined && object.value !== null) {
-      message.value = bytesFromBase64(object.value);
-    }
+    message.value =
+      object.value !== undefined && object.value !== null ? bytesFromBase64(object.value) : new Uint8Array();
     return message;
   },
 
@@ -581,17 +513,14 @@ export const BytesValue = {
 
   fromPartial(object: DeepPartial<BytesValue>): BytesValue {
     const message = { ...baseBytesValue } as BytesValue;
-    if (object.value !== undefined && object.value !== null) {
-      message.value = object.value;
-    } else {
-      message.value = new Uint8Array();
-    }
+    message.value = object.value ?? new Uint8Array();
     return message;
   },
 };
 
 declare var self: any | undefined;
 declare var window: any | undefined;
+declare var global: any | undefined;
 var globalThis: any = (() => {
   if (typeof globalThis !== 'undefined') return globalThis;
   if (typeof self !== 'undefined') return self;
@@ -615,14 +544,14 @@ const btoa: (bin: string) => string =
   globalThis.btoa || ((bin) => globalThis.Buffer.from(bin, 'binary').toString('base64'));
 function base64FromBytes(arr: Uint8Array): string {
   const bin: string[] = [];
-  for (let i = 0; i < arr.byteLength; ++i) {
-    bin.push(String.fromCharCode(arr[i]));
+  for (const byte of arr) {
+    bin.push(String.fromCharCode(byte));
   }
   return btoa(bin.join(''));
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined;
-export type DeepPartial<T> = T extends Builtin
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
+type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
   ? Array<DeepPartial<U>>

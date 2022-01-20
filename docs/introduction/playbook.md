@@ -6,38 +6,67 @@
 
 ### Install Global Packages
 
+List npm global packages
 ```bash
-yarn global remove lerna
-yarn global remove commitizen
-yarn global remove @angular/cli
-yarn global remove @nrwl/cli
-yarn global remove create-nx-workspace
-yarn global remove @nestjs/cli
-yarn global remove bloomrpc-mock
+npm ls -global
+```
 
-yarn global add lerna
-yarn global add commitizen
-yarn global add @angular/cli
-yarn global add @nrwl/cli
-yarn global add @nestjs/cli
-yarn global add bloomrpc-mock
+Remove old npm global packages
+
+```bash
+npm uninstall -g @angular/cli
+npm uninstall -g nx
+npm uninstall -g commitizen
+npm uninstall -g @nestjs/cli
+npm uninstall -g bloomrpc-mock
+```
+
+Install latest  npm global packages
+
+```bash
+npm install -g @angular/cli
+npm install -g nx
+npm install -g commitizen
+npm install -g @nestjs/cli
+npm install -g bloomrpc-mock
+```
+
+
+
+```bash
+
+npm uninstall -g commitizen
+npm uninstall -g @angular/cli
+npm uninstall -g @nrwl/cli
+npm uninstall -g create-nx-workspace
+npm uninstall -g @nestjs/cli
+npm uninstall -g bloomrpc-mock
+
+npm install -g lerna
+npm install -g commitizen
+npm install -g @angular/cli
+npm install -g @nrwl/cli
+npm install -g @nestjs/cli
+npm install -g bloomrpc-mock
 
 
 
 # verify globally installed packages
-yarn global list
-# find out which packages need to be updated. Options: `--latest`
-yarn global upgrade-interactive
+npm -g list
+# To see a list of outdated packages
+npm outdated
+# To update the packages to their latest versions in package.json
+ncu -u
 # set scss as default css processor
 ng config -g defaults.style=scss
 ng config -g schematics.@schematics/angular:component.style scss
-ng config -g cli.packageManager yarn
+ng config -g cli.packageManager npm
 # (optional) set scss as default style for ngx-formly
 ng config -g schematics@ngx-formly/schematics:component.style scss
 # check your global defaults
 ng config -g
 # (optional) how to find reverse dependencies for a package?
-yarn why jasmine-marbles
+npm why jasmine-marbles
 ```
 
 ### Install Chrome Extensions
@@ -49,15 +78,24 @@ yarn why jasmine-marbles
 
 > steps below are for setting up a new project from the scratch.
 
-for nx help `yarn run help`
 
 > Explicitly Passing Arguments to Angular CLI
 
 `nx/ng` commands now accept a delimiter to distinguish the end of options for `Nx` and the beginning of options to `Angular CLI` with a (like npm run) according to Guideline 10 of `POSIX.2 utility syntax guidelines`.
 
-`yarn affected -- --target lint --uncommitted --parallel -- --fix`
+`npm affected -- --target lint --uncommitted --parallel -- --fix`
 
 ### Create Workspace
+
+
+```bash
+pnpx create-nx-workspace@latest --package-manager pnpm
+```
+
+**Switching an NX repo to use PNPM**
+
+https://medium.com/pixel-and-ink/switching-an-nx-repo-to-pnpm-5b1cbd5c3797
+
 
 ```bash
 ng new yeti -c=@nrwl/workspace --preset=empty --style=scss --npm-scope=yeti --app-name=yeti -v
@@ -82,7 +120,7 @@ yarn add -D @jscutlery/semver
 nx g @jscutlery/semver:install
 
 # Set workspace defaults
-ng config cli.packageManager yarn
+ng config cli.packageManager npm
 ng config schematics.@schematics/angular:component.style scss
 ng config schematics.@schematics/angular:component.prefix yeti
 ng config schematics.@schematics/angular:component.displayBlock true # optional, default `inline`
@@ -269,7 +307,13 @@ yarn workspace @yeti/tools add cpx --dev
 > use `--allow-dirty` `--next` --force` flags as needed
 
 ```bash
+#Updating Nx
 nx migrate latest
+#After updating your dependencies, run any necessary migrations.
+nx migrate --run-migrations
+```
+
+```bash
 # ng update --next if needed
 ng update @angular/core
 ng update @angular/cli

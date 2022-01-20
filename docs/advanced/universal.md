@@ -9,7 +9,7 @@ ng add @nguniversal/express-engine --clientProject webapp
 # For a LIVE-reloading Node & browser dev-server:
 ng run webapp:serve-ssr
 
-yarn build:ssr && yarn serve:ssr
+npm build:ssr && npm serve:ssr
 
 # Automatically generate static pre-rendering:
 ng run webapp:prerender

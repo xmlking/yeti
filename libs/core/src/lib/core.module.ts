@@ -27,10 +27,7 @@ import { NgxsRouterPluginModule, RouterStateSerializer } from '@ngxs/router-plug
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { NgxsModule, NoopNgxsExecutionStrategy } from '@ngxs/store';
 import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
-import {
-  OKTA_CONFIG,
-  OktaAuthModule
-} from '@okta/okta-angular';
+
 import { AuthHandler } from './handler/auth.handler';
 import { RouteHandler } from './handler/route.handler';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
@@ -40,6 +37,8 @@ import { NbGenericOAuth2Strategy } from './services/generic-auth.strategy';
 import { NbGoogleOAuth2Strategy } from './services/google-auth.strategy';
 import { AuthState } from './state/auth.state';
 import { OktaAuthStrategy, OktaToken } from './services/okta-auth.strategy';
+import { OKTA_CONFIG, OktaAuthModule } from '@okta/okta-angular';
+import { OktaAuth } from '@okta/okta-auth-js';
 
 // appConfig initializer factory function
 const appConfigInitializerFn = (appConfig: AppConfigService) => () => appConfig.load();
@@ -65,6 +64,7 @@ const oktaConfig = {
   //   messagesUrl:  'http://localhost:8000/api/messages'
   // }
 };
+const oktaAuth = new OktaAuth(oktaConfig);
 
 @NgModule({
   imports: [
@@ -199,7 +199,7 @@ const oktaConfig = {
       provide: RouterStateSerializer,
       useClass: CustomRouterStateSerializer
     },
-    { provide: OKTA_CONFIG, useValue: oktaConfig }
+    { provide: OKTA_CONFIG, useValue: { oktaAuth } }
   ]
 })
 export class CoreModule {

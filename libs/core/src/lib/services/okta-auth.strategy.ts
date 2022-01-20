@@ -13,8 +13,8 @@ import {
 import { HttpClient } from '@angular/common/http';
 import { NB_WINDOW } from '@nebular/theme';
 import { ActivatedRoute } from '@angular/router';
-import { OktaAuthService } from '@okta/okta-angular';
-import { UserClaims } from '@okta/okta-auth-js';
+import { OktaAuth, UserClaims } from '@okta/okta-auth-js';
+import { OKTA_AUTH } from '@okta/okta-angular';
 
 const module = 'token'; // 'refresh'
 export interface OktaToken {
@@ -76,7 +76,7 @@ export class OktaAuthStrategy extends NbOAuth2AuthStrategy {
 
   constructor(protected http: HttpClient,
               protected route: ActivatedRoute,
-              protected oktaAuth: OktaAuthService,
+              @Inject(OKTA_AUTH)  protected oktaAuth: OktaAuth,
               @Inject(NB_WINDOW) protected window: any) {
     super(http, route, window);
   }

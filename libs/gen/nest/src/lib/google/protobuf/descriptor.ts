@@ -2,8 +2,6 @@
 import { util, configure } from 'protobufjs/minimal';
 import * as Long from 'long';
 
-export const protobufPackage = 'google.protobuf';
-
 /**
  * The protocol compiler can output a FileDescriptorSet containing the .proto
  * files it parses.

@@ -1,147 +1,131 @@
 /* eslint-disable */
-import { util, configure, Writer, Reader } from 'protobufjs/minimal'
-import * as Long from 'long'
-import { grpc } from '@improbable-eng/grpc-web'
-import { BrowserHeaders } from 'browser-headers'
+import { util, configure, Writer, Reader } from 'protobufjs/minimal';
+import * as Long from 'long';
+import { grpc } from '@improbable-eng/grpc-web';
+import { BrowserHeaders } from 'browser-headers';
 
 export interface EchoRequest {
-  message: string
+  message: string;
 }
 
 export interface EchoResponse {
-  message: string
+  message: string;
 }
 
-const baseEchoRequest: object = { message: '' }
+const baseEchoRequest: object = { message: '' };
 
 export const EchoRequest = {
   encode(message: EchoRequest, writer: Writer = Writer.create()): Writer {
     if (message.message !== '') {
-      writer.uint32(10).string(message.message)
+      writer.uint32(10).string(message.message);
     }
-    return writer
+    return writer;
   },
 
   decode(input: Reader | Uint8Array, length?: number): EchoRequest {
-    const reader = input instanceof Reader ? input : new Reader(input)
-    let end = length === undefined ? reader.len : reader.pos + length
-    const message = { ...baseEchoRequest } as EchoRequest
+    const reader = input instanceof Reader ? input : new Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = { ...baseEchoRequest } as EchoRequest;
     while (reader.pos < end) {
-      const tag = reader.uint32()
+      const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.message = reader.string()
-          break
+          message.message = reader.string();
+          break;
         default:
-          reader.skipType(tag & 7)
-          break
+          reader.skipType(tag & 7);
+          break;
       }
     }
-    return message
+    return message;
   },
 
   fromJSON(object: any): EchoRequest {
-    const message = { ...baseEchoRequest } as EchoRequest
-    if (object.message !== undefined && object.message !== null) {
-      message.message = String(object.message)
-    } else {
-      message.message = ''
-    }
-    return message
+    const message = { ...baseEchoRequest } as EchoRequest;
+    message.message = object.message !== undefined && object.message !== null ? String(object.message) : '';
+    return message;
   },
 
   toJSON(message: EchoRequest): unknown {
-    const obj: any = {}
-    message.message !== undefined && (obj.message = message.message)
-    return obj
+    const obj: any = {};
+    message.message !== undefined && (obj.message = message.message);
+    return obj;
   },
 
   fromPartial(object: DeepPartial<EchoRequest>): EchoRequest {
-    const message = { ...baseEchoRequest } as EchoRequest
-    if (object.message !== undefined && object.message !== null) {
-      message.message = object.message
-    } else {
-      message.message = ''
-    }
-    return message
+    const message = { ...baseEchoRequest } as EchoRequest;
+    message.message = object.message ?? '';
+    return message;
   },
-}
+};
 
-const baseEchoResponse: object = { message: '' }
+const baseEchoResponse: object = { message: '' };
 
 export const EchoResponse = {
   encode(message: EchoResponse, writer: Writer = Writer.create()): Writer {
     if (message.message !== '') {
-      writer.uint32(10).string(message.message)
+      writer.uint32(10).string(message.message);
     }
-    return writer
+    return writer;
   },
 
   decode(input: Reader | Uint8Array, length?: number): EchoResponse {
-    const reader = input instanceof Reader ? input : new Reader(input)
-    let end = length === undefined ? reader.len : reader.pos + length
-    const message = { ...baseEchoResponse } as EchoResponse
+    const reader = input instanceof Reader ? input : new Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = { ...baseEchoResponse } as EchoResponse;
     while (reader.pos < end) {
-      const tag = reader.uint32()
+      const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.message = reader.string()
-          break
+          message.message = reader.string();
+          break;
         default:
-          reader.skipType(tag & 7)
-          break
+          reader.skipType(tag & 7);
+          break;
       }
     }
-    return message
+    return message;
   },
 
   fromJSON(object: any): EchoResponse {
-    const message = { ...baseEchoResponse } as EchoResponse
-    if (object.message !== undefined && object.message !== null) {
-      message.message = String(object.message)
-    } else {
-      message.message = ''
-    }
-    return message
+    const message = { ...baseEchoResponse } as EchoResponse;
+    message.message = object.message !== undefined && object.message !== null ? String(object.message) : '';
+    return message;
   },
 
   toJSON(message: EchoResponse): unknown {
-    const obj: any = {}
-    message.message !== undefined && (obj.message = message.message)
-    return obj
+    const obj: any = {};
+    message.message !== undefined && (obj.message = message.message);
+    return obj;
   },
 
   fromPartial(object: DeepPartial<EchoResponse>): EchoResponse {
-    const message = { ...baseEchoResponse } as EchoResponse
-    if (object.message !== undefined && object.message !== null) {
-      message.message = object.message
-    } else {
-      message.message = ''
-    }
-    return message
+    const message = { ...baseEchoResponse } as EchoResponse;
+    message.message = object.message ?? '';
+    return message;
   },
-}
+};
 
 export interface EchoService {
-  Echo(request: DeepPartial<EchoRequest>, metadata?: grpc.Metadata): Promise<EchoResponse>
+  Echo(request: DeepPartial<EchoRequest>, metadata?: grpc.Metadata): Promise<EchoResponse>;
 }
 
 export class EchoServiceClientImpl implements EchoService {
-  private readonly rpc: Rpc
+  private readonly rpc: Rpc;
 
   constructor(rpc: Rpc) {
-    this.rpc = rpc
-    this.Echo = this.Echo.bind(this)
+    this.rpc = rpc;
+    this.Echo = this.Echo.bind(this);
   }
 
   Echo(request: DeepPartial<EchoRequest>, metadata?: grpc.Metadata): Promise<EchoResponse> {
-    return this.rpc.unary(EchoServiceEchoDesc, EchoRequest.fromPartial(request), metadata)
+    return this.rpc.unary(EchoServiceEchoDesc, EchoRequest.fromPartial(request), metadata);
   }
 }
 
 export const EchoServiceDesc = {
   serviceName: 'yeti.echo.v1.EchoService',
-}
+};
 
 export const EchoServiceEchoDesc: UnaryMethodDefinitionish = {
   methodName: 'Echo',
@@ -150,7 +134,7 @@ export const EchoServiceEchoDesc: UnaryMethodDefinitionish = {
   responseStream: false,
   requestType: {
     serializeBinary() {
-      return EchoRequest.encode(this).finish()
+      return EchoRequest.encode(this).finish();
     },
   } as any,
   responseType: {
@@ -158,48 +142,48 @@ export const EchoServiceEchoDesc: UnaryMethodDefinitionish = {
       return {
         ...EchoResponse.decode(data),
         toObject() {
-          return this
+          return this;
         },
-      }
+      };
     },
   } as any,
-}
+};
 
 interface UnaryMethodDefinitionishR extends grpc.UnaryMethodDefinition<any, any> {
-  requestStream: any
-  responseStream: any
+  requestStream: any;
+  responseStream: any;
 }
 
-type UnaryMethodDefinitionish = UnaryMethodDefinitionishR
+type UnaryMethodDefinitionish = UnaryMethodDefinitionishR;
 
 interface Rpc {
   unary<T extends UnaryMethodDefinitionish>(
     methodDesc: T,
     request: any,
     metadata: grpc.Metadata | undefined,
-  ): Promise<any>
+  ): Promise<any>;
 }
 
 export class GrpcWebImpl {
-  private host: string
+  private host: string;
   private options: {
-    transport?: grpc.TransportFactory
+    transport?: grpc.TransportFactory;
 
-    debug?: boolean
-    metadata?: grpc.Metadata
-  }
+    debug?: boolean;
+    metadata?: grpc.Metadata;
+  };
 
   constructor(
     host: string,
     options: {
-      transport?: grpc.TransportFactory
+      transport?: grpc.TransportFactory;
 
-      debug?: boolean
-      metadata?: grpc.Metadata
+      debug?: boolean;
+      metadata?: grpc.Metadata;
     },
   ) {
-    this.host = host
-    this.options = options
+    this.host = host;
+    this.options = options;
   }
 
   unary<T extends UnaryMethodDefinitionish>(
@@ -207,11 +191,11 @@ export class GrpcWebImpl {
     _request: any,
     metadata: grpc.Metadata | undefined,
   ): Promise<any> {
-    const request = { ..._request, ...methodDesc.requestType }
+    const request = { ..._request, ...methodDesc.requestType };
     const maybeCombinedMetadata =
       metadata && this.options.metadata
         ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-        : metadata || this.options.metadata
+        : metadata || this.options.metadata;
     return new Promise((resolve, reject) => {
       grpc.unary(methodDesc, {
         request,
@@ -221,20 +205,20 @@ export class GrpcWebImpl {
         debug: this.options.debug,
         onEnd: function (response) {
           if (response.status === grpc.Code.OK) {
-            resolve(response.message)
+            resolve(response.message);
           } else {
-            const err = new Error(response.statusMessage) as any
-            err.code = response.status
-            err.metadata = response.trailers
-            reject(err)
+            const err = new Error(response.statusMessage) as any;
+            err.code = response.status;
+            err.metadata = response.trailers;
+            reject(err);
           }
         },
-      })
-    })
+      });
+    });
   }
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
@@ -243,11 +227,11 @@ type DeepPartial<T> = T extends Builtin
   ? ReadonlyArray<DeepPartial<U>>
   : T extends {}
   ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+  : Partial<T>;
 
 // If you get a compile-error about 'Constructor<Long> and ... have no overlap',
 // add '--ts_proto_opt=esModuleInterop=true' as a flag when calling 'protoc'.
 if (util.Long !== Long) {
-  util.Long = Long as any
-  configure()
+  util.Long = Long as any;
+  configure();
 }

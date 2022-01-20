@@ -3,7 +3,7 @@
 __gitbook-cli__(legacy) helps to build and serve docs locally
 
 ```bash
-yarn global add gitbook-cli
+npm install -g gitbook-cli
 # GitBook will set up your book for you:
 gitbook init ./docs
 # In your gitbook directory you’ll now see README.md and SUMMARY.md.

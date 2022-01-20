@@ -363,7 +363,7 @@ ng g service   services/subscription          --project=admin  -d
 ng g workspace-schematic store
 # run workspace-schematic `store`
 # *** always delete ./dist folder when you change schematic implementation ***
-yarn workspace-schematic store models/sumoDemo -- --project=accounts  -d
+npm workspace-schematic store models/sumoDemo -- --project=accounts  -d
 # build workspace tools
-yarn workspace @ngx-starter-kit/tools build
+npm workspace @ngx-starter-kit/tools build
 ```

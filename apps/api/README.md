@@ -50,14 +50,14 @@ protoc --plugin=./node_modules/ts-proto/protoc-gen-ts_proto \
 
 ```bash
 # start in watch mode
-ng serve api
+nx serve api
 # start with TLS. ***To use with Envoy, start with TLS***
 SECURE=true ng serve api
 # to turn on logging for `request`
 NODE_DEBUG=request ng serve api
 DEBUG=typeorm:* ng serve api
 # optionally you can run with prod env(environment.prod.ts) for testing! use this for testing only.
-ng serve api --prod
+nx serve api --prod
 ```
 
 > start envoy

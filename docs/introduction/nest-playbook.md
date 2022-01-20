@@ -13,8 +13,8 @@ creating NestJS project and generate nest artifacts with-in monorepo.
 #### Install Global Packages
 
 ```bash
-yarn global remove @nestjs/cli
-yarn global add @nestjs/cli
+npm -g remove @nestjs/cli
+npm -g add @nestjs/cli
 ```
 
 ### Scaffold Project
@@ -32,13 +32,12 @@ ng g @nrwl/nest:lib config  --global=true --directory=nestjs \
 --target=es2020 --tags="domain:yeti,type:api,platform:node" --dry-run # use prefix @yeti
 
 # Add nestjs
-yarn workspace @yeti/api add @nestjs/{common,core,microservices,swagger,websockets,typeorm,passport,elasticsearch}
+npm i @nestjs/{common,core,microservices,swagger,websockets,typeorm,passport,elasticsearch} --workspace=apps/api
 
 # fastify-* are optional. use only if you want to replace express with fastify
-yarn workspace @yeti/api add fastify fastify-formbody fastify-swagger
+npm i fastify fastify-formbody fastify-swagger --workspace=apps/api
 
-yarn workspace @yeti/api add -D @nestjs/testing
-yarn workspace @yeti/api add -D @nestjs/schematics
+npm i -D @nestjs/testing @nestjs/schematics --workspace=apps/api
 ```
 
 > check versions
@@ -54,24 +53,18 @@ nest info
 > adding 3rd party modules/libs
 
 ```bash
-yarn add pg
-yarn add dotenv
-yarn add helmet
-yarn add web-push
-yarn add nest-router
-yarn add nodemailer pug
-yarn add class-validator
-yarn add class-transformer
-yarn add passport passport-jwt @xmlking/jwks-rsa
+npm i pg dotenv helmet web-push nest-router nodemailer pug class-validator class-transformer --workspace=apps/api
+npm i passport passport-jwt @xmlking/jwks-rsa --workspace=apps/api
 
-yarn add -D rimraf nodemon tsconfig-paths ts-loader
-yarn add -D jest ts-jest @types/jest supertest @types/supertest
-yarn add -D @types/nodemailer
-yarn add -D @types/socket.io
-yarn add -D @types/passport@0.4.2 @types/passport-jwt
-yarn add -D @types/web-push
-yarn add -D @types/helmet
+npm i  --workspace=apps/api -D rimraf nodemon tsconfig-paths ts-loader 
+npm i  --workspace=apps/api -D jest ts-jest @types/jest supertest @types/supertest
+npm i  --workspace=apps/api -D @types/nodemailer
+npm i  --workspace=apps/api -D @types/socket.io
+npm i  --workspace=apps/api -D @types/passport@0.4.2 @types/passport-jwt
+npm i  --workspace=apps/api -D @types/web-push
+npm i  --workspace=apps/api -D @types/helmet
 ```
+
 
 #### Plugins
 
@@ -146,7 +139,7 @@ nest g controller subscription app/notifications  -d
 nest g service subscription app/notifications -d
 nest g class subscription/subscription.entity app/notifications --no-spec -d
 
-You could also use `ng g` if you `yarn add -D @nestjs/schematics`
+You could also use `ng g` if you `npm i -D @nestjs/schematics`
 ng g @nestjs/schematics:module game --path app --source-root apps/api/src -d
 ng g @nestjs/schematics:controller match --path app/game  --source-root apps/api/src -d
 ng g @nestjs/schematics:service match --path app/game --source-root apps/api/src -d

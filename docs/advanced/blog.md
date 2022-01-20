@@ -24,17 +24,17 @@ ng g @scullyio/init:post --name="This is my post" --target=libs/blog/posts --met
 ng build
 # build scully blog
 # options  --showBrowser, --project
-yarn run scully --project webapp
+npm run scully --project webapp
 
 # kill if 'zombie' server
-yarn scully killServer
+npm scully killServer
 ```
 
 ### Run
 
 ```bash
 # serve static content
-yarn run lite-server
+npm run lite-server
 # Or do build & run with one command:
-yarn run scully:all
+npm run scully:all
 ```

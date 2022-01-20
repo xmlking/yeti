@@ -2,8 +2,6 @@
 import { util, configure } from 'protobufjs/minimal';
 import * as Long from 'long';
 
-export const protobufPackage = 'google.protobuf';
-
 /**
  * A Timestamp represents a point in time independent of any time zone or local
  * calendar, encoded as a count of seconds and fractions of seconds at
