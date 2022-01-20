@@ -219,6 +219,8 @@
     "ts-proto": "1.102.2"
   },
   "overrides": {
-    "firebase-tools": "10.1.1"
+    "firebase-tools": "10.1.1",
+    "node-forge": ">=1.0.0",
+    "marked": ">=4.0.10"
   }
 }
