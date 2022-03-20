@@ -37,7 +37,7 @@
         },
         "styles": ["apps/webapp/src/styles.scss", "node_modules/@fortawesome/fontawesome-free/css/all.css"],
         "scripts": [
-          "node_modules/marked/lib/marked.js",
+          "node_modules/marked/marked.min.js",
           "node_modules/prismjs/prism.js",
           "node_modules/prismjs/components/prism-csharp.min.js"
         ],

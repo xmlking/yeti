@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
+// TODO when Angular 14 released, replace this with TitleStrategy https://dev.to/brandontroberts/setting-page-titles-natively-with-the-angular-router-393j
 @Injectable({
   providedIn: 'root',
 })
