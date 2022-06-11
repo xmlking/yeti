@@ -1,6 +1,6 @@
 {
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/accounts",
   "sourceRoot": "libs/accounts/src",
   "prefix": "yeti",
   "targets": {
@@ -14,7 +14,7 @@
     "test": {
       "executor": "@nrwl/jest:jest",
       "options": {
-        "jestConfig": "libs/accounts/jest.config.js",
+        "jestConfig": "libs/accounts/jest.config.ts",
         "passWithNoTests": true
       },
       "outputs": ["coverage/libs/accounts"]

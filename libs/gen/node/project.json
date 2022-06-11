@@ -1,6 +1,6 @@
 {
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/gen/node",
   "sourceRoot": "libs/gen/node/src",
   "targets": {
     "lint": {
@@ -14,7 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/gen/node"],
       "options": {
-        "jestConfig": "libs/gen/node/jest.config.js",
+        "jestConfig": "libs/gen/node/jest.config.ts",
         "passWithNoTests": true
       }
     }

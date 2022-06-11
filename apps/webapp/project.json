@@ -1,6 +1,6 @@
 {
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "root": "apps/webapp",
   "sourceRoot": "apps/webapp/src",
   "prefix": "yeti",
   "i18n": {
@@ -149,7 +149,7 @@
     "test": {
       "executor": "@nrwl/jest:jest",
       "options": {
-        "jestConfig": "apps/webapp/jest.config.js",
+        "jestConfig": "apps/webapp/jest.config.ts",
         "passWithNoTests": true
       },
       "outputs": ["coverage/apps/webapp"]

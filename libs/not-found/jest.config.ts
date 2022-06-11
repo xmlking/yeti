@@ -1,4 +1,6 @@
-module.exports = {
+/* eslint-disable */
+/* eslint-disable */
+export default {
   preset: '../../jest.preset.js',
   coverageDirectory: '../../coverage/libs/not-found',
   snapshotSerializers: [

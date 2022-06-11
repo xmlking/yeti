@@ -13,5 +13,5 @@
     "../../libs/admin/src/index.ts",
     "../../libs/blog/src/index.ts"
   ],
-  "exclude": ["src/test-setup.ts", "**/*.spec.ts", "**/*.test.ts"]
+  "exclude": ["src/test-setup.ts", "**/*.spec.ts", "**/*.test.ts", "jest.config.ts"]
 }

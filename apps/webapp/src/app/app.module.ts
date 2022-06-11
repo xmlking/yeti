@@ -47,7 +47,7 @@ import { AppComponent } from './app.component';
         { path: '**', redirectTo: '404', pathMatch: 'full' },
       ],
       // To avoid flickering
-      { initialNavigation: 'enabled', relativeLinkResolution: 'legacy' }
+      { initialNavigation: 'enabledBlocking', relativeLinkResolution: 'legacy' },
     ),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,

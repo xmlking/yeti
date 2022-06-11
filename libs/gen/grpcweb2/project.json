@@ -1,5 +1,5 @@
 {
-  "root": "libs/gen/grpcweb2",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/gen/grpcweb2/src",
   "projectType": "library",
   "targets": {
@@ -14,7 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/gen/grpcweb2"],
       "options": {
-        "jestConfig": "libs/gen/grpcweb2/jest.config.js",
+        "jestConfig": "libs/gen/grpcweb2/jest.config.ts",
         "passWithNoTests": true
       }
     }

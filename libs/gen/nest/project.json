@@ -1,5 +1,5 @@
 {
-  "root": "libs/gen/nest",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/gen/nest/src",
   "projectType": "library",
   "targets": {
@@ -14,7 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/gen/nest"],
       "options": {
-        "jestConfig": "libs/gen/nest/jest.config.js",
+        "jestConfig": "libs/gen/nest/jest.config.ts",
         "passWithNoTests": true
       }
     }

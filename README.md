@@ -49,12 +49,17 @@ YETI is a Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmo
 ## ✨ Features
 
 ## 📦 Install
-
+```shell
+git clone https://github.com/xmlking/yeti.git && cd yeti
+npm i --force
+# run
+nx serve webapp
+```
 ## 🔭 Development
 
 ### API
 
-```bash
+```shell
 # Start API
 nx serve api
 # Start Envoy proxy
@@ -63,7 +68,7 @@ docker compose up envoy
 
 ### WebApp
 
-```bash
+```shell
 ## gen i18n
 nx xi18n webapp
 ## serve
@@ -86,7 +91,7 @@ Analyzing bundle size `npm bundle-report`
 
 ### Release
 
-```bash
+```shell
 make update_deps
 git add .
 # Start release on develop branch
@@ -107,14 +112,14 @@ make release TAG=v0.1.5
 
 Independent mode
 
-```bash
+```shell
 nx run my-project:version [...options]
 nx affected --target version [...options]
 ```
 
 Synced mode
 
-```bash
+```shell
 nx run workspace:version [...options]
 nx run workspace:version --version=minor --dry-run
 nx run workspace:version --version=prerelease --preid=alpha --dry-run
@@ -122,7 +127,7 @@ nx run workspace:version --version=prerelease --preid=alpha --dry-run
 
 ### NX
 
-```bash
+```shell
 # To run these tasks you run:
 nx run <project-name>:<task-name>
 # To run a task for all affected projects use:
@@ -139,7 +144,7 @@ npm gen:metadata
 ng run webapp:analyze
 ```
 
-```bash
+```shell
 # build goapi image
 docker build -t ghcr.io/xmlking/yeti/goapi  .
 ```

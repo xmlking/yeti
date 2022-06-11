@@ -2,7 +2,11 @@
 
 ## Description
 
-Backend API build with [Nest](https://github.com/nestjs/nest) Framework.
+Backend API built with [Nest](https://github.com/nestjs/nest) Framework.
+
+<p align="center">
+  <img src="../../docs/images/nestjs-grpc-architecture.jpeg" width="60%">
+</p>
 
 ### Generate
 
@@ -132,3 +136,7 @@ curl 'http://localhost:9090/yeti.EchoService/Echo' \
 -H 'Accept-Encoding: gzip, deflate, br' \
 --data-binary 'AAAAAAYKBHN1bW8=' --compressed
 ```
+
+## Reference
+- [NestJS: Microservices with gRPC, API Gateway, and Authentication — Part 1/2](https://levelup.gitconnected.com/nestjs-microservices-with-grpc-api-gateway-and-authentication-part-1-2-650009c03686)
+- [NestJS: Microservices with gRPC, API Gateway, and Authentication — Part 2/2](https://levelup.gitconnected.com/nestjs-microservices-with-grpc-api-gateway-and-authentication-part-2-2-d67dc8e3b86a)

@@ -30,7 +30,7 @@ export const environment: Environment = {
     database: process.env.TYPEORM_DATABASE ?? 'postgres',
     username: process.env.TYPEORM_USERNAME ?? 'postgres',
     password: process.env.TYPEORM_PASSWORD ?? 'postgres321',
-    keepConnectionAlive: true,
+    // keepConnectionAlive: true,
     logging: process.env.TYPEORM_LOGGING ? JSON.parse(process.env.TYPEORM_LOGGING) : false,
     synchronize: process.env.TYPEORM_SYNCHRONIZE ? JSON.parse(process.env.TYPEORM_SYNCHRONIZE) : false,
     uuidExtension: 'pgcrypto',

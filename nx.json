@@ -37,8 +37,7 @@
     ]
   },
   "cli": {
-    "packageManager": "npm",
-    "defaultCollection": "@nrwl/angular"
+    "packageManager": "npm"
   },
   "generators": {
     "@nrwl/angular:application": {
@@ -57,5 +56,6 @@
       "style": "scss"
     }
   },
-  "defaultProject": "webapp"
+  "defaultProject": "webapp",
+  "$schema": "./node_modules/nx/schemas/nx-schema.json"
 }

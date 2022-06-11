@@ -1,6 +1,6 @@
 {
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/dashboard",
   "sourceRoot": "libs/dashboard/src",
   "prefix": "yeti",
   "targets": {
@@ -14,7 +14,7 @@
     "test": {
       "executor": "@nrwl/jest:jest",
       "options": {
-        "jestConfig": "libs/dashboard/jest.config.js",
+        "jestConfig": "libs/dashboard/jest.config.ts",
         "passWithNoTests": true
       },
       "outputs": ["coverage/libs/dashboard"]
