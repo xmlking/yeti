@@ -225,6 +225,7 @@
   "overrides": {
     "firebase-tools": "11.0.1",
     "node-forge": ">=1.0.0",
-    "marked": ">=4.0.10"
+    "marked": ">=4.0.10",
+    "minimist": ">=1.2.6"
   }
 }
