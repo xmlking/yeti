@@ -104,7 +104,7 @@
     "@nebular/security": "9.0.3",
     "@nebular/theme": "9.0.3",
     "@nestjs/common": "8.4.6",
-    "@nestjs/core": "8.4.6",
+    "@nestjs/core": "9.0.5",
     "@ngneat/until-destroy": "9.2.0",
     "@nguniversal/express-engine": "14.0.0",
     "@ngxs-labs/select-snapshot": "4.0.0",
